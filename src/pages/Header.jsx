@@ -7,6 +7,7 @@ const NavBox = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100vw;
+  max-width: 1200px;
   height: 80px;
   border-bottom: 2px solid white;
   color: white;
