@@ -1,13 +1,15 @@
 /*하늘 페이지 */
+import CourseSelect from "../components/CourseSelect";
+import CourseList from "../components/CourseItem";
+import CourseBtn from "../components/CourseBtn";
 
-const Course = () =>{
-
-
-    return(
-        <>
-        <h1> 추천코스 페이지입니다 </h1>
-        </>
-    )
-}
+const Course = () => {
+  return (
+    <>
+      <CourseBtn />
+      {/* <CourseSelect /> */}
+    </>
+  );
+};
 
 export default Course;
