@@ -3,8 +3,13 @@ import styled, { css } from "styled-components";
 const ChangepwdCss = styled.div`
   color: red;
   border: 1px solid blue;
+  background-color: 110px;
 `;
-
+const Box = styled.div`
+  width: 150px;
+  height: 300px;
+  background-color: pink;
+`;
 const ChangePwd = () => {
   return (
     <>
