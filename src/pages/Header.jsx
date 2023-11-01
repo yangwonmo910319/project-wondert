@@ -6,7 +6,7 @@ const NavBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
+
   max-width: 1200px;
   height: 80px;
   border-bottom: 2px solid white;
@@ -36,32 +36,39 @@ const Menus = styled.div`
 const Menu = styled.p`
   margin: 20px;
 `;
-
+const Contain = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
 const Header = () => {
   const navigate = useNavigate();
   return (
     <>
-      <header>
-        <NavBox>
-          <Logo />
-          <Menus>
-            <Menu onClick={() => navigate("/Diypage")}>DIY여행일지</Menu>
-            <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
-            <Menu onClick={() => navigate("/Goods")}>1인전용상품</Menu>
-            <Menu onClick={() => navigate("/Community")}>커뮤니티</Menu>
-          </Menus>
-          <div></div>
-          <div>
-            로그인 회원가입
-            <LoginButtons />
-            {/* 여긴 한박스로이루어져 로그인 했을때 따로 컴포넌트 필요 */}
-          </div>
-        </NavBox>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-      <footer></footer>
+      <Contain>
+        <header>
+          <NavBox>
+            <Logo />
+            <Menus>
+              <Menu onClick={() => navigate("/Diypage")}>DIY여행일지</Menu>
+              <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
+              <Menu onClick={() => navigate("/Goods")}>1인전용상품</Menu>
+              <Menu onClick={() => navigate("/Community/myinfo/Changemyinfo")}>
+                커뮤니티
+              </Menu>
+            </Menus>
+            <div></div>
+            <div>
+              로그인 회원가입
+              <LoginButtons />
+              {/* 여긴 한박스로이루어져 로그인 했을때 따로 컴포넌트 필요 */}
+            </div>
+          </NavBox>
+        </header>
+        <main>
+          <Outlet />
+        </main>
+        <footer></footer>
+      </Contain>
     </>
   );
 };
