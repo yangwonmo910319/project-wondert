@@ -1,13 +1,13 @@
 /*하늘 페이지 */
 import CourseSelect from "../components/CourseSelect";
-import CourseList from "../components/CourseItem";
-import CourseBtn from "../components/CourseBtn";
+import CourseItem from "../components/CourseItem";
+import CourseDetail from "../components/CourseDetail";
+import CourseList from "../components/CourseList";
 
 const Course = () => {
   return (
     <>
-      <CourseBtn />
-      {/* <CourseSelect /> */}
+      <CourseList />
     </>
   );
 };

@@ -4,8 +4,10 @@ const SelectBox = styled.div`
   display: flex;
   align-content: center;
   color: #f5f7f8;
+  width: auto;
 `;
-// 이미지 나중에 넣을거, 글씨 위치 조정해야함 (text-align 안먹음)
+
+// Click 넣을 예정
 const SelectBoxImg1 = styled.div`
   display: flex;
   align-items: center;
@@ -15,7 +17,7 @@ const SelectBoxImg1 = styled.div`
   height: 80vh;
   border: 1px solid black;
   &:hover {
-    background: #45474b;
+    opacity: 0.5;
   }
 `;
 const SelectBoxImg2 = styled.div`
@@ -27,19 +29,16 @@ const SelectBoxImg2 = styled.div`
   height: 80vh;
   border: 1px solid black;
   &:hover {
-    background: #45474b;
+    opacity: 0.5;
   }
 `;
+
 // 사진 넣으면 click으로 바꾸고 누르는 효과 주고 싶음
 const CourseSelect = () => {
   return (
     <SelectBox>
-      <SelectBoxImg1>
-        <h1>국내</h1>
-      </SelectBoxImg1>
-      <SelectBoxImg2>
-        <h1>해외</h1>
-      </SelectBoxImg2>
+      <SelectBoxImg1></SelectBoxImg1>
+      <SelectBoxImg2></SelectBoxImg2>
     </SelectBox>
   );
 };
