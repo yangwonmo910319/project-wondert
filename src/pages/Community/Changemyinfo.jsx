@@ -60,14 +60,14 @@ const Changemyinfo = () => {
         <InfoView>
           <ul>
             <li>
-              <ChageTitle>회원 ID</ChageTitle>
+              <ChageTitle>ID</ChageTitle>
               <input type="text"></input>
               <ChangnBtn changvalue={true}>변경</ChangnBtn>
             </li>
             <li>
-              <ChageTitle>회원 ID</ChageTitle>
+              <ChageTitle>이름</ChageTitle>
               <input type="text"></input>
-              <ChangnBtn changvalue={true}>변경</ChangnBtn>
+              <ChangnBtn changvalue={true}>개명</ChangnBtn>
             </li>
             <li>
               <ChageTitle>닉네임 </ChageTitle>
