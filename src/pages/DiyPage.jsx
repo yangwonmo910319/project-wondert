@@ -24,6 +24,10 @@ import Diary3 from "../components/TravelDiary3";
 import Diary4 from "../components/TravelDiary4";
 import TravelSee from "../components/TravelSee";
 import Day from "../components/Day";
+import Imoge from "../components/GoodBad";
+import CommentWrite from "../components/Comment";
+import CommentSee from "../components/CommentSee";
+import ReviewSee from "../components/CommentReview";
 
 const ASD = styled.div`
     max-width: 1200px;
@@ -73,6 +77,7 @@ const DiyPage = () =>{
         <TravelSee />
         <Write />
         <Day />
+        <Imoge />
         <Diary />
         <Diary2 />
         <Diary3 />
@@ -82,6 +87,9 @@ const DiyPage = () =>{
         <Diary2 />
         <Diary3 />
         <Diary4 />
+        <ReviewSee />
+        <CommentWrite />
+        <CommentSee />
         </ASD>
         </>
     );

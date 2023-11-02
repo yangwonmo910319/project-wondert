@@ -4,6 +4,7 @@ import styled from "styled-components";
 const DDay = styled.div`
     margin: 20px 30px;
     clear: both;
+
 `;
 
 const Day = () => {
