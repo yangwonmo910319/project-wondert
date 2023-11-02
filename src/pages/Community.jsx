@@ -11,30 +11,14 @@ import CommunitySearch from "./Community/CommunitySearch";
 import CommunityFavorites from "./Community/CommunityFavorites";
 import CommunityWrite from "./Community/CommunityWrite";
 import CommunityFavoritesItem from "./Community/CommunityFavoritesItem";
+import { Outlet } from "react-router-dom";
 const CommunityCss = styled.div``;
-const CommunityCss1 = styled.div`
-  display: flex;
-`;
+
 const Community = () => {
   return (
     <CommunityCss>
       <CommunityMenu></CommunityMenu>
-      <CommunityCss1>
-        <CommunitySubMenu></CommunitySubMenu>
-        <Changemyinfo></Changemyinfo>
-      </CommunityCss1>
-      {/*
-      <Changemyinfo></Changemyinfo>
-  
-      <Changepwd></Changepwd>
-   
-      <ChangeButton></ChangeButton>
- 
-      <CommunityFavorites></CommunityFavorites>
-      <CommunityFavoritesItem></CommunityFavoritesItem>
-      <CommunityList></CommunityList>
-      <CommunitySearch></CommunitySearch>
-      <CommunityWrite></CommunityWrite>*/}
+      <Outlet />
     </CommunityCss>
   );
 };
