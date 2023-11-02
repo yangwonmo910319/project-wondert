@@ -52,7 +52,11 @@ const Header = () => {
               <Menu onClick={() => navigate("/Diypage")}>DIY여행일지</Menu>
               <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
               <Menu onClick={() => navigate("/Goods")}>1인전용상품</Menu>
-              <Menu onClick={() => navigate("/Community/myinfo/Changemyinfo")}>
+              <Menu
+                onClick={() =>
+                  navigate("/Community/myinfo/CommunitySubMenu/Changemyinfo")
+                }
+              >
                 커뮤니티
               </Menu>
             </Menus>
