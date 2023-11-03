@@ -29,10 +29,10 @@ const CommunityMenu = () => {
             </Link>
           </li>
           <li>
-            <Link to="/Community/myinfo/CommunityFavorites">즐겨찾기</Link>
+            <Link to="/Community/myinfo/CommunityFavorites/FavorDiy">즐겨찾기</Link>
           </li>
           <li>장바구니</li>
-          <li>히스토리</li>
+          {/* <li>히스토리</li> */}
         </ul>
       </CommunityMenuvar>
     </>

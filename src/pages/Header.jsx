@@ -38,7 +38,10 @@ const Menu = styled.p`
 `;
 const Contain = styled.div`
   max-width: 1200px;
+  width: 80px auto;
+  scale: 1;
   margin: 0 auto;
+  transform: scale(90%);
 `;
 const Header = () => {
   const navigate = useNavigate();
@@ -52,13 +55,7 @@ const Header = () => {
               <Menu onClick={() => navigate("/Diypage")}>DIY여행일지</Menu>
               <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
               <Menu onClick={() => navigate("/Goods")}>1인전용상품</Menu>
-              <Menu
-                onClick={() =>
-                  navigate("/Community/myinfo/CommunitySubMenu/Changemyinfo")
-                }
-              >
-                커뮤니티
-              </Menu>
+              <Menu onClick={() => navigate("/Community/myinfo/CommunitySubMenu/Changemyinfo")}>커뮤니티</Menu>
             </Menus>
             <div></div>
             <div>

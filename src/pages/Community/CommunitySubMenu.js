@@ -51,7 +51,9 @@ const CommunitySubMenu = () => {
                 비밀번호 변경
               </Link>
             </li>
-            <li>회원탈퇴</li>
+            <li>
+               <Link to="/Community/myinfo/CommunitySubMenu/Userout">회원탈퇴</Link>
+               </li>
           </ul>
         </SubMenuvar>
         <SubMenuContent>

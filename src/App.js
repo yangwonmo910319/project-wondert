@@ -10,6 +10,10 @@ import CommunityFavorites from "./pages/Community/CommunityFavorites";
 import Changemyinfo from "./pages/Community/Changemyinfo";
 import CommunitySubMenu from "./pages/Community/CommunitySubMenu";
 import ChangePwd from "./pages/Community/ChangePwd";
+import UserOut from "./pages/Community/UserOut";
+import FavorDiy from "./pages/Community/FavorDiy";
+import FavorCourse from "./pages/Community/FavorCourse";
+import FavorGoods from "./pages/Community/FavorGoods";
 
 function App() {
   return (
@@ -24,24 +28,17 @@ function App() {
             <Route path="/Diypage" element={<DiyPage />} />
             <Route path="/Goods" element={<Goods />} />
             <Route path="Community/myinfo" element={<Community />}>
-              <Route
-                path="/Community/myinfo/CommunitySubMenu"
-                element={<CommunitySubMenu />}
-              >
-                <Route
-                  path="/Community/myinfo/CommunitySubMenu/Changemyinfo"
-                  element={<Changemyinfo />}
-                ></Route>
-                <Route
-                  path="/Community/myinfo/CommunitySubMenu/ChangePwd"
-                  element={<ChangePwd />}
-                ></Route>
+              <Route path="/Community/myinfo/CommunitySubMenu"element={<CommunitySubMenu />}>
+                 <Route path="/Community/myinfo/CommunitySubMenu/Changemyinfo" element={<Changemyinfo />}></Route>
+                 <Route path="/Community/myinfo/CommunitySubMenu/ChangePwd"element={<ChangePwd />}></Route>
+                 <Route path="/Community/myinfo/CommunitySubMenu/UserOut"element={<UserOut />}></Route>
               </Route>
-
-              <Route
-                path="/Community/myinfo/CommunityFavorites"
-                element={<CommunityFavorites />}
-              />
+              <Route path="/Community/myinfo/CommunityFavorites"element={<CommunityFavorites />}>
+                 <Route path="/Community/myinfo/CommunityFavorites/FavorDiy" element={<FavorDiy/>}></Route>
+                 <Route path="/Community/myinfo/CommunityFavorites/FavorCourse" element={<FavorCourse/>}></Route>
+                 <Route path="/Community/myinfo/CommunityFavorites/FavorGoods" element={<FavorGoods/>}></Route>
+          
+              </Route>
             </Route>
           </Route>
         </Routes>
