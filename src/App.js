@@ -5,7 +5,7 @@ import Main from "./pages/Main";
 import Community from "./pages/Community";
 import Course from "./pages/Course";
 import DiyPage from "./pages/DiyPage";
-import Goods from "./pages/Goods";
+import Goods from "./pages/Goods/Goods";
 import CommunityFavorites from "./pages/Community/CommunityFavorites";
 import Changemyinfo from "./pages/Community/Changemyinfo";
 import CommunitySubMenu from "./pages/Community/CommunitySubMenu";
