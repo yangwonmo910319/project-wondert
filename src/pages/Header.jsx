@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 import LoginButtons from "../components/LoginButtons";
+import LogoImg from "../images/메인로고1111-removebg-preview11.png";
 
 const NavBox = styled.div`
   display: flex;
@@ -21,11 +22,10 @@ const Logo = styled.img`
   align-items: center;
   width: 100px;
   height: 80px;
-  background-image: url("images/메인로고1111-removebg-preview11.png"); //이미지가 안들어감 ㅠㅠ
-  background-size: cover;
-  border: 1px solid black;
+  object-fit: cover;
   margin: 0 10px;
 `;
+
 
 const Menus = styled.div`
   display: flex;
@@ -41,7 +41,6 @@ const Contain = styled.div`
   width: 80px auto;
   scale: 1;
   margin: 0 auto;
-  transform: scale(90%);
 `;
 const Header = () => {
   const navigate = useNavigate();
@@ -50,7 +49,7 @@ const Header = () => {
       <Contain>
         <header>
           <NavBox>
-            <Logo />
+            <Logo src={LogoImg}/>
             <Menus>
               <Menu onClick={() => navigate("/Diypage")}>DIY여행일지</Menu>
               <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
