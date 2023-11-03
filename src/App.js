@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./pages/Header";
+import Home from "./pages/Home";
 import Main from "./pages/Main";
 import Community from "./pages/Community";
 import Course from "./pages/Course";
@@ -32,6 +33,7 @@ function App() {
       <Router>
         <Routes>
           {/*헤더영역 공통 레이아웃*/}
+          <Route path="/Home" element={<Home/>} />
           <Route element={<Header />}>
             {/*메인 영역*/}
             <Route path="/" element={<Main />} />

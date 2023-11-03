@@ -1,12 +1,20 @@
 
+import { Outlet, useNavigate } from "react-router-dom";
+import styled, { css } from "styled-components";
+const MainCss=styled.div`
+
+`;
+const MainPosterCss=styled.div`
+
+`;
 
 const Main=() =>{
 
 
     return(
-        <>
-        <h1> 메인페이지입니다 </h1>
-        </>
+      <MainCss>
+    
+        </MainCss>
     );
 };
 
