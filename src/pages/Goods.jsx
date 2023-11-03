@@ -22,9 +22,6 @@ const Between =styled.div`
     justify-content: space-between;
     flex-direction: row;
 `;
-
-
-
 const Goods = () =>{
     return(
         <>

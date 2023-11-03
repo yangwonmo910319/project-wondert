@@ -14,10 +14,20 @@ import UserOut from "./pages/Community/UserOut";
 import FavorDiy from "./pages/Community/FavorDiy";
 import FavorCourse from "./pages/Community/FavorCourse";
 import FavorGoods from "./pages/Community/FavorGoods";
+import { createGlobalStyle } from 'styled-components'
+import reset from "styled-reset"
+import * as React from 'react'
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  /* other styles */
+`
 
 function App() {
   return (
     <>
+ <React.Fragment>
+    <GlobalStyle />
       <Router>
         <Routes>
           {/*헤더영역 공통 레이아웃*/}
@@ -43,6 +53,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      </React.Fragment>
     </>
   );
 }
