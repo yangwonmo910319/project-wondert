@@ -2,7 +2,10 @@ import styled from "styled-components";
 import React, { useState } from "react";
 
 const CourseNav = styled.div`
-  border: 1px solid #45474b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
 `;
 const CourseBtnG = styled.div`
   display: flex;
@@ -19,7 +22,7 @@ const Button = styled.button`
 
 const CourseBtn = () => {
   // 상단바 해외
-  const [area, setArea] = useState(true);
+  const [Area, setArea] = useState();
   return (
     <CourseNav>
       <CourseBtnG>
