@@ -29,16 +29,13 @@ import CommentWrite from "../components/Comment";
 import CommentSee from "../components/CommentSee";
 import ReviewSee from "../components/CommentReview";
 
-const ASD = styled.div`
-    max-width: 1200px;
-    margin: 0 auto;
-`;
+
 
 const DiyPage = () =>{
 
     return(
         <>
-        <ASD>
+     
         <UpperBar/>
         <Themes />
         <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
@@ -90,7 +87,7 @@ const DiyPage = () =>{
         <ReviewSee />
         <CommentWrite />
         <CommentSee />
-        </ASD>
+     
         </>
     );
 };
