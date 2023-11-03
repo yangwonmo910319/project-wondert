@@ -78,7 +78,7 @@ const Container2 =styled.div`
     }
 `;
 
-const Goodsinfo =()=>{
+const Goodsinfo1 =()=>{
     return(
         <>
         <Container1>
@@ -108,4 +108,4 @@ const Goodsinfo =()=>{
 };
 
 
-export default Goodsinfo;
+export default Goodsinfo1;
