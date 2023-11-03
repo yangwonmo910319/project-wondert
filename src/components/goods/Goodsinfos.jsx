@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
             width: 800px;
             font-size:20px;
             font-weight: bold;
+            padding: 30px 0;
         }
         .title1{
             display: flex;
@@ -21,14 +22,13 @@ import { useEffect, useState } from "react";
             border-top: 1px solid black;
             border-bottom: 1px solid gray;
             margin: 0;
-            font-size: 10px;
             margin-bottom: 50px;
         }
         .title1box{
             display: flex;
             width: 120px;
             height: 50px;
-            font-size: 13px;
+            font-size: 15px;
             align-items: center;
             justify-content: center;
             font-weight: bold;
@@ -39,14 +39,16 @@ import { useEffect, useState } from "react";
             font-size: 10px;
             align-items: center;
             font-weight: bold;
+            li{
+                padding: 5px 0;
+                list-style:square;
+            }
         }
     `;
     const Infoimg=styled.img`
         width: 800px;
         height: ${(props) =>(!props.toggle ? "200px" : "")};
         object-fit: cover;
-
-        
     `;
     const InfoimgBtn =styled.button`
         width: 700px; 

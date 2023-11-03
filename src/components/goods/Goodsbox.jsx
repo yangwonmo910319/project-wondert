@@ -31,14 +31,18 @@ const Title = styled.div`
   margin-bottom: 20px;
 
   .Titles {
+    font-size: 30px;
+    padding: 30px 0px;
+    font-weight: bold;
   }
   .Info1 {
-    margin: 0;
+
+    padding: 10px 0px;
     font-size: 16px;
     color: gray;
   }
   .Info2 {
-    margin: 0;
+    padding: 6px 0px;
     font-size: 16px;
   }
 `;
@@ -59,12 +63,12 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const Price = styled.div`
-  margin-bottom: 100px;
+  padding-bottom: 90px;
   font-size: 26px;
   font-weight: bold;
 `;
 const ItemCode = styled.div`
-  margin: 10px;
+  padding: 10px;
 `;
 
 const Goodsbox = () => {

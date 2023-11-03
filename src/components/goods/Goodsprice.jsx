@@ -4,10 +4,9 @@ import { useState } from "react";
 const Container = styled.div`
     width: 350px;
     height: 600px;
-    border: 1px solid black;
     margin-top: 10px;
     position: sticky;
-    top: 20px;
+    top: 0;
     transition: all 3s ease;
     .box1{
         display: flex;
@@ -17,11 +16,11 @@ const Container = styled.div`
         width: 380px;
         height: 100px;
         font-size: 17px;
-
     }
     .box1-1{
-        margin: 5px 0;
+        padding: 18px 0;
         font-weight: bold;
+        font-size: 15px;
     }
     .box2{
         display: flex;
@@ -30,7 +29,6 @@ const Container = styled.div`
         align-items: start;
         width: 380px;
         height: 60px;
-
         padding-bottom: 30px;
     }
     .selectstyle{
@@ -47,7 +45,11 @@ const Container = styled.div`
         justify-content: space-between;
         width: 350px;
         height: 100px;
-        border: 1px solid black;
+        hr{
+            width: 350px;
+            border: 2px solid black;
+        }
+
     }
     .dayBox{
         display: flex;
@@ -76,21 +78,48 @@ const Container = styled.div`
     }
     .priceBox{
         margin-left: 10px;
-
     }
     .priceInfo1{
         font-weight: bold;
         font-size: 14px;
-        margin: 5px 0;
+        padding: 10px 0;
     }
 
     .priceInfo2{
         font-weight: bold;
         font-size: 20px;
-        margin: 0;
+        padding: 10px 0;
     }
-
+    .priceInfo3{
+        align-items: start;
+        font-weight: bold;
+        height: 70px;
+        padding-left: 10px;
+        font-size: 20px;
+    }
+    .priceInfo4{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        height: 80px;
+        font-weight: bold;
+        padding-right: 10px;
+        font-size: 20px;
+    }
+    .priceBtn{
+        border: 1px solid black;
+        width: 170px;
+        height: 50px;
+        background-color: #1c1c1c;
+        color:white;
+        font-weight: bold;
+        font-size: 17px;
+    
+    }
+    
 `;
+
+
 
 const Goodsprice = ()=>{
     const[day,setDay] =useState(0);
@@ -157,9 +186,15 @@ const Goodsprice = ()=>{
                     <button style={{color:"gray"}} className="dayBtn" >+</button>
                 </div>
             </div>
+            <hr/>
             <div className="pricebox">
-                <div>최종합계금액</div>
-                <div>0원 / 유류할증포함</div>
+                <div className="priceInfo3">최종합계금액</div>
+                <div className="priceInfo4">0원 /유류할증포함</div>
+            </div>
+            <hr/>
+            <div className="pricebox">
+                <button className="priceBtn">결 제 하 기</button>
+                <button className="priceBtn">장 바 구 니</button>
             </div>
             
 

@@ -8,7 +8,7 @@ const Container1 =styled.div`
     align-items: end;
     font-weight: bold;
     justify-content: space-between;
-    margin: 5px 0;
+    padding: 15px 0;
     font-size: 14px;
 `;
 
@@ -68,6 +68,13 @@ const Container2 =styled.div`
         width: 160px;
         font-size: 10px;
         color: gray;
+
+        span{
+            padding-bottom:10px ;
+        }
+        div{
+            padding-bottom:5px ;
+        }
     }
 `;
 
@@ -90,9 +97,9 @@ const Goodsinfo =()=>{
             <div className="twobox">
                 <p className="box1">상품 가격</p>
                 <p className="box2">
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span>유류할증료 포함<br />제세공과금 포함</p>
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span>유류할증료 포함<br />제세공과금 포함</p>
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span>유류할증료 포함<br />제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
                 </p>
             </div>
         </Container2>
