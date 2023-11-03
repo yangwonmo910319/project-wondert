@@ -35,24 +35,9 @@ const Goods = () =>{
         <Center>
             <Goodsbox/>
         </Center>
-        <Center>
-            <Goodstitle/>
-        </Center>
-        <Center>
-        <Between>
-        <div>
-            <Goodsimgslide/>
-            <Goodsinfo/>
-            <Goodsinfoheader/>
-            <Goodsinfos/>
-        </div>
-        <div>
-            <Goodsprice/>
-        </div>
-        </Between>
-        </Center>
         </>
     )
 }
+
 
 export default Goods;
