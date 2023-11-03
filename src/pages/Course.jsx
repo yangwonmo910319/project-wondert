@@ -7,7 +7,7 @@ import CourseList from "../components/CourseList";
 const Course = () => {
   return (
     <>
-      <CourseList />
+      <CourseSelect />
     </>
   );
 };
