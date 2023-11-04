@@ -9,6 +9,7 @@ const ListBanner = styled.div`
         align-items: center;
         list-style: none;
         font-weight: bold;
+        margin: 25px 0;
     }
     li:nth-child(2) {
         display: flex;
@@ -18,6 +19,7 @@ const ListBanner = styled.div`
     }
 `;
 
+// 목록 글 배너
 const ListName = () => {
     return (
         <ListBanner>

@@ -5,6 +5,10 @@ const ListClick = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 0 30px;
+    h2 {
+        font-weight: bold;
+        font-size: 20px;
+    }
 `;
 const Click = styled.div`
     display: flex;
@@ -14,16 +18,11 @@ const Click = styled.div`
     }
 `;
 
-const ListBanner = ({onClick, onChane}) => {
+const ListBanner = () => {
     return (
         <>
         <ListClick>
             <h2># 자유여행</h2>
-            {/* 제목찾기 */}
-            <Click>
-                <input type="text" placeholder='원하시는 여행지를 검색해 주세요.' onChange={onChane} />
-                <button type="button" id="search-btn" onClick={onClick}>조회</button>
-            </Click>
             <Click>
                 <Link to="/">전체글 보기 〉</Link>
             </Click>

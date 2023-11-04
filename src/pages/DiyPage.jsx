@@ -1,6 +1,5 @@
 /*선영 페이지 */
 import React from "react";
-import UpperBar from "../components/UpperFavorTheme";
 import Themes from "../components/Theme";
 import PhotoBoxes from "../components/PhotoBox";
 import styled from "styled-components";
@@ -9,8 +8,6 @@ import ListBanner from "../components/ListBanner";
 import ListBox from "../components/ListBox";
 import ListWriting from "../components/ListWriting";
 import Select from "../components/TravelSelect";
-import Select2 from "../components/TravelSelect2";
-import Select3 from "../components/TravelSelect3";
 import Calender from "../components/TravelCalender";
 import FavorSelect from "../components/TravelFavor";
 import OtherSelect from "../components/OtherTravel";
@@ -19,15 +16,15 @@ import Write from "../components/TravelWrite";
 import Title from "../components/TravelTitle";
 import Title3 from "../components/AloneFavorTravel";
 import Diary from "../components/TravelDiary";
-import Diary2 from "../components/TravelDiary2";
-import Diary3 from "../components/TravelDiary3";
-import Diary4 from "../components/TravelDiary4";
 import TravelSee from "../components/TravelSee";
 import Day from "../components/Day";
 import Imoge from "../components/GoodBad";
 import CommentWrite from "../components/Comment";
 import CommentSee from "../components/CommentSee";
 import ReviewSee from "../components/CommentReview";
+import TravelWriteTitle from "../components/TravelWriteTitle";
+import MainPage from "../components/SlideMain";
+
 
 
 
@@ -35,8 +32,7 @@ const DiyPage = () =>{
 
     return(
         <>
-     
-        <UpperBar/>
+        <MainPage />
         <Themes />
         <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
         <PhotoBoxes />
@@ -57,9 +53,8 @@ const DiyPage = () =>{
         <ListBox />
         <ListBox />
         <ListWriting />
+        <TravelWriteTitle />
         <Select />
-        <Select2 />
-        <Select3 />
         <Calender />
         <Title3 />
         <FavorSelect />
@@ -68,22 +63,13 @@ const DiyPage = () =>{
         <Title />
         <Write />
         <Diary />
-        <Diary2 />
-        <Diary3 />
-        <Diary4 />
         <TravelSee />
         <Write />
         <Day />
         <Imoge />
         <Diary />
-        <Diary2 />
-        <Diary3 />
-        <Diary4 />
         <Day />
         <Diary />
-        <Diary2 />
-        <Diary3 />
-        <Diary4 />
         <ReviewSee />
         <CommentWrite />
         <CommentSee />

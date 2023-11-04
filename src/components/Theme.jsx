@@ -6,8 +6,13 @@ const AddBar = styled.div`
     justify-content: space-between;
     align-items: center;
     padding:0 30px;
+    h2 {
+        font-weight: bold;
+        font-size: 25px;
+    }
 `;
 
+// 주제에 맞는 테마에 맞는 제목과 더보기란 
 const Themes = (props) => { // props 사용 할 것
     // const Picture [] = props;
     return (
