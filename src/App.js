@@ -45,15 +45,14 @@ function App() {
             <Route path="/Goods/sell" element={<Goodssell/>} />
             <Route path="Community/myinfo" element={<Community />}>
               <Route path="/Community/myinfo/CommunitySubMenu"element={<CommunitySubMenu />}>
-                 <Route path="/Community/myinfo/CommunitySubMenu/Changemyinfo" element={<Changemyinfo />}></Route>
-                 <Route path="/Community/myinfo/CommunitySubMenu/ChangePwd"element={<ChangePwd />}></Route>
-                 <Route path="/Community/myinfo/CommunitySubMenu/UserOut"element={<UserOut />}></Route>
+                  <Route path="/Community/myinfo/CommunitySubMenu/Changemyinfo" element={<Changemyinfo />}></Route>
+                  <Route path="/Community/myinfo/CommunitySubMenu/ChangePwd"element={<ChangePwd />}></Route>
+                  <Route path="/Community/myinfo/CommunitySubMenu/UserOut"element={<UserOut />}></Route>
               </Route>
               <Route path="/Community/myinfo/CommunityFavorites"element={<CommunityFavorites />}>
-                 <Route path="/Community/myinfo/CommunityFavorites/FavorDiy" element={<FavorDiy/>}></Route>
-                 <Route path="/Community/myinfo/CommunityFavorites/FavorCourse" element={<FavorCourse/>}></Route>
-                 <Route path="/Community/myinfo/CommunityFavorites/FavorGoods" element={<FavorGoods/>}></Route>
-          
+                  <Route path="/Community/myinfo/CommunityFavorites/FavorDiy" element={<FavorDiy/>}></Route>
+                  <Route path="/Community/myinfo/CommunityFavorites/FavorCourse" element={<FavorCourse/>}></Route>
+                  <Route path="/Community/myinfo/CommunityFavorites/FavorGoods" element={<FavorGoods/>}></Route>
               </Route>
             </Route>
           </Route>
