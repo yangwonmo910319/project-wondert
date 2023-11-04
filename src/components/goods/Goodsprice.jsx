@@ -95,7 +95,7 @@ const Container = styled.div`
         font-weight: bold;
         height: 70px;
         padding-left: 10px;
-        font-size: 20px;
+        font-size: 19px;
     }
     .priceInfo4{
         display: flex;
@@ -189,7 +189,7 @@ const Goodsprice = ()=>{
             <hr/>
             <div className="pricebox">
                 <div className="priceInfo3">최종합계금액</div>
-                <div className="priceInfo4">0원 /유류할증포함</div>
+                <div className="priceInfo4">10,000,000원 /부가세포함</div>
             </div>
             <hr/>
             <div className="pricebox">

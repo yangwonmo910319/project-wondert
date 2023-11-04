@@ -25,20 +25,19 @@ const TitleBox1 = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 800px;
-    height: 200px;
+    height: 220px;
     border-top: 2px solid grey;
     h1{
         display: flex;
         align-items: center;
-        padding: 3% 0;
-        padding-left: 2%;
+        padding: 3% 3%;
     }
     h2{
         display: flex;
         align-items: center;
         font-size: 15px;
         font-weight: 800;
-        width: 300px;
+        width: 30%;
     }
     h3{
         font-size: 12px;
@@ -78,7 +77,7 @@ const Goodsclt1=()=>{
             <h1><h2>입금마감시간</h2><h3>2023년 11월 12일 16시 까지</h3></h1>
         </TitleBox1>
         <TitleBox1 style={{borderBottom:"2px solid grey"}}>
-            <h1><h2>예약정보</h2><h3>#ONLY교원투어#담당자추천[⭐빛나는 베니스⭐] 겨울에 만나는, 이탈리아 일주 9일#베니스1DAY,낮&밤투어#전일정4성#자유시간보장+명품아울렛#토스카나(피사&아시시)</h3></h1>
+            <h1><h2>예약정보</h2><h3>#ONLY교원투어#담당자추천[⭐빛나는 베니스⭐] 겨울에 만나는, 이탈리아 일주 9일#베니스1DAY</h3></h1>
             <h1><h2>여행날짜</h2><h3>2023년 12월 12일 ~ 2023년 12월 18일</h3></h1>
             <h1><h2>결제금액</h2><h3>1,200,000원</h3></h1>
         </TitleBox1>

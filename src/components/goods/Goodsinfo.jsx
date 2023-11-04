@@ -38,7 +38,7 @@ const Container2 =styled.div`
     .box1{
         display: flex;
         height: 50px;
-        width: 70px;
+        width: 80px;
     
         padding: 0 10px;
         font-size: 15px;
@@ -97,9 +97,9 @@ const Goodsinfo1 =()=>{
             <div className="twobox">
                 <p className="box1">상품 가격</p>
                 <p className="box2">
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 100,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 10,000,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 10,000,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 10,000,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
                 </p>
             </div>
         </Container2>

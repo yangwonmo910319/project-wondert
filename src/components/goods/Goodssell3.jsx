@@ -27,7 +27,7 @@ const TitleBox = styled.div`
 
     .title1box1{
             width: 600px;
-            height: 40px;
+            height: 90px;
             font-size: 10px;
             align-items: center;
             font-weight: bold;
@@ -51,7 +51,7 @@ const SellTable=styled.table`
 th{
     display: flex;
     justify-content: center;
-    width: 18%;
+    width: 20%;
     align-items: center;
     justify-content: start;
     padding-left:2% ;
@@ -62,7 +62,7 @@ th{
 }
   td {
     display: flex;
-    width: 78%;
+    width: 81%;
     flex-direction: row;
     align-items: center;
     justify-content: start;

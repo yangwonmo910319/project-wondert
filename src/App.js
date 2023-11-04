@@ -56,8 +56,8 @@ function App() {
             <Route path="Community/myinfo" element={<Community />}>
               <Route path="/Community/myinfo/CommunitySubMenu"element={<CommunitySubMenu />}>
                   <Route path="/Community/myinfo/CommunitySubMenu/Changemyinfo" element={<Changemyinfo />}></Route>
-                  <Route path="/Community/myinfo/CommunitySubMenu/ChangePwd"element={<ChangePwd />}></Route>
-                  <Route path="/Community/myinfo/CommunitySubMenu/UserOut"element={<UserOut />}></Route>
+                  <Route path="/Community/myinfo/CommunitySubMenu/ChangePwd" element={<ChangePwd />}></Route>
+                  <Route path="/Community/myinfo/CommunitySubMenu/UserOut" element={<UserOut />}></Route>
               </Route>
               <Route path="/Community/myinfo/CommunityFavorites"element={<CommunityFavorites />}>
                   <Route path="/Community/myinfo/CommunityFavorites/FavorDiy" element={<FavorDiy/>}></Route>

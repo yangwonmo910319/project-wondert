@@ -41,7 +41,7 @@ const ItemBox=styled.div`
         padding-bottom:5px ;
     }
     h1{
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
     }
     h2{
@@ -71,7 +71,7 @@ const Goodssell1 =()=>{
         </TitleBox>
         <ItemBox>
         <ItemImg src="https://i.namu.wiki/i/hXzUfUO0XBHScGhvc9Llg5AZqO-_0sOW1EkLb1qX2yDqQb2mQh3jik3ckZ9xaHobjE-audKIfZM7BK_kyE8i1A.webp" alt="상품사진" />
-        <div className="itemInfo"><h3>상품 코드</h3><h1>ITEM21321321</h1><br /><h2>상품명입니다!상품명입니다!</h2></div>
+        <div className="itemInfo"><h3>상품 코드</h3><h1>ITEM21321321</h1><br /><h2>#ONLY교원투어#담당자추천[⭐빛나는 베니스⭐] 겨울에 만나는, 이탈리아 일주 9일#베니스1DAY</h2></div>
         </ItemBox>
 
         </>

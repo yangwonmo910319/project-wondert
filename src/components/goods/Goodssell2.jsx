@@ -31,7 +31,7 @@ const SurveBox = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 800px;
-    height: 140px;
+    height: 170px;
     padding: 20px 0;
     border-bottom: 1px solid grey;
     h1{

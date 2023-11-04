@@ -46,7 +46,7 @@ const Constainer = styled.div`
 
 
 const Img =styled.img`
-	width: 200px ;
+	width: 100%;
 	height: 200px;
 	object-fit: cover;
 	margin: 0;
@@ -58,8 +58,6 @@ const ImgDiv =styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0;
-	
 `;
 
 const ImgSlide = () => {
