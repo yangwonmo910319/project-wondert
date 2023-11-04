@@ -22,8 +22,16 @@ import Goodsinfo from "./pages/Goods/Goodsinfo";
 import Goodssell from "./pages/Goods/Goodssell";
 import Goodscompleted from "./pages/Goods/Goodscompleted";
 
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
+    
+  *{  
+    box-sizing : border-box;
+  }
+  body{
+    font-family: Nanum;
+  }
   /* other styles */
 `
 
