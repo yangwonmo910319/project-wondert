@@ -20,6 +20,7 @@ import reset from "styled-reset"
 import * as React from 'react'
 import Goodsinfo from "./pages/Goods/Goodsinfo";
 import Goodssell from "./pages/Goods/Goodssell";
+import Goodscompleted from "./pages/Goods/Goodscompleted";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -43,6 +44,7 @@ function App() {
             <Route path="/Goods" element={<Goods />} />
             <Route path="/Goods/info" element={<Goodsinfo/>} />
             <Route path="/Goods/sell" element={<Goodssell/>} />
+            <Route path="/Goods/completed" element={<Goodscompleted/>} />
             <Route path="Community/myinfo" element={<Community />}>
               <Route path="/Community/myinfo/CommunitySubMenu"element={<CommunitySubMenu />}>
                   <Route path="/Community/myinfo/CommunitySubMenu/Changemyinfo" element={<Changemyinfo />}></Route>

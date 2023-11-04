@@ -85,12 +85,6 @@ const SellButton = styled.button`
     font-weight: bold;
 `
 
-
-
-
-
-
-
 const Goodssell3=()=>{
 
 
