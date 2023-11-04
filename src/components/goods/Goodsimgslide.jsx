@@ -52,8 +52,6 @@ const Goodsimgslide = () => {
   };
 
 
-
-
   return (
     <Constainer>
       <Slider {...settings}>

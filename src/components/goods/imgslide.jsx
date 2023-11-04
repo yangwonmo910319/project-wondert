@@ -65,13 +65,15 @@ const ImgSlide = () => {
   const settings = {
 	slide: "div",
 	autoplay: true, // 자동 스크롤 사용 여부
-	autoplaySpeed: 2000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+	pauseOnHover: true,
+	autoplaySpeed: 1000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
 	infinite: true, // 무한
     dots: true, // 
     speed: 20,
     slidesToShow: 4,
     slidesToScroll: 2,
     arrows: true,
+	draggable: true,
   };
 
   return (
