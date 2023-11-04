@@ -10,6 +10,7 @@ const Center = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 10px 0;
 `;
 const Between =styled.div`
     width: 1200px;
@@ -21,7 +22,7 @@ const Between =styled.div`
 const Goods = () =>{
     return(
         <>
-        <Center>
+        <Center style={{justifyContent:"end", alignItems:"row"}}>
             <GlobalButton/>
         </Center>
         <Center>

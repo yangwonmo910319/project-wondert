@@ -12,7 +12,7 @@ const Content1=styled.div`
 width: 100vw;
 height: 1000px;
 .Content1Nav{  
-    color:white;
+    color: white;
 } 
    > img{
         margin-top: -100px;
@@ -60,7 +60,7 @@ const Home=() =>{
     return(
         <HomeCss>
  <Content1>
-    <div className="Content1Nav">
+<div className="Content1Nav">
  <NavBox></NavBox>
  </div>
  <img src={Img11}/>           

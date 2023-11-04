@@ -39,12 +39,12 @@ const Container=styled.div`
         justify-content: center;
         width: 1000px;
         height: 160px;
-        background-color: #f0ff49;
+        background-color: #F4CE14;
     }
 `;
 
 const SellTable=styled.table`
-    width: 1000px;
+    width: 100%;
     border: 1px solid #c1c1c1;
 
     tr{
@@ -59,10 +59,10 @@ th{
     align-items: center;
     justify-content: center;
     height: 30px;
-    border: 1px solid #c6d33b;
+    border: 1px solid #c9aa0f;
     font-size: 13px;
     font-weight: bold;
-    background-color: #f4ff56;
+    background-color: #F4CE14;
 }
 `;
 
@@ -93,9 +93,9 @@ const ScroolBox=styled.div`
     overflow: auto;
     position: relative;
     overflow-y: scroll;
-    border: 1px solid #c6d33b;
+    border: 1px solid #F4CE14;
     .innerStyle {
-      width: 100%;
+      width: 1000px;
       height: 650px;
     }
 `;
@@ -109,14 +109,19 @@ const SellButton = styled.button`
     border: ${(props) => (!props.Buttonstlye ? "1px solid #c1c1c1;" : "0")};;
     font-size: 12px;
     font-weight: bold;
+    cursor: pointer;
 `
-const cancleButton = styled.button`
-    width: 10px;
-    height: 10px;
-    
+const CancleButton = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f47114;
 
+    width: 50px;
+    height: 25px;
+    cursor: pointer;
+`;
 
-`
 
 
 const Goodscancle1=()=>{
@@ -157,7 +162,7 @@ const Goodscancle1=()=>{
                     <th>인원</th>
                     <th>금액</th>
                     <th>총 합계</th>
-                    <th><cancleButton>요청</cancleButton></th>
+                    <th><CancleButton>요청</CancleButton></th>
                 </tr>
                 </SellTable1>
                 </div>

@@ -37,7 +37,7 @@ const setting = {  // 이거보고 슬라이드 구성하세요!!!!!!!!!!!!
 
 
 const Constainer = styled.div`
-  width: 60%;
+  width: 80%;
   height: 200px;
   margin-bottom: 50px;
   transition: all 1s ease;
@@ -46,10 +46,10 @@ const Constainer = styled.div`
 
 
 const Img =styled.img`
-	width: 100%;
+	width: 90%;
 	height: 200px;
 	object-fit: cover;
-	margin: 0;
+	margin: 0 auto;
 	border-radius: 10px;
 	cursor: pointer;
 `;
@@ -78,7 +78,7 @@ const ImgSlide = () => {
     <Constainer>
     	<Slider {...settings}>
 			<ImgDiv>
-				<Img src='https://images.pexels.com/photos/12066797/pexels-photo-12066797.jpeg' />
+				<Img src='https://images.pexels.com/photos/12066797/pexels-photo-12066797.jpeg'/>
 			</ImgDiv>
 				<ImgDiv>
 			<Img src='https://i.pinimg.com/236x/0c/01/e1/0c01e13f877ba2ef7f71175aa612e219.jpg' />

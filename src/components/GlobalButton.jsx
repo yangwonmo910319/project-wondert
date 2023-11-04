@@ -2,33 +2,47 @@ import styled,{ css } from "styled-components";
 import { useState } from "react";
 
 const ToggleBtn = styled.button`
-  width: 200px;
-  height: 50px;
-  border-radius: 30px;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  height: 40px;
+  border-radius: 50px;
+  border: 2px solid #909090 ;
   cursor: pointer;
-  background-color: ${(props) => (!props.toggle ? "gray" : "rgb(51,30,190)")};
+  background-color: white;
   // 토글내 버튼 색 
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease;
 `;
 
 const Circle = styled.div`
-  background-color: white;
-  width: 38px;
-  height: 38px;
+  background-color: #F4CE14;
+  width: 200px;
+  height: 30px;
   border-radius: 50px;
   position: absolute;
-  left: 5%;
-  transition: all 0.5s ease-in-out;
+  left: 1%;
+  transition: all 0.8s ease;
   ${(props) =>
     props.toggle && css`
-      transform: translate(140px, 0);
-      transition: all 0.5s ease-in-out;
+      transform: translate(190px, 0);
+      transition: all 0.5s ease;
     `}
+`;
+
+const BtnText=styled.div`
+    display: inline;
+    position: absolute;
+    z-index: 10;
+    left: ${(props) => (!props.Text ? "80px" : "280px")};
+    display: inline;
+    color: ${(props) => (!props.toggle ? "white" : "#3f3f3f")};
+    font-size: 15px;
+    font-weight: bold;
 `;
 
  const GlobalButton=()=> {
@@ -38,12 +52,12 @@ const Circle = styled.div`
   };
   return (
  	<>
-      <h3>국내</h3>
       <ToggleBtn onClick={clickedToggle} toggle={toggle}>
+        <BtnText toggle={!toggle}>국 내</BtnText>
+        <BtnText Text={true} toggle={toggle}>해 외</BtnText>
         <Circle toggle={toggle} />
       </ToggleBtn>
       {/*<h3>Toggle Switch {!toggle ? "OFF" : "ON"}</h3> on off 기능 */}
-      <h3>해외</h3>
 
     </>
   );

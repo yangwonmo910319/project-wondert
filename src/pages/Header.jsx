@@ -8,11 +8,10 @@ const NavBox = styled.div`
   align-items: center;
   justify-content: space-between;
   max-width: 1200px;
-  height: 80px;
-  border-bottom: 2px solid white;
-  color: white;
-  background-color: #2828284e;
-  font-weight: bold;
+  height: 60px;
+  margin: 10px 0;
+  border-bottom: 1px solid #45474B ;
+  font-weight: 900;
   position: relative;
   left: 0;
 `;
@@ -23,6 +22,7 @@ const Logo = styled.img`
   height: 80px;
   object-fit: cover;
   margin: 0 10px;
+  cursor: pointer;
 `;
 
 
@@ -33,7 +33,14 @@ const Menus = styled.div`
 `;
 
 const Menu = styled.p`
+  display: flex;
+  align-items: center;
+  height: 60px;
   margin: 20px;
+  cursor: pointer;
+  &:hover{
+    border-bottom: 3px solid #F4CE14;
+  }
 `;
 const Contain = styled.div`
   max-width: 1200px;
@@ -48,7 +55,7 @@ const Header = () => {
       <Contain>
         <header>
           <NavBox>
-            <Logo src={LogoImg}/>
+            <Logo onClick={() => navigate("/home")}src={LogoImg}/>
             <Menus>
               <Menu onClick={() => navigate("/Diypage")}>DIY여행일지</Menu>
               <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
