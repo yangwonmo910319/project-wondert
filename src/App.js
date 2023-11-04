@@ -21,6 +21,7 @@ import * as React from 'react'
 import Goodsinfo from "./pages/Goods/Goodsinfo";
 import Goodssell from "./pages/Goods/Goodssell";
 import Goodscompleted from "./pages/Goods/Goodscompleted";
+import Goodscancle from "./pages/Goods/Goodscancle";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -52,6 +53,7 @@ function App() {
             <Route path="/Goods" element={<Goods />} />
             <Route path="/Goods/info" element={<Goodsinfo/>} />
             <Route path="/Goods/sell" element={<Goodssell/>} />
+            <Route path="/Goods/cancle" element={<Goodscancle/>}/>
             <Route path="/Goods/completed" element={<Goodscompleted/>} />
             <Route path="Community/myinfo" element={<Community />}>
               <Route path="/Community/myinfo/CommunitySubMenu"element={<CommunitySubMenu />}>
