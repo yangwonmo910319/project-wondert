@@ -1,35 +1,31 @@
 import styled from "styled-components";
 import React, { useState } from "react";
-
-const CourseNav = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-`;
+// 버튼 사이즈 맞추기
 const CourseBtnG = styled.div`
   display: flex;
   justify-content: center;
-  width: 400px;
+  align-items: center;
+  width: 1200px;
 `;
 const Button = styled.button`
-  border: 1px solid #45474b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
   padding: 10px 16px;
-  border-radius: 10px;
-  margin: 0 auto;
-  justify-content: space-between;
+  margin: 10px;
 `;
 
 const CourseBtn = () => {
   // 상단바 해외
   const [Area, setArea] = useState();
   return (
-    <CourseNav>
+    <>
       <CourseBtnG>
         <Button className="대만" onClick={() => setArea("대만")}>
           대만
         </Button>
-        <br />
         <Button className="일본" onClick={() => setArea("일본")}>
           일본
         </Button>
@@ -43,7 +39,7 @@ const CourseBtn = () => {
           베트남
         </Button>
       </CourseBtnG>
-    </CourseNav>
+    </>
   );
 };
 export default CourseBtn;

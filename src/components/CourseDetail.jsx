@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CourseBtn from "./CourseBtn";
+import CourseCom from "./CourseCom";
 
 const CourseDetailItem = styled.div`
   display: flex;
@@ -28,10 +29,13 @@ const Container2 = styled.div`
   .topicbox {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     width: 1200px;
   }
   .topic {
     display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #45474b;
     padding: 10px 16px;
     border-radius: 10px;
@@ -39,9 +43,12 @@ const Container2 = styled.div`
   }
   .join {
     display: flex;
-    border: 1px solid #45474b;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
     padding: 10px 16px;
-    border-radius: 10px;
+    margin: 10px;
   }
 `;
 const Container3 = styled.div`
@@ -89,7 +96,6 @@ const Container3 = styled.div`
   .box2 {
     background-image: url(https://dimgcdn.ybtour.co.kr/TN/cd/cda853b2799c287503ec63fd25f6d033.tn.410x280.jpg);
     background-size: cover;
-    border-radius: 10px;
     height: 419px;
     width: 564px;
     transform: rotate(2deg);
@@ -97,7 +103,6 @@ const Container3 = styled.div`
   .box2A {
     background-image: url(https://dimgcdn.ybtour.co.kr/TN/cd/cda853b2799c287503ec63fd25f6d033.tn.410x280.jpg);
     background-size: cover;
-    border-radius: 10px;
     height: 419px;
     width: 564px;
     transform: rotate(-2deg);
@@ -139,9 +144,34 @@ const CourseDetail = () => {
       <Container3>
         <div className="box">
           <div className="box1">
-            <div className="coursePathBox">코스경로1</div>
-            <div className="courseArticleBox">설명 1</div>
-            <div className="courseArticleBox">설명 2</div>
+            <div
+              className="coursePathBox"
+              style={{
+                fontWeight: "bold",
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              코스경로1
+            </div>
+            <div
+              className="courseArticleBox"
+              style={{
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              설명 1
+            </div>
+            <div
+              className="courseArticleBox"
+              style={{
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              설명 2
+            </div>
           </div>
           <div className="box2"></div>
         </div>
@@ -150,22 +180,73 @@ const CourseDetail = () => {
         <div className="box">
           <div className="box2A"></div>
           <div className="box1">
-            <div className="coursePathBox">코스경로2</div>
-            <div className="courseArticleBox">설명 1</div>
-            <div className="courseArticleBox">설명 2</div>
+            <div
+              className="coursePathBox"
+              style={{
+                fontWeight: "bold",
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              코스경로2
+            </div>
+            <div
+              className="courseArticleBox"
+              style={{
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              설명 1
+            </div>
+            <div
+              className="courseArticleBox"
+              style={{
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              설명 2
+            </div>
           </div>
         </div>
       </Container3>
       <Container3>
         <div className="box">
           <div className="box1">
-            <div className="coursePathBox">코스경로3</div>
-            <div className="courseArticleBox">설명 1</div>
-            <div className="courseArticleBox">설명 2</div>
+            <div
+              className="coursePathBox"
+              style={{
+                fontWeight: "bold",
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              코스경로3
+            </div>
+            <div
+              className="courseArticleBox"
+              style={{
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              설명 1
+            </div>
+            <div
+              className="courseArticleBox"
+              style={{
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              설명 2
+            </div>
           </div>
           <div className="box2"></div>
         </div>
       </Container3>
+      <CourseCom />
     </CourseDetailItem>
   );
 };
