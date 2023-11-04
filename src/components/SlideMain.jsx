@@ -6,7 +6,7 @@ const Slider = styled.div`
     p {
         font-weight: bold;
         font-size: 30px;
-        margin: 30px 60px;
+        margin: 30px 80px;
     }
     ul, li {
         list-style: none;
@@ -18,19 +18,17 @@ const Slider = styled.div`
         .slide_wrapper {
             display: flex;
             flex-wrap: nowrap;
- 
-      
+            background-color: whitesmoke;
+    
         }
-
         .lb-wrap {
         width: 70%;
         margin: 10px auto;
         position: relative;
-     
         } 
         .lb-text {
         display: flex;
-        width: 100%;
+        width: 110%;
         padding: 10px 20px;  
         text-align: center;
         justify-content: center;
@@ -38,10 +36,9 @@ const Slider = styled.div`
         right:0;
         left: 0;
         top: 300px;
-
         }
         .lb-text h2 {
-            font-size: 55px;
+            font-size: 40px;
             font-weight: bold;
             color: white;
             text-shadow: 0 5px 10px black;
@@ -63,7 +60,6 @@ const Slider = styled.div`
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background-color: #7ae10b;
                 z-index: 1;
             }
             &.original {
@@ -103,11 +99,10 @@ const Slider = styled.div`
                     height: 280px;
                 }
                 &.small {
-                    width: 500px;
-                    height: 500px;
+                    width: 350px;
+                    height: 400px;
                     margin: 0 40px;
                 }
-
                 .item {
                     background-size: cover;
                     width: 100%;
@@ -161,7 +156,7 @@ const MainPage = () => {
     return (
         <Slider>
             <div className="slide_container">
-                <p>1인 여행 테마 선택</p>
+                <p>1인 여행 테마</p>
                 <ul
                     className="slide_wrapper"
                     onMouseEnter={onStop}//마우스 대면멈춤

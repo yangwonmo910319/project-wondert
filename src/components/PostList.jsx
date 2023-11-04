@@ -1,0 +1,61 @@
+import React from 'react';
+import CommonTable from '../components/CommonTable';
+import CommonTableColumn from '../components/CommonTableColumn';
+import CommonTableRow from '../components/CommonTableRow';
+import styled from 'styled-components';
+
+const Title = styled.div`
+    font-size: 28px;
+    font-weight: bold;
+    margin: 30px 80px;
+
+`;
+
+const PostList = props => {
+  return (
+    <>
+      <Title>
+        <p>여행 후기 게시글</p>
+      </Title>
+      <CommonTable headersName={['글번호', '제목', '아이디','등록일', '조회수']}>
+        <CommonTableRow>
+          <CommonTableColumn>1</CommonTableColumn>
+          <CommonTableColumn>첫번째 여행후기 게시글입니다.</CommonTableColumn>
+          <CommonTableColumn>아이디123</CommonTableColumn>
+          <CommonTableColumn>2023-10-25</CommonTableColumn>
+          <CommonTableColumn>6</CommonTableColumn>
+        </CommonTableRow>
+        <CommonTableRow>
+          <CommonTableColumn>2</CommonTableColumn>
+          <CommonTableColumn>두번째 여행후기 게시글입니다.</CommonTableColumn>
+          <CommonTableColumn>아이디456</CommonTableColumn>
+          <CommonTableColumn>2023-10-28</CommonTableColumn>
+          <CommonTableColumn>5</CommonTableColumn>
+        </CommonTableRow>
+        <CommonTableRow>
+          <CommonTableColumn>3</CommonTableColumn>
+          <CommonTableColumn>세번째 여행후기게시글입니다.</CommonTableColumn>
+          <CommonTableColumn>아이디789</CommonTableColumn>
+          <CommonTableColumn>2023-10-31</CommonTableColumn>
+          <CommonTableColumn>1</CommonTableColumn>
+        </CommonTableRow>
+        <CommonTableRow>
+          <CommonTableColumn>4</CommonTableColumn>
+          <CommonTableColumn>네번째 여행후기 게시글입니다.</CommonTableColumn>
+          <CommonTableColumn>아이디346</CommonTableColumn>
+          <CommonTableColumn>2023-11-03</CommonTableColumn>
+          <CommonTableColumn>2</CommonTableColumn>
+        </CommonTableRow>
+        <CommonTableRow>
+          <CommonTableColumn>5</CommonTableColumn>
+          <CommonTableColumn>다섯번째 여행후기 게시글입니다.</CommonTableColumn>
+          <CommonTableColumn>아이디947</CommonTableColumn>
+          <CommonTableColumn>2023-11-05</CommonTableColumn>
+          <CommonTableColumn>4</CommonTableColumn>
+        </CommonTableRow>
+      </CommonTable>
+    </>
+  )
+}
+
+export default PostList;
