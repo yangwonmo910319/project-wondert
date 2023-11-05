@@ -1,58 +1,102 @@
 import NavBox from "./Header"
 import Img11 from "../images/img1.jpg";
-
+import Contetn2Item1 from "../components/Home/Contetn2Item1"
+import Contetn2Item2 from "../components/Home/Contetn2Item2"
+import Contetn3Item1 from "../components/Home/Contetn3Item1"
+import Contetn4Item1 from "../components/Home/Contetn4Item1"
+import Contetn5Item1 from "../components/Home/Contetn5Item1"
 import { Outlet, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 const HomeCss=styled.div`
 
-background-color: black;
-height: 2000px;
+
+
 `;
 const Content1=styled.div`
-width: 100vw;
-height: 1000px;
+ position: relative;
+ height: 100vh;
 .Content1Nav{  
-    color: white;
+    position: relative;
+    color:white;
+    left: -50;
+    z-index: 2;
+    top:0;
 } 
-   > img{
-        margin-top: -100px;
-        width: 100%;
-        height: 1000px;
-   
+ .Content1mentimg{
+    position: absolute;
+  
+
+    z-index: 1;
+    img{width: 100vw;
+      height: 100vh;
+      min-width: 600px;
+      position: relative;
+  
     }
+
+ }
 
 .Content1ment{
     h1{
-        margin-top:-200px;
-        margin-left: 5%;
-  color: white;
+        position: absolute;
+    left: 50px;
+    bottom: 100px;
+
+  color: #ffffff;
   font-size: 60px;
-  
+  z-index: 3;
     }
 
 }
     `;
 const Content2=styled.div`
+
         max-width: 1200px;
- margin: 0 auto;
-    height: 500px;
-    background-color: #aabec8;
+        min-width: 600px;
+ margin: 0px auto;
+       display: flex;
+       flex-direction:column;
+
+    
+    .Content2item1Css{
+ 
+        width: 60%;
+        position: relative;
+        margin: 0 auto;
+    }
+    .Content2item2Css{
+     
+     width:80%;
+      
+    border:1px solid red;
+    
+     margin: 10px auto;
+ }
 `;
 const Content3=styled.div`
-         max-width: 1200px;
-         margin: 0 auto;
-    height: 100px;
-    background-color: #c25f5f;
+       max-width: 1200px;
+        min-width: 600px;
+        height: auto;
+ margin: 0px auto;
+       background-color: yellow;
+.Content3item1Css{
+
+    width: 100%;
+    border: 3px solid #b18080;
+}
 `;
 const Content4=styled.div`
-        width: 100%;
-    height: 100px;
-    background-color: #220d0d;
+    max-width: 1200px;
+        min-width: 600px;
+        height: auto;
+ margin: 100px auto;
+ 
 `;
 const Content5=styled.div`
-        width: 100%;
-    height: 100px;
-    background-color: #ab8d8d;
+    max-width: 1200px;
+        min-width: 600px;
+        height: auto;
+ margin: 100px auto;
 `;
 const Home=() =>{
 
@@ -60,21 +104,46 @@ const Home=() =>{
     return(
         <HomeCss>
  <Content1>
-<div className="Content1Nav">
- <NavBox></NavBox>
- </div>
- <img src={Img11}/>           
- <div className="Content1ment">
-  <h1>너와 나의 <br/>여행 이야기
-    
-  </h1>
+ <div className="Content1mentimg">
+         <img src={Img11}></img>
     </div>
+    <div className="Content1Nav">
+ <NavBox></NavBox>
+ </div> 
+  
+ <div className="Content1ment">
+  <h1>너와 나의 <br/>여행 이야기</h1>
+    </div> 
+
  </Content1>
   
-   <Content2></Content2>
-   <Content3></Content3>
-   <Content4></Content4>
-   <Content5></Content5>
+   <Content2>
+    <div className="Content2item1Css">
+   <Contetn2Item1></Contetn2Item1>
+    </div>
+ 
+    <div className="Content2item2Css">
+    <Contetn2Item2></Contetn2Item2>
+</div>
+   </Content2>
+   <Content3>
+
+<div className="Content3item1Css">
+   <Contetn3Item1></Contetn3Item1>
+
+    </div>
+ 
+
+   </Content3>
+   <Content4>
+   <div className="Contetn4Item1">
+    </div>
+    <Contetn4Item1></Contetn4Item1>
+   </Content4>
+   <Content5>
+   <Contetn5Item1></Contetn5Item1>
+
+   </Content5>
 
 
   </HomeCss>
