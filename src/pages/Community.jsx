@@ -2,10 +2,10 @@
 import styled, { css } from "styled-components";
 import CommunityMenu from "./Community/CommunityMenu";
 import CommunitySubMenu from "./Community/CommunitySubMenu";
-import Changepwd from "./Community/ChangePwd";
-import ChangeCQ from "./Community/ChangeCQ";
-import Changemyinfo from "./Community/Changemyinfo";
-import ChangeButton from "./Community/ChangeButton";
+import Changepwd from "../components/Community/ChangePwd";
+
+import Changemyinfo from "../components/Community/Changemyinfo";
+
 import CommunityList from "./Community/CommunityList";
 import CommunitySearch from "./Community/CommunitySearch";
 import CommunityFavorites from "./Community/CommunityFavorites";
