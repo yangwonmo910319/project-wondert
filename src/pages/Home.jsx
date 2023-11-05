@@ -1,10 +1,10 @@
 import NavBox from "./Header"
 import Img11 from "../images/img1.jpg";
-import Contetn2Item1 from "../components/Home/Contetn2Item1"
-import Contetn2Item2 from "../components/Home/Contetn2Item2"
-import Contetn3Item1 from "../components/Home/Contetn3Item1"
-import Contetn4Item1 from "../components/Home/Contetn4Item1"
-import Contetn5Item1 from "../components/Home/Contetn5Item1"
+import Contetn2Item1 from "../components/home/Contetn2Item1"
+import Contetn2Item2 from "../components/home/Contetn2Item2"
+import Contetn3Item1 from "../components/home/Contetn3Item1"
+import Contetn4Item1 from "../components/home/Contetn4Item1"
+import Contetn5Item1 from "../components/home/Contetn5Item1"
 import { Outlet, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 const HomeCss=styled.div`
@@ -68,9 +68,9 @@ const Content2=styled.div`
      
      width:80%;
       
-    border:1px solid red;
+   
     
-     margin: 10px auto;
+     margin: 100px auto;
  }
 `;
 const Content3=styled.div`
@@ -78,7 +78,7 @@ const Content3=styled.div`
         min-width: 600px;
         height: auto;
  margin: 0px auto;
-       background-color: yellow;
+     
 .Content3item1Css{
 
     width: 100%;

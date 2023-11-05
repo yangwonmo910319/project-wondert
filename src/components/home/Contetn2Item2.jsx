@@ -26,7 +26,7 @@ height:350px;
    h1{ 
     margin-top: -3px;
   height: 80px;
-  background-color:rgba(15,15,5,0.5);
+  background-color:rgba(0, 0, 0, 0.1);
   border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
    }

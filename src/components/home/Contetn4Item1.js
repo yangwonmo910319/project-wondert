@@ -6,7 +6,7 @@ font-size: 1.5em;
 width: 100%;
 /* border: 2px solid black; */
 background-image: url(${props => props.image});
-height:300px;
+height:700px;
 background-size:100% 100%;
 background-repeat: no-repeat;
 
@@ -17,7 +17,7 @@ background-repeat: no-repeat;
 
  div{
     width: 25%;
-    height: 300px;
+    height: 700px;
     background-color:rgba(0,0,0,0.5);
   border: 1px solid white;
   display: flex;
@@ -53,10 +53,10 @@ return(
         <div className="item1">
            
          
-           <div  onMouseOver={()=>{setImg(Imgurl1)}}><h1>작가의 추천</h1></div>
-           <div  onMouseOver={()=>{setImg(Imgurl2)}}><h1>작가의 추천</h1></div>
-           <div onMouseOver={()=>{setImg(Imgurl3)}}><h1>작가의 추천</h1></div>
-           <div  onMouseOver={()=>{setImg(Imgurl4)}}><h1>작가의 추천</h1></div>
+           <div  onMouseOver={()=>{setImg(Imgurl1)}}><h1>봄 추천</h1></div>
+           <div  onMouseOver={()=>{setImg(Imgurl2)}}><h1>여름 추천</h1></div>
+           <div onMouseOver={()=>{setImg(Imgurl3)}}><h1>가을 추천</h1></div>
+           <div  onMouseOver={()=>{setImg(Imgurl4)}}><h1>겨울 추천</h1></div>
 
         </div>
     

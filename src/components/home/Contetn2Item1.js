@@ -6,8 +6,8 @@ font-size: 1.5em;
 margin-left: 50px;
 div{
     float: left ;
-    border:2px solid red;
-   background-color: red;
+    border-bottom: 2px solid black;
+   
     height: 50px;
     margin: 15px ;
     padding: 10px;
@@ -20,7 +20,7 @@ div{
 }
  ul:hover > li {
     display: block;
-    margin: 3px;
+    margin-top: 25px;
 }
 `;
 

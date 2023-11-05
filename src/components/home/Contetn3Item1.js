@@ -46,7 +46,7 @@ return(
     <>
     <Contetn3Item1Css>
         <div className="metn1">
-           <h1>가장 인기있는 Best 여행지</h1> 
+           <h1>가장 인기있는 Best 여행지 (슬라이드 추가예정)</h1> 
         </div>
         <div className="metn2">
          <ul>
