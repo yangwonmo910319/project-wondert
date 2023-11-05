@@ -1,54 +1,87 @@
 /*원모 페이지 */
 import styled, { css } from "styled-components";
 const ChangemyinfoCss = styled.div`
-  width: 100%;
 
+margin-top: 50px;
   .memo {
-    width: 100%;
-    border-bottom: 5px solid rgba(73, 94, 87, 1);
+    width: 500px;
+    font-size: 25px;
+    border-bottom: 5px solid rgba(72, 100, 224, 1);
     display: flex;
     p {
-      margin-top: 20px;
+      font-size: 12px;
+vertical-align: bottom;
       margin-left: 30px;
+      margin-top: 10px;
+   
     }
   }
 `;
 
 const InfoView = styled.div`
-  width: 50%;
+  width: 410px;
+ margin-top: 50px;
 
   /* margin: 0 auto; */
   input {
-    width: 70%;
-    border: 3px solid rgba(73, 94, 87, 0.5);
+    width: auto; 
+    margin-left:50px ;
+    border: 1px solid rgba(73, 94, 87, 0);
+  }
+  ul > :first-child{
+    border-top: 0.5px solid #b3b3b3;
+  }
+  ul{
+    width: 100%;
+    height: 100%;
   }
   li {
+    display: flex;
+ background-color: #f5f5f5da;
     padding: 5px;
-    border-bottom: 3px solid rgba(73, 94, 87, 1);
+    border-top: 0.5px solid #b3b3b3;
+  
+   
   }
+  
 `;
 const ChangnBtn = styled.button`
-  float: right;
+  
+margin-left: 50px;
   &:hover {
-    background: rgba(73, 94, 87, 1);
+    background: rgba(72, 100, 224, 1);
+    color:white;
   }
-  ${(props) =>
+  /* ${(props) =>
     props.inverted &&
     css`
-      background: none;
+      background: red;
       border: 2px solid white;
 
       &:hover {
-        background: white;
+        background: #3f2525;
         color: black;
       }
-    `};
-  & + button {
-    margin-left: 1rem;
-  }
+    `}; */
+  /* & + button {
+    
+  } */
 `;
-const ChageTitle = styled.div``;
+const ChageTitle = styled.div`
+font-size:15px;
+display: flex;
+align-items: center;
+width: 80px;
+height: 10px;
+padding: 10px 2px;
+
+`;
 const Changemyinfo = () => {
+  const user=[{id:"user"
+,name:"홍길동",
+nick:"테스트",
+phone:"010-12**-56**",
+email:"test@gmail.com"}]
   return (
     <>
       <ChangemyinfoCss>
@@ -60,28 +93,34 @@ const Changemyinfo = () => {
         <InfoView>
           <ul>
             <li>
-              <ChageTitle>ID</ChageTitle>
-              <input type="text"></input>
+              <ChageTitle>ID </ChageTitle>
+              <input type="text" value={user[0].id}></input>
               <ChangnBtn changvalue={true}>변경</ChangnBtn>
+           
             </li>
             <li>
-              <ChageTitle>이름</ChageTitle>
-              <input type="text"></input>
+              <ChageTitle>이름 </ChageTitle>
+              <input type="text" value={user[0].name}></input>
               <ChangnBtn changvalue={true}>개명</ChangnBtn>
+             
             </li>
             <li>  
-              <ChageTitle>닉네임 </ChageTitle>
-              <input type="text"></input>
+              <ChageTitle>닉네임    </ChageTitle>
+              <input type="text" value={user[0].nick}></input>
               <ChangnBtn changvalue={true}>변경</ChangnBtn>
+           
             </li>
             <li>
-              <ChageTitle 번호>휴대폰 번호</ChageTitle>{" "}
-              <input type="text"></input>
+              <ChageTitle 번호>휴대폰 번호       </ChageTitle>
+              <input type="text" value={user[0].phone}></input>
               <ChangnBtn changvalue={true}>변경</ChangnBtn>
+       
             </li>
             <li>
-              <ChageTitle>이메일</ChageTitle> <input type="text"></input>
+              <ChageTitle>이메일      </ChageTitle>
+                 <input type="text" value={user[0].email}></input>
               <ChangnBtn changvalue={true}>변경</ChangnBtn>
+       
             </li>
           </ul>
         </InfoView>

@@ -1,53 +1,70 @@
 /*원모 페이지 */
 import styled, { css } from "styled-components";
 const ChangemyinfoCss = styled.div`
-  width: 100%;
 
+margin-top: 50px;
   .memo {
-    width: 100%;
-    border-bottom: 5px solid rgba(73, 94, 87, 1);
+    width: 500px;
+    font-size: 25px;
+    border-bottom: 5px solid rgba(72, 100, 224, 1);
     display: flex;
     p {
-      margin-top: 20px;
+      font-size: 12px;
+vertical-align: bottom;
       margin-left: 30px;
+      margin-top: 10px;
+   
     }
   }
 `;
 
 const InfoView = styled.div`
-  width: 50%;
+  width: 500px;
+ margin-top: 50px;
 
   /* margin: 0 auto; */
   input {
-    width: 70%;
-    border: 3px solid rgba(73, 94, 87, 0.5);
+    width: auto; 
+    margin-left:50px ;
+    border: 1px solid rgba(73, 94, 87, 0);
+  }
+  ul > :first-child{
+    border-top: 0.5px solid #b3b3b3;
+  }
+  ul{
+    width: 100%;
+    height: 100%;
   }
   li {
+    display: flex;
+ background-color: #f5f5f5da;
     padding: 5px;
-    border-bottom: 3px solid rgba(73, 94, 87, 1);
+    border-top: 0.5px solid #b3b3b3;
+  
+   
   }
+  
 `;
 const ChangnBtn = styled.button`
-  float: right;
+  
+margin-left: 50px;
   &:hover {
-    background: rgba(73, 94, 87, 1);
+    background:  rgba(72, 100, 224, 1);
+   color:white;
   }
-  ${(props) =>
-    props.inverted &&
-    css`
-      background: none;
-      border: 2px solid white;
 
-      &:hover {
-        background: white;
-        color: black;
-      }
-    `};
-  & + button {
-    margin-left: 1rem;
-  }
 `;
-const ChageTitle = styled.div``;
+
+const ChageTitle = styled.div`
+font-size:15px;
+display: flex;
+flex-wrap: nowrap;
+align-items: center;
+width: 150px;
+height: 10px;
+padding: 10px 2px;
+
+`;
 const ChangePwd = () => {
   return (
     <>

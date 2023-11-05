@@ -74,7 +74,7 @@ const Content2=styled.div`
  }
 `;
 const Content3=styled.div`
-       max-width: 1200px;
+      
         min-width: 600px;
         height: auto;
  margin: 0px auto;
@@ -82,7 +82,7 @@ const Content3=styled.div`
 .Content3item1Css{
 
     width: 100%;
-    border: 3px solid #b18080;
+ 
 }
 `;
 const Content4=styled.div`
