@@ -63,7 +63,7 @@ function App() {
             <Route path="/Goods" element={<Goods />} />
             <Route path="/Community" element={<Community />} />
             <Route path="/CommunityWrite" element={<CommunityWrite />} />
-            <Route path="/Community/View" element={<CommunityView />} />
+            <Route path="/Communityview/:num" element={<CommunityView />} />
             <Route path="/Goods/info" element={<Goodsinfo/>} />
             <Route path="/Goods/sell" element={<Goodssell/>} />
             <Route path="/Goods/cancle" element={<Goodscancle/>}/>

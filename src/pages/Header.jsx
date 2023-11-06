@@ -47,6 +47,7 @@ const Menu = styled.p`
   }
 `;
 const Contain = styled.div`
+max-width: 1200px;
   width: 80px auto;
   margin: 0 auto;
 `;
@@ -54,7 +55,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Contain>
+   
         <Headers>
           <NavBox>
             <Logo onClick={() => navigate("/home")} src={LogoImg} />
@@ -71,7 +72,9 @@ const Header = () => {
               {/* 여긴 한박스로이루어져 로그인 했을때 따로 컴포넌트 필요 */}
             </div>
           </NavBox>
-        </Headers>
+          </Headers>
+          <Contain>
+      
         <main>
           <Outlet />
         </main>
