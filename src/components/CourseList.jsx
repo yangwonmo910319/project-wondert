@@ -27,6 +27,7 @@ const CourseList = () => {
       <CourseItem />
       <CourseItem />
       <CourseItem />
+      <CourseItem />
     </CourseNavbar>
   );
 };
