@@ -1,5 +1,6 @@
 /*하늘 페이지 */
 import CourseDetail from "../components/CourseDetail";
+import CourseList from "../components/CourseList";
 import CourseSelect from "../components/CourseSelect";
 
 const Course = () => {
@@ -7,6 +8,7 @@ const Course = () => {
     <>
       <CourseSelect />
       <CourseDetail />
+      <CourseList/>
     </>
   );
 };

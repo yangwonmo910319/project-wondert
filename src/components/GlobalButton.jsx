@@ -45,7 +45,7 @@ const BtnText=styled.div`
     font-weight: bold;
 `;
 
- const GlobalButton=()=> {
+ const GlobalButton=()=> {                 
   const [toggle, setToggle] = useState(false);
   const clickedToggle = () => {
     setToggle((prev) => !prev);
@@ -54,7 +54,7 @@ const BtnText=styled.div`
  	<>
       <ToggleBtn onClick={clickedToggle} toggle={toggle}>
         <BtnText toggle={!toggle}>국 내</BtnText>
-        <BtnText Text={true} toggle={toggle}>해 외</BtnText>
+        <BtnText Text={true} toggle={toggle}></BtnText>
         <Circle toggle={toggle} />
       </ToggleBtn>
       {/*<h3>Toggle Switch {!toggle ? "OFF" : "ON"}</h3> on off 기능 */}
