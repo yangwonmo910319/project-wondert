@@ -31,22 +31,6 @@ const FieldContainer = styled.div`
       margin: 0 15px;
   
     }
-    ul {
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      padding: 20px 40px;
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-    }
-    li {
-      font-size: 12px;
-      list-style: circle;
-      line-height: 40px;
-    }
-    h3 {
-    font-weight: bold;
-    margin: 10px 20px;
-  }
 `;
 
 
@@ -67,15 +51,6 @@ const WriteForm = () => {
       setDisable(true);
     };
 
-    const [disables,setDisables]=useState(true);
-
-    const onChangedisables = () => {
-      setDisables(false);
-    };
-    const onChangedisables1 = () => {
-      setDisables(true);
-    };
-
   return (
     <>
     <FormContainer>
@@ -83,7 +58,7 @@ const WriteForm = () => {
         <FieldContainer>
           <p>[1. 여행 나라 선택]</p>
             <div>
-              <input type="radio" id="world" name="world" onChange={onChangeRadio1} radio={radio} checked/>
+              <input type="radio" id="world" name="world" onChange={onChangeRadio1} radio={radio}/>
               <label htmlFor="world">국내</label>
               <input type="radio" id="world" name="world" onChange={onChangeRadio} radio={!radio}/>
               <label htmlFor="world">해외</label>
@@ -154,45 +129,27 @@ const WriteForm = () => {
       <FieldContainer>
           <p>[3. 여행 테마 정하기]</p>
           <div>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
           <label htmlFor="diary">#자유여행</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
           <label htmlFor="diary">#지금뜨는그곳</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
           <label htmlFor="diary">#틈새여행</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
           <label htmlFor="diary">#먹방여행</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
           <label htmlFor="diary">#백패킹</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
           <label htmlFor="diary">#프리미엄</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
           <label htmlFor="diary">#겨울여행</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisables}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisable}/>
           <label htmlFor="diary">#기타여행</label>
-          <input type="text" name="text" id="text" placeholder="직접입력" disabled={disables}/>
+          <input type="text" name="text" id="text" placeholder="직접입력" disabled={disable}/>
           </div>
       </FieldContainer>
 
-      <FieldContainer>
-        <p>[4. 여행 후기 글 작성하기]</p>
-        <div>
-          <h3>〈여행 후기 정보〉</h3>
-          <ul>
-            <li>나라 : 국내/해외</li>
-            <li>지역 : 국내지역/해외지역</li>
-            <li>여행 날짜 : 2023/11/01 ~ 2023/11/05</li>
-            <li>여행 테마 : #먹방여행</li>
-          </ul>
-        </div>
-      </FieldContainer>
-
-      <FieldContainer>
-
-      </FieldContainer>
-
       <Comments />
-
 
     </FormContainer>
     </>
