@@ -13,7 +13,6 @@ const Course = () => {
     <Coursecss>
       <CourseSelect />
       <CourseSelectCopy1 />
-
       <CourseDetail />
       <CourseList/>
     </Coursecss>
