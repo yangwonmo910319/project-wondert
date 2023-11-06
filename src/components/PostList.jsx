@@ -4,16 +4,22 @@ import CommonTableColumn from '../components/CommonTableColumn';
 import CommonTableRow from '../components/CommonTableRow';
 import styled from 'styled-components';
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+
+`;
+
 const Title = styled.div`
     font-size: 28px;
     font-weight: bold;
     margin: 30px 80px;
-
 `;
 
 const PostList = props => {
   return (
-    <>
+    <Container>
       <Title>
         <p>[DIY 여행 일지 공유 게시판] - # 겨울여행</p>
       </Title>
@@ -59,7 +65,7 @@ const PostList = props => {
           <CommonTableColumn>4</CommonTableColumn>
         </CommonTableRow>
       </CommonTable>
-    </>
+    </Container>
   )
 }
 
