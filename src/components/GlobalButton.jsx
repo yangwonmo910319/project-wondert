@@ -43,22 +43,22 @@ const BtnText=styled.div`
     color: ${(props) => (!props.toggle ? "white" : "#3f3f3f")};
     font-size: 15px;
     font-weight: bold;
+    transition: all 0.5s ease;
 `;
 
- const GlobalButton=()=> {
+const GlobalButton=()=> {                 
   const [toggle, setToggle] = useState(false);
   const clickedToggle = () => {
     setToggle((prev) => !prev);
   };
   return (
- 	<>
+  <>
       <ToggleBtn onClick={clickedToggle} toggle={toggle}>
         <BtnText toggle={!toggle}>국 내</BtnText>
-        <BtnText Text={true} toggle={toggle}>해 외</BtnText>
+        <BtnText Text={true} toggle={toggle}>해외</BtnText>
         <Circle toggle={toggle} />
       </ToggleBtn>
       {/*<h3>Toggle Switch {!toggle ? "OFF" : "ON"}</h3> on off 기능 */}
-
     </>
   );
 }

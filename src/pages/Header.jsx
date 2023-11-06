@@ -3,14 +3,19 @@ import styled, { css } from "styled-components";
 import LoginButtons from "../components/LoginButtons";
 import LogoImg from "../images/메인로고1111-removebg-preview11.png";
 
+const Headers =styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #45474b;
+`;
+
 const NavBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  width: 1200px;
   height: 60px;
-  margin: 10px 0;
-  border-bottom: 1px solid #45474B ;
   font-weight: 900;
   position: relative;
   left: 0;
@@ -18,13 +23,12 @@ const NavBox = styled.div`
 const Logo = styled.img`
   display: flex;
   align-items: center;
-  width: 100px;
-  height: 80px;
+  width: 110px;
+  height: 70px;
   object-fit: cover;
   margin: 0 10px;
   cursor: pointer;
 `;
-
 
 const Menus = styled.div`
   display: flex;
@@ -38,14 +42,12 @@ const Menu = styled.p`
   height: 60px;
   margin: 20px;
   cursor: pointer;
-  &:hover{
-    border-bottom: 3px solid #F4CE14;
+  &:hover {
+    border-bottom: 3px solid #f4ce14;
   }
 `;
 const Contain = styled.div`
-  max-width: 1200px;
   width: 80px auto;
-  scale: 1;
   margin: 0 auto;
 `;
 const Header = () => {
@@ -53,9 +55,9 @@ const Header = () => {
   return (
     <>
       <Contain>
-        <header>
+        <Headers>
           <NavBox>
-            <Logo onClick={() => navigate("/home")}src={LogoImg}/>
+            <Logo onClick={() => navigate("/home")} src={LogoImg} />
             <Menus>
               <Menu onClick={() => navigate("/Diypage")}>DIY여행일지</Menu>
               <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
@@ -69,11 +71,10 @@ const Header = () => {
               {/* 여긴 한박스로이루어져 로그인 했을때 따로 컴포넌트 필요 */}
             </div>
           </NavBox>
-        </header>
+        </Headers>
         <main>
           <Outlet />
         </main>
-        <footer></footer>
       </Contain>
     </>
   );

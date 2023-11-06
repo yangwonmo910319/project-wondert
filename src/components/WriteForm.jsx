@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const FormContainer = styled.div`
@@ -15,6 +15,9 @@ const FormContainer = styled.div`
 `;
 
 const FieldContainer = styled.div`
+
+      display: ${(props) =>(props.radio ? "none" : "")};
+    
     p {
       font-size: 17px;
       font-weight: bold;
@@ -45,23 +48,31 @@ const FieldContainer = styled.div`
 
 
 const WriteForm = () => {
+    const [radio,setRadio]=useState(false);
+    const onChangeRadio = () => {
+      setRadio(true);
+    };
+    const onChangeRadio1 = () => {
+      setRadio(false);
+    };
+
   return (
     <>
     <FormContainer>
       <h2>게시물 쓰기</h2>
-      <FieldContainer>
-        <p>[1. 여행 나라 선택]</p>
-        <div>
-          <input type="radio" id="world" name="world" />
-          <label htmlFor="world">국내</label>
-          <input type="radio" id="world" name="world" />
-          <label htmlFor="world">해외</label>
-        </div>
-      </FieldContainer>
+        <FieldContainer>
+          <p>[1. 여행 나라 선택]</p>
+            <div>
+              <input type="radio" id="world" name="world" onChange={onChangeRadio1} radio={radio}/>
+              <label htmlFor="world">국내</label>
+              <input type="radio" id="world" name="world" onChange={onChangeRadio} radio={!radio}/>
+              <label htmlFor="world">해외</label>
+            </div>
+        </FieldContainer>
 
-      <FieldContainer>
+      <FieldContainer radio={radio}>
         <p>[국내 지역]</p>
-        <div>
+        <div >
           <input type="radio" name="korea" id="korea" />
           <label htmlFor="korea">제주도</label>
           <input type="radio" name="korea" id="korea" />
@@ -82,9 +93,9 @@ const WriteForm = () => {
         </div>
       </FieldContainer>
 
-      <FieldContainer>
+      <FieldContainer radio={!radio}>
         <p>[해외 지역]</p>
-        <div>
+        <div >
           <input type="radio" name="overseas" id="overseas" />
           <label htmlFor="overseas">일본</label>
           <input type="radio" name="overseas" id="overseas" />
@@ -156,7 +167,7 @@ const WriteForm = () => {
       </FieldContainer>
 
       <FieldContainer>
-        
+
       </FieldContainer>
 
     </FormContainer>
