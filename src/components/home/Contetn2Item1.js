@@ -3,24 +3,46 @@ import styled, { css } from "styled-components";
 
 const Contetn2Item1Css=styled.div`
 font-size: 1.5em;
-margin-left: 50px;
+margin-left: 0px;
+.metn5{
+    text-align: center;
+        border: 2px solid black; border-radius:15px;
+
+    width:150px; 
+    height:auto;
+ p{
+    }
+}
 div{
     float: left ;
-    border-bottom: 2px solid black;
+  
    
     height: 50px;
-    margin: 15px ;
+    margin: 10px ;
     padding: 10px;
 }
-.metn2 ,.metn3,.metn4 { 
+.metn2 ,.metn3 { 
+    width:100px; 
+text-align: center;
+border: 2px solid black; border-radius:15px;
  li{
     display: none;
   
  }
 }
+.metn4 { text-align: center;
+    width:180px;  border: 2px solid black; border-radius:15px;
+    
+    li{
+        display: none;
+}
+
+    }
  ul:hover > li {
     display: block;
     margin-top: 25px;
+    border-bottom: 2px solid black; 
+   
 }
 `;
 
@@ -38,7 +60,7 @@ return(
         </div>
         <div className="metn2">
          
-            <ul>   {a}
+            <ul>   {a} 
                 <li>           <p onMouseDown={()=>{setA("국내");setB("제주도")}}>국내</p></li>
                 <li>              <p onMouseDown={()=>{setA("해외");setB("여행지")}}>해외</p></li>
             </ul>
@@ -58,7 +80,7 @@ return(
             </div>
             <div className="metn4">           
             <ul>
-            {c}
+            {c}를
    
             <li>           <p onMouseDown={()=>{setC("DIY여행일지")}}>DIY여행일지</p></li>
                 <li>              <p onMouseDown={()=>{setC("추천코스")}}>추천코스</p></li>
@@ -66,7 +88,7 @@ return(
                 </ul>
             </div>
             <div className="metn5">
-            보고싶어
+            <p> 보고싶어</p> 
             </div>
 
     </Contetn2Item1Css>

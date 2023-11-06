@@ -6,7 +6,7 @@ font-size: 1.5em;
 width: 100%;
 /* border: 2px solid black; */
 background-image: url(${props => props.image});
-height:700px;
+height:800px;
 background-size:100% 100%;
 background-repeat: no-repeat;
 
@@ -17,7 +17,7 @@ background-repeat: no-repeat;
 
  div{
     width: 25%;
-    height: 700px;
+    height:800px;
     background-color:rgba(0,0,0,0.5);
   border: 1px solid white;
   display: flex;

@@ -1,20 +1,52 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Modal from "../components/home/Model";
-// import AxiosApi from "../api/AxiosApi";
+import { useState } from "react";
 import styled, { css } from "styled-components";
-import Logo from "../images/메인로고1111-removebg-preview11.png";
+const A=styled.div`
+width: 1000px;
+height: 600px;
+background-color: black;
+display: flex;
 
+overflow: hidden;
 
-       
+`;
+const B=styled.div`
+display: flex;
+flex-direction:column;
+flex-wrap: wrap;
+width: 500px;
 
+height: 600px;
+background-color: red;
+transform: translate(${props=>props.zxc}px);
+.C{
+    width: 200px;
+height: 100px;
+background-color: blue; 
+}
+`;
 
-const Test= ()=>{
-  
-  return (
-  <>
- </>
-  );
-};
+const Test=()=>{
+const [a,seta]=useState(0);
+const c=(e)=>{
+    seta(a+e);
+}
+const d=(e)=>{
+    seta(a-e);
+}
+return(
+<> 
+<button onClick={()=>{c(500)}}>후</button>
+<button onClick={()=>{d(500)}}>전</button>
+<A>
+<B zxc={a}>
+<B>1</B>
+<B>2</B>
+<B>3</B>
+</B>
+</A>
 
+    </>
+)
+
+}
 export default Test;

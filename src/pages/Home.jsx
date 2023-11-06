@@ -50,16 +50,16 @@ const Content1=styled.div`
 }
     `;
 const Content2=styled.div`
-
+       
         max-width: 1200px;
         min-width: 600px;
  margin: 0px auto;
        display: flex;
        flex-direction:column;
 
-    
+       margin-top: 50px;
     .Content2item1Css{
- 
+       
         width: 60%;
         position: relative;
         margin: 0 auto;
@@ -86,10 +86,10 @@ const Content3=styled.div`
 }
 `;
 const Content4=styled.div`
-    max-width: 1200px;
+ 
         min-width: 600px;
-        height: auto;
- margin: 100px auto;
+        height: 100%;
+ margin: 50px auto;
  
 `;
 const Content5=styled.div`

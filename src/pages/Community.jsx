@@ -1,8 +1,11 @@
 /*원모 페이지 */
 import styled, { css } from "styled-components";
 import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 const CommunityCss = styled.div`
 
+max-width: 1200px;
+white-space:nowrap;
 width: 80%;
 margin: 0 auto;
 `;
@@ -23,10 +26,10 @@ const Content1=styled.div`
 
 const Item1=styled.div`
 
-width: 12%;
+width: 130px;
 `;
 const Item2=styled.div`
-width: 52%;
+width: 100%;
 `;
 
 
@@ -37,7 +40,7 @@ const Content2=styled.div`
   color:white;
   background: rgba(72, 100, 224, 1);
   display: flex;
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
 p{
   margin-top: 5px;
@@ -54,9 +57,10 @@ const Content3=styled.div`
   border: 1px solid blue;
   border-radius: 10px;
   text-align: center;
-  display: flex;
+    display: flex;
   padding: 7px;
   margin-top: 10px;
+
 `;
 
 const Content4=styled.div`
@@ -103,13 +107,14 @@ border: 2px solid blue;
 const Content3item=styled.div`
 height: 32px;
 border: 2px solid red;
+
 `;
 
 const Community = () => {
   const testboard=[{no:1,title:"테스트 게시물",name:"테스트",date1:"2002-2-2",view:15},
-  {no:2,title:"테스트 게시물2",name:"테스트2",date1:"2002-2-2",view:15},
-  {no:3,title:"테스트 게시물3",name:"테스트3",date1:"2002-2-2",view:15},
-  {no:4,title:"테스트 게시물4",name:"테스트4",date1:"2002-2-2",view:15},];
+  {no:2,title:"테스트 게시물2",name:"테스트2",date1:"20/02/19",view:15},
+  {no:3,title:"테스트 게시물3",name:"테스트3",date1:"20/02/19",view:15},
+  {no:4,title:"테스트 게시물4",name:"테스트4",date1:"20/02/19",view:15},];
   return (
     <CommunityCss>
        <Content1><p>커뮤니티 게시판</p></Content1>
@@ -121,15 +126,17 @@ const Community = () => {
         <Item1>   <p  >조회수</p></Item1>
         </Content2>
        
-       {testboard.map((board)=>(  
-                 <Content3>
+       {testboard.map((board)=>(   <Link to={`/Communityview/${board.no}`} > 
+                 <Content3 > 
+               
+               
            <Item1>{board.no} </Item1> 
            <Item2> {board.title}    </Item2> 
            <Item1>   {board.name}</Item1> 
            <Item1>  {board.date1}</Item1> 
            <Item1>    {board.view}  </Item1> 
-           
-            </Content3>      
+      
+            </Content3>        </Link> 
                    
            ))}
            {/* 테스트용---------------------------------- */}
@@ -151,7 +158,7 @@ const Community = () => {
           <SerchVar></SerchVar>
           <SerchBtn><p>검색</p></SerchBtn>
         </Serch>
-        <Write><p>글 쓰기</p></Write>
+        <Link to="/Communitywrite"><Write><p>글 쓰기</p></Write></Link>
          </Item3>
         
        </Content4>
