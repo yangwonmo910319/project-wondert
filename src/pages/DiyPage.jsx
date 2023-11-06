@@ -1,11 +1,6 @@
 /*선영 페이지 */
 import React from "react";
-// import PhotoBoxes from "../components/PhotoBox";
-// import styled from "styled-components";
-// import ListBanner from "../components/ListBanner";
 // import ListWriting from "../components/ListWriting";
-// import Write from "../components/TravelWrite";
-// import Diary from "../components/TravelDiary";
 // import Imoge from "../components/GoodBad";
 // import CommentWrite from "../components/Comment";
 import MainPage from "../components/SlideMain";
@@ -20,17 +15,11 @@ const DiyPage = () =>{
         <>
         <MainPage />
         <PostMain />
-        <CommunityWrite />
         <BoardList />
         <WriteForm />
-
+        <CommunityWrite />
         {/* 
-        <PhotoBoxes />
-        <ListBanner />
         <ListWriting />
-        <Write />
-        <Diary />
-        <Write />
         <Imoge />
         <CommentWrite />
       */}

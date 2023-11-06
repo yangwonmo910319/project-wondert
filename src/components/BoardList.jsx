@@ -93,7 +93,6 @@ function BoardList() {
 
   return (
     <BoardContainer>
-      <Title>게시판 목록</Title>
       <BoardUl>
         {boardList &&
           boardList.map((board) => (

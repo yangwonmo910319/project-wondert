@@ -35,7 +35,7 @@ const Slider = styled.div`
         position: absolute;
         right:0;
         left: 0;
-        top: 300px;
+        top: 200px;
         }
         .lb-text h2 {
             font-size: 40px;
@@ -49,8 +49,8 @@ const Slider = styled.div`
             align-items: center;
             flex-wrap: nowrap;
             position: relative;
-            border-top: 1px solid #bbb;
-            border-bottom: 1px solid #bbb;
+            border-top: 1px solid whitesmoke;
+            border-bottom: 1px solid whitesmoke;
             padding: 40px 0;
 
             &::before {
@@ -100,7 +100,7 @@ const Slider = styled.div`
                 }
                 &.small {
                     width: 350px;
-                    height: 400px;
+                    height: 300px;
                     margin: 0 40px;
                 }
                 .item {
