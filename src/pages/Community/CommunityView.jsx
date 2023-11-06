@@ -1,6 +1,7 @@
 /*원모 페이지 */
 import styled, { css } from "styled-components";
 import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 const CommunityCss = styled.div`
 
 width: 80%;
@@ -134,8 +135,11 @@ const Menu=styled.div`
   height: 50px;
   margin-top: 50px;
   font-size: 25px;
+  color:black;
+
   p{
-    width: 180px;
+    width: 180px; 
+
     border-bottom: 3px solid rgba(72, 100, 224, 1);;
   }
 `;
@@ -144,8 +148,9 @@ const CommunityView = () => {
   const testre=[{nick:"test",ripple:"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"},{nick:"test2",ripple:"1111211111111111111111111111111111111111"}]
   return (
     <CommunityCss>
-      <Menu><p>커뮤니티 게시판</p></Menu>
-      
+    <Link to="/Community"  style={{ textDecoration: "none"}}> <Menu><p>커뮤니티 게시판</p></Menu>
+      </Link> 
+
         {testboard.map((board)=>(  
        <Content1>
        
@@ -182,13 +187,14 @@ const CommunityView = () => {
         <Serch>
           <SerchVar></SerchVar>
           <SerchBtn><p>확인</p></SerchBtn>
+          <Link to="/Community">      <SerchBtn>취 소 </SerchBtn>  </Link>  
         </Serch>
       
          </Item3>
         
        </Content3>
        {/* <Content5></Content5> */}
-      
+   
     </CommunityCss>
   );
 };

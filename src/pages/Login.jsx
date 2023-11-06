@@ -17,12 +17,22 @@ const Container = styled.div`
   justify-content: space-evenly;
 
  margin: 150px auto;
+ & .login {
+  
+    margin: 0 auto;
+ 
+    font: normal normal bold 24px/35px Poppins;
+    letter-spacing: 0px;
+    color:black;
+    opacity: 1;
+  }
   .success {
     color: green;
   }
   .error {
     color: red;
   }
+
 `;
 
 const Items = styled.div`
@@ -65,6 +75,7 @@ const Items = styled.div`
 
     
   }
+    
 
   &.signup{
     justify-content: right;
@@ -107,7 +118,7 @@ const Button = styled.button`
   font-size: 26px;
   font-weight: bold;
   width: 60%; /* 원하는 너비 설정 */
-  height: 50px;
+  height: 38px;
   color: white;
   background-color: #656464;
   font-size: 15px;
@@ -172,11 +183,16 @@ const Login = () => {
   const onClickLogin = async () => {
 
   };
-
+ const goHome = ()=>{
+  navigate("/home");
+ }
   return (
     <Container>
       <Items className="item1">
         <img src={Logo} alt="Logo" />
+      </Items>
+      <Items className="login">
+        <span>로그인</span>
       </Items>
 
       <Items className="item2">
@@ -197,8 +213,9 @@ const Login = () => {
         )}
       </Items>
    
-          <Button disabled>확 인</Button>
-          <Button disabled>취 소</Button>
+      <Button disabled={false} onClick={() => {onClickLogin()}}>확 인</Button>
+
+         <Button enbled onClick={() => {goHome()}} >취 소</Button>
       <Modal open={modalOpen} close={closeModal} header="오류">
          아이디 및 패스워드를 확인해 주세요.
        </Modal>

@@ -44,9 +44,12 @@ const Nav =()=>{
           <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
           <Menu onClick={() => navigate("/Goods")}>1인전용상품</Menu>
           <Menu onClick={() => navigate("/Community/myinfo/CommunitySubMenu/Changemyinfo")}>커뮤니티</Menu>
+          <Menu onClick={() => navigate("/Diypage")}>로그인</Menu>
+          <Menu onClick={() => navigate("/Course")}>회원가입 </Menu>
+       
         </Menus>
 
-          로그인 회원가입
+       
           <LoginButtons />
           {/* 여긴 한박스로이루어져 로그인 했을때 따로 컴포넌트 필요 */}
     

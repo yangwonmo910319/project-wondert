@@ -222,7 +222,9 @@ const Signup = () => {
     //   setModelText("이미 가입된 회원 입니다.");
     // }
   };
-
+  const goHome = ()=>{
+    navigate("/home");
+   }
   return (
     <Container>
           <Items className="logo">
@@ -313,7 +315,7 @@ const Signup = () => {
         ) : (
           <Button disabled>   확인</Button>
         )}
-         <Button enabled>   취소</Button>
+             <Button enbled onClick={() => {goHome()}} >취 소</Button>
         <Modal open={modalOpen} close={closeModal} header="오류">
           {modalText}
         </Modal>

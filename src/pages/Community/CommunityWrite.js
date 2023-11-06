@@ -1,6 +1,7 @@
 /*원모 페이지 */
 import styled, { css } from "styled-components";
 import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 const CommunityCss = styled.div`
 width: 80%;
 margin: 0 auto;
@@ -100,7 +101,7 @@ const CommunityView = () => {
        <Content3>
 
        <Item3 >확 인 </Item3>
-         <Item3>취 소 </Item3>        
+       <Link to="/home">    <Item3>취 소 </Item3>    </Link>  
        </Content3> 
 
     </CommunityCss>

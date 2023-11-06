@@ -36,6 +36,13 @@ const Menus = styled.div`
   margin-right: 200px;
 `;
 
+const Menus2 = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+`;
+
+
 const Menu = styled.p`
   display: flex;
   align-items: center;
@@ -64,13 +71,15 @@ const Header = () => {
               <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>
               <Menu onClick={() => navigate("/Goods")}>1인전용상품</Menu>
               <Menu onClick={() => navigate("/Community")}>커뮤니티</Menu>
+  
             </Menus>
-            <div></div>
-            <div>
-              로그인 회원가입
+            <Menus2>
+             <Menu onClick={() => navigate("/login")}>로그인</Menu>
+             <Menu onClick={() => navigate("/signup")}>회원가입 </Menu>
+            </Menus2>
               <LoginButtons />
               {/* 여긴 한박스로이루어져 로그인 했을때 따로 컴포넌트 필요 */}
-            </div>
+
           </NavBox>
           </Headers>
           <Contain>
