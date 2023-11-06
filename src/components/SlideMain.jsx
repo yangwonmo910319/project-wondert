@@ -10,7 +10,7 @@ const Slider = styled.div`
         font-weight: bold;
         font-size: 30px;
         padding: 20px 20px;
-        margin-right: 870px;
+        margin-right: 870px; 
     }
     ul, li {
         list-style: none;
@@ -20,10 +20,9 @@ const Slider = styled.div`
         overflow: hidden;
 
         .slide_wrapper {
-            display: flex;
-            flex-wrap: nowrap;
-            background-color: whitesmoke;
-    
+        display: flex;
+        flex-wrap: nowrap;
+        background-color: whitesmoke;
         }
         .lb-wrap {
         width: 70%;

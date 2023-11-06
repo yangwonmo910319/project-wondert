@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Comments from "./Comments";
 
 const FormContainer = styled.div`
   border: 1px solid lightgray;
   box-shadow: 0 0 5px lightgray;
   border-radius: 10px;
-  margin: 0 50px;
 
   h2{
     font-size: 30px;
@@ -16,7 +16,7 @@ const FormContainer = styled.div`
 
 const FieldContainer = styled.div`
 
-      display: ${(props) =>(props.radio ? "none" : "")};
+    display: ${(props) =>(props.radio ? "none" : "")};
     
     p {
       font-size: 17px;
@@ -35,6 +35,8 @@ const FieldContainer = styled.div`
       border: 1px solid lightgray;
       border-radius: 5px;
       padding: 20px 40px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
     }
     li {
       font-size: 12px;
@@ -65,6 +67,15 @@ const WriteForm = () => {
       setDisable(true);
     };
 
+    const [disables,setDisables]=useState(true);
+
+    const onChangedisables = () => {
+      setDisables(false);
+    };
+    const onChangedisables1 = () => {
+      setDisables(true);
+    };
+
   return (
     <>
     <FormContainer>
@@ -72,7 +83,7 @@ const WriteForm = () => {
         <FieldContainer>
           <p>[1. 여행 나라 선택]</p>
             <div>
-              <input type="radio" id="world" name="world" onChange={onChangeRadio1} radio={radio}/>
+              <input type="radio" id="world" name="world" onChange={onChangeRadio1} radio={radio} checked/>
               <label htmlFor="world">국내</label>
               <input type="radio" id="world" name="world" onChange={onChangeRadio} radio={!radio}/>
               <label htmlFor="world">해외</label>
@@ -143,23 +154,23 @@ const WriteForm = () => {
       <FieldContainer>
           <p>[3. 여행 테마 정하기]</p>
           <div>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
           <label htmlFor="diary">#자유여행</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
           <label htmlFor="diary">#지금뜨는그곳</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
           <label htmlFor="diary">#틈새여행</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
           <label htmlFor="diary">#먹방여행</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
           <label htmlFor="diary">#백패킹</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
           <label htmlFor="diary">#프리미엄</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisables1}/>
           <label htmlFor="diary">#겨울여행</label>
-          <input type="radio" name="diary" id="diary" onChange={onChangedisable}/>
+          <input type="radio" name="diary" id="diary" onChange={onChangedisables}/>
           <label htmlFor="diary">#기타여행</label>
-          <input type="text" name="text" id="text" placeholder="직접입력" disabled={disable}/>
+          <input type="text" name="text" id="text" placeholder="직접입력" disabled={disables}/>
           </div>
       </FieldContainer>
 
@@ -179,6 +190,9 @@ const WriteForm = () => {
       <FieldContainer>
 
       </FieldContainer>
+
+      <Comments />
+
 
     </FormContainer>
     </>
