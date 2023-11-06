@@ -37,7 +37,7 @@ const setting = {  // 이거보고 슬라이드 구성하세요!!!!!!!!!!!!
 
 
 const Constainer = styled.div`
-  width: 80%;
+  width: 800px;
   height: 200px;
   margin-bottom: 50px;
   transition: all 1s ease;
