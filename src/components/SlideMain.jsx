@@ -4,9 +4,13 @@ import styled from "styled-components";
 
 const Slider = styled.div`
     p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-weight: bold;
         font-size: 30px;
-        margin: 30px 80px;
+        padding: 20px 20px;
+        margin-right: 870px;
     }
     ul, li {
         list-style: none;
@@ -155,8 +159,9 @@ const MainPage = () => {
 
     return (
         <Slider>
+
+            <p>1인 여행 테마</p>
             <div className="slide_container">
-                <p>1인 여행 테마</p>
                 <ul
                     className="slide_wrapper"
                     onMouseEnter={onStop}//마우스 대면멈춤
@@ -206,7 +211,7 @@ const MainPage = () => {
                             ></div>
                             </li>
                         ))}
-                    </div>
+                    </div>  
                 </ul>
             </div>
         </Slider>
