@@ -7,10 +7,6 @@ const BoardContainer = styled.div`
   padding: 30px;
 `;
 
-const Title = styled.h1`
-  color: #333;
-  text-align: center;
-`;
 
 const BoardUl = styled.ul`
   list-style-type: none;

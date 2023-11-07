@@ -2,6 +2,7 @@
 import styled, { css } from "styled-components";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 const CommunityCss = styled.div`
 
 max-width: 1200px;
@@ -98,17 +99,7 @@ height: 30px;
 background-color: #dfdfdf;
 margin-left:70px ;
 `;
-const Content5=styled.div`
-width: 100%;
-height: 100px;
-border: 2px solid blue;
 
-`;
-const Content3item=styled.div`
-height: 32px;
-border: 2px solid red;
-
-`;
 
 const Community = () => {
   const testboard=[{no:1,title:"테스트 게시물",name:"테스트",date1:"2002-2-2",view:15},
@@ -127,7 +118,7 @@ const Community = () => {
         </Content2>
        
        {testboard.map((board)=>(   <Link to={`/Communityview/${board.no}`} > 
-                 <Content3 > 
+                 <Content3 key={board.no}> 
                
                
            <Item1>{board.no} </Item1> 
@@ -141,7 +132,7 @@ const Community = () => {
            ))}
            {/* 테스트용---------------------------------- */}
                   {testboard.map((board)=>(  
-                 <Content3>
+                     <Content3 key={board.no}> 
            <Item1>{board.no} </Item1> 
            <Item2> {board.title}    </Item2> 
            <Item1>   {board.name}</Item1> 

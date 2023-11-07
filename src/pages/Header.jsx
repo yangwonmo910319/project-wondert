@@ -65,7 +65,7 @@ const Header = () => {
    
         <Headers>
           <NavBox>
-            <Logo onClick={() => navigate("/home")} src={LogoImg} />
+            <Logo onClick={() => navigate("/")} src={LogoImg} />
             <Menus>
               <Menu onClick={() => navigate("/Diypage")}>DIY여행일지</Menu>
               <Menu onClick={() => navigate("/Course")}>추천 코스 </Menu>

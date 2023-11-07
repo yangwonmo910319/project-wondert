@@ -34,6 +34,7 @@ const StyledLink = styled(Link)`
 // ...
 
 const Test=()=>{
+  
 const [a,seta]=useState(0);
 const c=(e)=>{
     seta(a+e);
@@ -46,14 +47,16 @@ p{
     text-decoration-line: none;
 }
 
-`;
+`;  
+
 return(
+ 
 <> 
 <button onClick={()=>{c(500)}}>후</button>
 <button onClick={()=>{d(500)}}>전</button>
 <A>
 <B zxc={a}>
-<B>1</B>
+
 <B>2</B>
 <B>3</B>
 </B>
