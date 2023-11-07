@@ -1,45 +1,85 @@
-import styled from "styled-components";
-import React, { useState } from "react";
-// 버튼 사이즈 맞추기
-const CourseBtnG = styled.div`
+import styled, { css } from "styled-components";
+
+const SelectBox1 = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 1200px;
-`;
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 40px;
-  padding: 10px 16px;
   margin: 10px;
+  .SelectBoxImg1 {
+    .img1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 200px;
+      height: 200px;
+      background-image: url("https://i.pinimg.com/474x/60/c8/63/60c863c4f3f051fab8e6bd5bb19cd107.jpg");
+      background-size: cover;
+      border-radius: 50%;
+      margin: 10px;
+    }
+    .Click {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .SelectBoxImg2 {
+    .img2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      background-image: url("https://i.pinimg.com/474x/0a/3b/22/0a3b225e36ed66c94d0f0cb93e681893.jpg");
+      background-size: cover;
+      border-radius: 50%;
+      margin: 10px;
+    }
+    .Click {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 `;
 
-const CourseBtn = () => {
-  // 상단바 해외
-  const [Area, setArea] = useState();
+const CourseSelect = () => {
   return (
     <>
-      <CourseBtnG>
-        <Button className="대만" onClick={() => setArea("대만")}>
-          대만
-        </Button>
-        <Button className="일본" onClick={() => setArea("일본")}>
-          일본
-        </Button>
-        <Button className="싱가폴" onClick={() => setArea("싱가폴")}>
-          싱가폴
-        </Button>
-        <Button className="호주" onClick={() => setArea("호주")}>
-          호주
-        </Button>
-        <Button className="베트남" onClick={() => setArea("베트남")}>
-          베트남
-        </Button>
-      </CourseBtnG>
+      <SelectBox1>
+        <div className="SelectBoxImg1">
+          <div className="img1"></div>
+          <div className="Click">해외 1</div>
+        </div>
+        <div className="SelectBoxImg2">
+          <div className="img2"></div>
+          <div className="Click">해외 2</div>
+        </div>
+        <div className="SelectBoxImg1">
+          <div className="img1"></div>
+          <div className="Click">해외 3</div>
+        </div>
+        <div className="SelectBoxImg2">
+          <div className="img2"></div>
+          <div className="Click">해외 4</div>
+        </div>
+        <div className="SelectBoxImg1">
+          <div className="img1"></div>
+          <div className="Click">해외 5</div>
+        </div>
+      </SelectBox1>
     </>
   );
 };
-export default CourseBtn;
+
+export default CourseSelect;

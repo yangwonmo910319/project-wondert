@@ -54,7 +54,7 @@ const PathBox = styled.div`
   width: 100%;
 `;
 
-const CourseItem = () => {
+const CourseItem = ({ data }) => {
   return (
     <>
       <CourseBox>
@@ -66,7 +66,7 @@ const CourseItem = () => {
               color: "black",
             }}
           >
-            # 대만의 하이라이트 코스
+            {data.COURSE_HASH}
           </span>
           <MainImg></MainImg>
         </MainBox>
@@ -78,7 +78,7 @@ const CourseItem = () => {
               color: "black",
             }}
           >
-            특유의 다양한 볼거리와 먹거리들이 참 매력적인 코스
+            {data.TOPIC}
           </TopicBox>
           <PathBox
             style={{
@@ -87,11 +87,11 @@ const CourseItem = () => {
               color: "black",
             }}
           >
-            <div className="Path1">시먼딩</div>
+            <div className="Path1">{data.COURSE_PATH1}</div>
             <p>▷</p>
-            <div className="Path2">보피리아오 역사거리</div>
+            <div className="Path2">{data.COURSE_PATH2}</div>
             <p>▷</p>
-            <div className="Path3">타이베이 101</div>
+            <div className="Path3">{data.COURSE_PATH3}</div>
           </PathBox>
         </ArticleBox>
       </CourseBox>
