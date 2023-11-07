@@ -7,15 +7,17 @@ const CourseBox = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
   border-bottom: 3px dashed gray;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 //컨셉 메인박스
 const MainBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   flex-grow: 1;
   padding: 10px;
 `;
@@ -28,6 +30,7 @@ const MainImg = styled.div`
   background-size: cover;
   height: 200px;
   width: 200px;
+  border-radius: 10px;
 `;
 // 컨셉 글칸
 const ArticleBox = styled.div`
@@ -54,31 +57,29 @@ const PathBox = styled.div`
   width: 100%;
 `;
 
-const CourseItem = () => {
+const CourseItem = ({ data }) => {
   return (
     <>
       <CourseBox>
         <MainBox>
           <span
             style={{
-              fontWeight: "bold",
-              fontSize: "20px",
-              color: "black",
+              fontSize: "15px",
             }}
           >
-            # 대만의 하이라이트 코스
+            {data.COURSE_HASH}
           </span>
+          <br />
           <MainImg></MainImg>
         </MainBox>
         <ArticleBox>
           <TopicBox
             style={{
-              fontWeight: "bold",
               fontSize: "30px",
               color: "black",
             }}
           >
-            특유의 다양한 볼거리와 먹거리들이 참 매력적인 코스
+            {data.TOPIC}
           </TopicBox>
           <PathBox
             style={{
@@ -87,11 +88,12 @@ const CourseItem = () => {
               color: "black",
             }}
           >
-            <div className="Path1">시먼딩</div>
-            <p>▷</p>
-            <div className="Path2">보피리아오 역사거리</div>
-            <p>▷</p>
-            <div className="Path3">타이베이 101</div>
+            <div className="Path1">{data.COURSE_PATH1}</div>
+            <p style={{ color: "gray" }}>▷</p>
+            <div className="Path2">{data.COURSE_PATH2}</div>
+            <p style={{ color: "gray" }}>▷</p>
+
+            <div className="Path3">{data.COURSE_PATH3}</div>
           </PathBox>
         </ArticleBox>
       </CourseBox>

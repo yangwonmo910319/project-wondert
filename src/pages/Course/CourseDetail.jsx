@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import CourseBtn from "./CourseBtn";
-import CourseCom from "./CourseCom";
+import CourseBtn from "../../components/CourseBtn";
+import CourseCom from "../../components/CourseCom";
 
 const CourseDetailItem = styled.div`
   display: flex;
@@ -28,10 +28,10 @@ const Container2 = styled.div`
   padding: 10px;
   .topicbox {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 1200px;
-    border: 3px dashed gray;
+    border: 3px double gray;
   }
   .topic {
     display: flex;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Comments from "./Comments";
+// import Comments from "./Comments";
+import Calendal from "./Calendal";
+import TravelCourse from "./TravelCourse";
 
 const FormContainer = styled.div`
   border: 1px solid lightgray;
@@ -122,7 +124,7 @@ const WriteForm = () => {
       <FieldContainer>
         <p>[2.여행 날짜 정하기]</p>
         <div>
-
+          <Calendal />
         </div>
       </FieldContainer>
 
@@ -148,9 +150,7 @@ const WriteForm = () => {
           <input type="text" name="text" id="text" placeholder="직접입력" disabled={disable}/>
           </div>
       </FieldContainer>
-
-      <Comments />
-
+        <TravelCourse />
     </FormContainer>
     </>
   );
