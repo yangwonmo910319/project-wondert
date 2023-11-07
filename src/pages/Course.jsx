@@ -10,7 +10,6 @@ const Course = () => {
   return (
     <Coursecss>
       <CourseList />
-      <CourseDetail />
     </Coursecss>
   );
 };
