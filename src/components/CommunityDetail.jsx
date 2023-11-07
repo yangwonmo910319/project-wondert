@@ -63,51 +63,20 @@ h2 {
 .article-course {
     border: 1px solid lightgray;
 }
-.reply-form > form input[type="text"] {
-    width:200px;
-    margin: 0 80px;
-}
 
-.reply-form > form textarea {
-    width:calc(100% - 100px);
-    min-height:100px;
-    margin: 0 80px;
-}
-
-.reply-form > form input[type="submit"] {
-    width:50px;
-    height:30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 80px;
-}
-
-.reply-form > form > div:not(:last-child) {
-    margin-bottom:5px;
-}
-.reply-list > table tr:nth-child(2n+1) {
-    background-color:rgba(0,0,0,0.06);
-}
-
-.reply-list thead {
-    font-weight:bold;
-    font-size: 18px;
-    color: navy;
-}
 `;
 
 const CommunityWrite = () => {
     return (
     <Detail>
         <h2>게시글 상세</h2>
+
             <section className="article-detail table-common con row">
                 <table className="cell">
                     <tbody>
                         <tr className="article-title">
                             <th>[번호] 제목 : 일본 여행 후기 올립니다!</th>
                         </tr>
-
                         <tr className="article-info">
                             <th>날짜 : 2023.11.02</th>
                             <td>아이디123</td>
@@ -121,68 +90,9 @@ const CommunityWrite = () => {
                 </table>
             </section>
 
-    <div className="con_reply">
-        <h1 className="con">댓글 입력</h1>
+    <div>
 
-        <section className="reply-form">
-            <form action="return false;">
-                <div>
-                    <input type="text" placeholder="아이디"/>
-                </div>
-                <div>
-                    <textarea></textarea>
-                    <input type="submit" />
-                </div>
-            </form>
-        </section>
-
-        <h1 className="con">댓글 목록</h1>
-        <section className="reply-list table-common">
-            <table>
-                <thead>
-                    <tr>
-                        <th>아이디</th>
-                        <th>별점</th>
-                        <th>작성일자</th>
-                        <th>내용</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>아이디</th>
-                        <th>별점</th>
-                        <th>작성일자</th>
-                        <th>내용</th>
-                    </tr>
-                    <tr>
-                        <th>아이디</th>
-                        <th>별점</th>
-                        <th>작성일자</th>
-                        <th>내용</th>
-                    </tr>
-                    <tr>
-                        <th>아이디</th>
-                        <th>별점</th>
-                        <th>작성일자</th>
-                        <th>내용</th>
-                    </tr>
-                    <tr>
-                        <th>아이디</th>
-                        <th>별점</th>
-                        <th>작성일자</th>
-                        <th>내용</th>
-                    </tr>
-                    <tr>
-                        <th>아이디</th>
-                        <th>별점</th>
-                        <th>작성일자</th>
-                        <th>내용</th>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
     </div>
-
     </Detail>
 
     );

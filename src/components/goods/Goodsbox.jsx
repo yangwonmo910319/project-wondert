@@ -1,5 +1,8 @@
 import styled, { css } from "styled-components";
-
+import { useState, useEffect } from "react";
+import AxiosApi from "../../api/AxiosApi";
+import { UserContext } from "../../context/Worldcontext";
+import { useContext } from "react";
 
 
 
@@ -11,15 +14,17 @@ const GoodsContainer = styled.div`
   background-color: white;
   min-width: 1200px;
   height: 240px;
-  border: 2px solid black;
+  border: 2px solid grey;
   border-radius: 4px;
+  &+&{
+    margin-top: 20px;
+  }
 `;
 
 const Image = styled.img`
   margin-left: 20px;
   width: 300px;
   height: 200px;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Libya_5230_Wan_Caza_Dunes_Luca_Galuzzi_2007.jpg/800px-Libya_5230_Wan_Caza_Dunes_Luca_Galuzzi_2007.jpg);
   object-fit: cover;
 `;
 
@@ -36,7 +41,6 @@ const Title = styled.div`
     font-weight: bold;
   }
   .Info1 {
-
     padding: 10px 0px;
     font-size: 16px;
     color: gray;
@@ -69,31 +73,52 @@ const Price = styled.div`
 `;
 const ItemCode = styled.div`
   padding: 10px;
+  font-size: 18px;
 `;
 
 const Goodsbox = () => {
+  const context = useContext(UserContext);
+  const { world } = context;
+  const [GoodsList, setGoodsList] = useState("");
+  
+  useEffect(()=>{
+    const GoodsList = async ()=>{
+    try{
+        const resp = await AxiosApi.goodsList(world); //전체 조회
+        if(resp.status === 200) setGoodsList(resp.data);
+        console.log(resp.data);
+    }catch(e){
+        console.log(e);
+    }};
+    GoodsList();
+},[world]);
+
+
+
   return (
+  <>
+    {GoodsList &&
+      GoodsList.map(data => (
     <GoodsContainer>
-      <Image />
+      <Image src={data.i_main_img} />
       <Title>
-        <h1 className="Titles">타이틀입니다타이틀입니다타이틀입니다</h1>
-        <p className="Info1">설명1설명1설명1설명1설명1설명1설명1설명1설명1</p>
+        <h1 className="Titles">{data.title}</h1>
+        <p className="Info1">{data.info1}</p>
+        <p className="Info2">{data.info2}</p>
+        <br/>
+        <p className="Info2">🎫 출발 일정 : {Number(data.i_date_num)-1}박{data.datenum}일 </p>
         <p className="Info2">
-          설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2
-        </p>
-        <br />
-        <p className="Info2">🎫 출발 일정 : 4일 </p>
-        <p className="Info2">
-          🛫 여행 기간 : 2023년 11월 16일 ~ 2023년 11월 20일
+          🛫 여행 기간 : {data.date} ~ {data.date}
         </p>
       </Title>
       <PriceBox>
-        <ItemCode>상품번호  S20231101 </ItemCode>
-        <Price>50,000원</Price>
+        <ItemCode>상품번호  {data.item_num} </ItemCode>
+        <Price>{data.price}원</Price>
         <Button>자세히보기 〉〉</Button>
       </PriceBox>
     </GoodsContainer>
-  );
+      ))}
+  </>)
 };
 
 export default Goodsbox;
