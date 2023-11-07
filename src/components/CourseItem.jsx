@@ -88,9 +88,9 @@ const CourseItem = () => {
             }}
           >
             <div className="Path1">시먼딩</div>
-            <p>-></p>
+            <p>▷</p>
             <div className="Path2">보피리아오 역사거리</div>
-            <p>-></p>
+            <p>▷</p>
             <div className="Path3">타이베이 101</div>
           </PathBox>
         </ArticleBox>
