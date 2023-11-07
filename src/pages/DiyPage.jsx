@@ -6,9 +6,7 @@ import React from "react";
 import styled from "styled-components";
 import MainPage from "../components/SlideMain";
 import PostMain from "../components/PostList";
-import CommunityWrite from "../components/CommunityDetail";
 import BoardList from "../components/BoardList";
-import WriteForm from "../components/WriteForm";
 
 const Center = styled.div`
     display:flex;
@@ -24,10 +22,8 @@ const DiyPage = () =>{
           <MainPage />
           <PostMain />
           <BoardList />
-          <WriteForm />
-          <CommunityWrite />
-          {/* 
-          <ListWriting />
+        
+          {/*<ListWriting />
           <Imoge />
           <CommentWrite />
         */}
