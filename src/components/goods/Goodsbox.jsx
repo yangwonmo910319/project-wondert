@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { useState, useEffect } from "react";
 import AxiosApi from "../../api/AxiosApi";
+import { UserContext } from "../../context/Worldcontext";
+import { useContext } from "react";
 
 
 
@@ -23,7 +25,6 @@ const Image = styled.img`
   margin-left: 20px;
   width: 300px;
   height: 200px;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Libya_5230_Wan_Caza_Dunes_Luca_Galuzzi_2007.jpg/800px-Libya_5230_Wan_Caza_Dunes_Luca_Galuzzi_2007.jpg);
   object-fit: cover;
 `;
 
@@ -76,27 +77,30 @@ const ItemCode = styled.div`
 `;
 
 const Goodsbox = () => {
-  const [worlds,setWorlds] =useState("korea");
+  const context = useContext(UserContext);
+  const { world } = context;
   const [GoodsList, setGoodsList] = useState("");
   
   useEffect(()=>{
     const GoodsList = async ()=>{
     try{
-        const resp = await AxiosApi.goodsList(worlds); //전체 조회
+        const resp = await AxiosApi.goodsList(world); //전체 조회
         if(resp.status === 200) setGoodsList(resp.data);
         console.log(resp.data);
     }catch(e){
         console.log(e);
     }};
     GoodsList();
-},[worlds]);
+},[world]);
+
+
 
   return (
   <>
     {GoodsList &&
       GoodsList.map(data => (
     <GoodsContainer>
-      <Image />
+      <Image src={data.i_main_img} />
       <Title>
         <h1 className="Titles">{data.title}</h1>
         <p className="Info1">{data.info1}</p>
