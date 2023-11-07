@@ -6,8 +6,8 @@ import { storage } from "../api/FireBase";
 
 const FormContainer = styled.div`
   padding: 40px;
-  margin: 30px 60px;
-  width: 1100px;
+  margin: 30px 0;
+  width: 800px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -194,6 +194,7 @@ const PicForm = () => {
           onChange={handleTitleChange}
         />
       </FieldContainer>
+
       <FieldContainer>
         <StyledLabel htmlFor="content">내용</StyledLabel>
         <StyledTextarea
@@ -203,11 +204,33 @@ const PicForm = () => {
           onChange={handleContentChange}
         />
       </FieldContainer>
+
+      <FieldContainer>
+        <StyledLabel htmlFor="content">내용</StyledLabel>
+        <StyledTextarea
+          id="content"
+          name="content"
+          value={content}
+          onChange={handleContentChange}
+        />
+      </FieldContainer>
+
+      <FieldContainer>
+        <StyledLabel htmlFor="content">내용</StyledLabel>
+        <StyledTextarea
+          id="content"
+          name="content"
+          value={content}
+          onChange={handleContentChange}
+        />
+      </FieldContainer>
+
       <FileUploadContainer>
         <StyledInput type="file" onChange={handleFileInputChange} />
         <UploadButton onClick={handleUploadClick}>Upload</UploadButton>
       </FileUploadContainer>
       {url && <UserImage src={url} alt="uploaded" />}
+
       <ButtonContainer>
         {/* <SubmitButton onClick={handleSubmit}>글쓰기</SubmitButton> */}
         <SubmitButton onClick={handleReset}>취소</SubmitButton>

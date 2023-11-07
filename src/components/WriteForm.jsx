@@ -7,11 +7,16 @@ const FormContainer = styled.div`
   border: 1px solid lightgray;
   box-shadow: 0 0 5px lightgray;
   border-radius: 10px;
+  margin: 60px 60px;
+  padding: 80px 100px;
 
   h2{
-    font-size: 30px;
+    font-size: 50px;
     font-weight: bold;
-    margin: 30px 40px;
+    margin: 20px 40px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 35px;
   }
 `;
 
@@ -55,9 +60,9 @@ const WriteForm = () => {
   return (
     <>
     <FormContainer>
-      <h2>게시물 쓰기</h2>
+      <h2>여행 후기 글쓰기</h2>
         <FieldContainer>
-          <p>[1. 여행 나라 선택]</p>
+          <p>[ 1. 여행 나라 선택 ]</p>
             <div>
               <input type="radio" id="world" name="world" onChange={onChangeRadio1} radio={radio}/>
               <label htmlFor="world">국내</label>
@@ -67,7 +72,7 @@ const WriteForm = () => {
         </FieldContainer>
 
       <FieldContainer radio={radio}>
-        <p>[국내 지역]</p>
+        <p>[ 국내 지역 ]</p>
         <div >
           <input type="radio" name="korea" id="korea" onChange={onChangedisable1}/>
           <label htmlFor="korea">제주도</label>
@@ -90,7 +95,7 @@ const WriteForm = () => {
       </FieldContainer>
 
       <FieldContainer radio={!radio}>
-        <p>[해외 지역]</p>
+        <p>[ 해외 지역 ]</p>
         <div >
           <input type="radio" name="overseas" id="overseas" onChange={onChangedisable1}/>
           <label htmlFor="overseas">일본</label>
@@ -121,14 +126,14 @@ const WriteForm = () => {
       </FieldContainer>
 
       <FieldContainer>
-        <p>[2.여행 날짜 정하기]</p>
+        <p>[ 2.여행 날짜 정하기 ]</p>
         <div>
           <MyCalendar />
         </div>
       </FieldContainer>
 
       <FieldContainer>
-          <p>[3. 여행 테마 정하기]</p>
+          <p>[ 3. 여행 테마 정하기 ]</p>
           <div>
           <input type="radio" name="diary" id="diary" onChange={onChangedisable1}/>
           <label htmlFor="diary">#자유여행</label>
