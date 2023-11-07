@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import MyCalendar from "./Calendar";
 import PicForm from "./PicForm";
+import { useNavigate } from "react-router-dom";
 
 const FormContainer = styled.div`
   border: 1px solid lightgray;
@@ -39,6 +40,19 @@ const FieldContainer = styled.div`
     }
 `;
 
+const SubmitButton = styled.div`
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #21c962;
+      border-radius: 5px;
+      padding: 20px 60px;
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+`;
+
 
 const WriteForm = () => {
     const [radio,setRadio]=useState(false);
@@ -55,6 +69,11 @@ const WriteForm = () => {
     };
     const onChangedisable1 = () => {
       setDisable(true);
+    };
+
+    const navigate = useNavigate();
+    const handleReset = () => {
+      navigate("/DiyPage");
     };
 
   return (
@@ -155,6 +174,10 @@ const WriteForm = () => {
           </div>
       </FieldContainer>
           <PicForm/>
+
+      <FieldContainer>
+        <SubmitButton onClick={handleReset}>작성완료</SubmitButton>
+      </FieldContainer>
     </FormContainer>
     </>
   );

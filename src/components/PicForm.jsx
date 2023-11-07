@@ -5,9 +5,9 @@ import styled from "styled-components";
 import { storage } from "../api/FireBase";
 
 const FormContainer = styled.div`
-  padding: 40px;
-  margin: 30px 0;
-  width: 800px;
+  padding: 50px;
+  margin: 40px 0px;
+  width: 880px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

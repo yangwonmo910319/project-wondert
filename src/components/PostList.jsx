@@ -4,6 +4,8 @@ import CommonTableColumn from '../components/CommonTableColumn';
 import CommonTableRow from '../components/CommonTableRow';
 import styled from 'styled-components';
 
+
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -18,13 +20,14 @@ const Title = styled.div`
 `;
 
 const PostList = props => {
+
   return (
     <Container>
       <Title>
         <p>[DIY 여행 일지 공유 게시판] - # 겨울여행</p>
       </Title>
       <CommonTable headersName={['글번호','사진' ,'제목', '아이디','등록일', '조회수']}>
-        <CommonTableRow>
+        <CommonTableRow> 
           <CommonTableColumn>1</CommonTableColumn>
           <CommonTableColumn>사진</CommonTableColumn>
           <CommonTableColumn>첫번째 여행후기 게시글입니다.</CommonTableColumn>
