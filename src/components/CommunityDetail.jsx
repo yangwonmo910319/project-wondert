@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import TravelCourse from "./TravelCourse";
+import { useNavigate } from "react-router-dom";
 
 const Detail = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 h2 {
     font-size: 30px;
     font-weight: bold;
@@ -63,11 +68,34 @@ h2 {
 .article-course {
     border: 1px solid lightgray;
 }
+`;
 
+const FieldContainer = styled.div`
+`;
+
+const SubmitButton = styled.div`
+      cursor: pointer;
+      background-color: #21c962;
+      border-radius: 5px;
+      padding: 20px 60px;
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+      width: 200px;
+      height: 50px;
+      margin: 20px 0;
 `;
 
 const CommunityWrite = () => {
+
+    const navigate = useNavigate();
+    const handleReset = () => {
+      navigate("/DiyPage");
+
+    };
+
     return (
+        <>
     <Detail>
         <h2>게시글 상세</h2>
 
@@ -89,12 +117,11 @@ const CommunityWrite = () => {
                     </tbody>
                 </table>
             </section>
-
-    <div>
-
-    </div>
+            <FieldContainer>
+            <SubmitButton onClick={handleReset}>목록으로</SubmitButton>
+        </FieldContainer>
     </Detail>
-
+    </>
     );
 };
 

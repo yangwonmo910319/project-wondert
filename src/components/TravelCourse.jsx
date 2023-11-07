@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const Course = styled.div`
     display: flex;
     justify-content: center;
@@ -42,7 +43,7 @@ const TavelCs = styled.div`
     }
     .container {
         display: flex;
-        margin: 50px 110px;
+        margin: 40px 200px;
     }
     .wrapper {
         display: flex;
@@ -55,32 +56,27 @@ const TavelCs = styled.div`
         height: 100px;
         margin: 0 10px;
     }
-    .logg_row {
-        transform: translate3d(0px, 0px, 0px) scaleX(0.333333) scaleY(1);
-        transition-duration: 300ms;
-        top: auto;
-        bottom: 25px;
-        width: auto;
-        left: 15px;
-        right: 15px;
-        height: 2px;
-        background: #fff;
+    .title {
+        border: 1px solid black;
+        padding: 30px;
     }
-`;
+    `;
 
 const TravelCourse = () => {
+
     return (
+        <>
         <Course>
             <TravelTitle>
                 <p>
                     <h5>[4. 여행 후기 정보]</h5>
-                            <ul>
-                            <h3>〈내 여행 정보〉</h3>
-                                <li>나라 : 국내/해외</li>
-                                <li>지역 : 국내지역/해외지역</li>
-                                <li>여행 날짜 : 2023/11/01 ~ 2023/11/05</li>
-                                <li>여행 테마 : #먹방여행</li>
-                            </ul>
+                        <ul>
+                        <h3>〈내 여행 정보〉</h3>
+                            <li>나라 : 국내/해외</li>
+                            <li>지역 : 국내지역/해외지역</li>
+                            <li>여행 날짜 : 2023/11/01 ~ 2023/11/05</li>
+                            <li>여행 테마 : #먹방여행</li>
+                        </ul>
                 </p>
             </TravelTitle>
             <TavelCs>
@@ -96,12 +92,14 @@ const TravelCourse = () => {
                             <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=5c35ed09-d648-432b-9b25-e04f96add4e9" alt="코스6" />
                             <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=5c35ed09-d648-432b-9b25-e04f96add4e9" alt="코스7" />
                         </div>
-                        <span className="long_row"></span>
-
                     </div>
-                </div>
+                    <div className="title"> 
+                        내용
+                    </div>
+                </div>  
             </TavelCs>
         </Course>
+        </>
     );
 };
 
