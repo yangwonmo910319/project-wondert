@@ -7,15 +7,17 @@ const CourseBox = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
   border-bottom: 3px dashed gray;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 //컨셉 메인박스
 const MainBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   flex-grow: 1;
   padding: 10px;
 `;
@@ -28,6 +30,7 @@ const MainImg = styled.div`
   background-size: cover;
   height: 200px;
   width: 200px;
+  border-radius: 10px;
 `;
 // 컨셉 글칸
 const ArticleBox = styled.div`
@@ -61,19 +64,17 @@ const CourseItem = ({ data }) => {
         <MainBox>
           <span
             style={{
-              fontWeight: "bold",
-              fontSize: "20px",
-              color: "black",
+              fontSize: "15px",
             }}
           >
             {data.COURSE_HASH}
           </span>
+          <br />
           <MainImg></MainImg>
         </MainBox>
         <ArticleBox>
           <TopicBox
             style={{
-              fontWeight: "bold",
               fontSize: "30px",
               color: "black",
             }}
@@ -88,9 +89,10 @@ const CourseItem = ({ data }) => {
             }}
           >
             <div className="Path1">{data.COURSE_PATH1}</div>
-            <p>▷</p>
+            <p style={{ color: "gray" }}>▷</p>
             <div className="Path2">{data.COURSE_PATH2}</div>
-            <p>▷</p>
+            <p style={{ color: "gray" }}>▷</p>
+
             <div className="Path3">{data.COURSE_PATH3}</div>
           </PathBox>
         </ArticleBox>

@@ -1,8 +1,7 @@
-import CourseBtn from "./CourseBtn";
+import CourseBtn from "../../components/CourseBtn";
 import styled, { css } from "styled-components";
-import CourseItem from "./CourseItem";
-import GlobalButton from "../components/GlobalButton";
-import { useState } from "react";
+import CourseItem from "../../components/CourseItem";
+import GlobalButton from "../../components/GlobalButton";
 
 // 전체 한박스
 const CourseNavbar = styled.div`
@@ -10,7 +9,6 @@ const CourseNavbar = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 `;
 
 const CourseData = [
@@ -46,6 +44,7 @@ const CourseData = [
 const CourseList = () => {
   return (
     <CourseNavbar>
+      <br />
       <GlobalButton />
       <CourseBtn />
       {CourseData.map((data) => (
