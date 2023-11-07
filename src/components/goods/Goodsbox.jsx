@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-
+import { useState, useEffect } from "react";
+import AxiosApi from "../../api/AxiosApi";
 
 
 
@@ -39,7 +40,6 @@ const Title = styled.div`
     font-weight: bold;
   }
   .Info1 {
-
     padding: 10px 0px;
     font-size: 16px;
     color: gray;
@@ -76,57 +76,25 @@ const ItemCode = styled.div`
 `;
 
 const Goodsbox = () => {
-  const data = [
-    {title:"타이틀입니다1111",
-    info1 :"설명111",
-    info2 : "설명222",
-    datenum : 3,
-    date : "2023-12-12",
-    codenum :1,
-    price : 46000,
-    },
-    {title:"타이틀입니다22222",
-    info1 :"설명111",
-    info2 : "설명222",
-    datenum : 3,
-    date : 2023-12-12,
-    codenum :1,
-    price : 46000,
-    },
-    {title:"타이틀입니다33333",
-    info1 :"설명111",
-    info2 : "설명222",
-    datenum : 3,
-    date : 2023-12-12,
-    codenum :1,
-    price : 46000,
-    },
-    {title:"타이틀입니다444444",
-    info1 :"설명111",
-    info2 : "설명222",
-    datenum : 3,
-    date : 2023-12-12,
-    codenum :1,
-    price : 46000,
-    },
-    {title:"타이틀입니다55555",
-    info1 :"설명111",
-    info2 : "설명222",
-    datenum : 3,
-    date : 2023-12-12,
-    codenum :1,
-    price : 46000,
-    },
-
-  ]
-
+  const [worlds,setWorlds] =useState("korea");
+  const [GoodsList, setGoodsList] = useState("");
   
-
+  useEffect(()=>{
+    const GoodsList = async ()=>{
+    try{
+        const resp = await AxiosApi.goodsList(worlds); //전체 조회
+        if(resp.status === 200) setGoodsList(resp.data);
+        console.log(resp.data);
+    }catch(e){
+        console.log(e);
+    }};
+    GoodsList();
+},[worlds]);
 
   return (
   <>
-    {data &&
-      data.map(data => (
+    {GoodsList &&
+      GoodsList.map(data => (
     <GoodsContainer>
       <Image />
       <Title>
@@ -134,13 +102,13 @@ const Goodsbox = () => {
         <p className="Info1">{data.info1}</p>
         <p className="Info2">{data.info2}</p>
         <br/>
-        <p className="Info2">🎫 출발 일정 : {Number(data.datenum)-1}박{data.datenum}일 </p>
+        <p className="Info2">🎫 출발 일정 : {Number(data.i_date_num)-1}박{data.datenum}일 </p>
         <p className="Info2">
           🛫 여행 기간 : {data.date} ~ {data.date}
         </p>
       </Title>
       <PriceBox>
-        <ItemCode>상품번호  {data.codenum} </ItemCode>
+        <ItemCode>상품번호  {data.item_num} </ItemCode>
         <Price>{data.price}원</Price>
         <Button>자세히보기 〉〉</Button>
       </PriceBox>
