@@ -23,7 +23,7 @@ const Goods = () =>{
     return(
         <>
         <Center style={{justifyContent:"end", alignItems:"row"}}>
-            <GlobalButton/>
+            <GlobalButton/>     
         </Center>
         <Center>
             <ImgSlide/>

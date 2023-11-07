@@ -11,8 +11,11 @@ const GoodsContainer = styled.div`
   background-color: white;
   min-width: 1200px;
   height: 240px;
-  border: 2px solid black;
+  border: 2px solid grey;
   border-radius: 4px;
+  &+&{
+    margin-top: 20px;
+  }
 `;
 
 const Image = styled.img`
@@ -69,31 +72,81 @@ const Price = styled.div`
 `;
 const ItemCode = styled.div`
   padding: 10px;
+  font-size: 18px;
 `;
 
 const Goodsbox = () => {
+  const data = [
+    {title:"타이틀입니다1111",
+    info1 :"설명111",
+    info2 : "설명222",
+    datenum : 3,
+    date : "2023-12-12",
+    codenum :1,
+    price : 46000,
+    },
+    {title:"타이틀입니다22222",
+    info1 :"설명111",
+    info2 : "설명222",
+    datenum : 3,
+    date : 2023-12-12,
+    codenum :1,
+    price : 46000,
+    },
+    {title:"타이틀입니다33333",
+    info1 :"설명111",
+    info2 : "설명222",
+    datenum : 3,
+    date : 2023-12-12,
+    codenum :1,
+    price : 46000,
+    },
+    {title:"타이틀입니다444444",
+    info1 :"설명111",
+    info2 : "설명222",
+    datenum : 3,
+    date : 2023-12-12,
+    codenum :1,
+    price : 46000,
+    },
+    {title:"타이틀입니다55555",
+    info1 :"설명111",
+    info2 : "설명222",
+    datenum : 3,
+    date : 2023-12-12,
+    codenum :1,
+    price : 46000,
+    },
+
+  ]
+
+  
+
+
   return (
+  <>
+    {data &&
+      data.map(data => (
     <GoodsContainer>
       <Image />
       <Title>
-        <h1 className="Titles">타이틀입니다타이틀입니다타이틀입니다</h1>
-        <p className="Info1">설명1설명1설명1설명1설명1설명1설명1설명1설명1</p>
+        <h1 className="Titles">{data.title}</h1>
+        <p className="Info1">{data.info1}</p>
+        <p className="Info2">{data.info2}</p>
+        <br/>
+        <p className="Info2">🎫 출발 일정 : {Number(data.datenum)-1}박{data.datenum}일 </p>
         <p className="Info2">
-          설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2설명2
-        </p>
-        <br />
-        <p className="Info2">🎫 출발 일정 : 4일 </p>
-        <p className="Info2">
-          🛫 여행 기간 : 2023년 11월 16일 ~ 2023년 11월 20일
+          🛫 여행 기간 : {data.date} ~ {data.date}
         </p>
       </Title>
       <PriceBox>
-        <ItemCode>상품번호  S20231101 </ItemCode>
-        <Price>50,000원</Price>
+        <ItemCode>상품번호  {data.codenum} </ItemCode>
+        <Price>{data.price}원</Price>
         <Button>자세히보기 〉〉</Button>
       </PriceBox>
     </GoodsContainer>
-  );
+      ))}
+  </>)
 };
 
 export default Goodsbox;
