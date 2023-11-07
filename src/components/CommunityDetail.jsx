@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import TravelCourse from "./TravelCourse";
 
 const Detail = styled.div`
 h2 {
@@ -45,14 +46,6 @@ h2 {
     border:none;
     width:calc(100% - 100px);
 }
-.article-body {
-    height: 300px;
-}
-.article-body input {
-   height: 270px;
-   width: 950px;
-   text-align: center;
-}
 
 .article-detail > table th, .article-detail > table td {
     border:none;
@@ -63,7 +56,13 @@ h2 {
     width:880px;
     height: 40px;
 }
-
+.con_reply h1 {
+   font-size:30px;
+   font-weight: bold;
+}
+.article-course {
+    border: 1px solid lightgray;
+}
 .reply-form > form input[type="text"] {
     width:200px;
     margin: 0 80px;
@@ -102,88 +101,90 @@ const CommunityWrite = () => {
     return (
     <Detail>
         <h2>게시글 상세</h2>
-    <section className="article-detail table-common con row">
-        <table className="cell">
-            <tbody>
-                <tr className="article-title">
-                    <th>[번호] 제목 : 일본 여행 후기 올립니다!</th>
-                </tr>
-                <tr className="article-info">
-                    <th>날짜 : 2023.11.02</th>
-                    <td>아이디123</td>
-                    <th>조회수 500</th>
-                    <td>즐겨찾기</td>
-                </tr>
-                <tr className="article-body">
-                   <input type="text" placeholder="여행 후기 내용 작성란 입니다.(사진과 후기내용 일정작성)"/>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+            <section className="article-detail table-common con row">
+                <table className="cell">
+                    <tbody>
+                        <tr className="article-title">
+                            <th>[번호] 제목 : 일본 여행 후기 올립니다!</th>
+                        </tr>
 
-<div className="con reply">
+                        <tr className="article-info">
+                            <th>날짜 : 2023.11.02</th>
+                            <td>아이디123</td>
+                            <th>조회수 500</th>
+                            <td>즐겨찾기</td>
+                        </tr>
+                        <tr className="article-course">
+                            <TravelCourse />
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-    <h1 className="con">댓글 입력</h1>
-    <section className="reply-form">
-        <form action="return false;">
-            <div>
-                <input type="text" placeholder="아이디"/>
-            </div>
-            <div>
-                <textarea></textarea>
-                <input type="submit" />
-            </div>
-        </form>
-    </section>
+    <div className="con_reply">
+        <h1 className="con">댓글 입력</h1>
 
-    <h1 className="con">댓글 목록</h1>
-    <section className="reply-list table-common">
-        <table>
-            <thead>
-                <tr>
-                    <th>아이디</th>
-                    <th>별점</th>
-                    <th>작성일자</th>
-                    <th>내용</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>아이디</th>
-                    <th>별점</th>
-                    <th>작성일자</th>
-                    <th>내용</th>
-                </tr>
-                <tr>
-                    <th>아이디</th>
-                    <th>별점</th>
-                    <th>작성일자</th>
-                    <th>내용</th>
-                </tr>
-                <tr>
-                    <th>아이디</th>
-                    <th>별점</th>
-                    <th>작성일자</th>
-                    <th>내용</th>
-                </tr>
-                <tr>
-                    <th>아이디</th>
-                    <th>별점</th>
-                    <th>작성일자</th>
-                    <th>내용</th>
-                </tr>
-                <tr>
-                    <th>아이디</th>
-                    <th>별점</th>
-                    <th>작성일자</th>
-                    <th>내용</th>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-</div>
+        <section className="reply-form">
+            <form action="return false;">
+                <div>
+                    <input type="text" placeholder="아이디"/>
+                </div>
+                <div>
+                    <textarea></textarea>
+                    <input type="submit" />
+                </div>
+            </form>
+        </section>
 
-</Detail>
+        <h1 className="con">댓글 목록</h1>
+        <section className="reply-list table-common">
+            <table>
+                <thead>
+                    <tr>
+                        <th>아이디</th>
+                        <th>별점</th>
+                        <th>작성일자</th>
+                        <th>내용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>아이디</th>
+                        <th>별점</th>
+                        <th>작성일자</th>
+                        <th>내용</th>
+                    </tr>
+                    <tr>
+                        <th>아이디</th>
+                        <th>별점</th>
+                        <th>작성일자</th>
+                        <th>내용</th>
+                    </tr>
+                    <tr>
+                        <th>아이디</th>
+                        <th>별점</th>
+                        <th>작성일자</th>
+                        <th>내용</th>
+                    </tr>
+                    <tr>
+                        <th>아이디</th>
+                        <th>별점</th>
+                        <th>작성일자</th>
+                        <th>내용</th>
+                    </tr>
+                    <tr>
+                        <th>아이디</th>
+                        <th>별점</th>
+                        <th>작성일자</th>
+                        <th>내용</th>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    </Detail>
+
     );
 };
 

@@ -9,6 +9,9 @@ import Main from "./pages/Main";
 import Course from "./pages/Course";
 import Myinfo from "./pages/Myinfo";
 import DiyPage from "./pages/DiyPage";
+import DiyWrite from "./pages/DiyWrite";
+import DiyView from "./pages/Diyview";
+
 import Goods from "./pages/Goods/Goods";
 import Community from "./pages/Community";
 import CommunityView from "./pages/Community/CommunityView";
@@ -60,6 +63,8 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/Course" element={<Course />} />
             <Route path="/Diypage" element={<DiyPage />} />
+            <Route path="/Diypage/DiyWrite" element={<DiyWrite />} />
+            <Route path="/Diypage/DiyView" element={<DiyView />} />
             <Route path="/Goods" element={<Goods />} />
             <Route path="/Community" element={<Community />} />
             <Route path="/CommunityWrite" element={<CommunityWrite />} />
@@ -68,6 +73,11 @@ function App() {
             <Route path="/Goods/sell" element={<Goodssell/>} />
             <Route path="/Goods/cancle" element={<Goodscancle/>}/>
             <Route path="/Goods/completed" element={<Goodscompleted/>} />
+
+
+
+
+
             <Route path="/myinfo" element={<Myinfo />}>
               <Route path="/myinfo/CommunitySubMenu"element={<CommunitySubMenu />}>
                   <Route path="/myinfo/CommunitySubMenu/Changemyinfo" element={<Changemyinfo />}></Route>
