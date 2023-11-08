@@ -109,7 +109,7 @@ const TravelTitle = styled.div`
     line-height: 50px;
     border: 1px solid lightgray;
     border-radius: 10px;
-    padding: 20px 60px;
+    padding: 0px 10px;
 
     h3 {
         font-weight: bold;

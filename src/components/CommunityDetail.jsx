@@ -46,6 +46,7 @@ h2 {
 .article-info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 900px;
 }
 .article-detail > table {
@@ -107,11 +108,11 @@ const CommunityWrite = () => {
                             <th>[번호] 제목 : 일본 여행 후기 올립니다!</th>
                         </tr>
                         <tr className="article-info">
-                            <th>날짜 : 2023.11.02</th>
+                            <td>날짜 : 2023.11.02</td>
                             <td>아이디123</td>
-                            <th>조회수 500</th>
-                            <td>즐겨찾기</td>
-                         
+                            <td>조회수 👀</td>
+                            <td>즐겨찾기 ⭐️</td>
+                            <td>좋아요 👍</td>
                         </tr>
                         <tr className="article-course">
                             <TravelCourse />
