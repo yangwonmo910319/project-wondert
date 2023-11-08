@@ -28,26 +28,22 @@ height: 30px;
 background-color: #dfdfdf;
 margin-left:70px ;
 `;
-        
-        
-        
-        
-        
-        const Reply=()=>{
+    
+  const Reply=()=>{
 
-          return(
-            <>
-              
-        <Serch>
-          <SerchVar></SerchVar>
-          <SerchBtn><p>확인</p></SerchBtn>
-          <Link to="/Community">      <SerchBtn>취 소 </SerchBtn>  </Link>  
-        </Serch>
-            </>
-          )
-        }
-        export default Reply;
+    return(
+      <>
         
+  <Serch>
+    <SerchVar></SerchVar>
+    <SerchBtn><p>확인</p></SerchBtn>
+    <Link to="/Community">      <SerchBtn>취 소 </SerchBtn>  </Link>  
+  </Serch>
+      </>
+    )
+  }
+  export default Reply;
+  
         
         
         

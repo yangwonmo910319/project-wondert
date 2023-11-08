@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+
 
 
 const Course = styled.div`
@@ -41,24 +42,36 @@ const TavelCs = styled.div`
         font-weight: bold;
         margin: 20px 20px;
     }
-    .container {
-        display: flex;
-        margin: 40px 200px;
-    }
     .wrapper {
         display: flex;
-        transform: translate3d(-100px,0px,0px);
-        transition-duration: 0ms;
-        z-index: 1;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .pic1 {
+        margin-left: 60px;
     }
     .wrapper img {
-        width: 100px;
-        height: 100px;
-        margin: 0 10px;
+        width: 350px;
+        height: 250px;
+        margin: 0px 60px;
     }
-    .title {
+    p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+        height: 250px;
         border: 1px solid black;
-        padding: 30px;
+    }
+    b {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 750px;
+        height: 180px;
+        margin: 30px;
+        border: 1px solid black;
     }
     `;
 
@@ -82,21 +95,38 @@ const TravelCourse = () => {
             <TavelCs>
                 <div className="course_wrap">
                     <h4>[여행 일정 코스 - Day-1]</h4>
-                    <div className="container">
                         <div className="wrapper">
+                            <div style={{display:"flex" }} className="pic1">
+                                <p>지도</p>
+                                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=5c35ed09-d648-432b-9b25-e04f96add4e9" alt="코스1" />
+                            </div>
+                            <div style={{display:"block"}}>
+                                <b>내용</b>
+                            </div>
+                        </div>
+              
+                    <h4>[여행 일정 코스 - Day-2]</h4>
+                        <div className="wrapper">
+                            <div style={{display:"flex" }} className="pic1">
+                                <p>지도</p>
+                                <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=5c35ed09-d648-432b-9b25-e04f96add4e9" alt="코스1" />
+                            </div>
+                            <div style={{display:"block"}}>
+                                <b>내용</b>
+                            </div>
+                        </div>
+
+                    <h4>[여행 일정 코스 - Day-3]</h4>
+                    <div className="wrapper">
+                        <div style={{display:"flex" }} className="pic1">
+                            <p>지도</p>
                             <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=5c35ed09-d648-432b-9b25-e04f96add4e9" alt="코스1" />
-                            <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=fbfe9e24-d64e-494c-ab3c-6b11c83a7ef4" alt="코스2" />
-                            <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=2085a183-210c-48e1-a61d-44524f7109e7" alt="코스3" />
-                            <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=9910f7a5-e84c-4f60-9549-17095a003754" alt="코스4" />
-                            <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=b05663e8-f229-4745-93c9-52aea5030fdd" alt="코스5" />
-                            <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=5c35ed09-d648-432b-9b25-e04f96add4e9" alt="코스6" />
-                            <img src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=5c35ed09-d648-432b-9b25-e04f96add4e9" alt="코스7" />
+                        </div>
+                        <div style={{display:"block"}}>
+                            <b>내용</b>
                         </div>
                     </div>
-                    <div className="title"> 
-                        내용
                     </div>
-                </div>  
             </TavelCs>
         </Course>
         </>

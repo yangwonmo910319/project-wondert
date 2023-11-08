@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TravelCourse from "./TravelCourse";
 import { useNavigate } from "react-router-dom";
 
+
 const Detail = styled.div`
     display: flex;
     flex-direction: column;
@@ -110,6 +111,7 @@ const CommunityWrite = () => {
                             <td>아이디123</td>
                             <th>조회수 500</th>
                             <td>즐겨찾기</td>
+                         
                         </tr>
                         <tr className="article-course">
                             <TravelCourse />
