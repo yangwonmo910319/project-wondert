@@ -19,15 +19,15 @@ Login: async (id, pw) => {
   },
 
   // 회원가입 inselrt
-  Signup: async (id,nick,pwd,name,add,phone,mail) => {
+  Signup: async (id,nick,pwd,name,addr,phone,email) => {
     const userInfo = {
       id: id,
       nick:nick,
       pwd: pwd,
       name: name,
-      add:add,
+      addr:addr,
       phone:phone,
-      mail: mail,
+      email: email,
     };
     return await axios.post(WONDER_WALKER + `/users/signup`,userInfo);
   },

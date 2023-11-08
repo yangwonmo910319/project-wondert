@@ -128,7 +128,7 @@ const Signup = () => {
   const [idMessage2, setIdMessage2] = useState(null);
   const [pwMessage, setPwMessage] = useState("");
   const [conPwMessage, setConPwMessage] = useState("");
-  const [mailMessage, setMailMessage] = useState("");
+  const [emailMessage, setEmailMessage] = useState("");
   const [addMessage, setAddMessage] = useState("");
   const [phoneMessage, setPhoneMessage] = useState("");
   // 유효성 검사
@@ -138,7 +138,7 @@ const Signup = () => {
   const [isConPw, setIsConPw] = useState(false);
   const [isName, setIsName] = useState(false);
   const [inNick, setIsNick] = useState(false);
-  const [isMail, setIsMail] = useState(false);
+  const [isEmail, setIsEmail] = useState(false);
   const [isAdd, setisAdd] = useState("");
   const [isPhone, setisPhone] = useState("");
   // 팝업
@@ -198,8 +198,19 @@ const idFocus=()=>{
     setisAdd(true);
   };
   const onChangeMail = (e) => {
-    setInputEmail(e.target.value);
-    setIsMail(true);
+   
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailCurrent = e.target.value;
+    setInputEmail(emailCurrent);
+    if (!emailRegex.test(emailCurrent)) {
+      setEmailMessage("이메일 형식을 확인하세요.");
+      setIsEmail(false);
+    } else {
+      setEmailMessage("올바른 메일입니다.");
+      setIsEmail(true);
+
+    }
+    
   };
   const onChangePhone = (e) => {
     setInputPhone(e.target.value);
@@ -220,25 +231,25 @@ const idFocus=()=>{
   }
 }
   const onClickLogin = async () => {
-    // alert("Click 회원가입");   
-    //   console.log("가입을 합니다.");
-    //   const signup = await UserAxiosApi.Signup(
-    //     inputId,
-    //     inputNick,
-    //     inputPw,
-    //     inputName,
-    //     inputAdd,
-    //     inputPhone,
-    //     inputEmail,
+    alert("Click 회원가입");   
+      console.log("가입을 합니다.");
+      const signup = await UserAxiosApi.Signup(
+        inputId,
+        inputNick,
+        inputPw,
+        inputName,
+        inputAdd,
+        inputPhone,
+        inputEmail,
        
-    //   );
-    //   console.log(signup.data.result);
-    //   if (signup.data.result === "OK") {
-    //     navigate("/");
-    //   } else {
-    //     setModalOpen(true);
-    //     setModelText("회원 가입에 실패 했습니다.");
-    //   }
+      );
+      console.log(signup.data.result);
+      if (signup.data === true) {
+        navigate("/");
+      } else {
+        setModalOpen(true);
+        setModelText("회원 가입에 실패 했습니다.");
+      }
     } ;
 
   const goHome = ()=>{
@@ -335,6 +346,14 @@ const idFocus=()=>{
           value={inputEmail}
           onChange={onChangeMail}
         />
+        
+      </Items>
+      <Items className="hint">
+        {inputEmail.length > 0 && (
+          <span className={`message ${isEmail ? "success" : "error"}`}>
+            {emailMessage}
+          </span>
+        )}
       </Items>
       <Items className="item2">
         <Input
@@ -346,8 +365,8 @@ const idFocus=()=>{
       </Items>
 
       <Items className="item2">
-        {isId && isPw && isConPw && isName && isMail ? (
-          alert("전부트루"),
+        {isId && isPw && isConPw && isName && isEmail ? (
+      
           <Button enabled onClick={onClickLogin}>
             확인
           </Button>
