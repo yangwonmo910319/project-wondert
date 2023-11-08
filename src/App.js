@@ -11,12 +11,10 @@ import Myinfo from "./pages/Myinfo";
 import DiyPage from "./pages/DiyPage";
 import DiyWrite from "./pages/DiyWrite";
 import DiyView from "./pages/Diyview";
-
 import Goods from "./pages/Goods/Goods";
 import Community from "./pages/Community";
 import CommunityView from "./pages/Community/CommunityView";
 import CommunityWrite from "./pages/Community/CommunityWrite";
-
 import CommunityFavorites from "../src/components/Community/CommunityFavorites";
 import Changemyinfo from "./components/Community/Changemyinfo";
 import CommunitySubMenu from "../src/components/Community/CommunitySubMenu";
@@ -33,6 +31,7 @@ import Goodssell from "./pages/Goods/Goodssell";
 import Goodscompleted from "./pages/Goods/Goodscompleted";
 import Goodscancle from "./pages/Goods/Goodscancle";
 import Worldcontext from "./context/Worldcontext";
+import { useState,useCallback } from "react";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -48,6 +47,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 function App() {
+  const [itemCode,setItemCode]=useState("");
+  const onSelect = useCallback(onselect =>setItemCode(onselect),[]);
+
+
+
+
   return (
     <>
     <Worldcontext>
@@ -68,11 +73,11 @@ function App() {
             <Route path="/Diypage" element={<DiyPage />} />
             <Route path="/Diypage/DiyWrite" element={<DiyWrite />} />
             <Route path="/Diypage/DiyView" element={<DiyView />} />
-            <Route path="/Goods" element={<Goods />} />
+            <Route path="/Goods" element={<Goods onSelect={onSelect} />} />
             <Route path="/Community" element={<Community />} />
             <Route path="/CommunityWrite" element={<CommunityWrite />} />
             <Route path="/Communityview/:num" element={<CommunityView />} />
-            <Route path="/Goods/info" element={<Goodsinfo/>} />
+            <Route path="/Goods/info" element={<Goodsinfo itemCode={itemCode} />} />
             <Route path="/Goods/sell" element={<Goodssell/>} />
             <Route path="/Goods/cancle" element={<Goodscancle/>}/>
             <Route path="/Goods/completed" element={<Goodscompleted/>} />

@@ -59,9 +59,6 @@ const SellButton = styled.button`
     cursor: pointer;
 `
 
-
-
-
 const Goodsclt1=()=>{
 
 

@@ -21,6 +21,7 @@ const BoardLi = styled.li`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
+
 const BoardTitle = styled.h2`
   font-size: 1.4em;
   color: #007bff;

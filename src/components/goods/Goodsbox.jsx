@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import AxiosApi from "../../api/AxiosApi";
 import { UserContext } from "../../context/Worldcontext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -76,10 +77,11 @@ const ItemCode = styled.div`
   font-size: 18px;
 `;
 
-const Goodsbox = () => {
+const Goodsbox = ({onSelect}) => {
+  const navigate =useNavigate();
   const context = useContext(UserContext);
   const { world } = context;
-  const [GoodsList, setGoodsList] = useState("");
+  const [goodsList, setGoodsList] = useState("");
   
   useEffect(()=>{
     const GoodsList = async ()=>{
@@ -93,13 +95,17 @@ const Goodsbox = () => {
     GoodsList();
 },[world]);
 
+const InfoClick =(e)=>{
+  navigate("/Goods/info");
+  onSelect(e);
+}
 
 
   return (
   <>
-    {GoodsList &&
-      GoodsList.map(data => (
-    <GoodsContainer>
+    {goodsList &&
+      goodsList.map(data => (
+    <GoodsContainer key={data.item_num}>
       <Image src={data.i_main_img} />
       <Title>
         <h1 className="Titles">{data.title}</h1>
@@ -114,7 +120,7 @@ const Goodsbox = () => {
       <PriceBox>
         <ItemCode>상품번호  {data.item_num} </ItemCode>
         <Price>{data.price}원</Price>
-        <Button>자세히보기 〉〉</Button>
+        <Button onClick={()=> InfoClick(data.item_num)} >자세히보기 〉〉</Button>
       </PriceBox>
     </GoodsContainer>
       ))}
