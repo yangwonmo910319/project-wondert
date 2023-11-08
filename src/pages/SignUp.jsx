@@ -4,6 +4,7 @@ import Modal from "../components/home/Model";
 // import AxiosApi from "../api/AxiosApi";
 import styled, { css } from "styled-components";
 import Logo from "../images/메인로고1111-removebg-preview11.png";
+import UserAxiosApi from "../api/UserAxiosApi";
 const Container = styled.div`
 
   display: flex;
@@ -115,6 +116,7 @@ const Signup = () => {
   // 키보드 입력
   const [inputId, setInputId] = useState("");
   const [inputPw, setInputPw] = useState("");
+  const [inputNick, setInputNcik] = useState("");
   const [inputConPw, setInputConPw] = useState("");
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
@@ -123,6 +125,7 @@ const Signup = () => {
 
   // 오류 메시지
   const [idMessage, setIdMessage] = useState("");
+  const [idMessage2, setIdMessage2] = useState(null);
   const [pwMessage, setPwMessage] = useState("");
   const [conPwMessage, setConPwMessage] = useState("");
   const [mailMessage, setMailMessage] = useState("");
@@ -130,9 +133,11 @@ const Signup = () => {
   const [phoneMessage, setPhoneMessage] = useState("");
   // 유효성 검사
   const [isId, setIsId] = useState(false);
+  const [isId2, setIsId2] = useState(false);
   const [isPw, setIsPw] = useState(false);
   const [isConPw, setIsConPw] = useState(false);
   const [isName, setIsName] = useState(false);
+  const [inNick, setIsNick] = useState(false);
   const [isMail, setIsMail] = useState(false);
   const [isAdd, setisAdd] = useState("");
   const [isPhone, setisPhone] = useState("");
@@ -143,7 +148,9 @@ const Signup = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
-
+const idFocus=()=>{
+  alert("마우스나감");
+}
   const onChangId = (e) => {
     setInputId(e.target.value);
     if (e.target.value.length < 5 || e.target.value.length > 12) {
@@ -182,6 +189,10 @@ const Signup = () => {
     setInputName(e.target.value);
     setIsName(true);
   };
+  const onChangeNcik = (e) => {
+    setInputNcik(e.target.value);
+    setIsNick(true);
+  };
   const onChangeadd = (e) => {
     setInputAdd(e.target.value);
     setisAdd(true);
@@ -194,34 +205,42 @@ const Signup = () => {
     setInputPhone(e.target.value);
     setisPhone(true);
   };
-  const onClickLogin = async () => {
-    console.log("Click 회원가입");
-    // 가입 여부 우선 확인
-    // const memberCheck = await AxiosApi.memberRegCheck(inputId);
-    // console.log("가입 가능 여부 확인 : ", memberCheck.data);
-    // 가입 여부 확인 후 가입 절차 진행
+  const onDBIdCheck=async()=>{
 
-    // if (memberCheck.data.result === "OK") {
-    //   console.log("가입된 아이디가 없습니다. 다음 단계 진행 합니다.");
-      // const memberReg = await AxiosApi.memberReg(
-      //   inputId,
-      //   inputPw,
-      //   inputName,
-      //   inputEmail
-      // );
-    //   console.log(memberReg.data.result);
-    //   if (memberReg.data.result === "OK") {
+    const memberCheck = await UserAxiosApi.SingupIdCheck(inputId);
+
+    if (memberCheck.data === true) { 
+      setIdMessage2("가입된 아이디가 없습니다.");
+      setIsId2(true)
+      
+  }else{
+    setIsId2(false)
+    setIdMessage2("가입된 아이디가 있습니다.");
+
+  }
+}
+  const onClickLogin = async () => {
+    // alert("Click 회원가입");   
+    //   console.log("가입을 합니다.");
+    //   const signup = await UserAxiosApi.Signup(
+    //     inputId,
+    //     inputNick,
+    //     inputPw,
+    //     inputName,
+    //     inputAdd,
+    //     inputPhone,
+    //     inputEmail,
+       
+    //   );
+    //   console.log(signup.data.result);
+    //   if (signup.data.result === "OK") {
     //     navigate("/");
     //   } else {
     //     setModalOpen(true);
     //     setModelText("회원 가입에 실패 했습니다.");
     //   }
-    // } else {
-    //   console.log("이미 가입된 회원 입니다.");
-    //   setModalOpen(true);
-    //   setModelText("이미 가입된 회원 입니다.");
-    // }
-  };
+    } ;
+
   const goHome = ()=>{
     navigate("/home");
    }
@@ -234,8 +253,8 @@ const Signup = () => {
         <span>회원가입</span>
       </Items>
 
-      <Items className="item2">
-        <Input placeholder="아이디" value={inputId} onChange={onChangId} />
+      <Items className="item2" >
+        <Input placeholder="아이디" value={inputId} onChange={onChangId}  onBlur={onDBIdCheck}   />
       </Items>
       <Items className="hint">
         {inputId.length > 0 && (
@@ -243,6 +262,17 @@ const Signup = () => {
             {idMessage}
           </span>
         )}
+      </Items>
+      <Items className="hint">
+
+        {idMessage2 ==null ?        
+       <></>
+        :  isId2 !== true ?  <span className={"message error"}>
+        {idMessage2}
+      </span>:  <span className={"message success"}> 
+        {idMessage2}
+      </span>
+        }
       </Items>
       <Items className="item2">
         <Input
@@ -285,6 +315,14 @@ const Signup = () => {
       <Items className="item2">
         <Input
           type="text"
+          placeholder="닉네임"
+          value={inputNick}
+          onChange={onChangeNcik}
+        />
+      </Items>
+      <Items className="item2">
+        <Input
+          type="text"
           placeholder="연락처"
           value={inputPhone}
           onChange={onChangePhone}
@@ -309,11 +347,12 @@ const Signup = () => {
 
       <Items className="item2">
         {isId && isPw && isConPw && isName && isMail ? (
+          alert("전부트루"),
           <Button enabled onClick={onClickLogin}>
             확인
           </Button>
         ) : (
-          <Button disabled>   확인</Button>
+          <Button disabled onClick={()=>{}}>   확인</Button>
         )}
              <Button enbled onClick={() => {goHome()}} >취 소</Button>
         <Modal open={modalOpen} close={closeModal} header="오류">

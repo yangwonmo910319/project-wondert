@@ -2,6 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 import LoginButtons from "../components/LoginButtons";
 import LogoImg from "../images/메인로고1111-removebg-preview11.png";
+import { useState } from "react";
 
 const Headers =styled.div`
     display: flex;
@@ -58,8 +59,20 @@ max-width: 1200px;
   width: 80px auto;
   margin: 0 auto;
 `;
+
 const Header = () => {
   const navigate = useNavigate();
+
+  const [login, setlogin] = useState(  window.localStorage.getItem("isLogin")); 
+  const userId=localStorage.getItem("userId");
+
+  const logout = () => {
+window.localStorage.setItem("isLogin", "false");
+setlogin("logout");
+navigate("/");
+  }
+   
+
   return (
     <>
    
@@ -74,9 +87,14 @@ const Header = () => {
   
             </Menus>
             <Menus2>
+              {login === "true"?               <>
+                  <h1>유저아이디 :{userId} </h1>
+             <Menu onClick={() => logout()}>로그아웃 </Menu> </>
+             : <>            
              <Menu onClick={() => navigate("/login")}>로그인</Menu>
-             <Menu onClick={() => navigate("/signup")}>회원가입 </Menu>
-            </Menus2>
+             <Menu onClick={() => navigate("/signup")}>회원가입 </Menu></> }
+       
+            </Menus2>           
               <LoginButtons />
               {/* 여긴 한박스로이루어져 로그인 했을때 따로 컴포넌트 필요 */}
 

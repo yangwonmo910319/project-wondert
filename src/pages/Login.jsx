@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Modal from "../components/home/Model";
 import Logo from "../images/메인로고1111-removebg-preview11.png";
 import styled, { css } from "styled-components";
-// import AxiosApi from "../api/AxiosApi";
+import UserAxiosApi from "../api/UserAxiosApi";
+
 
 
 const Container = styled.div`
@@ -34,7 +35,19 @@ const Container = styled.div`
   }
 
 `;
+const Hint = styled.div`
+width: 60%;
+height: 100%;
+text-align:right;
+  margin-top: 5px;
 
+   
+   
+    font-size: 14px;
+
+
+  
+`;
 const Items = styled.div`
 
 
@@ -67,12 +80,7 @@ const Items = styled.div`
     
   }
   &.hint {
-    margin-top: -5px;
-    margin-bottom: 10px;
-    margin-right: 80px;
-    justify-content: right;
-    font-size: 12px;
-
+  
     
   }
     
@@ -111,7 +119,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 30px;
   margin-right: 30px;
   font-family: "Noto Sans KR", sans-serif;
@@ -135,6 +143,7 @@ const Button = styled.button`
 `;
 
 const Login = () => {
+
   const navigate = useNavigate();
 
   // 키보드 입력
@@ -168,6 +177,8 @@ const Login = () => {
     }
   };
 
+
+
   const onChangePw = (e) => {
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
     const passwordCurrent = e.target.value;
@@ -181,13 +192,25 @@ const Login = () => {
     }
   };
   const onClickLogin = async () => {
+    //로그인을 위한 axios 호출
+    const res = await UserAxiosApi.Login(inputId, inputPw);
 
+    console.log(res.data);
+    if (res.data === true) {  
+      window.localStorage.setItem("userId", inputId); // 브라우저에서 임시로 값을 저장하는 기술
+      window.localStorage.setItem("userPw", inputPw);
+      window.localStorage.setItem("isLogin", "true");
+      navigate("/");
+    } else {
+      setModalOpen(true);
+    }
   };
  const goHome = ()=>{
   navigate("/home");
  }
   return (
     <Container>
+      
       <Items className="item1">
         <img src={Logo} alt="Logo" />
       </Items>
@@ -198,20 +221,20 @@ const Login = () => {
       <Items className="item2">
         <Input placeholder="아이디" value={inputId} onChange={onChangeId} />
       </Items>
-      <Items className="hint">
+      <Hint>
         {inputId.length > 0 && (
           <span className={`${isId ? "success" : "error"}`}>{idMessage}</span>
         )}
-      </Items>
+      </Hint>
 
       <Items className="item2">
         <Input placeholder="패스워드" value={inputPw} onChange={onChangePw} />
       </Items>
-      <Items className="hint">
+      <Hint>
         {inputPw.length > 0 && (
           <span className={`${isPw ? "success" : "error"}`}>{pwMessage}</span>
         )}
-      </Items>
+      </Hint>
    
       <Button disabled={false} onClick={() => {onClickLogin()}}>확 인</Button>
 
