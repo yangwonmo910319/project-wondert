@@ -121,8 +121,9 @@ const Container = styled.div`
 
 
 
-const Goodsprice = ()=>{
+const Goodsprice = ( props )=>{
     const[day,setDay] =useState(0);
+    const { item_num , i_date , price } =props;
     
     const plusClick =()=>{
         setDay(day+1);
@@ -137,8 +138,8 @@ const Goodsprice = ()=>{
         <>
         <Container>
             <div className="box1">
-                <p className="box1-1">상품번호  S20231101 </p>
-                <p className="box1-1">일정 : 2023년 10월 10일 ~ 2023년 10월 15일</p>
+                <p className="box1-1">상품번호  {item_num} </p>
+                <p className="box1-1">일정 : {i_date} ~ {i_date}</p>
             </div>
             <div className="box2">
             <select className="selectstyle" name="일정" id="?">
@@ -156,7 +157,7 @@ const Goodsprice = ()=>{
             <div className="pricebox">
                 <div className="priceBox">
                     <p className="priceInfo1">성인</p>
-                    <p className="priceInfo2">7,800,000원</p>
+                    <p className="priceInfo2">{price}원</p>
                 </div>
                 <div className="dayBox">
                     <button className="dayBtn" onClick={minusClick} >-</button>
@@ -167,7 +168,7 @@ const Goodsprice = ()=>{
             <div className="pricebox">
             <div className="priceBox">
                     <p className="priceInfo1">아동 ❌(<span style={{color:"red"}}>준비중</span>)</p>
-                    <p className="priceInfo2">7,800,000원</p>
+                    <p className="priceInfo2">{price}원</p>
                 </div>
                 <div className="dayBox">
                     <button style={{color:"gray"}} className="dayBtn">-</button>
@@ -178,7 +179,7 @@ const Goodsprice = ()=>{
             <div className="pricebox">
             <div className="priceBox">
                     <p className="priceInfo1">유아 ❌(<span style={{color:"red"}}>준비중</span>) </p>
-                    <p className="priceInfo2">7,800,000원</p>
+                    <p className="priceInfo2">{price}원</p>
                 </div>
                 <div className="dayBox">
                     <button style={{color:"gray"}} className="dayBtn" >-</button>
@@ -189,7 +190,7 @@ const Goodsprice = ()=>{
             <hr/>
             <div className="pricebox">
                 <div className="priceInfo3">최종합계금액</div>
-                <div className="priceInfo4">10,000,000원 /부가세포함</div>
+                <div className="priceInfo4">{price}원 /부가세포함</div>
             </div>
             <hr/>
             <div className="pricebox">

@@ -61,7 +61,8 @@ import { useEffect, useState } from "react";
         color : white;
     `;
 
-const Goodsinfos= ()=>{
+const Goodsinfos= (props)=>{
+    const { info_img } =props;
     const [toggle, setToggle] = useState(false);
     const [open, setOpen] =useState("OPEN"); //이모티콘줘도됨
     const clickedToggle = () => {
@@ -84,7 +85,7 @@ const Goodsinfos= ()=>{
                     <li style={{color:"green", textDecoration:"underline"}} >보장내용 및 금액 상세보기</li>
                 </ul>
             </p>
-            <Infoimg toggle={toggle} src="https://img-kyowontour.kyowontour.com/erp//imagecontentfile/f1b9e086-6dea-4f75-aaac-726a4ad3e4e4.jpg" alt="상세설명" />
+            <Infoimg toggle={toggle} src={info_img} alt="상세설명" />
             <InfoimgBtn onClick={clickedToggle}>{open}</InfoimgBtn>
         </Infobox>
     )

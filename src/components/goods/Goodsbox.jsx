@@ -97,7 +97,7 @@ const Goodsbox = ({onSelect}) => {
 
 const InfoClick =(e)=>{
   navigate("/Goods/info");
-  onSelect(e);
+  window.localStorage.setItem("itemcode", e);
 }
 
 
@@ -109,12 +109,12 @@ const InfoClick =(e)=>{
       <Image src={data.i_main_img} />
       <Title>
         <h1 className="Titles">{data.title}</h1>
-        <p className="Info1">{data.info1}</p>
-        <p className="Info2">{data.info2}</p>
+        <p className="Info1">{data.oder_re}</p>
+        <p className="Info2">{data.oder_info}</p>
         <br/>
         <p className="Info2">🎫 출발 일정 : {Number(data.i_date_num)-1}박{data.datenum}일 </p>
         <p className="Info2">
-          🛫 여행 기간 : {data.date} ~ {data.date}
+          🛫 여행 기간 : {data.i_date} ~ {data.i_date}
         </p>
       </Title>
       <PriceBox>

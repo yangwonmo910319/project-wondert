@@ -78,11 +78,14 @@ const Container2 =styled.div`
     }
 `;
 
-const Goodsinfo1 =()=>{
+const Goodsinfo1 =( props )=>{
+    const { price }=props;
+
+
     return(
         <>
         <Container1>
-            <span>예약현황 예약 <span style={{color:"red"}}>1</span>명 (남은 좌석<span style={{color:"red"}}> 10</span>석/ 최소출발인원 <span style={{color:"royalblue"}}> 2</span> 명)</span>
+            <span>예약현황 예약 <span style={{color:"red"}}>2</span>명 (남은 좌석<span style={{color:"red"}}> 30</span>석/ 최소출발인원 <span style={{color:"royalblue"}}> 1</span> 명)</span>
             <span style={{color:"gray"}}>담당자 정보 (이모티콘) </span>
         </Container1>
         <Container2>
@@ -97,9 +100,9 @@ const Goodsinfo1 =()=>{
             <div className="twobox">
                 <p className="box1">상품 가격</p>
                 <p className="box2">
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 10,000,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 10,000,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> 10,000,000원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
                 </p>
             </div>
         </Container2>

@@ -22,16 +22,18 @@ const Between = styled.div`
   flex-direction: row;
 `;
 
-const Goodsinfo = ({ itemCode }) => {
+const Goodsinfo = () => {
+  const itemCode =window.localStorage.getItem("itemcode")
   const [goodsInfo, setGoodsInfo] = useState("");
 
+
+
   useEffect(() => {
+    
     const GoodsInfo = async () => {
       try {
         const resp = await AxiosApi.goodsInfo(itemCode); //전체 조회
-
-        if (resp.status === 200) setGoodsInfo(resp.data[0]);
-
+        if (resp.status === 200) setGoodsInfo(resp.data[0])
         console.log(resp.data);
       } catch (e) {
         console.log(e);
@@ -48,13 +50,13 @@ const Goodsinfo = ({ itemCode }) => {
       <Center>
         <Between>
           <div>
-            <Goodsimgslide />
-            <Goodsinfo1 />
+            <Goodsimgslide img1={goodsInfo.i_sub_img1} img2={goodsInfo.i_sub_img2} img3={goodsInfo.i_sub_img3}/>
+            <Goodsinfo1 price ={goodsInfo.price}/>
             <Goodsinfoheader />
-            <Goodsinfos />
+            <Goodsinfos info_img={goodsInfo.info_img} />
           </div>
           <div>
-            <Goodsprice />
+            <Goodsprice item_num={goodsInfo.item_num} i_date={goodsInfo.i_date} price={goodsInfo.price}/>
           </div>
         </Between>
       </Center>

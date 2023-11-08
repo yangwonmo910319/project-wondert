@@ -122,8 +122,6 @@ const CancleButton = styled.button`
     cursor: pointer;
 `;
 
-
-
 const Goodscancle1=()=>{
 
     return(
