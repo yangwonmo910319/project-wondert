@@ -10,8 +10,6 @@ const Course = styled.div`
 `;
 
 const TravelTitle = styled.div`
-    padding: 0 30px;
-
     p {
     margin: 20px 15px;
     line-height: 30px;
@@ -19,7 +17,7 @@ const TravelTitle = styled.div`
     h5 {
     font-size: 17px;
     font-weight: bold;
-    margin: 10px 300px;
+    margin: 10px 5px;
     }
     ul {
         border: 1px solid lightgray;
