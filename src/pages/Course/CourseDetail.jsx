@@ -32,7 +32,7 @@ const Container2 = styled.div`
     justify-content: center;
     align-items: center;
     width: 1200px;
-    border: 3px double gray;
+    background-color: #164863;
   }
   .topic {
     display: flex;
@@ -77,11 +77,14 @@ const Container3 = styled.div`
     flex-direction: column;
     height: 419px;
     width: 564px;
-    border-bottom: 2px dashed #45474b;
+    border-bottom: 2px dashed #164863;
 
     .coursePathBox {
-      border-bottom: 3px solid #45474b;
+      border-bottom: 3px solid #164863;
       padding: 10px;
+      font-weight: bold;
+      font-size: 30px;
+      color: #164863;
     }
 
     .courseArticleBox {
@@ -90,7 +93,9 @@ const Container3 = styled.div`
       align-items: center;
       font-size: 30px;
       padding: 10px;
+      color: #427d9d;
     }
+
     .courseArticleBox2 {
       display: flex;
       text-align: center;
@@ -106,7 +111,8 @@ const Container3 = styled.div`
     height: 419px;
     width: 564px;
     transform: rotate(2deg);
-    border: 3px solid #45474b;
+    border: 20px solid #427d9d;
+    border-style: ridge;
   }
   .box2A {
     background-image: url(https://dimgcdn.ybtour.co.kr/TN/cd/cda853b2799c287503ec63fd25f6d033.tn.410x280.jpg);
@@ -114,7 +120,8 @@ const Container3 = styled.div`
     height: 419px;
     width: 564px;
     transform: rotate(-2deg);
-    border: 3px solid #45474b;
+    border: 20px solid #ddf2fd;
+    border-style: ridge;
   }
 `;
 const CourseDetail = () => {
@@ -132,7 +139,7 @@ const CourseDetail = () => {
             style={{
               fontWeight: "bold",
               fontSize: "25px",
-              color: "black",
+              color: "#427d9d",
             }}
           >
             # 대만의 하이라이트 코스
@@ -147,7 +154,7 @@ const CourseDetail = () => {
             style={{
               fontWeight: "bold",
               fontSize: "25px",
-              color: "black",
+              color: "#ddf2fd",
             }}
           >
             특유의 다양한 볼거리와 먹거리들이 참 매력적인 코스
@@ -158,16 +165,7 @@ const CourseDetail = () => {
       <Container3>
         <div className="box">
           <div className="box1">
-            <div
-              className="coursePathBox"
-              style={{
-                fontWeight: "bold",
-                fontSize: "30px",
-                color: "black",
-              }}
-            >
-              시먼딩
-            </div>
+            <div className="coursePathBox">시먼딩</div>
             <div className="courseArticleBox">
               타이베이에서 가장 인기 있는 쇼핑 지역
             </div>
@@ -187,16 +185,7 @@ const CourseDetail = () => {
         <div className="box">
           <div className="box2A"></div>
           <div className="box1">
-            <div
-              className="coursePathBox"
-              style={{
-                fontWeight: "bold",
-                fontSize: "30px",
-                color: "black",
-              }}
-            >
-              코스경로2
-            </div>
+            <div className="coursePathBox">코스경로2</div>
             <div className="courseArticleBox">설명 1</div>
             <div className="courseArticleBox2">설명 2</div>
           </div>
@@ -205,16 +194,7 @@ const CourseDetail = () => {
       <Container3>
         <div className="box">
           <div className="box1">
-            <div
-              className="coursePathBox"
-              style={{
-                fontWeight: "bold",
-                fontSize: "30px",
-                color: "black",
-              }}
-            >
-              코스경로3
-            </div>
+            <div className="coursePathBox">코스경로3</div>
             <div className="courseArticleBox">설명 1</div>
             <div className="courseArticleBox2">설명 2</div>
           </div>

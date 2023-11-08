@@ -91,7 +91,6 @@ const CourseList = () => {
     <CourseNavbar>
       <br />
       <GlobalButton />
-
       <CourseBtn toggle={toggle} data={data} />
       {data.map((item, index) => (
         <CourseItem key={index} data={item} />

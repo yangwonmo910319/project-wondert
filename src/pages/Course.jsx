@@ -9,7 +9,7 @@ const Coursecss = styled.div`
 const Course = () => {
   return (
     <Coursecss>
-      <CourseList />
+      <CourseDetail />
     </Coursecss>
   );
 };
