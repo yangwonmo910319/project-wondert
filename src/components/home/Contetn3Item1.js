@@ -63,6 +63,8 @@ const Slider = styled.div`
         }
 
         .slide {
+
+            object-fit: cover;
             display: flex;
             align-items: center;
             flex-wrap: nowrap;
@@ -75,7 +77,7 @@ const Slider = styled.div`
                 content: "";
                 display: block;
                 position: absolute;
-                top: 50%;
+                top: 3%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 z-index: 1;
@@ -107,9 +109,9 @@ const Slider = styled.div`
                         bottom: 0;
                         right: 0;
                         width: 100%;
-                        height: 100%;
+                        height: 190%;
                         //마우스 올라가면 흐려짐
-                        background-color: rgba(0, 0, 0, 0.2);
+                      
                     }
                 }
                 &.big {
@@ -117,7 +119,7 @@ const Slider = styled.div`
                     height: 280px;
                 }
                 &.small {
-                    width: 350px;
+                    width: 250px;
                     height: 400px;
                     margin: 0 40px;
                 }
@@ -156,14 +158,14 @@ const Slider = styled.div`
 `;
 
 const slides = [
-    { url:"https://image1.lottetour.com/static/trvtour/201909/723/30fe1a9df8f3aac93c34e5d2b80f694a.jpg", target: "#", title: "자유여행"},
-    { url:"https://dimg.donga.com/wps/NEWS/IMAGE/2016/06/18/78731141.2.jpg", target: "#" , title:"지금뜨는그곳"},
-    { url:"https://www.gousa.or.kr/sites/default/files/styles/hero_l/public/2023-10/c3ac71b4-a163-4196-8c97-6baff4a97568_8.jpeg?h=56d193ff&itok=JeTuG5VH", target: "#", title:"틈새여행" },
-    { url:"https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/STq/image/8EAUTOLyees0927ctrPSCXkUn0U.jpg", target: "#" , title:"먹방여행"},
-    { url:"https://res.cloudinary.com/kyte/image/upload/w_1080,h_1560,q_auto,f_auto,e_sharpen:50,c_fill,g_auto/v1636348646/content/shutterstock/FI/rovaniemi_3", target: "#" , title:"겨울여행"},
-    { url:"https://cdn.3hoursahead.com/v2/content/image-comp/feff4170-bacd-4a4d-acd9-8601ac17cf06.webp", target: "#" , title:"백패킹"},
-    { url:"https://news.airbnb.com/wp-content/uploads/sites/4/2022/04/VILLA-SANGLUNG.jpeg?fit=1024%2C678", target: "#" , title:"프리미엄"},
-    { url:"https://assets.blog.engoo.com/wp-content/uploads/sites/2/2022/01/14205148/%ED%98%BC%EC%9E%90%EC%97%AC%ED%96%89-back-image-%EB%B3%B5%EC%82%AC.jpg", target: "#" , title:"기타여행"}
+    { url:"https://mblogthumb-phinf.pstatic.net/MjAyMjAzMjRfNTcg/MDAxNjQ4MDg1MTgxMDM3.bAq_2YbMdcgm2LXEradc4LdjcNL90ltQqlZWTJ9GvFwg.9Ve6rojkneVGoBTCpRskuXs9e6vQeEKjtnSXA4wYKPIg.JPEG.travelgeo/IMG_3753.jpg?type=w800", target: "#", title: "서울"},
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL2sbIdSpBZ39Ho9ZQHGZBB-9NT5vArXJu-A&usqp=CAU", target: "#" , title:"오사카"},
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeGE-JNt8iF6vkqcJVrDTmvlm34OO5g7TMtA&usqp=CAU", target: "#", title:"파리" },
+    { url:"https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/STq/image/8EAUTOLyees0927ctrPSCXkUn0U.jpg", target: "#" , title:"오사카"},
+    { url:"https://res.cloudinary.com/kyte/image/upload/w_1080,h_1560,q_auto,f_auto,e_sharpen:50,c_fill,g_auto/v1636348646/content/shutterstock/FI/rovaniemi_3", target: "#" , title:"파리"},
+    { url:"https://cdn.3hoursahead.com/v2/content/image-comp/feff4170-bacd-4a4d-acd9-8601ac17cf06.webp", target: "#" , title:"상하이"},
+    { url:"https://news.airbnb.com/wp-content/uploads/sites/4/2022/04/VILLA-SANGLUNG.jpeg?fit=1024%2C678", target: "#" , title:"제주도"},
+    { url:"https://assets.blog.engoo.com/wp-content/uploads/sites/2/2022/01/14205148/%ED%98%BC%EC%9E%90%EC%97%AC%ED%96%89-back-image-%EB%B3%B5%EC%82%AC.jpg", target: "#" , title:"대만"}
 ];
 
 
@@ -176,7 +178,7 @@ return(
     <>
     <Contetn3Item1Css>
         <div className="metn1">
-           <h1>테마별 Best 여행지</h1> 
+           <h1>Best 코스 추천</h1> 
         </div>
         <div className="metn2">
 
@@ -206,7 +208,7 @@ return(
 
                                 <div
                                     className="item"
-                                    style={{ backgroundImage: `url(${s.url})`}}
+                                     style={{ backgroundImage: `url(${s.url})`,  backgroundPosition: 'center'}}
                                 ></div>
 
                             </li>
@@ -228,7 +230,7 @@ return(
                                                                     
                             <div
                                 className="item"
-                                style={{ backgroundImage: `url(${s.url})` }}
+                                style={{ backgroundImage: `url(${s.url})`,  backgroundPosition: 'center'}}
                             ></div>
                             </li>
                         ))}
