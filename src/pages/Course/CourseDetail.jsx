@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import CourseBtn from "../../components/CourseBtn";
 import CourseCom from "../../components/CourseCom";
-import React, { useState } from "react";
+import React from "react";
 
 const CourseDetailItem = styled.div`
   display: flex;
@@ -125,14 +124,8 @@ const Container3 = styled.div`
   }
 `;
 const CourseDetail = () => {
-  const [selectedCourse, setSelectedCourse] = useState(null);
-
-  const handleCountrySelect = (country) => {
-    setSelectedCourse(null);
-  };
   return (
     <CourseDetailItem>
-      <CourseBtn onCountrySelect={handleCountrySelect} />
       <Container1>
         <div className="main1">
           <span

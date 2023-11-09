@@ -1,15 +1,21 @@
 /*하늘 페이지 */
 import styled from "styled-components";
-import CourseDetail from "./Course/CourseDetail";
 import CourseList from "./Course/CourseList";
+import GlobalButton from "../components/GlobalButton";
+
 const Coursecss = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 const Course = () => {
   return (
     <Coursecss>
-      <CourseDetail />
+      <br />
+      <GlobalButton />
+      <CourseList />
     </Coursecss>
   );
 };

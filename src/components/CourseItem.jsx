@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import CourseBtn from "./CourseBtn";
 
 //컨셉 목록 전체 박스
 const CourseBox = styled.div`
@@ -57,47 +56,45 @@ const PathBox = styled.div`
   width: 100%;
 `;
 
-const CourseItem = ({ data }) => {
+const CourseItem = ({ selectedCountryData }) => {
   return (
-    <>
-      <CourseBox>
-        <MainBox>
-          <span
-            style={{
-              fontSize: "15px",
-            }}
-          >
-            {data.COURSE_HASH}
-          </span>
-          <br />
-          <MainImg></MainImg>
-        </MainBox>
-        <ArticleBox>
-          <TopicBox
-            style={{
-              fontSize: "30px",
-              color: "black",
-            }}
-          >
-            {data.TOPIC}
-          </TopicBox>
-          <PathBox
-            style={{
-              fontWeight: "bold",
-              fontSize: "20px",
-              color: "black",
-            }}
-          >
-            <div className="Path1">{data.COURSE_PATH1}</div>
-            <p style={{ color: "gray" }}>▷</p>
-            <div className="Path2">{data.COURSE_PATH2}</div>
-            <p style={{ color: "gray" }}>▷</p>
+    <CourseBox>
+      <MainBox>
+        <span
+          style={{
+            fontSize: "15px",
+          }}
+        >
+          {/* {selectedCountryData.COURSE_HASH} */}
+        </span>
+        <br />
+        <MainImg></MainImg>
+      </MainBox>
+      <ArticleBox>
+        <TopicBox
+          style={{
+            fontSize: "30px",
+            color: "black",
+          }}
+        >
+          {/* {selectedCountryData.TOPIC} */}
+        </TopicBox>
+        <PathBox
+          style={{
+            fontWeight: "bold",
+            fontSize: "20px",
+            color: "black",
+          }}
+        >
+          {/* <div className="Path1">{selectedCountryData.COURSE_PATH1}</div> */}
+          <p style={{ color: "gray" }}>▷</p>
+          {/* <div className="Path2">{selectedCountryData.COURSE_PATH2}</div> */}
+          <p style={{ color: "gray" }}>▷</p>
 
-            <div className="Path3">{data.COURSE_PATH3}</div>
-          </PathBox>
-        </ArticleBox>
-      </CourseBox>
-    </>
+          {/* <div className="Path3">{selectedCountryData.COURSE_PATH3}</div> */}
+        </PathBox>
+      </ArticleBox>
+    </CourseBox>
   );
 };
 export default CourseItem;
