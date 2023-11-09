@@ -25,7 +25,6 @@ const MainImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(https://www.kkday.com/ko/blog/wp-content/uploads/taiwan_city_19.jpeg);
   background-size: cover;
   height: 200px;
   width: 200px;
@@ -68,7 +67,7 @@ const CourseItem = ({ selectedCountryData }) => {
           {/* {selectedCountryData.COURSE_HASH} */}
         </span>
         <br />
-        <MainImg></MainImg>
+        <MainImg>{/* {selectedCountryData.MAIN_IMG} */}</MainImg>
       </MainBox>
       <ArticleBox>
         <TopicBox
@@ -86,12 +85,18 @@ const CourseItem = ({ selectedCountryData }) => {
             color: "black",
           }}
         >
-          {/* <div className="Path1">{selectedCountryData.COURSE_PATH1}</div> */}
+          <div className="Path1">
+            {/* {selectedCountryData.COURSE_PATH1} */}
+          </div>
           <p style={{ color: "gray" }}>▷</p>
-          {/* <div className="Path2">{selectedCountryData.COURSE_PATH2}</div> */}
+          <div className="Path2">
+            {/* {selectedCountryData.COURSE_PATH2} */}
+          </div>
           <p style={{ color: "gray" }}>▷</p>
 
-          {/* <div className="Path3">{selectedCountryData.COURSE_PATH3}</div> */}
+          <div className="Path3">
+            {/* {selectedCountryData.COURSE_PATH3} */}
+          </div>
         </PathBox>
       </ArticleBox>
     </CourseBox>
