@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import AxiosApi from "../../api/AxiosApi";
 import styled from "styled-components";
-import { storage } from "../api/FireBase";
+import { storage } from "../../api/FireBase";
 
 const FormContainer = styled.div`
   padding: 50px;

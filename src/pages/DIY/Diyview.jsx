@@ -1,9 +1,7 @@
-import CommunityWrite from "../components/CommunityDetail";
+import CommunityWrite from "../../components/Diy/CommunityDetail";
 
 
 const DiyView =()=>{
-
-
 
 return(
     <>

@@ -1,7 +1,7 @@
 import React from 'react';
-import CommonTable from '../components/CommonTable';
-import CommonTableColumn from '../components/CommonTableColumn';
-import CommonTableRow from '../components/CommonTableRow';
+import CommonTable from './CommonTable';
+import CommonTableColumn from './CommonTableColumn';
+import CommonTableRow from './CommonTableRow';
 import styled from 'styled-components';
 
 

@@ -1,4 +1,4 @@
-import WriteForm from "../components/WriteForm";
+import WriteForm from "../../components/Diy/WriteForm";
 
 const DiyWrite =() => {
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AxiosApi from "../api/AxiosApi";
+import AxiosApi from "../../api/AxiosApi";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 

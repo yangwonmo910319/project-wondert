@@ -1,12 +1,9 @@
 /*선영 페이지 */
 import React from "react";
-// import ListWriting from "../components/ListWriting";
-// import Imoge from "../components/GoodBad";
-// import CommentWrite from "../components/Comment";
 import styled from "styled-components";
-import MainPage from "../components/SlideMain";
-import PostMain from "../components/PostList";
-import BoardList from "../components/BoardList";
+import MainPage from "../../components/Diy/SlideMain";
+import PostMain from "../../components/Diy/PostMain";
+import BoardList from "../../components/Diy/BoardList";
 
 const Center = styled.div`
     display:flex;
@@ -22,11 +19,6 @@ const DiyPage = () =>{
           <MainPage />
           <PostMain />
           <BoardList />
-        
-          {/*<ListWriting />
-          <Imoge />
-          <CommentWrite />
-        */}
         </Center>
     );
 };
