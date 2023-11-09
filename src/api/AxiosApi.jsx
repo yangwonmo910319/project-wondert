@@ -29,6 +29,19 @@ const AxiosApi = {
     //겟 바디영역
     return await axios.get(WONDER_WALKER + `/Goods/info?itemCode=${itemCode}`);
   },
+
+  goodsSell: async (userId,itemNum,i_Date,date_num,person) => {
+    const sell = {
+      userId:userId,
+      itemNum:itemNum,
+      i_Date:i_Date,
+      date_num:date_num,
+      person:person,
+    };
+    return await axios.post(WONDER_WALKER + "/Goods/Complete", sell);
+  },
+  
+
 };
 
 export default AxiosApi;

@@ -84,7 +84,7 @@ const Goodsbox = ({onSelect}) => {
   const [goodsList, setGoodsList] = useState("");
   
   useEffect(()=>{
-    const GoodsList = async ()=>{
+  const GoodsList = async ()=>{
     try{
         const resp = await AxiosApi.goodsList(world); //전체 조회
         if(resp.status === 200) setGoodsList(resp.data);
@@ -93,7 +93,7 @@ const Goodsbox = ({onSelect}) => {
         console.log(e);
     }};
     GoodsList();
-},[world]);
+  },[world]);
 
 const InfoClick =(e)=>{
   navigate("/Goods/info");

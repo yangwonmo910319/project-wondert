@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import  {ReactComponent as QrcodeImg} from "../../images/qr코드.svg";
+import { useNavigate } from "react-router-dom";
 
 const TitleBox=styled.div`
     display: flex;
@@ -60,6 +61,7 @@ const SellButton = styled.button`
 `
 
 const Goodsclt1=()=>{
+    const navigate =useNavigate();
 
 
     return(
@@ -80,7 +82,7 @@ const Goodsclt1=()=>{
         </TitleBox1>
         <QrcodeImg />
         <div>
-        <SellButton Buttonstlye={true}>홈으로</SellButton>
+        <SellButton Buttonstlye={true} onClick={()=>navigate("/")}>홈으로</SellButton>
         <SellButton Buttonstlye={true}>장바구니</SellButton>
         </div>
         </>

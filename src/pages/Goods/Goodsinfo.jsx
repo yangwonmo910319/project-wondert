@@ -42,6 +42,9 @@ const Goodsinfo = () => {
     GoodsInfo();
   }, []);
 
+
+
+
   return (
     <>
       <Center>

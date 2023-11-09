@@ -15,7 +15,6 @@ const Goodscompleted=()=>{
         <>
         <Center>
         <Goodsclt1/>
-
         </Center>
         </>
     )

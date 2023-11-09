@@ -1,5 +1,6 @@
 import styled,{ css } from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
     width: 350px;
@@ -114,35 +115,51 @@ const Container = styled.div`
         color:white;
         font-weight: bold;
         font-size: 17px;
-    
+        cursor: pointer;
     }
-    
 `;
 
-
-
 const Goodsprice = ( props )=>{
-    const[day,setDay] =useState(0);
     const { item_num , i_date , price } =props;
+    const[personnel,setPersonnel] =useState(0);
+    const[selected,setSelected] =useState(0);
+    const[resultMoney,setResultMoney] =useState(0);
+    const navigate =useNavigate();
     
-    const plusClick =()=>{
-        setDay(day+1);
+    const plusClick =({price})=>{
+        setPersonnel(personnel+1);
+        setResultMoney(price * (personnel+1));
     }
-    const minusClick =()=>{
-        if(day>0){setDay(day-1);}
+    const minusClick =({price})=>{
+        if(personnel>1);setPersonnel(personnel-1);
+        setResultMoney(price  * (personnel-1));
     }
 
+    const sellClick=()=>{
+        if(window.localStorage.getItem("isLogin") === "true"){
+        navigate("/Goods/sell")
+        window.localStorage.setItem("price",{resultMoney});
+        window.localStorage.setItem("person",{personnel});
+        window.localStorage.setItem("select",{selected});
+        window.localStorage.setItem("date",{i_date});
+        }else 
+        navigate("/login")
+            //모달창 + 해야함 
+    }
 
+    const handleSelect = (e) => {
+        setSelected(e.target.value);
+      };
 
     return(
         <>
         <Container>
             <div className="box1">
                 <p className="box1-1">상품번호  {item_num} </p>
-                <p className="box1-1">일정 : {i_date} ~ {i_date}</p>
+                <p className="box1-1">시작 일정 : {i_date}</p>
             </div>
             <div className="box2">
-            <select className="selectstyle" name="일정" id="?">
+            <select className="selectstyle" onChange={handleSelect} value={selected} name="일정" >
                 <option style={{backgroundColor:"black"}} value="">여행일정 선택</option>
                 <option value="1">1일</option>
                 <option value="2">2일</option>
@@ -160,9 +177,9 @@ const Goodsprice = ( props )=>{
                     <p className="priceInfo2">{price}원</p>
                 </div>
                 <div className="dayBox">
-                    <button className="dayBtn" onClick={minusClick} >-</button>
-                    <span className="dayScore">{day}</span>
-                    <button className="dayBtn" onClick={plusClick}>+</button>
+                    <button className="dayBtn" onClick={()=>minusClick({price})} >-</button>
+                    <span className="dayScore">{personnel}</span>
+                    <button className="dayBtn" onClick={()=>plusClick({price})}>+</button>
                 </div>
             </div>
             <div className="pricebox">
@@ -172,7 +189,7 @@ const Goodsprice = ( props )=>{
                 </div>
                 <div className="dayBox">
                     <button style={{color:"gray"}} className="dayBtn">-</button>
-                    <span style={{color:"gray"}} className="dayScore">0</span>
+                    <span style={{color:"gray"}} className="dayScore">0</span>  
                     <button style={{color:"gray"}} className="dayBtn">+</button>
                 </div>
             </div>
@@ -190,15 +207,13 @@ const Goodsprice = ( props )=>{
             <hr/>
             <div className="pricebox">
                 <div className="priceInfo3">최종합계금액</div>
-                <div className="priceInfo4">{price}원 /부가세포함</div>
+                <div className="priceInfo4">{resultMoney}원 /부가세포함</div>
             </div>
             <hr/>
             <div className="pricebox">
-                <button className="priceBtn">결 제 하 기</button>
+                <button className="priceBtn" onClick={sellClick} >결 제 하 기</button>
                 <button className="priceBtn">장 바 구 니</button>
             </div>
-            
-
         </Container>
         </>
     )

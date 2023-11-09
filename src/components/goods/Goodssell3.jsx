@@ -1,5 +1,6 @@
 import styled,{css} from "styled-components";
-
+import { useNavigate } from "react-router-dom";
+import AxiosApi from "../../api/AxiosApi";
 const TitleBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -24,7 +25,6 @@ const TitleBox = styled.div`
         font-weight: 500;
         padding-left:20px ;
     }
-
     .title1box1{
             width: 600px;
             height: 90px;
@@ -83,9 +83,26 @@ const SellButton = styled.button`
     border: ${(props) => (!props.Buttonstlye ? "1px solid #c1c1c1;" : "0")};;
     font-size: 12px;
     font-weight: bold;
+    cursor: pointer;
 `
 
 const Goodssell3=()=>{
+    const navigate = useNavigate();
+
+    const goodsSell = async () => {
+        // 로그인을 위한 axios 호출
+        const res = await AxiosApi.goodsSell();
+        console.log(res.data);
+        if (res.data === true) {
+        
+          window.localStorage.setItem("userId", inputId); // 브라우저에서 임시로 값을 저장하는 기술
+          window.localStorage.setItem("userPw", inputPw);
+          window.localStorage.setItem("isLogin", "TRUE");
+          navigate("/Goods/completed");
+        } else {
+          alert("nono~~")
+        }
+      };
 
 
     return(
@@ -130,7 +147,7 @@ const Goodssell3=()=>{
             </ul>
         </TitleBox>
             <span>
-            <SellButton Buttonstlye={false}>취소하기</SellButton>
+            <SellButton Buttonstlye={false} onClick={()=>navigate(-1)}>취소하기</SellButton>
             <SellButton Buttonstlye={true}>예약하기</SellButton>
             </span>
         </>

@@ -18,6 +18,8 @@ const Between =styled.div`
 
 const Goodsell =()=>{
 
+    
+
 
     return(<>
     <Center>
