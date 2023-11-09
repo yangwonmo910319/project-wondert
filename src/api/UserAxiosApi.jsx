@@ -32,6 +32,11 @@ Login: async (id, pw) => {
     return await axios.post(WONDER_WALKER + `/users/signup`,userInfo);
   },
 
+
+  // ID로 회원정보 출력
+  Userinfo: async (id) => {   
+    return await axios.post(WONDER_WALKER + `/users/userinfo/?id=${id}`);
+  },
 }
 
 export default UserAxiosApi;

@@ -231,7 +231,6 @@ const idFocus=()=>{
   }
 }
   const onClickLogin = async () => {
-    alert("Click 회원가입");   
       console.log("가입을 합니다.");
       const signup = await UserAxiosApi.Signup(
         inputId,
@@ -244,7 +243,7 @@ const idFocus=()=>{
        
       );
       console.log(signup.data.result);
-      if (signup.data === true) {
+      if (signup.data === true) {       
         navigate("/");
       } else {
         setModalOpen(true);
@@ -371,7 +370,7 @@ const idFocus=()=>{
             확인
           </Button>
         ) : (
-          <Button disabled onClick={()=>{}}>   확인</Button>
+          <Button disabled onClick={()=>{}}>확인</Button>
         )}
              <Button enbled onClick={() => {goHome()}} >취 소</Button>
         <Modal open={modalOpen} close={closeModal} header="오류">
