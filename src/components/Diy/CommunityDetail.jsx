@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import TravelCourse from "./TravelCourse";
 import { useNavigate } from "react-router-dom";
+import AxiosApi from "../../api/AxiosApi";
 
 
 const Detail = styled.div`
@@ -93,26 +94,51 @@ const CommunityWrite = () => {
     const navigate = useNavigate();
     const handleReset = () => {
       navigate("/DiyPage");
-
     };
+    const[travelCourse, setTravelCourse] = useState();
+    const [num,setNum] = useState("T1");
+    const [pic, setPic] = useState("");
+    const [title,setTitle] = useState("");
+    const [id, setId] = useState("");
+    const [writeDate, setWriteDate] = useState("");
+    const [view, setView] = useState("");
+
+ useEffect(() => {
+    const travelCourse = async () => {
+    try {
+        const resp = await AxiosApi.travelCourse(num,pic,title,id,writeDate,view);
+        if(resp.status === 200) setTravelCourse(resp.data);
+        if(resp.status === 200) setNum(resp.data);
+        if(resp.status === 200) setPic(resp.data);
+        if(resp.status === 200) setTitle(resp.data);
+        if(resp.status === 200) setId(resp.data);
+        if(resp.status === 200) setWriteDate(resp.data);
+        if(resp.status === 200) setView(resp.data);
+    } catch(e) {
+        console.log(e);
+    }};
+    travelCourse();
+}, [num,pic,title,id,writeDate,view]);
+
 
     return (
         <>
-    <Detail>
+        {travelCourse && 
+            travelCourse.map(data => (
+    <Detail key={data.num}>
         <h2>게시글 상세</h2>
-
             <section className="article-detail table-common con row">
                 <table className="cell">
                     <tbody>
                         <tr className="article-title">
-                            <th>[번호] 제목 : 일본 여행 후기 올립니다!</th>
+                            <th>{data.num} 제목 : `${data.title}`</th>
                         </tr>
                         <tr className="article-info">
-                            <td>날짜 : 2023.11.02</td>
-                            <td>아이디123</td>
-                            <td>조회수 👀</td>
+                            <td>{data.writeDate}</td>
+                            <td>{data.userId}</td>
+                            <td>{data.view}👀</td>
                             <td>즐겨찾기 ⭐️</td>
-                            <td>좋아요 👍</td>
+                            <td>{data.good}👍</td>
                         </tr>
                         <tr className="article-course">
                             <TravelCourse />
@@ -124,6 +150,7 @@ const CommunityWrite = () => {
             <SubmitButton onClick={handleReset}>목록으로</SubmitButton>
         </FieldContainer>
     </Detail>
+    ))}
     </>
     );
 };

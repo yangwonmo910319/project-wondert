@@ -1,10 +1,11 @@
 import React from 'react';
 import PostList from './PostList';
 
-const PostMain = props => {
+const PostMain = (props) => {
+
   return (
     <>
-      <PostList />
+      <PostList tema={props.tema}/>
     </>
   )
 }
