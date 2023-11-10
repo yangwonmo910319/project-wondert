@@ -18,6 +18,7 @@ const Slider = styled.div`
 
     .slide_container {
         overflow: hidden;
+        margin-right: -1500px;
 
         .slide_wrapper {
         display: flex;
@@ -151,22 +152,28 @@ const slides = [
     { url:"https://assets.blog.engoo.com/wp-content/uploads/sites/2/2022/01/14205148/%ED%98%BC%EC%9E%90%EC%97%AC%ED%96%89-back-image-%EB%B3%B5%EC%82%AC.jpg", target: "#" , title:"기타여행"}
 ];
 
-const MainPage = () => {
+const MainPage = ({temachage}) => {
+  
     const [animate, setAnimate] = useState(true);//트루면 작동
     const onStop = () => setAnimate(false);
     const onRun = () => setAnimate(true);
+    
+    const onClick = (x) => {
+       
+        temachage(x);
+    }
 
+    
     return (
         <Slider>
-
             <p>1인 여행 테마</p>
             <div className="slide_container">
                 <ul
                     className="slide_wrapper"
-                    onMouseEnter={onStop}//마우스 대면멈춤
-                    onMouseLeave={onRun}//마우스 떠나면움직음
+                    onMouseEnter={onStop}
+                    onMouseLeave={onRun}
                 >
-                    <div 
+                    <div
                         className={"slide original".concat(
                             animate ? "" : " stop"
                         )}
@@ -175,18 +182,18 @@ const MainPage = () => {
                             <li
                                 key={i}
                                 className={i > 200 ? "big" : "small"}
+                                onClick={() => onClick(s.title)}
                             >
-                            <div className="lb-wrap">
-                                <div className="lb-text">
-                                    <h2>{s.title}</h2>
+                                <div className="lb-wrap" >
+                                    <div className="lb-text">
+                                        <h2>{s.title}</h2>
+                                    </div>
                                 </div>
-                            </div>
-
                                 <div
                                     className="item"
-                                    style={{ backgroundImage: `url(${s.url})`}}
-                                ></div>
-
+                                    style={{ backgroundImage: `url(${s.url})` }}
+                                    title={s.title}
+                                    ></div>
                             </li>
                         ))}
                     </div>
@@ -196,21 +203,23 @@ const MainPage = () => {
                         {slides.map((s, i) => (
                             <li
                                 key={i}
-                                className={i > 200  ? "big" : "small"}
+                                className={i > 200 ? "big" : "small"}
+                                onClick={() => onClick(s.title)}
                             >
-                             <div className="lb-wrap">
-                                <div className="lb-text">
-                                    <h2>{s.title}</h2>
+                                <div className="lb-wrap">
+                                    <div className="lb-text">
+                                        <h2>{s.title}</h2>
+                                    </div>
                                 </div>
-                            </div>
-                                                                    
-                            <div
-                                className="item"
-                                style={{ backgroundImage: `url(${s.url})` }}
-                            ></div>
+                                <div
+                                    className="item"
+                                    style={{ backgroundImage: `url(${s.url})` }}
+                                    title={s.title} 
+
+                                ></div>
                             </li>
                         ))}
-                    </div>  
+                    </div>
                 </ul>
             </div>
         </Slider>

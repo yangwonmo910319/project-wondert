@@ -1,75 +1,97 @@
-import React from 'react';
-import CommonTable from './CommonTable';
-import CommonTableColumn from './CommonTableColumn';
-import CommonTableRow from './CommonTableRow';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-
-
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 1200px;
-
-`;
+import DiyAxiosApi from '../../api/DiyAxiosApi';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigation } from 'react-calendar';
 
 const Title = styled.div`
+    display: flex;
+    justify-content: center;
     font-size: 28px;
     font-weight: bold;
     margin: 30px 80px;
 `;
 
-const PostList = props => {
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  
+  table {
+    text-align: center;
+  }
+  th {
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid lightgray;
+    padding: 10px 10px;
+  }
+  td {
+    border: 1px solid lightgray;
+    cursor: pointer;
+    padding: 5px 5px;
+    font-size: 15px;
+  }
+`;
+
+const PostList = ({tema}) => {
+  const [travelList, setTravelList] = useState("");
+  const [theme,setTheme] = useState(tema); 
+  const [world, setWorld] = useState("korea");
+  const navigate = useNavigate();
+
+  const onClick =(e)=>{
+    navigate("/DiyPage/Diyview");
+    window.localStorage.getItem("e", e);
+  }
+
+
+  useEffect(()=>{
+    const travelList = async ()=>{
+    try{
+      console.log("월드 정보"+world);
+      console.log("")
+        const resp = await DiyAxiosApi.travelList(world, (tema)); //전체 조회
+        console.log(("화면 렌더링") + world,theme);
+        if(resp.status === 200) {
+          setTravelList(resp.data);
+        console.log(resp.data);}
+        else{
+        }
+    }catch(e){
+        console.log(e);
+    }};
+    travelList();
+},[tema]);
 
   return (
-    <Container>
+    <Wrap>
       <Title>
-        <p>[DIY 여행 일지 공유 게시판] - # 겨울여행</p>
+        <p>[DIY 여행 일지 공유 게시판] -# {tema}</p>
       </Title>
-      <CommonTable headersName={['글번호','사진' ,'제목', '아이디','등록일', '조회수']}>
-        <CommonTableRow> 
-          <CommonTableColumn>1</CommonTableColumn>
-          <CommonTableColumn>사진</CommonTableColumn>
-          <CommonTableColumn>첫번째 여행후기 게시글입니다.</CommonTableColumn>
-          <CommonTableColumn>아이디123</CommonTableColumn>
-          <CommonTableColumn>2023-10-25</CommonTableColumn>
-          <CommonTableColumn>6</CommonTableColumn>
-        </CommonTableRow>
-        <CommonTableRow>
-          <CommonTableColumn>2</CommonTableColumn>
-          <CommonTableColumn>사진</CommonTableColumn>
-          <CommonTableColumn>두번째 여행후기 게시글입니다.</CommonTableColumn>
-          <CommonTableColumn>아이디456</CommonTableColumn>
-          <CommonTableColumn>2023-10-28</CommonTableColumn>
-          <CommonTableColumn>5</CommonTableColumn>
-        </CommonTableRow>
-        <CommonTableRow>
-          <CommonTableColumn>3</CommonTableColumn>
-          <CommonTableColumn>사진</CommonTableColumn>
-          <CommonTableColumn>세번째 여행후기게시글입니다.</CommonTableColumn>
-          <CommonTableColumn>아이디789</CommonTableColumn>
-          <CommonTableColumn>2023-10-31</CommonTableColumn>
-          <CommonTableColumn>1</CommonTableColumn>
-        </CommonTableRow>
-        <CommonTableRow>
-          <CommonTableColumn>4</CommonTableColumn>
-          <CommonTableColumn>사진</CommonTableColumn>
-          <CommonTableColumn>네번째 여행후기 게시글입니다.</CommonTableColumn>
-          <CommonTableColumn>아이디346</CommonTableColumn>
-          <CommonTableColumn>2023-11-03</CommonTableColumn>
-          <CommonTableColumn>2</CommonTableColumn>
-        </CommonTableRow>
-        <CommonTableRow>
-          <CommonTableColumn>5</CommonTableColumn>
-          <CommonTableColumn>사진</CommonTableColumn>
-          <CommonTableColumn>다섯번째 여행후기 게시글입니다.</CommonTableColumn>
-          <CommonTableColumn>아이디947</CommonTableColumn>
-          <CommonTableColumn>2023-11-05</CommonTableColumn>
-          <CommonTableColumn>4</CommonTableColumn>
-        </CommonTableRow>
-      </CommonTable>
-    </Container>
-  )
-}
+      <table>
+        <tr>
+          <th>글번호</th>
+          <th>사진</th>
+          <th>제목</th>
+          <th>아이디</th>
+          <th>등록일</th>
+          <th>조회수</th>
+        </tr>
+      {travelList &&
+      travelList.map(data => (
+        <tr onClick={onClick}>
+          <td>{data.travel_num}</td>
+          <td>{data.travel_pic} </td>
+          <td>{data.travel_title}</td>
+          <td>{data.travel_userid}</td>
+          <td>{data.travel_writedate}</td>
+          <td>{data.travel_view}</td>
+        </tr>
+         ))}
+         </table>
+  
+    </Wrap>
+  );
+};
 
 export default PostList;

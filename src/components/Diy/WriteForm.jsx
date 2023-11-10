@@ -36,7 +36,6 @@ const FieldContainer = styled.div`
     }
     input {
       margin: 0 15px;
-  
     }
 `;
 

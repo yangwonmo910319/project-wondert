@@ -59,7 +59,7 @@ const Goodsinfo = () => {
             <Goodsinfos info_img={goodsInfo.info_img} />
           </div>
           <div>
-            <Goodsprice item_num={goodsInfo.item_num} i_date={goodsInfo.i_date} price={goodsInfo.price}/>
+            <Goodsprice title={goodsInfo.title} item_num={goodsInfo.item_num} i_date={goodsInfo.i_date} price={goodsInfo.price}/>
           </div>
         </Between>
       </Center>

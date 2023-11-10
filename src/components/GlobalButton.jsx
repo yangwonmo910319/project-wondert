@@ -1,7 +1,6 @@
 import styled,{ css } from "styled-components";
 import { useEffect, useState } from "react";
-import { useContext } from "react";
-import { UserContext } from "../context/Worldcontext";
+
 
 const ToggleBtn = styled.button`
   display: flex;
@@ -48,20 +47,14 @@ const BtnText=styled.div`
     transition: all 0.5s ease;
 `;
 
-const GlobalButton=()=> {               
-  const context = useContext(UserContext);
-  const { setWorld } = context;
+const GlobalButton=({onselect})=> {               
   const [toggle, setToggle] = useState(false);
-  
-  useEffect(() => {
-    setWorld("korea")
-  },[]);
 
   const clickedToggle = () => {
     setToggle((prev) => !prev);
     if(toggle === true ){
-      setWorld("korea");
-    } else setWorld("sss");
+      onselect("korea");
+    } else onselect("sss");
   };
 
 

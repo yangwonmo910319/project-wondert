@@ -6,7 +6,6 @@ import Test from "./pages/Test";
 import Login from "../src/pages/Login";
 import SignUP from "../src/pages/SignUp";
 import Main from "./pages/Main";
-import Course from "./pages/Course";
 import Myinfo from "./pages/Myinfo";
 import DiyPage from "../src/pages/DIY/DiyPage";
 import DiyWrite from "../src/pages/DIY/DiyWrite";
@@ -30,9 +29,9 @@ import Goodsinfo from "./pages/Goods/Goodsinfo";
 import Goodssell from "./pages/Goods/Goodssell";
 import Goodscompleted from "./pages/Goods/Goodscompleted";
 import Goodscancle from "./pages/Goods/Goodscancle";
-import Worldcontext from "./context/Worldcontext";
 import { useState, useCallback } from "react";
 import CourseDetail from "./pages/Course/CourseDetail";
+import Course from "./pages/Course/Course";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -52,7 +51,7 @@ function App() {
 
   return (
     <>
-      <Worldcontext>
+
         <React.Fragment>
           <GlobalStyle />
           <Router>
@@ -123,7 +122,6 @@ function App() {
             </Routes>
           </Router>
         </React.Fragment>
-      </Worldcontext>
     </>
   );
 }

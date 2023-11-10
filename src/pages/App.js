@@ -6,7 +6,7 @@ import Test from "./pages/Test";
 import Login from "../src/pages/Login";
 import SignUP from "../src/pages/SignUp";
 import Main from "./pages/Main";
-import Course from "./pages/Course";
+import Course from "../pages/Course/Course";
 import Myinfo from "./pages/Myinfo";
 import DiyPage from "./pages/DiyPage";
 import DiyWrite from "./pages/DiyWrite";
@@ -68,7 +68,7 @@ function App() {
               <Route element={<Header />}>
                 {/*메인 영역*/}
 
-                <Route path="/Course" element={<Course />} />
+                <Route path="/Course" element={<Course/>}/>
                 <Route path="/Diypage" element={<DiyPage />} />
                 <Route path="/Diypage/DiyWrite" element={<DiyWrite />} />
                 <Route path="/Diypage/DiyView" element={<DiyView />} />
