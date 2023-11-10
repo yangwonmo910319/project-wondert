@@ -1,6 +1,6 @@
 /*하늘 페이지 */
 import styled from "styled-components";
-import CourseList from "./Course/CourseList";
+import CourseList from "../../components/course/CourseList";
 import GlobalButton from "../../components/GlobalButton";
 
 const Coursecss = styled.div`

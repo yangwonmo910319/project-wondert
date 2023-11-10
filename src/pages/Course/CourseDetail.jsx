@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CourseCom from "../../components/CourseCom";
+import CourseCom from "../../components/course/CourseCom";
 import React from "react";
 
 const CourseDetailItem = styled.div`

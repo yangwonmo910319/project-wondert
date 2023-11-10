@@ -114,7 +114,7 @@ const InfoClick =(e)=>{
         <br/>
         <p className="Info2">🎫 출발 일정 : {Number(data.i_date_num)-1}박{data.datenum}일 </p>
         <p className="Info2">
-          🛫 여행 기간 : {data.i_date} ~ {data.i_date}
+          🛫 여행 시작 일정 : {data.i_date}
         </p>
       </Title>
       <PriceBox>
