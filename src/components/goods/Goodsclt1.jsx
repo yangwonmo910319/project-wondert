@@ -63,6 +63,18 @@ const SellButton = styled.button`
 const Goodsclt1=()=>{
     const navigate =useNavigate();
 
+    const today = new Date(),
+    priceDate = today.getFullYear() + '년' + (today.getMonth() + 1) + '월' + today.getDate() + '일';
+    const date11 =new Date(window.localStorage.getItem("date")),
+    oderDate1 = date11.getFullYear() + '년' + (date11.getMonth() + 1) + '월' + date11.getDate() + '일';
+    const date12 =new Date(date11.setDate(date11.getDate() + Number(window.localStorage.getItem("select")))),
+    oderDate2 = date12.getFullYear() + '년' + (date12.getMonth() + 1) + '월' + date12.getDate() + '일';
+
+    const person1 = window.localStorage.getItem("person");
+    const title1 = window.localStorage.getItem("title");
+
+    const price1 =window.localStorage.getItem("price");
+    
 
     return(
         <>
@@ -72,13 +84,13 @@ const Goodsclt1=()=>{
         </TitleBox>
         <TitleBox1>
             <h1><h2>결제수단</h2><h3>무통장 입금</h3></h1>
-            <h1><h2>입금하실 금액 / 계좌번호</h2><h3>1,200,000원 / 국민은행 ( 110-223-44444-23 ) </h3></h1>
-            <h1><h2>입금마감시간</h2><h3>2023년 11월 12일 16시 까지</h3></h1>
+            <h1><h2>입금하실 금액 / 계좌번호</h2><h3>{price1}원 / 국민은행 ( 110-223-44444-23 ) </h3></h1>
+            <h1><h2>입금마감시간</h2><h3>{priceDate}  (24:00) 까지</h3></h1>
         </TitleBox1>
         <TitleBox1 style={{borderBottom:"2px solid grey"}}>
-            <h1><h2>예약정보</h2><h3>#ONLY교원투어#담당자추천[⭐빛나는 베니스⭐] 겨울에 만나는, 이탈리아 일주 9일#베니스1DAY</h3></h1>
-            <h1><h2>여행날짜</h2><h3>2023년 12월 12일 ~ 2023년 12월 18일</h3></h1>
-            <h1><h2>결제금액</h2><h3>1,200,000원</h3></h1>
+            <h1><h2>예약정보</h2><h3>{title1}</h3></h1>
+            <h1><h2>여행일자</h2><h3>{oderDate1} ~ {oderDate2}</h3></h1>
+            <h1><h2>결제금액</h2><h3>{price1}원</h3></h1>
         </TitleBox1>
         <QrcodeImg />
         <div>

@@ -120,7 +120,7 @@ const Container = styled.div`
 `;
 
 const Goodsprice = ( props )=>{
-    const { item_num , i_date , price } =props;
+    const { title ,item_num , i_date , price } =props;
     const[personnel,setPersonnel] =useState(0);
     const[selected,setSelected] =useState(0);
     const[resultMoney,setResultMoney] =useState(0);
@@ -129,24 +129,26 @@ const Goodsprice = ( props )=>{
     const plusClick =({price})=>{
         setPersonnel(personnel+1);
         setResultMoney(price * (personnel+1));
+        
     }
     const minusClick =({price})=>{
-        if(personnel>1);setPersonnel(personnel-1);
-        setResultMoney(price  * (personnel-1));
+        if(personnel>0) setPersonnel(personnel-1);
+        setResultMoney(price  * (personnel));
     }
 
     const sellClick=()=>{
         if(window.localStorage.getItem("isLogin") === "true"){
-        navigate("/Goods/sell")
-        window.localStorage.setItem("price",{resultMoney});
-        window.localStorage.setItem("person",{personnel});
-        window.localStorage.setItem("select",{selected});
-        window.localStorage.setItem("date",{i_date});
-        }else 
-        navigate("/login")
+            if(personnel !== 0){
+                window.localStorage.setItem("price",resultMoney);
+            window.localStorage.setItem("person",personnel);
+            window.localStorage.setItem("select",selected);
+            window.localStorage.setItem("date",i_date);
+            window.localStorage.setItem("title",title);
+            navigate("/Goods/sell");
+            } else alert("몇명인지 선택해라!!!")
+        }else navigate("/login") // 모델창해야함
             //모달창 + 해야함 
     }
-
     const handleSelect = (e) => {
         setSelected(e.target.value);
       };
@@ -155,7 +157,7 @@ const Goodsprice = ( props )=>{
         <>
         <Container>
             <div className="box1">
-                <p className="box1-1">상품번호  {item_num} </p>
+                <p className="box1-1">상품번호  2023WDER{item_num} </p>
                 <p className="box1-1">시작 일정 : {i_date}</p>
             </div>
             <div className="box2">

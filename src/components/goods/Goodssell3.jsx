@@ -88,13 +88,23 @@ const SellButton = styled.button`
 
 const Goodssell3=()=>{
     const navigate = useNavigate();
+    const person1 = window.localStorage.getItem("person");
+    const title1 = window.localStorage.getItem("title");
+    const price1 =window.localStorage.getItem("price");
+    const dateNum =window.localStorage.getItem("select");
+    // 날짜 계산 
+    const date11 =new Date(window.localStorage.getItem("date")),
+    oderDate1 = date11.getFullYear() + '년' + (date11.getMonth() + 1) + '월' + date11.getDate() + '일';
+    const date12 =new Date(date11.setDate(date11.getDate() + Number(window.localStorage.getItem("select")))),
+    oderDate2 = date12.getFullYear() + '년' + (date12.getMonth() + 1) + '월' + date12.getDate() + '일';
+
 
     const goodsSell = async () => {
         // 로그인을 위한 axios 호출
-        const res = await AxiosApi.goodsSell();
+        const res = await AxiosApi.goodsSell(window.localStorage.getItem("userId"),window.localStorage.getItem("itemcode"),window.localStorage.getItem("date"),window.localStorage.getItem("select"),window.localStorage.getItem("person"));
+        console.log(window.localStorage.getItem("userId"),window.localStorage.getItem("itemcode"),window.localStorage.getItem("date"),window.localStorage.getItem("select"),window.localStorage.getItem("person"));
         console.log(res.data);
-        if (res.data === true) {
-        
+        if (res.data === true ) {
           navigate("/Goods/completed");
         } else {
           alert("nono~~")
@@ -110,27 +120,31 @@ const Goodssell3=()=>{
         <SellTable>
             <tr>
                 <th>상품명</th>
-                <td>#ONLY교원투어#담당자추천[⭐빛나는 베니스⭐] 겨울에 만나는, 이탈리아 일주 9일#베니스1DAY,낮&밤투어#전일정4성#자유시간보장+명품아울렛#토스카나(피사&아시시)</td>
+                <td>2023WDER{title1}</td>
             </tr>
             <tr>
                 <th>여행기간</th>
-                <td>2023년 12월 08일 (금) ~ 2023년 12월 16일 (토)</td>
+                <td>{oderDate1}~{oderDate2} 총 {dateNum}일</td>
+            </tr>
+            <tr>
+                <th>인원</th>
+                <td>성인 : {person1}명 / 아동 : 0명 / 유아 : 0명</td>
             </tr>
             <tr>
                 <th>성인요금</th>
-                <td> 1,999,000원 [만 12세 이상] (기본상품가: 1,999,000원,제세공과금 0원)</td>
+                <td> {price1}원 [만 12세 이상] (기본상품가: {price1}원,제세공과금 0원)</td>
             </tr>
             <tr>
                 <th>아동요금</th>
-                <td> 0원 [만 12세 이상] (기본상품가: 1,999,000원,제세공과금 0원)</td>
+                <td> 0원 [만 12세 이상] (기본상품가: {price1}원,제세공과금 0원)</td>
             </tr>
             <tr>
                 <th>유아요금</th>
-                <td> 0원 [만 12세 이상] (기본상품가: 1,999,000원,제세공과금 0원)</td>
+                <td> 0원 [만 12세 이상] (기본상품가: {price1}원,제세공과금 0원)</td>
             </tr>
             <tr>
                 <th>최종 결제 요금</th>
-                <td>1,999,000원 (기본상품가: 1,999,000원,제세공과금 0원)</td>
+                <td>{price1}원 (기본상품가: {price1}원,제세공과금 0원)</td>
             </tr>
         </SellTable>
         <TitleBox style={{height:"200px", marginTop:"0"}}>
@@ -145,7 +159,7 @@ const Goodssell3=()=>{
         </TitleBox>
             <span>
             <SellButton Buttonstlye={false} onClick={()=>navigate(-1)}>취소하기</SellButton>
-            <SellButton Buttonstlye={true}>예약하기</SellButton>
+            <SellButton Buttonstlye={true} onClick={goodsSell}>예약하기</SellButton>
             </span>
         </>
     )
