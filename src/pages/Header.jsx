@@ -96,9 +96,6 @@ navigate("/");
              <Menu onClick={() => navigate("/signup")}>회원가입 </Menu></> }
        
             </Menus2>           
-              <LoginButtons />
-              {/* 여긴 한박스로이루어져 로그인 했을때 따로 컴포넌트 필요 */}
-
           </NavBox>
           </Headers>
           <Contain>

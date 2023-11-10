@@ -32,9 +32,9 @@ const AxiosApi = {
 
   goodsSell: async (userId,itemNum,i_Date,date_num,person) => {
     const sell = {
-      userId:userId,
+      id:userId,
       itemNum:itemNum,
-      i_Date:i_Date,
+      i_date:i_Date,
       date_num:date_num,
       person:person,
     };

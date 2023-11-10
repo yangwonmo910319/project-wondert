@@ -57,7 +57,7 @@ th{
     padding-left:2% ;
     height: 50px;
     border: 1px solid #c1c1c1;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
   td {
@@ -120,7 +120,7 @@ const Goodssell3=()=>{
         <SellTable>
             <tr>
                 <th>상품명</th>
-                <td>2023WDER{title1}</td>
+                <td>{title1}</td>
             </tr>
             <tr>
                 <th>여행기간</th>

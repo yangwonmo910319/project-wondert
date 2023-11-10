@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import AxiosApi from "../../api/AxiosApi";
 import { useNavigate } from "react-router-dom";
 
-
-
 const GoodsContainer = styled.div`
   display: flex;
   position: relative;
@@ -15,7 +13,7 @@ const GoodsContainer = styled.div`
   height: 240px;
   border: 2px solid grey;
   border-radius: 4px;
-  &+&{
+  & + & {
     margin-top: 20px;
   }
 `;
@@ -75,53 +73,56 @@ const ItemCode = styled.div`
   font-size: 18px;
 `;
 
-const Goodsbox = ({onSelect}) => {
-  const navigate =useNavigate();
+const Goodsbox = ({ worlds }) => {
+  const navigate = useNavigate();
   const [goodsList, setGoodsList] = useState("");
-  const world = "korea";
-  
-  useEffect(()=>{
-  const GoodsList = async ()=>{
-    try{
-        const resp = await AxiosApi.goodsList(world); //전체 조회
-        if(resp.status === 200) setGoodsList(resp.data);
+
+  useEffect(() => {
+    const GoodsList = async () => {
+      try {
+        console.log("GoodsList Call");
+        const resp = await AxiosApi.goodsList(worlds); //전체 조회
+        if (resp.status === 200) setGoodsList(resp.data);
         console.log(resp.data);
-    }catch(e){
+      } catch (e) {
         console.log(e);
-    }};
+      }
+    };
     GoodsList();
-  },[world]);
+  }, [worlds]);
 
-const InfoClick =(e)=>{
-  navigate("/Goods/info");
-  window.localStorage.setItem("itemcode", e);
-}
-
+  const InfoClick = (e) => {
+    navigate("/Goods/info");
+    window.localStorage.setItem("itemcode", e);
+  };
 
   return (
-  <>
-    {goodsList &&
-      goodsList.map(data => (
-    <GoodsContainer key={data.item_num}>
-      <Image src={data.i_main_img} />
-      <Title>
-        <h1 className="Titles">{data.title}</h1>
-        <p className="Info1">{data.oder_re}</p>
-        <p className="Info2">{data.oder_info}</p>
-        <br/>
-        <p className="Info2">🎫 출발 일정 : {Number(data.i_date_num)-1}박{data.datenum}일 </p>
-        <p className="Info2">
-          🛫 여행 시작 일정 : {data.i_date}
-        </p>
-      </Title>
-      <PriceBox>
-        <ItemCode>상품번호  {data.item_num} </ItemCode>
-        <Price>{data.price}원</Price>
-        <Button onClick={()=> InfoClick(data.item_num)} >자세히보기 〉〉</Button>
-      </PriceBox>
-    </GoodsContainer>
-      ))}
-  </>)
+    <>
+      {goodsList &&
+        goodsList.map((data, index) => (
+          <GoodsContainer key={index}>
+            <Image src={data.i_main_img} />
+            <Title>
+              <h1 className="Titles">{data.title}</h1>
+              <p className="Info1">{data.oder_re}</p>
+              <p className="Info2">{data.oder_info}</p>
+              <br />
+              <p className="Info2">
+                🎫 출발 일정 : {Number(data.i_date_num) - 1}박{data.datenum}일{" "}
+              </p>
+              <p className="Info2">🛫 여행 시작 일정 : {data.i_date}</p>
+            </Title>
+            <PriceBox>
+              <ItemCode>상품번호 {data.item_num} </ItemCode>
+              <Price>{data.price}원</Price>
+              <Button onClick={() => InfoClick(data.item_num)}>
+                자세히보기 〉〉
+              </Button>
+            </PriceBox>
+          </GoodsContainer>
+        ))}
+    </>
+  );
 };
 
 export default Goodsbox;

@@ -73,7 +73,7 @@ const Goodssell1 =()=>{
         </TitleBox>
         <ItemBox>
         <ItemImg src="https://i.namu.wiki/i/hXzUfUO0XBHScGhvc9Llg5AZqO-_0sOW1EkLb1qX2yDqQb2mQh3jik3ckZ9xaHobjE-audKIfZM7BK_kyE8i1A.webp" alt="상품사진" />
-        <div className="itemInfo"><h3>상품 코드</h3><h1>{itemcode1}</h1><br /><h2>{title1}</h2></div>
+        <div className="itemInfo"><h3>상품 코드</h3><h1>2023WDER{itemcode1}</h1><br /><h2>{title1}</h2></div>
         </ItemBox>
 
         </>

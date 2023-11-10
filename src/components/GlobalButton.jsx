@@ -47,16 +47,14 @@ const BtnText=styled.div`
     transition: all 0.5s ease;
 `;
 
-const GlobalButton=()=> {               
-
-
+const GlobalButton=({onselect})=> {               
   const [toggle, setToggle] = useState(false);
-  
-
 
   const clickedToggle = () => {
     setToggle((prev) => !prev);
-
+    if(toggle === true ){
+      onselect("korea");
+    } else onselect("sss");
   };
 
 

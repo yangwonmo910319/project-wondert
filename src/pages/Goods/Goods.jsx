@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import GlobalButton from "../../components/GlobalButton";
 import Goodsbox from "../../components/goods/Goodsbox";
 import ImgSlide from "../../components/goods/imgslide";
+import { useState, useCallback } from "react";
 
 const Center = styled.div`
   display: flex;
@@ -18,17 +19,23 @@ const Between = styled.div`
   flex-direction: row;
 `;
 
-const Goods = ({ onSelect }) => {
+const Goods = () => {
+  const [onselect1, setOnselect1] = useState("korea");
+  const onselect = (sel) => {
+    setOnselect1(sel);
+  };
+
   return (
     <>
       <Center style={{ justifyContent: "end", alignItems: "row" }}>
-        <GlobalButton />
+        <GlobalButton onselect={onselect} />
+        <p>선택된 값 : {onselect1}</p>
       </Center>
       <Center>
         <ImgSlide />
       </Center>
       <Center>
-        <Goodsbox onSelect={onSelect} />
+        <Goodsbox worlds={onselect1} />
       </Center>
     </>
   );
