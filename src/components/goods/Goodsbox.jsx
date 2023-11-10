@@ -1,8 +1,6 @@
 import styled, { css } from "styled-components";
 import { useState, useEffect } from "react";
 import AxiosApi from "../../api/AxiosApi";
-import { UserContext } from "../../context/Worldcontext";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -79,9 +77,8 @@ const ItemCode = styled.div`
 
 const Goodsbox = ({onSelect}) => {
   const navigate =useNavigate();
-  const context = useContext(UserContext);
-  const { world } = context;
   const [goodsList, setGoodsList] = useState("");
+  const world = "korea";
   
   useEffect(()=>{
   const GoodsList = async ()=>{

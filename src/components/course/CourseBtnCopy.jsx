@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import React, { useState, useContext, useEffect } from "react";
-import { UserContext } from "../../context/Worldcontext";
-import CourseItem from "./CourseItem";
+import React, { useState, useEffect } from "react";
+
 
 const SelectBox = styled.div`
   display: flex;

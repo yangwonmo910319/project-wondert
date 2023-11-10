@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { UserContext } from "../../context/Worldcontext";
-import React, { useContext } from "react";
 const SelectBox = styled.div`
   display: flex;
   justify-content: center;
@@ -34,8 +32,7 @@ const SelectBox = styled.div`
 `;
 
 const CourseBtn = ({ toggle }) => {
-  const context = useContext(UserContext);
-  const { world } = context;
+  const world = "korea";
   const data = [
     {
       COURSE_WORLD: "해외",
