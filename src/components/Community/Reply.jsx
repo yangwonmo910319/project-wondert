@@ -6,7 +6,7 @@ import { useState } from "react";
 
 
 const Search=styled.div`
-margin-left: 80px;
+margin-left:  80px;
 width: 70%;
 height: 30px;
 border-radius: 10px;
