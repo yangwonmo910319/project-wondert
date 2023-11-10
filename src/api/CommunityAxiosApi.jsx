@@ -23,14 +23,18 @@ SelectReply: async (num) => {
 },
 
   // 리플 등록
-  insertReply: async (userId,num,replyInsert) => {
-  const content = {
+  insertReply2: async (userId, num, replyInsert) => {
+   alert(userId)
+   alert(num)
+   alert(replyInsert)
+    const data = {
       userid: userId,
-      num:num,
+      num: num,
       replyInsert: replyInsert,
-  };
-  return await axios.get(WONDER_WALKER + `/Reply/insertReply`,content);
-},
+    };
+    return await axios.post(WONDER_WALKER + `/Reply/insertReply`, data);
+  },
+
   // 커뮤니티 글등록
   InsertCommunity: async (userId,reportingDate,views,Title,constent1) => {
     const content = {
@@ -55,7 +59,7 @@ SelectReply: async (num) => {
             Title: Title,
             constent1:constent1,
         };
-        return await axios.get(WONDER_WALKER + `/community/UpdateCommunity}`,content);
+        return await axios.get(WONDER_WALKER + `/community/UpdateCommunity`,content);
       },
 }
 

@@ -37,7 +37,7 @@ margin-left:70px ;
       setInputValue(event.target.value);
     };
     const onClick1=()=>{
-      alert("1"+inputValue);
+
       insertReply(inputValue);
    
     };
@@ -45,7 +45,7 @@ margin-left:70px ;
     return(
 
       <>
-            {inputValue}
+       
         <Search>
         <SearchVar
           value={inputValue}
@@ -60,7 +60,7 @@ margin-left:70px ;
         </Link>
       </Search>
 
-      {inputValue}
+ 
       </>
     )
   }

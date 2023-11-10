@@ -128,19 +128,23 @@ useEffect(()=>{
 const insertReply=(replyProps)=>{
 
   setreplyInsert(replyProps);
- 
-
+  const insertReply1 = async()=>{
     // getPost(postDBdata.data);  
-    try {      
-      const insertReply = async()=>{
-      const ReplyDBdata = await CommunityAxiosApi.insertReply(userid+num+replyInsert);
-  }
-}catch(error){
- 
+  
+    try {    
+  
+      const ReplyDBdata = await CommunityAxiosApi.insertReply2(userid,num,replyInsert);
+    
+  
+  }catch(error){
+  
     console.log(error);
    }
+  }
 
+insertReply1();
 }
+
   return (
     <CommunityCss>
 

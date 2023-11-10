@@ -196,7 +196,6 @@ const Login = () => {
     console.log(res.data);
     if (res.data === true) {  
       window.localStorage.setItem("userId", inputId); // 브라우저에서 임시로 값을 저장하는 기술
-      window.localStorage.setItem("userPw", inputPw);
       window.localStorage.setItem("isLogin", "true");
       navigate("/");
     } else {
