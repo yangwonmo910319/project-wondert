@@ -1,9 +1,14 @@
 /*원모 페이지 */
 import styled, { css } from "styled-components";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Replyview from "../../components/Community/Replyview";
 import Reply from "../../components/Community/Reply"; 
+import { useState } from "react";
+import { useEffect } from "react";
+import CommunityAxiosApi from "../../api/CommunityAxiosApi";
+
+
 const CommunityCss = styled.div`
 
 width: 80%;
@@ -88,38 +93,90 @@ const Menu=styled.div`
   }
 `;
 const CommunityView = () => {
-  const testboard=[{no:1,title:"테스트 게시물",name:"테스트",date1:"2002-2-2",view:15,content:"내용~~~~~테스트내용~~~~~~"}];
-  
+  const userid=window.localStorage.getItem("userId");
+
+  //링크로 게시글 넘버를 받음
+const {num} = useParams();
+//게시글 정보를담음
+const [post,getPost]=useState('');
+const [reply,getReply]=useState('');
+
+
+const [replyInsert,setreplyInsert]=useState('');
+
+
+
+useEffect(()=>{
+
+  const createCommunity = async()=>{
+     try {      
+      const postDBdata =await CommunityAxiosApi.SelectOneCommunity(num);
+      getPost(postDBdata.data);  
+      const replyDBdata =await CommunityAxiosApi.SelectReply(num);
+      getReply(replyDBdata.data)
+   
+    }
+     catch(error){
+   
+      console.log(error);
+     }
+    
+  }; createCommunity();
+
+},[ ]);
+
+const insertReply=(replyProps)=>{
+
+  setreplyInsert(replyProps);
+ 
+
+    // getPost(postDBdata.data);  
+    try {      
+      const insertReply = async()=>{
+      const ReplyDBdata = await CommunityAxiosApi.insertReply(userid+num+replyInsert);
+  }
+}catch(error){
+ 
+    console.log(error);
+   }
+
+}
   return (
     <CommunityCss>
+
+    
     <Link to="/Community"  style={{ textDecoration: "none"}}> <Menu><p>커뮤니티 게시판</p></Menu>
       </Link> 
-
-        {testboard.map((board)=>(      
-       <Content1       key={board.no}>
-               
-        <Item2>  <p >{board.title}  </p></Item2>
-        <Item1>   <p  >{board.name}</p></Item1>
-        <Itemp>  <p> {board.date1}</p></Itemp>
-        <Item6>   <p > {board.view}</p></Item6>
+      <Content1>                
+        <Item2>  <p >제목 </p></Item2>
+        <Item1>   <p  >글쓴이</p></Item1>
+        <Itemp>  <p> 작성일</p></Itemp>
+        <Item6>   <p > 조회수</p></Item6>
    
         </Content1>
                         
-                        ))}
-    
- 
-                 <Content2>
-                 {testboard[0].content} 
-        
-           
-            </Content2> 
-            <Replyview>
-              
-            </Replyview>
+    {post&&post.map((board)=>(   
+      <>
+       <Content1 key={board.no}>                
+        <Item2>  <p >{board.title}  </p></Item2>
+        <Item1>   <p  >{board.uerId}</p></Item1>
+        <Itemp>  <p> {board.reportingDate}</p></Itemp>
+        <Item6>   <p > {board.views}</p></Item6>
+   
+        </Content1>                      
 
+             <Content2>
+                      {board.content}       
+         </Content2> 
+         </>    ))}
+   
+              
+            <Replyview replydata={reply} replyInsert={replyInsert}/> 
+          
+             {/* {reply[0]?.travelComment || null} */}
        <Content3>
        <Item3>
-        <Reply></Reply>
+        <Reply insertReply={insertReply}/>
       
          </Item3>
         

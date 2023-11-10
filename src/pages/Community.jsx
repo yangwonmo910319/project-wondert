@@ -2,15 +2,20 @@
 import styled, { css } from "styled-components";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
+import UserAxiosApi from "../api/CommunityAxiosApi";
+import { useState } from "react";
 const CommunityCss = styled.div`
-
 max-width: 1200px;
 white-space:nowrap;
 width: 80%;
 margin: 0 auto;
-`;
+.LinkCss{
+  color:black;
+  text-decoration: none;
+}
 
+`;
 const Content1=styled.div`
   width: 100%;
   height: 50px;
@@ -22,19 +27,15 @@ const Content1=styled.div`
     border-bottom: 3px solid rgba(72, 100, 224, 1);;
   }
 `;
-
-
-
 const Item1=styled.div`
 
 width: 130px;
 `;
 const Item2=styled.div`
 width: 100%;
+
+
 `;
-
-
-
 const Content2=styled.div`
   width: 100%;
   height: 25px;
@@ -51,7 +52,6 @@ p{
 
   
 `;
-
 const Content3=styled.div`
   width: 100%;
   height: auto;
@@ -62,8 +62,8 @@ const Content3=styled.div`
   padding: 7px;
   margin-top: 10px;
 
-`;
 
+`;
 const Content4=styled.div`
   width: 100%;
   height: 100px;
@@ -102,12 +102,24 @@ margin-left:70px ;
 
 
 const Community = () => {
-  const testboard=[{no:1,title:"테스트 게시물",name:"테스트",date1:"2002-2-2",view:15},
-  {no:2,title:"테스트 게시물2",name:"테스트2",date1:"20/02/19",view:15},
-  {no:3,title:"테스트 게시물3",name:"테스트3",date1:"20/02/19",view:15},
-  {no:4,title:"테스트 게시물4",name:"테스트4",date1:"20/02/19",view:15},];
+
+const [communityList,setCommunityList]=useState("");
+  useEffect(()=>{  
+    const onUserCheck=async()=>{    
+       const res = await UserAxiosApi.SelectAllCommunity();
+    if(res.status===200){
+      setCommunityList(res.data);
+    }else{
+console.log("게시글이 없습니다.");
+alert("게시글이 없습니다.");
+    }
+  };
+  onUserCheck();
+},[])
+  
   return (
     <CommunityCss>
+      <h1>123</h1>
        <Content1><p>커뮤니티 게시판</p></Content1>
        <Content2>
         <Item1><p>No</p></Item1>
@@ -117,32 +129,18 @@ const Community = () => {
         <Item1>   <p  >조회수</p></Item1>
         </Content2>
        
-       {testboard.map((board)=>(   <Link to={`/Communityview/${board.no}`} > 
-                 <Content3 key={board.no}> 
-               
-               
-           <Item1>{board.no} </Item1> 
-           <Item2> {board.title}    </Item2> 
-           <Item1>   {board.name}</Item1> 
-           <Item1>  {board.date1}</Item1> 
-           <Item1>    {board.view}  </Item1> 
-      
-            </Content3>        </Link> 
+       {communityList&&communityList.map((community)=>(  
+         <Link className="LinkCss" to={`/Communityview/${community.communityNum}`} > 
+          <Content3 key={community.no}>               
+           <Item1>{community.communityNum} </Item1> 
+           <Item2> {community.title}    </Item2> 
+           <Item1>   {community.uerId}</Item1> 
+           <Item1>  {community.reportingDate}</Item1> 
+           <Item1>    {community.views}  </Item1>       
+          </Content3>
+         </Link> 
                    
-           ))}
-           {/* 테스트용---------------------------------- */}
-                  {testboard.map((board)=>(  
-                     <Content3 key={board.no}> 
-           <Item1>{board.no} </Item1> 
-           <Item2> {board.title}    </Item2> 
-           <Item1>   {board.name}</Item1> 
-           <Item1>  {board.date1}</Item1> 
-           <Item1>    {board.view}  </Item1> 
-           
-            </Content3>      
-                   
-           ))}
-
+           ))}  
        <Content4>
        <Item3>
         <Serch>

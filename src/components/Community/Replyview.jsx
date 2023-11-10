@@ -38,20 +38,30 @@ line-height: 10px;
 margin-left: 10px;
 
 `;
-        const Reply=()=>{
-          const testre=[{nick:"test",ripple:"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"},{nick:"test2",ripple:"1111211111111111111111111111111111111111"},{nick:"test",ripple:"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"},{nick:"test2",ripple:"1111211111111111111111111111111111111111"},{nick:"test",ripple:"11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"},{nick:"test2",ripple:"1111211111111111111111111111111111111111"}]
+        const Reply=(props)=>{
+    
           return(
             <>
-            <Content5>
-            {testre.map((re)=>(  
+             {/* {props.replydata&&props.replydata.map((reply, index) => (
+        <div key={index}>
+       
+          <p>Username: {reply.userId}</p>
+          <p>Comment: {reply.travelComment}</p>
+   
+        </div>
+      ))} */}
+            <Content5>        
+           {props.replydata&&props.replydata.map((re)=>(  
             <Content4>
+              
                 <Item4>
-                 <p> {re.ripple}</p>
+                 <p> {re.travelComment}</p>
                  </Item4>
-                 <Item5><p>{re.nick}</p>     
+                 <Item5><p>{re.userId}</p>     
                  </Item5> 
+
             </Content4>
-                 ))}
+                 ))} 
                   </Content5>
             </>
           )

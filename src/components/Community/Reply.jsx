@@ -2,9 +2,10 @@
 import styled, { css } from "styled-components";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
-const Serch=styled.div`
+const Search=styled.div`
 margin-left: 80px;
 width: 70%;
 height: 30px;
@@ -12,12 +13,12 @@ border-radius: 10px;
 background-color: #dfdfdf;
 display: flex;
 `;
-const SerchVar=styled.input`
+const SearchVar=styled.input`
 width: 100%;
 height: 30px;
 
 `;
-const SerchBtn=styled.button`
+const SearchBtn=styled.button`
 width: 60px;
 height: 30px;
 
@@ -29,16 +30,37 @@ background-color: #dfdfdf;
 margin-left:70px ;
 `;
     
-  const Reply=()=>{
+  const Reply=({insertReply,replyInsert})=>{
+    const [inputValue, setInputValue] = useState(''); // 상태 추가
+
+    const handleInputChange = (event) => {    
+      setInputValue(event.target.value);
+    };
+    const onClick1=()=>{
+      alert("1"+inputValue);
+      insertReply(inputValue);
+   
+    };
 
     return(
+
       <>
-        
-  <Serch>
-    <SerchVar></SerchVar>
-    <SerchBtn><p>확인</p></SerchBtn>
-    <Link to="/Community">      <SerchBtn>취 소 </SerchBtn>  </Link>  
-  </Serch>
+            {inputValue}
+        <Search>
+        <SearchVar
+          value={inputValue}
+          onChange={handleInputChange} // 입력 값 변경 시 핸들러 호출
+        />
+        <SearchBtn onClick={onClick1}>
+          <p>확인</p>
+        </SearchBtn>
+        <Link to="/Community">
+          <SearchBtn>취 소</SearchBtn>
+          
+        </Link>
+      </Search>
+
+      {inputValue}
       </>
     )
   }
