@@ -8,9 +8,6 @@ const CourseBox = styled.div`
   margin: 5px;
   padding: 5px;
   border-bottom: 3px dashed gray;
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
 //컨셉 메인박스
 const MainBox = styled.div`

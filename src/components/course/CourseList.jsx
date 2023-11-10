@@ -1,6 +1,6 @@
-import CourseBtnCopy from "../../components/CourseBtnCopy";
+import CourseBtn from "./CourseBtn";
 import React from "react";
-import CourseItem from "../../components/CourseItem";
+import CourseItem from "./CourseItem";
 import styled from "styled-components";
 
 const CourseNavbar = styled.div`
@@ -12,7 +12,7 @@ const CourseNavbar = styled.div`
 const CourseList = () => {
   return (
     <CourseNavbar>
-      <CourseBtnCopy />
+      <CourseBtn />
       <CourseItem />
       {/* <CourseBtn toggle={toggle} data={data} />
       {data.map((item, index) => (
