@@ -162,18 +162,18 @@ const deleteReply=(deleteNum)=>{
 //댓글 업데이트 버튼을 누르면 실행
 const updateReply=({newReply},{replyNum})=>{    
   // const updateReply=(rewReply,replyNum)=>{    
-  //댓글을 삭제할 기능을 만듬
+  //댓글을 업데이트 기능을 만듬
   const updateReply1 = async()=>{
     try {   
-        //(deleteNum)는 댓글 번호가 담겨있고 번호를 axios로 넘겨 해당 글을 삭제
+        //(deleteNum)는 댓글 번호 newReply는 새로운 댓글이 담겨있고 번호를 axios로 넘겨 해당 글을 삭제
     const ReplyDBdata = await CommunityAxiosApi.updateReply(replyNum,newReply);
         }catch(error){  
     console.log(error);
    }
   }
-    //댓글을 삭제할 기능을 실행
+    //댓글을 업데이트 기능을 실행
     updateReply1();
-  //reset값을 변경하여 댓글이 삭제된 화면을 보여줌
+  //reset값을 변경하여 댓글 업데이트 화면을 보여줌
   setReset(!reset);
 }
   return (
