@@ -1,5 +1,5 @@
 import styled,{css} from "styled-components";
-
+import { useState } from "react";
 const TitleBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -67,7 +67,33 @@ const CheckBox = styled.input`
 `;
 
 const Goodssell2=()=>{
-    
+    const [checkItems, setCheckItems] = useState([]);
+
+    const checkList =[
+        { 
+            num:1,
+            name:"특별약관 설명 및 확인"
+        },
+        { 
+            num:2,
+            name:"약관동의"
+        },
+        { 
+            num:3,
+            name:"개인정보"
+        },
+        { 
+            num:4,
+            name:"개인정보 3자제공"
+        },
+        { 
+            num:5,
+            name:"고유식별정보 수집안내"
+        },
+
+    ]
+
+
 
     return(
         <>
@@ -76,6 +102,7 @@ const Goodssell2=()=>{
         <h2><CheckBox type="checkbox" checked1={false} id="" />약관 전체 동의 <h3>약관 전문을 모두 확인 하셔야 예약이 완료됩니다.</h3></h2>
         </TitleBox>
         <SurveBox>
+        
         <h2><CheckBox type="checkbox" checked1={true} name="" id="" /><h3>특별약관 설명 및 확인 <span style={{color:"red"}}>(필수)</span></h3></h2>
         <h2><CheckBox type="checkbox" checked1={true} name="" id="" /><h3>약관동의 <span style={{color:"red"}}>(필수)</span></h3></h2>
         <h2><CheckBox type="checkbox" checked1={true} name="" id="" /><h3>개인정보 <span style={{color:"red"}}>(필수)</span></h3></h2>
@@ -84,7 +111,7 @@ const Goodssell2=()=>{
         </SurveBox>
         </>
     )
-};
+};              
 
 
 export default Goodssell2;

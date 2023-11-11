@@ -73,15 +73,15 @@ const ItemCode = styled.div`
   font-size: 18px;
 `;
 
-const Goodsbox = ({ worlds }) => {
+const Goodsbox = ({ worlds,aeraSelect }) => {
   const navigate = useNavigate();
   const [goodsList, setGoodsList] = useState("");
 
   useEffect(() => {
     const GoodsList = async () => {
       try {
-        console.log("GoodsList Call");
-        const resp = await AxiosApi.goodsList(worlds); //전체 조회
+        console.log(aeraSelect);
+        const resp = await AxiosApi.goodsList(worlds,aeraSelect); //전체 조회
         if (resp.status === 200) setGoodsList(resp.data);
         console.log(resp.data);
       } catch (e) {
@@ -89,7 +89,7 @@ const Goodsbox = ({ worlds }) => {
       }
     };
     GoodsList();
-  }, [worlds]);
+  }, [worlds,aeraSelect]);
 
   const InfoClick = (e) => {
     navigate("/Goods/info");

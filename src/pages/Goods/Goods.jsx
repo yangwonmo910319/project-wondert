@@ -21,21 +21,28 @@ const Between = styled.div`
 
 const Goods = () => {
   const [onselect1, setOnselect1] = useState("korea");
+  const [onselect2, setOnselect2] = useState("ALL");
   const onselect = (sel) => {
     setOnselect1(sel);
+  };
+  const aeraSelect = (sel1) => {
+    setOnselect2(sel1);
+  };
+  const onselect3 = () => {
+    setOnselect2("ALL");
   };
 
   return (
     <>
       <Center style={{ justifyContent: "end", alignItems: "row" }}>
-        <GlobalButton onselect={onselect} />
-        <p>선택된 값 : {onselect1}</p>
+        <GlobalButton onselect={onselect} onselect3={onselect3} />
+        <p>선택된 값 : {onselect1} {onselect2}</p>
       </Center>
       <Center>
-        <ImgSlide />
+        <ImgSlide worlds={onselect1} aeraSelect={aeraSelect}/>
       </Center>
       <Center>
-        <Goodsbox worlds={onselect1} />
+        <Goodsbox worlds={onselect1} aeraSelect={onselect2} />
       </Center>
     </>
   );

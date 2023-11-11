@@ -19,9 +19,9 @@ const AxiosApi = {
   },
 
   //상품리스트 조회
-  goodsList: async (world) => {
+  goodsList: async (world,area) => {
     //겟 바디영역
-    return await axios.get(WONDER_WALKER + `/Goods?world=${world}`);
+    return await axios.get(WONDER_WALKER + `/Goods?world=${world}&area=${area}`);
   },
 
   //상품상세페이지 조회

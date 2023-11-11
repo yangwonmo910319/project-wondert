@@ -47,7 +47,7 @@ const BtnText=styled.div`
     transition: all 0.5s ease;
 `;
 
-const GlobalButton=({onselect})=> {               
+const GlobalButton=({onselect, onselect3})=> {               
   const [toggle, setToggle] = useState(false);
 
   const clickedToggle = () => {
@@ -55,6 +55,7 @@ const GlobalButton=({onselect})=> {
     if(toggle === true ){
       onselect("korea");
     } else onselect("sss");
+    onselect3("ALL");
   };
 
 
