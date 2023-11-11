@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CourseCom from "../../components/course/CourseCom";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import CourseAxiosApi from "../../api/CourseAxiosApi";
 
 const CourseDetailItem = styled.div`
   display: flex;
@@ -124,78 +125,89 @@ const Container3 = styled.div`
   }
 `;
 const CourseDetail = () => {
+  const [list, setList] = useState("");
+  const code = "C1";
+  useEffect(() => {
+    const CourseDetailItem = async () => {
+      try {
+        console.log("CouseDetail Call");
+        const resp = await CourseAxiosApi.selectCourseDetail(code); //전체 조회
+        if (resp.status === 200) setList(resp.data);
+        console.log(resp.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    CourseDetailItem();
+  }, [code]);
   return (
-    <CourseDetailItem>
-      <Container1>
-        <div className="main1">
-          <span
-            style={{
-              fontWeight: "bold",
-              fontSize: "25px",
-              color: "#427d9d",
-            }}
-          >
-            # 대만의 하이라이트 코스
-          </span>
-          <div className="mainimg"></div>
-        </div>
-      </Container1>
-      <Container2>
-        <div className="topicbox">
-          <span
-            className="topic"
-            style={{
-              fontWeight: "bold",
-              fontSize: "25px",
-              color: "#ddf2fd",
-            }}
-          >
-            특유의 다양한 볼거리와 먹거리들이 참 매력적인 코스
-          </span>
-          <button className="join">즐겨찾기</button>
-        </div>
-      </Container2>
-      <Container3>
-        <div className="box">
-          <div className="box1">
-            <div className="coursePathBox">시먼딩</div>
-            <div className="courseArticleBox">
-              타이베이에서 가장 인기 있는 쇼핑 지역
-            </div>
-            <div className="courseArticleBox2">
-              겉보기엔 서울 명동과 크게 다를 바 없어 보일 수 있지만 좀 더 자세히
-              살펴보면 길거리 예술, 타투 거리, 메이드 복장의 직원이 있는 독특한
-              컨셉의 카페 등 트렌디하고 이색적인 볼거리로 가득한 곳입니다. 까도
-              까도 끝없는 양파 같은 매력을 지닌 시먼딩, 다양한 컨디션과 컨셉의
-              호텔도 모여 있어서 이곳을 숙소로 잡고 대만여행 장소들을
-              둘러보기에도 좋습니다.
-            </div>
-          </div>
-          <div className="box2"></div>
-        </div>
-      </Container3>
-      <Container3>
-        <div className="box">
-          <div className="box2A"></div>
-          <div className="box1">
-            <div className="coursePathBox">코스경로2</div>
-            <div className="courseArticleBox">설명 1</div>
-            <div className="courseArticleBox2">설명 2</div>
-          </div>
-        </div>
-      </Container3>
-      <Container3>
-        <div className="box">
-          <div className="box1">
-            <div className="coursePathBox">코스경로3</div>
-            <div className="courseArticleBox">설명 1</div>
-            <div className="courseArticleBox2">설명 2</div>
-          </div>
-          <div className="box2"></div>
-        </div>
-      </Container3>
+    <>
+      {list &&
+        list.map((b, course_code) => (
+          <CourseDetailItem key={course_code}>
+            <Container1>
+              <div className="main1">
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "25px",
+                    color: "#427d9d",
+                  }}
+                >
+                  {b.course_hash}
+                </span>
+                <div className="mainimg" src={b.main_img}></div>
+              </div>
+            </Container1>
+            <Container2>
+              <div className="topicbox">
+                <span
+                  className="topic"
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "25px",
+                    color: "#ddf2fd",
+                  }}
+                >
+                  {b.topic}
+                </span>
+                <button className="join">즐겨찾기</button>
+              </div>
+            </Container2>
+            <Container3>
+              <div className="box">
+                <div className="box1">
+                  <div className="coursePathBox">{b.course_path1}</div>
+                  <div className="courseArticleBox">{b.course_article1}</div>
+                  <div className="courseArticleBox2">{b.course_article1_1}</div>
+                </div>
+                <div className="box2" src={b.course_img1}></div>
+              </div>
+            </Container3>
+            <Container3>
+              <div className="box">
+                <div className="box2A" src={b.course_img2}></div>
+                <div className="box1">
+                  <div className="coursePathBox">{b.course_path2}</div>
+                  <div className="courseArticleBox">{b.course_article2}</div>
+                  <div className="courseArticleBox2">{b.course_article2_1}</div>
+                </div>
+              </div>
+            </Container3>
+            <Container3>
+              <div className="box">
+                <div className="box1">
+                  <div className="coursePathBox">{b.course_path3}</div>
+                  <div className="courseArticleBox">{b.course_article3}</div>
+                  <div className="courseArticleBox2">{b.course_article3_1}</div>
+                </div>
+                <div className="box2" src={b.course_img3}></div>
+              </div>
+            </Container3>
+          </CourseDetailItem>
+        ))}
       <CourseCom />
-    </CourseDetailItem>
+    </>
   );
 };
 export default CourseDetail;

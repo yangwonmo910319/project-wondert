@@ -14,10 +14,6 @@ const CourseList = () => {
     <CourseNavbar>
       <CourseBtn />
       <CourseItem />
-      {/* <CourseBtn toggle={toggle} data={data} />
-      {data.map((item, index) => (
-        <CourseItem key={index} data={item} />
-      ))} */}
     </CourseNavbar>
   );
 };

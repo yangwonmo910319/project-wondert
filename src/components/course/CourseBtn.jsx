@@ -31,7 +31,7 @@ const SelectBox = styled.div`
   }
 `;
 
-const CourseBtn = ({ toggle }) => {
+const CourseBtn = ({ onselect }) => {
   const world = "korea";
   const data = [
     {

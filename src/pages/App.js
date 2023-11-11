@@ -6,7 +6,7 @@ import Test from "./pages/Test";
 import Login from "../src/pages/Login";
 import SignUP from "../src/pages/SignUp";
 import Main from "./pages/Main";
-import Course from "../pages/Course/Course";
+import Course from "./Course/Course";
 import Myinfo from "./pages/Myinfo";
 import DiyPage from "./pages/DiyPage";
 import DiyWrite from "./pages/DiyWrite";
@@ -33,8 +33,7 @@ import Goodscompleted from "./pages/Goods/Goodscompleted";
 import Goodscancle from "./pages/Goods/Goodscancle";
 import Worldcontext from "./context/Worldcontext";
 import { useState, useCallback } from "react";
-import CourseDetail from "./pages/Course/CourseDetail";
-
+import CourseDetail from "./Course/CourseDetail";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -68,7 +67,7 @@ function App() {
               <Route element={<Header />}>
                 {/*메인 영역*/}
 
-                <Route path="/Course" element={<Course/>}/>
+                <Route path="/Course" element={<Course />} />
                 <Route path="/Diypage" element={<DiyPage />} />
                 <Route path="/Diypage/DiyWrite" element={<DiyWrite />} />
                 <Route path="/Diypage/DiyView" element={<DiyView />} />
@@ -83,7 +82,7 @@ function App() {
                 <Route path="/Goods/sell" element={<Goodssell />} />
                 <Route path="/Goods/cancle" element={<Goodscancle />} />
                 <Route path="/Goods/completed" element={<Goodscompleted />} />
-                <Route path="/Course/info" element={<CourseDetail />} />
+                <Route path="/Course/Info" element={<CourseDetail />} />
 
                 <Route path="/myinfo" element={<Myinfo />}>
                   <Route
