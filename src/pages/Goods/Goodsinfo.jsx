@@ -29,7 +29,6 @@ const Goodsinfo = () => {
 
 
   useEffect(() => {
-    
     const GoodsInfo = async () => {
       try {
         const resp = await AxiosApi.goodsInfo(itemCode); //전체 조회

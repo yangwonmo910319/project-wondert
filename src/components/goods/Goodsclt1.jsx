@@ -72,8 +72,8 @@ const Goodsclt1=()=>{
 
     const person1 = window.localStorage.getItem("person");
     const title1 = window.localStorage.getItem("title");
-
-    const price1 =window.localStorage.getItem("price");
+    const price1 =window.localStorage.getItem("price").toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    
     
 
     return(
@@ -88,7 +88,7 @@ const Goodsclt1=()=>{
             <h1><h2>입금마감시간</h2><h3>{priceDate}  (24:00) 까지</h3></h1>
         </TitleBox1>
         <TitleBox1 style={{borderBottom:"2px solid grey"}}>
-            <h1><h2>예약정보</h2><h3>{title1}</h3></h1>
+            <h1><h2>예약정보</h2><h3>{title1} ({person1})명</h3></h1>
             <h1><h2>여행일자</h2><h3>{oderDate1} ~ {oderDate2}</h3></h1>
             <h1><h2>결제금액</h2><h3>{price1}원</h3></h1>
         </TitleBox1>

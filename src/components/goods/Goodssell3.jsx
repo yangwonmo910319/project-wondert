@@ -1,4 +1,5 @@
 import styled,{css} from "styled-components";
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import AxiosApi from "../../api/AxiosApi";
 const TitleBox = styled.div`
@@ -91,6 +92,7 @@ const Goodssell3=()=>{
     const person1 = window.localStorage.getItem("person");
     const title1 = window.localStorage.getItem("title");
     const price1 =window.localStorage.getItem("price");
+    const price2 = price1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     const dateNum =window.localStorage.getItem("select");
     // 날짜 계산 
     const date11 =new Date(window.localStorage.getItem("date")),
@@ -98,10 +100,15 @@ const Goodssell3=()=>{
     const date12 =new Date(date11.setDate(date11.getDate() + Number(window.localStorage.getItem("select")))),
     oderDate2 = date12.getFullYear() + '년' + (date12.getMonth() + 1) + '월' + date12.getDate() + '일';
 
+    //화폐 단위 변환 
+    const Moneys=(number)=>{
+        number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
+
 
     const goodsSell = async () => {
         // 로그인을 위한 axios 호출
-        const res = await AxiosApi.goodsSell(window.localStorage.getItem("userId"),window.localStorage.getItem("itemcode"),window.localStorage.getItem("date"),window.localStorage.getItem("select"),window.localStorage.getItem("person"));
+        const res = await AxiosApi.goodsSell(window.localStorage.getItem("userId"),window.localStorage.getItem("itemcode"),window.localStorage.getItem("date"),window.localStorage.getItem("select"),window.localStorage.getItem("person"),(window.localStorage.getItem("price")));
         console.log(window.localStorage.getItem("userId"),window.localStorage.getItem("itemcode"),window.localStorage.getItem("date"),window.localStorage.getItem("select"),window.localStorage.getItem("person"));
         console.log(res.data);
         if (res.data === true ) {
@@ -132,19 +139,19 @@ const Goodssell3=()=>{
             </tr>
             <tr>
                 <th>성인요금</th>
-                <td> {price1}원 [만 12세 이상] (기본상품가: {price1}원,제세공과금 0원)</td>
+                <td> {price2}원 [만 12세 이상] (기본상품가: {price2}원,제세공과금 0원)</td>
             </tr>
             <tr>
                 <th>아동요금</th>
-                <td> 0원 [만 12세 이상] (기본상품가: {price1}원,제세공과금 0원)</td>
+                <td> 0원 [만 12세 이상] (기본상품가: {price2}원,제세공과금 0원)</td>
             </tr>
             <tr>
                 <th>유아요금</th>
-                <td> 0원 [만 12세 이상] (기본상품가: {price1}원,제세공과금 0원)</td>
+                <td> 0원 [만 12세 이상] (기본상품가: {price2}원,제세공과금 0원)</td>
             </tr>
             <tr>
                 <th>최종 결제 요금</th>
-                <td>{price1}원 (기본상품가: {price1}원,제세공과금 0원)</td>
+                <td>{price2}원 (기본상품가: {price2}원,제세공과금 0원)</td>
             </tr>
         </SellTable>
         <TitleBox style={{height:"200px", marginTop:"0"}}>

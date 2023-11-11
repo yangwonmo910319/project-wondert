@@ -135,6 +135,10 @@ const Goodsprice = ( props )=>{
         if(personnel>0) setPersonnel(personnel-1);
         setResultMoney(price  * (personnel));
     }
+    // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 선생님한테 물어봐야지 
+    
+    const price1 = price
+    const resultMoney1 = resultMoney
 
     const sellClick=()=>{
         if(window.localStorage.getItem("isLogin") === "true"){
@@ -176,7 +180,7 @@ const Goodsprice = ( props )=>{
             <div className="pricebox">
                 <div className="priceBox">
                     <p className="priceInfo1">성인</p>
-                    <p className="priceInfo2">{price}원</p>
+                    <p className="priceInfo2">{price1}원</p>
                 </div>
                 <div className="dayBox">
                     <button className="dayBtn" onClick={()=>minusClick({price})} >-</button>
@@ -187,7 +191,7 @@ const Goodsprice = ( props )=>{
             <div className="pricebox">
             <div className="priceBox">
                     <p className="priceInfo1">아동 ❌(<span style={{color:"red"}}>준비중</span>)</p>
-                    <p className="priceInfo2">{price}원</p>
+                    <p className="priceInfo2">{price1}원</p>
                 </div>
                 <div className="dayBox">
                     <button style={{color:"gray"}} className="dayBtn">-</button>
@@ -198,7 +202,7 @@ const Goodsprice = ( props )=>{
             <div className="pricebox">
             <div className="priceBox">
                     <p className="priceInfo1">유아 ❌(<span style={{color:"red"}}>준비중</span>) </p>
-                    <p className="priceInfo2">{price}원</p>
+                    <p className="priceInfo2">{price1}원</p>
                 </div>
                 <div className="dayBox">
                     <button style={{color:"gray"}} className="dayBtn" >-</button>
@@ -209,7 +213,7 @@ const Goodsprice = ( props )=>{
             <hr/>
             <div className="pricebox">
                 <div className="priceInfo3">최종합계금액</div>
-                <div className="priceInfo4">{resultMoney}원 /부가세포함</div>
+                <div className="priceInfo4">{resultMoney1}원 /부가세포함</div>
             </div>
             <hr/>
             <div className="pricebox">

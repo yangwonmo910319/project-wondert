@@ -80,7 +80,7 @@ const Container2 =styled.div`
 
 const Goodsinfo1 =( props )=>{
     const { price }=props;
-
+    const price1 = price
 
     return(
         <>
@@ -100,9 +100,9 @@ const Goodsinfo1 =( props )=>{
             <div className="twobox">
                 <p className="box1">상품 가격</p>
                 <p className="box2">
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
-                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price1}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price1}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
+                    <p className="box2-2"><span style={{fontWeight:"bold",fontSize:"20px", color:"black"}}> {price1}원 </span><div>유류할증료 포함</div>제세공과금 포함</p>
                 </p>
             </div>
         </Container2>

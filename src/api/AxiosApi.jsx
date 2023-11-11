@@ -30,18 +30,29 @@ const AxiosApi = {
     return await axios.get(WONDER_WALKER + `/Goods/info?itemCode=${itemCode}`);
   },
 
-  goodsSell: async (userId,itemNum,i_Date,date_num,person) => {
+  goodsSell: async (userId, itemNum, i_Date, date_num, person, price) => {
     const sell = {
-      id:userId,
-      itemNum:itemNum,
-      i_date:i_Date,
-      date_num:date_num,
-      person:person,
+      id: userId,
+      itemNum: itemNum,
+      i_date: i_Date,
+      date_num: date_num,
+      person: person,
+      price: price,
     };
     return await axios.post(WONDER_WALKER + "/Goods/Complete", sell);
   },
-  
-
+  // 판매리스트
+  SellList: async (userId) => {
+    //겟 바디영역
+    return await axios.get(WONDER_WALKER + `/Goods/cancle?userId=${userId}`);
+  },
+  //판매취소
+  SaleCancle: async (sale_num) => {
+    const Cancle = {
+      sale_num: sale_num,
+    };
+    return await axios.post(WONDER_WALKER + "/Goods/cancle", Cancle);
+  },
 };
 
 export default AxiosApi;
