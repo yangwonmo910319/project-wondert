@@ -107,15 +107,15 @@ const Goodssell3=()=>{
 
 
     const goodsSell = async () => {
-        // 로그인을 위한 axios 호출
+        if(window.localStorage.getItem("allCheck") === "true"){
         const res = await AxiosApi.goodsSell(window.localStorage.getItem("userId"),window.localStorage.getItem("itemcode"),window.localStorage.getItem("date"),window.localStorage.getItem("select"),window.localStorage.getItem("person"),(window.localStorage.getItem("price")));
         console.log(window.localStorage.getItem("userId"),window.localStorage.getItem("itemcode"),window.localStorage.getItem("date"),window.localStorage.getItem("select"),window.localStorage.getItem("person"));
         console.log(res.data);
         if (res.data === true ) {
           navigate("/Goods/completed");
         } else {
-          alert("nono~~")
-        }
+          alert("nono~~");
+        }}else alert("약관체크해!!");
       };
 
 
