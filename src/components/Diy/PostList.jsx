@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import DiyAxiosApi from '../../api/DiyAxiosApi';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { Navigation } from 'react-calendar';
 
 const Title = styled.div`
     display: flex;
