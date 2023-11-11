@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import MainPage from "../../components/Diy/SlideMain";
 import PostMain from "../../components/Diy/PostMain";
-import BoardList from "../../components/Diy/BoardList";
+import BoardList from "../../components/Diy/CommunityList";
 
 const Center = styled.div`
     display:flex;

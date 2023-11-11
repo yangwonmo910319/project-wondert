@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import AxiosApi from "../../api/AxiosApi";
+import DiyAxiosApi from "../../api/DiyAxiosApi";
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BoardContainer = styled.div`
   padding: 30px;
 `;
-
 
 const BoardUl = styled.ul`
   list-style-type: none;
@@ -28,21 +27,10 @@ const BoardTitle = styled.h2`
   margin: 0 0 10px;
 `;
 
-const BoardContent = styled.p`
-  color: #444;
-  font-size: 1em;
-`;
-
 const BoardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-const UserId = styled.span`
-  color: #555;
-  font-style: italic;
-  font-size: 13px;
 `;
 
 const WriteButton = styled.button`
@@ -63,42 +51,73 @@ const WriteButton = styled.button`
   }
 `;
 
+const BoardUserId = styled.div`
+
+`;
+
+const BoardWriteDate = styled.div`
+
+`;
+
+const BoardView = styled.div`
+
+`;
+
+const BoardPic = styled.div`
+
+`;
+
+const BoardContainerWrapper = styled.div`
+
+`;
+
 function BoardList() {
-  const [boardList, setBoardList] = useState([]);
+  const [communityList, setCommunityList] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const boardList = async () => {
+    const communityList = async () => {
       try {
-        const rsp = await AxiosApi.boardList();
+        const rsp = await DiyAxiosApi.communityList();
         console.log(rsp.data);
-        setBoardList(rsp.data);
+        setCommunityList(rsp.data);
       } catch (error) {
-        console.log(error);
+        alert(error);
       } finally {
-        console.log("finally");
+        alert("finally");
       }
     };
-    boardList();
+    communityList();
   }, []);
 
   // 글쓰기 버튼 클릭 시
   const handleWriteClick = () => {
-    console.log("onClickWrite");
+    alert("onClickWrite");
     navigate("/DiyPage/DiyWrite");
+  };
+
+  // 글 상세보기 버튼 클릭
+  const handleDetailClick = (travel_num) => {
+    navigate(`/DiyPage/DiyWrite/${travel_num}`);
   };
 
   return (
     <BoardContainer>
       <BoardUl>
-        {boardList &&
-          boardList.map((board) => (
-            <BoardLi key={board.id}>
+        {communityList &&
+          communityList.map((board) => (
+            <BoardLi 
+            key={board.travel_num}
+            onClick={() => handleDetailClick(board.travel_num)}>
+            <BoardPic src={board.travel_pic ? board.travel_pic : ""} alt="img"/>
+              <BoardContainerWrapper>
               <BoardHeader>
-                <BoardTitle>{board.title}</BoardTitle>
-                <UserId>{board.userId}</UserId>
+                <BoardTitle>{board.travel_title}</BoardTitle>
+                <BoardUserId>{board.travel_userid}</BoardUserId>
+                <BoardWriteDate>{board.travel_writedate}</BoardWriteDate>
+                <BoardView>{board.travel_view}</BoardView>
               </BoardHeader>
-              <BoardContent>{board.content}</BoardContent>
+              </BoardContainerWrapper>
             </BoardLi>
           ))}
       </BoardUl>

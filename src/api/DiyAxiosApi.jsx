@@ -2,7 +2,7 @@ import axios from "axios";
 
 const WONDER_WALKER = "http://localhost:8111";
 
-const UserAxiosApi = {
+const DiyAxiosApi = {
 
 // 로그인
 Login: async (id, pw) => {
@@ -58,8 +58,24 @@ Login: async (id, pw) => {
           view: view,
     };
         return await axios.post(WONDER_WALKER + `/DiyPage/?travelNum=${num}`);
-      }
+      },
+      // 게시글 조회
+      CommunityList: async () => {
+        return await axios.get(WONDER_WALKER + `/DiyPage`);
+      },
+      //게시글 상세 조회
+      CommunityDetail: async (travel_num) => {
+        return await axios.get(WONDER_WALKER + `/DiyPage/Diyview/${travel_num}`);
+      },
 
-}
-
-export default UserAxiosApi;
+      CommunityWrite : async (travel_num,d_day,travel_pic,travel_writing,travel_map) => {
+        const board = {
+          travel_num: travel_num,
+          d_day : d_day,
+          travel_pic : travel_pic,
+          travel_writing : travel_writing,
+          travel_map : travel_map,
+        };
+      return await axios.post(WONDER_WALKER + `/DiyPage/DiyWrite`,board)}
+    };
+export default DiyAxiosApi;

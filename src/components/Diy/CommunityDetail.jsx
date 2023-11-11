@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import TravelCourse from "./TravelCourse";
 import { useNavigate } from "react-router-dom";
-import AxiosApi from "../../api/AxiosApi";
+import DiyAxiosApi from "../../api/DiyAxiosApi";
+import { useParams } from "react-router-dom";
 
 
 const Detail = styled.div`
@@ -106,8 +107,8 @@ const CommunityWrite = () => {
  useEffect(() => {
     const travelCourse = async () => {
     try {
-        const resp = await AxiosApi.travelCourse(num,pic,title,id,writeDate,view);
-        if(resp.status === 200) setTravelCourse(resp.data);
+        const resp = await DiyAxiosApi.travelCourse(num,pic,title,id,writeDate,view);
+        
         if(resp.status === 200) setNum(resp.data);
         if(resp.status === 200) setPic(resp.data);
         if(resp.status === 200) setTitle(resp.data);
