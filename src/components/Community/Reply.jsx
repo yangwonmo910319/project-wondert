@@ -30,16 +30,16 @@ background-color: #dfdfdf;
 margin-left:70px ;
 `;
     
-  const Reply=({insertReply,replyInsert})=>{
+  const Reply=({insertReply})=>{
     const [inputValue, setInputValue] = useState(''); // 상태 추가
 
     const handleInputChange = (event) => {    
       setInputValue(event.target.value);
     };
     const onClick1=()=>{
-
-      insertReply(inputValue);
    
+      insertReply(inputValue);
+    
     };
 
     return(
@@ -58,6 +58,7 @@ margin-left:70px ;
           <SearchBtn>취 소</SearchBtn>
           
         </Link>
+
       </Search>
 
  

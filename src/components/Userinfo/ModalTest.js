@@ -1,6 +1,38 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+//버튼 눌러서 나오는 창 CSS
+const ModalTestCss=styled.div`
+width: 100%;
+height: 100%;
 
-const ModalTest = ({ onClose, onConfirm }) => {
+.modal{
+  margin: 0 auto;
+  width: 300px;
+height: 100px;
+
+}
+input{
+  margin-top: 100px;
+  width: 300px;
+  height: 30px;
+}
+button{
+  width: 300px;
+  height: 30px;
+}
+/* .modal-content{
+
+background-color: green;
+}
+.close{
+
+background-color: pink;
+}
+label{
+  
+} */
+`;
+const ModalTest = ({ onClose, onConfirm,disableCloseOnOutsideClick }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -10,20 +42,33 @@ const ModalTest = ({ onClose, onConfirm }) => {
   const handleConfirmClick = () => {
     // 부모 컴포넌트로 데이터 전달
     onConfirm(inputValue);
+   
   };
 
+  const handleOverlayClick = (e) => {
+    if (!disableCloseOnOutsideClick && e.target === e.currentTarget) {
+      onClose();
+    }
+  };
   return (
-    <div className="modal">
+    <ModalTestCss>
+
+    <div className="modal"  onClick={handleOverlayClick}>
       <div className="modal-content">
-        <span className="close" onClick={onClose}>&times;</span>
-        <h2>Modal</h2>
+        {/* <span className="close" onClick={onClose}>&times;</span> */}
+        {/* <h2>자식</h2> */}
         <label>
-          Input Data:
-          <input type="text" value={inputValue} onChange={handleInputChange} />
+      
+      
+          <input type="text" value={inputValue} onChange={handleInputChange}
+            onKeyDown={(e) => e.key === 'Enter' && handleConfirmClick()}
+          />
         </label>
-        <button onClick={handleConfirmClick}>Confirm</button>
+        <button onClick={handleConfirmClick}>값전달 버튼</button>
+        <button onClick={()=>{onClose()}}>취소 버튼</button>
       </div>
     </div>
+    </ModalTestCss>
   );
 };
 

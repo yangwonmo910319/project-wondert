@@ -22,11 +22,8 @@ SelectReply: async (num) => {
   return await axios.get(WONDER_WALKER +`/Reply/SelectReply/?num=${num}`);
 },
 
-  // 리플 등록
+  // 댓글 등록
   insertReply2: async (userId, num, replyInsert) => {
-   alert(userId)
-   alert(num)
-   alert(replyInsert)
     const data = {
       userid: userId,
       num: num,
@@ -34,6 +31,24 @@ SelectReply: async (num) => {
     };
     return await axios.post(WONDER_WALKER + `/Reply/insertReply`, data);
   },
+// 댓글 삭제
+deleteReply: async (num) => {
+
+  return await axios.get(WONDER_WALKER +`/Reply/deleteReply/?num=${num}`);
+},
+
+  // 댓글 변경
+  updateReply: async (replyNum, newReply) => {
+    const data = { 
+      replyNum: replyNum,
+      coment: newReply,
+    };
+    return await axios.post(WONDER_WALKER + `/Reply/updateReply`, data);
+  },
+
+
+
+
 
   // 커뮤니티 글등록
   InsertCommunity: async (userId,reportingDate,views,Title,constent1) => {

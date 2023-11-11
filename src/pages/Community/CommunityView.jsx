@@ -95,56 +95,87 @@ const Menu=styled.div`
 const CommunityView = () => {
   const userid=window.localStorage.getItem("userId");
 
-  //링크로 게시글 넘버를 받음
+  //링크로 넘어온 글 번호를 저장
 const {num} = useParams();
-//게시글 정보를담음
+//데이터베이스에서 넘어온 글을담음
 const [post,getPost]=useState('');
+//데이터베이스에서 넘어온 댓글을 담음
 const [reply,getReply]=useState('');
-
-
-const [replyInsert,setreplyInsert]=useState('');
-
-
-
+//useEffect는 reset값이 바뀌면 실행되게 작성. 
+//댓글 추가,삭제 axios를 실행 후 reset값을 바꿔서 useEffect를 실행하여 추가 삭제된 화면을 새로 보여줌
+const [reset,setReset]=useState(false);
+//게시글 보여줄때 실생하여 글과 댓글을 데이터베이스에서 가져오고 
+//종속성배열을 이용하여  reset 값이 바뀌면 useEffect가실행
 useEffect(()=>{
-
+  //데이터 베이스에서 글과댓글을 가져오는 기능을 만듬(실행은 별도)
   const createCommunity = async()=>{
      try {      
+      //글을 가져오는 axios실행
       const postDBdata =await CommunityAxiosApi.SelectOneCommunity(num);
-      getPost(postDBdata.data);  
+       //가져온 글을 getPost통해 저장
+      getPost(postDBdata.data); 
+       //댓글을 가져오는 axios실행
       const replyDBdata =await CommunityAxiosApi.SelectReply(num);
-      getReply(replyDBdata.data)
-   
+      //가져온 댓글을 getReply통해 저장
+      getReply(replyDBdata.data)   
     }
-     catch(error){
-   
+     catch(error){   
       console.log(error);
-     }
-    
-  }; createCommunity();
+     }    
+  };
+  //createCommunity를 실행
+   createCommunity();
+    //[ reset]으로 reset값이 바뀌면 글과댓글을 다시 가져옴
+},[ reset]);
 
-},[ ]);
-
-const insertReply=(replyProps)=>{
-
-  setreplyInsert(replyProps);
+   //댓글 확인버튼을 누르면 실행
+const insertReply=(replyProps)=>{    
+      //데이터 베이스에서 댓글을 추가하는 기능을 만듬!!!(실행은 별도)
   const insertReply1 = async()=>{
-    // getPost(postDBdata.data);  
-  
     try {    
-  
-      const ReplyDBdata = await CommunityAxiosApi.insertReply2(userid,num,replyInsert);
-    
-  
-  }catch(error){
-  
+        const ReplyDBdata = await CommunityAxiosApi.insertReply2(userid,num,replyProps);
+        }catch(error){  
     console.log(error);
    }
   }
-
+  //만든 기능을 실행(댓글 추가 axios실행)
 insertReply1();
+//reset값을 변경하여 댓글이 추가된 화면을 보여줌
+setReset(!reset);
 }
-
+//댓글 삭제 버튼을 누르면 실행
+const deleteReply=(deleteNum)=>{    
+  //댓글을 삭제할 기능을 만듬
+  const deleteReply1 = async()=>{
+    try {   
+        //(deleteNum)는 댓글 번호가 담겨있고 번호를 axios로 넘겨 해당 글을 삭제
+    const ReplyDBdata = await CommunityAxiosApi.deleteReply(deleteNum);
+        }catch(error){  
+    console.log(error);
+   }
+  }
+    //댓글을 삭제할 기능을 실행
+  deleteReply1();
+  //reset값을 변경하여 댓글이 삭제된 화면을 보여줌
+  setReset(!reset);
+}
+//댓글 업데이트 버튼을 누르면 실행
+const updateReply=({newReply},{replyNum})=>{    
+  // const updateReply=(rewReply,replyNum)=>{    
+  //댓글을 삭제할 기능을 만듬
+  const updateReply1 = async()=>{
+    try {   
+        //(deleteNum)는 댓글 번호가 담겨있고 번호를 axios로 넘겨 해당 글을 삭제
+    const ReplyDBdata = await CommunityAxiosApi.updateReply(replyNum,newReply);
+        }catch(error){  
+    console.log(error);
+   }
+  }
+    //댓글을 삭제할 기능을 실행
+    updateReply1();
+  //reset값을 변경하여 댓글이 삭제된 화면을 보여줌
+  setReset(!reset);
+}
   return (
     <CommunityCss>
 
@@ -166,28 +197,19 @@ insertReply1();
         <Item1>   <p  >{board.uerId}</p></Item1>
         <Itemp>  <p> {board.reportingDate}</p></Itemp>
         <Item6>   <p > {board.views}</p></Item6>
-   
-        </Content1>                      
-
+        </Content1>           
              <Content2>
                       {board.content}       
          </Content2> 
-         </>    ))}
-   
-              
-            <Replyview replydata={reply} replyInsert={replyInsert}/> 
-          
-             {/* {reply[0]?.travelComment || null} */}
+         </>    ))}                
+            <Replyview replydata={reply} deleteReply={deleteReply} updateReply={updateReply}/> 
+            {/* {reply[0]?.travelComment || null} */}
        <Content3>
        <Item3>
-        <Reply insertReply={insertReply}/>
-      
-         </Item3>
-        
+        <Reply insertReply={insertReply}/>      
+         </Item3>        
        </Content3>
-       {/* <Content5></Content5> */}
-   
-    </CommunityCss>
+       </CommunityCss>
   );
 };
 
