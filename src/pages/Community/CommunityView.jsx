@@ -78,7 +78,6 @@ width: 100%;
 display: flex;
 `;
 
-
 const Menu=styled.div`
   width: 100%;
   height: 50px;
