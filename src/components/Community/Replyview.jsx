@@ -54,7 +54,7 @@ background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMA
 background-size: 100%;
 `;
 const SearchBtn2=styled.button`
-width: 30px;
+width:  30px;
 height: 30px;
 border: none;
 margin-top: -10px;
