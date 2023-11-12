@@ -51,30 +51,28 @@ deleteReply: async (num) => {
 
 
   // 커뮤니티 글등록
-  InsertCommunity: async (userId,reportingDate,views,Title,constent1) => {
+  insertCommunity: async (title, content1, userId, url) => {
     const content = {
-        userId: userId,
-        reportingDate:reportingDate,
-        views: views,
-        Title: Title,
-        constent1:constent1,
+      userId: userId,
+        content: content1,
+        title: title,
+        url:url,
     };
-    return await axios.get(WONDER_WALKER + `/community/InsertCommunity`,content);
+    return await axios.post(WONDER_WALKER + `/community/insertCommunity`,content);
   },
   // 커뮤니티 글 삭제
   DeleteCommunity: async (num) => {   
     return await axios.get(WONDER_WALKER + `/community/DeleteCommunity/?num=${num}`);
   },
     // 커뮤니티 글 수정
-    UpdateCommunity: async  (userId,reportingDate,views,Title,constent1)=> {   
+    UpdateCommunity: async  (num,title,content1)=> {   
+
         const content = {
-            userId: userId,
-            reportingDate:reportingDate,
-            views: views,
-            Title: Title,
-            constent1:constent1,
+          num: num,            
+          title: title,
+          content1:content1,
         };
-        return await axios.get(WONDER_WALKER + `/community/UpdateCommunity`,content);
+        return await axios.post(WONDER_WALKER + `/community/UpdateCommunity`,content);
       },
 }
 

@@ -4,7 +4,12 @@ import styled from 'styled-components';
 const ModalTestCss=styled.div`
 width: 100%;
 height: 100%;
-
+ position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(0 0 0 / 60%);
+    height: 100%; 
 .modal{
   margin: 0 auto;
   width: 300px;
@@ -38,13 +43,10 @@ const ModalTest = ({ onClose, onConfirm,disableCloseOnOutsideClick }) => {
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
-
   const handleConfirmClick = () => {
     // 부모 컴포넌트로 데이터 전달
-    onConfirm(inputValue);
-   
+    onConfirm(inputValue);   
   };
-
   const handleOverlayClick = (e) => {
     if (!disableCloseOnOutsideClick && e.target === e.currentTarget) {
       onClose();
@@ -52,20 +54,16 @@ const ModalTest = ({ onClose, onConfirm,disableCloseOnOutsideClick }) => {
   };
   return (
     <ModalTestCss>
-
     <div className="modal"  onClick={handleOverlayClick}>
+      
       <div className="modal-content">
-        {/* <span className="close" onClick={onClose}>&times;</span> */}
-        {/* <h2>자식</h2> */}
-        <label>
-      
-      
-          <input type="text" value={inputValue} onChange={handleInputChange}
-            onKeyDown={(e) => e.key === 'Enter' && handleConfirmClick()}
-          />
+    
+        <label>  
+          <input type="text" placeholder='비밀번호를 입력하세요' value={inputValue} onChange={handleInputChange}
+            onKeyDown={(e) => e.key === 'Enter' && handleConfirmClick()} />
         </label>
-        <button onClick={handleConfirmClick}>값전달 버튼</button>
-        <button onClick={()=>{onClose()}}>취소 버튼</button>
+        <button onClick={handleConfirmClick}>확 인</button>
+        <button onClick={()=>{onClose()}}>취 소</button>
       </div>
     </div>
     </ModalTestCss>
@@ -73,3 +71,4 @@ const ModalTest = ({ onClose, onConfirm,disableCloseOnOutsideClick }) => {
 };
 
 export default ModalTest;
+

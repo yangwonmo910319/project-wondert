@@ -1,5 +1,8 @@
 /*원모 페이지 */
+import { useEffect } from "react";
+import { useState } from "react";
 import styled, { css } from "styled-components";
+import UserAxiosApi from "../../api/UserAxiosApi";
 const ChangemyinfoCss = styled.div`
 
 margin-top: 50px;
@@ -70,6 +73,37 @@ padding: 10px 2px;
 
 `;
 const UserOut = () => {
+  const userid=window.localStorage.getItem("userId");
+  const [pw,setPw]=useState('');
+  const [ckpw,setckPw]=useState('');
+  const [ckpw2,setckPw2]=useState('');
+  const [reset,setReset]=useState(false);
+  useEffect(()=>{  
+    const onUserCheck=async()=>{    
+       const res = await UserAxiosApi.Userinfo(userid);
+    
+       if(res.status===200){
+      setPw(res.data[0].userPw);
+    }else{
+console.log("해당 아이디가 없습니다.")
+    }
+  };
+  onUserCheck();
+},[reset])
+
+const deleteUser=()=>{
+ if(pw===ckpw&& ckpw===ckpw2){
+  const deleteUser1 = async () => {
+    try {   
+    const res = await UserAxiosApi.deleteUser1(userid);
+  }catch (error) {
+    console.log(error);
+  }
+}
+deleteUser1();
+
+ }
+}
   return (
     <>
       <ChangemyinfoCss>
@@ -82,17 +116,17 @@ const UserOut = () => {
             <li>
               <ChageTitle>삭제 아이디</ChageTitle>
               <input type="text"></input>
-              <ChangnBtn changvalue={true}>변경</ChangnBtn>
+              <ChangnBtn onClick={deleteUser}>삭제</ChangnBtn>
             </li>
             <li>
               <ChageTitle>비밀번호</ChageTitle>
-              <input type="password"></input>
-              <ChangnBtn changvalue={true}>변경</ChangnBtn>
+              <input type="password" value={ckpw}onChange={(e) => setckPw(e.target.value)} />
+              
             </li>
             <li>
               <ChageTitle>비밀번호 재입력 </ChageTitle>
-              <input type="password"></input>
-              <ChangnBtn changvalue={true}>변경</ChangnBtn>
+              <input type="password" value={ckpw2}onChange={(e) => setckPw2(e.target.value)} />
+         
             </li>
           </ul>
         </InfoView>

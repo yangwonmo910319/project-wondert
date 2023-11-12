@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import UserAxiosApi from "../api/CommunityAxiosApi";
 import { useState } from "react";
+import CommunityModal from "../components/Community/CommunityModal";
+import UserCheck from "../components/home/UserCheck";
 const CommunityCss = styled.div`
 max-width: 1200px;
 white-space:nowrap;
@@ -100,9 +102,11 @@ background-color: #dfdfdf;
 margin-left:70px ;
 `;
 
-
+const Content5=styled.div`
+display: ${props => (props.color ? 'none' : 'black')};
+`
 const Community = () => {
-
+ const isLoggedin = window.localStorage.getItem("isLogin") === 'true';
 const [communityList,setCommunityList]=useState("");
   useEffect(()=>{  
     const onUserCheck=async()=>{    
@@ -119,7 +123,8 @@ alert("게시글이 없습니다.");
   
   return (
     <CommunityCss>
-      <h1>123</h1>
+         <Content5>
+  
        <Content1><p>커뮤니티 게시판</p></Content1>
        <Content2>
         <Item1><p>No</p></Item1>
@@ -147,12 +152,18 @@ alert("게시글이 없습니다.");
           <SerchVar></SerchVar>
           <SerchBtn><p>검색</p></SerchBtn>
         </Serch>
-        <Link to="/Communitywrite"><Write><p>글 쓰기</p></Write></Link>
+{isLoggedin ?       
+ <Link to="/Communitywrite"><Write><p>글 쓰기</p></Write></Link>
+ : <></>
+}
+ 
+
          </Item3>
         
        </Content4>
-       {/* <Content5></Content5> */}
-      
+                
+  </Content5>
+
     </CommunityCss>
   );
 };

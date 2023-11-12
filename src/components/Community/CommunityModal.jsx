@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import Modal from '../../components/Userinfo/ModalTest'; 
+import Modal from '../Userinfo/ModalTest'; 
 import styled from 'styled-components';
-const ModalTest2Css=styled.div`
+const CommunityModalCss=styled.div`
 
-background-color:${props => (props.color ? 'black' : 'white')};
+width: 100px;
+height: 100%;
+left: -50%;
+
+
+background-color: ${props => (!props.color ? 'rgba(0, 0, 0, 0.7)' : 'white')};
 
 >button {
-    display: ${props => (props.color ? 'none' : 'block')};
+  border:none;
+ 
   }
 `;
 
 
-function ModalTest2() {
+function CommunityModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputData, setInputData] = useState('');
   const openModal = () => {
@@ -28,8 +34,8 @@ function ModalTest2() {
   };
   return (
     // <ModalTest2Css isModalOpen>
-    <ModalTest2Css color={isModalOpen}>
-      <button onClick={openModal}>변경</button>
+    <CommunityModalCss color={isModalOpen}> 
+      <button onClick={openModal}></button>
 
       {/* 모달이 열려있을 때만 렌더링 */}
       {isModalOpen && (
@@ -39,9 +45,9 @@ function ModalTest2() {
       )}
 
       {/* 입력된 데이터 표시 */}
-      {/* {inputData && <p>받은값: {inputData}</p>} */}
-    </ModalTest2Css>
+      {inputData && <p>받은값: {inputData}</p>}
+    </CommunityModalCss>
   );
 }
 
-export default ModalTest2;
+export default CommunityModal;

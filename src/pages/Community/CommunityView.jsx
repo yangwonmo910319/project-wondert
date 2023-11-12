@@ -23,7 +23,13 @@ border-left:  1px solid blue;
 border-right:  1px solid blue;
 `;
 const Item2=styled.div`
+
 width: 60%;
+input{
+  width: 100%;
+  text-align: center
+  ;
+}
 `;
 
 const Item6=styled.div`
@@ -35,11 +41,11 @@ background:white;
 const Content1=styled.div`
  margin-top: 10px;
   width: 100%;
-  height: 25px;
+  height: auto;
   color:black;
   border:1px solid #808080;
   display: flex;
-  font-size: 15px;
+  font-size: .8em;
   text-align: center;
 p{
   margin-top: 5px;
@@ -49,7 +55,10 @@ p{
 
   
 `;
-
+const Contentinput=styled.textarea`
+  width:100%;
+  height:100%;
+`
 const Content2=styled.div`
   width: 100%;
   height: 500px;
@@ -59,8 +68,23 @@ const Content2=styled.div`
   display: flex;
   padding: 7px;
   margin-top: 10px;
-`;
 
+  .content1{
+     width: ${props =>props.a}%;
+        height: 100%;
+
+  
+  }
+  .img1{
+    width:${props =>100- props.a}%;
+    height: 100%;
+   margin: 0 auto;
+  
+  }
+`;
+const Editbtn=styled.button`
+    width: 100%;
+`;
 const Content3=styled.div`
   width: 100%;
   height: 50px;
@@ -93,7 +117,15 @@ const Menu=styled.div`
 `;
 const CommunityView = () => {
   const userid=window.localStorage.getItem("userId");
-
+  const login=window.localStorage.getItem("isLogin");
+  const [title , setTitle] = useState('');
+  const [content , setcontent] = useState('');
+  const editTitle =(e) =>{
+    setTitle(e.target.value);
+  }
+  const editContent =(e) =>{
+    setcontent(e.target.value);
+  }
   //링크로 넘어온 글 번호를 저장
 const {num} = useParams();
 //데이터베이스에서 넘어온 글을담음
@@ -112,7 +144,9 @@ useEffect(()=>{
       //글을 가져오는 axios실행
       const postDBdata =await CommunityAxiosApi.SelectOneCommunity(num);
        //가져온 글을 getPost통해 저장
-      getPost(postDBdata.data); 
+      getPost(postDBdata.data);  
+      setTitle(postDBdata.data[0].title);
+      setcontent(postDBdata.data[0].content);
        //댓글을 가져오는 axios실행
       const replyDBdata =await CommunityAxiosApi.SelectReply(num);
       //가져온 댓글을 getReply통해 저장
@@ -175,34 +209,59 @@ const updateReply=({newReply},{replyNum})=>{
   //reset값을 변경하여 댓글 업데이트 화면을 보여줌
   setReset(!reset);
 }
+const UpdateCommunity=()=>{ 
+  //게시글 업데이트 기능을 만듬
+  const update = async()=>{
+    try {          
+    const DBupdate = await CommunityAxiosApi.UpdateCommunity(num,title,content);
+        }catch(error){  
+    console.log(error);
+   }
+  }
+    //게시글 업데이트 기능을 실행
+    update();
+  //reset값을 변경하여 댓글 업데이트 화면을 보여줌
+  setReset(!reset);
+}
   return (
-    <CommunityCss>
-
-    
-    <Link to="/Community"  style={{ textDecoration: "none"}}> <Menu><p>커뮤니티 게시판</p></Menu>
-      </Link> 
+    <CommunityCss>    
+    <Link to="/Community"  style={{ textDecoration: "none"}}> <Menu><p>커뮤니티 게시판</p></Menu></Link> 
       <Content1>                
         <Item2>  <p >제목 </p></Item2>
         <Item1>   <p  >글쓴이</p></Item1>
         <Itemp>  <p> 작성일</p></Itemp>
-        <Item6>   <p > 조회수</p></Item6>
-   
-        </Content1>
-                        
+        <Item6>   <p > 조회수</p></Item6>   
+        </Content1>     
     {post&&post.map((board)=>(   
       <>
-       <Content1 key={board.no}>                
-        <Item2>  <p >{board.title}  </p></Item2>
+       <Content1 key={board.no}>  
+       {login ==="false"?  <Item2>   {title}  </Item2>  :  <Item2> <input type="text" value={title} onChange={editTitle}/>  </Item2> }
         <Item1>   <p  >{board.uerId}</p></Item1>
         <Itemp>  <p> {board.reportingDate}</p></Itemp>
         <Item6>   <p > {board.views}</p></Item6>
-        </Content1>           
-             <Content2>
-                      {board.content}       
-         </Content2> 
-         </>    ))}                
+        </Content1>   
+       {login ==="false"?     !board.imgurl ?   <Content2 a={100} >{content}</Content2>         
+       : <Content2 a={50}>
+        <div className="content1" style={{  borderRight:"1px solid black"}}  > {board.content}    </div> 
+        <div className="img1">   <img src={board.imgurl}/>   </div> 
+         </Content2>
+          : 
+         !board.imgurl ?   <Content2 a={100} ><Contentinput type="text" value={content} onChange={editContent} />
+         </Content2>  :          <Content2 a={50}>
+                    <Contentinput style={{  borderRight:"1px solid black"}}  type="text" value={content} onChange={editContent} > </Contentinput>
+                    <div className="img1">   <img src={board.imgurl}/>  
+                    
+                     </div> 
+         </Content2>            }
+
+
+         </>    ))}   
+
+    
+         {login ==="false"?<></> :<Editbtn onClick={UpdateCommunity}>  수정 완료 </Editbtn>}
+
             <Replyview replydata={reply} deleteReply={deleteReply} updateReply={updateReply}/> 
-            {/* {reply[0]?.travelComment || null} */}
+              
        <Content3>
        <Item3>
         <Reply insertReply={insertReply}/>      

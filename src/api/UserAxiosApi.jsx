@@ -37,6 +37,35 @@ Login: async (id, pw) => {
   Userinfo: async (id) => {   
     return await axios.post(WONDER_WALKER + `/users/userinfo/?id=${id}`);
   },
+
+
+  //  회원정보 변경
+  updateUserInfo: async (id,kind ,value) => {  
+    const userInfo = {
+      id: id,
+      kind: kind,
+      value:value,
+    };
+    return await axios.post(WONDER_WALKER + `/users/updateUserInfo`,userInfo);
+  },
+
+
+  //  회원 비밀번호 변경
+  newPassword: async (userid,newPw) => {  
+    const userInfo = {
+      userid:userid,
+       newPw: newPw,
+    };
+    return await axios.post(WONDER_WALKER + `/users/newPassword`,userInfo);
+  },
+  //회원 삭제  
+  deleteUser1: async (userid) => {  
+    alert(userid)
+    const userInfo = {
+      userid:userid,
+    };
+    return await axios.post(WONDER_WALKER + `/users/deleteUser`,userInfo);
+  },
 }
 
 export default UserAxiosApi;
