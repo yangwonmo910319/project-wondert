@@ -2,6 +2,8 @@ import styled,{css} from "styled-components";
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import AxiosApi from "../../api/AxiosApi";
+import { useState } from "react";
+import Modal from "../../utill/Modal";
 const TitleBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -99,11 +101,16 @@ const Goodssell3=()=>{
     oderDate1 = date11.getFullYear() + '년' + (date11.getMonth() + 1) + '월' + date11.getDate() + '일';
     const date12 =new Date(date11.setDate(date11.getDate() + Number(window.localStorage.getItem("select")))),
     oderDate2 = date12.getFullYear() + '년' + (date12.getMonth() + 1) + '월' + date12.getDate() + '일';
-
     //화폐 단위 변환 
     const Moneys=(number)=>{
         number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }
+    const [modalOpen, setModalOpen] = useState(false);
+    const closeModal = () => {
+    setModalOpen(false);
+
+    };
+
 
 
     const goodsSell = async () => {
@@ -114,8 +121,8 @@ const Goodssell3=()=>{
         if (res.data === true ) {
           navigate("/Goods/completed");
         } else {
-          alert("nono~~");
-        }}else alert("약관체크해!!");
+          alert("네트워크 연결이끊겻습니다.");
+        }}else setModalOpen(true);
       };
 
 
@@ -168,6 +175,11 @@ const Goodssell3=()=>{
             <SellButton Buttonstlye={false} onClick={()=>navigate(-1)}>취소하기</SellButton>
             <SellButton Buttonstlye={true} onClick={goodsSell}>예약하기</SellButton>
             </span>
+
+            <Modal  open={modalOpen} close={closeModal} header="약관동의 확인">
+                약관 동의후 결제 바랍니다.
+            </Modal>
+
         </>
     )
 };

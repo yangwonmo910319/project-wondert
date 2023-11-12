@@ -47,7 +47,7 @@ const Goodsinfo = () => {
   return (
     <>
       <Center>
-        <Goodstitle title={goodsInfo.title} />
+        <Goodstitle tag={goodsInfo.tag} title={goodsInfo.title} />
       </Center>
       <Center>
         <Between>

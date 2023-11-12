@@ -118,7 +118,6 @@ const CancleButton = styled.button`
   justify-content: center;
   align-items: center;
   background-color: #f47114;
-
   width: 50px;
   height: 25px;
   cursor: pointer;
@@ -143,7 +142,6 @@ const Goodscancle1 = () => {
     SellList();
   }, [cancleOK]);
 
-
   // 상품판매 취소 axios호출
   const SaleCancle = async (sale_code) => {
         const res = await AxiosApi.SaleCancle(sale_code);
@@ -152,11 +150,10 @@ const Goodscancle1 = () => {
         if (res.data === true ) {
           alert("취소완료!");
         } else {
-          alert("nono~~")
+          alert("네트워크 에러 입니다.")
         };
         setCancleOK((prev) => !prev);
       };
-
   return (
     <>
       <Container>
@@ -229,7 +226,7 @@ const Goodscancle1 = () => {
             alignContent: "center",
             justifyContent: "center",
           }}
-        >
+          >
           <SellButton Buttonstlye={true}>장바구니</SellButton>
           <SellButton Buttonstlye={true}>홈으로</SellButton>
         </div>

@@ -10,13 +10,13 @@ const TitleBox = styled.div`
   border-bottom: 2px solid black;
   .tag {
     display: flex;
-    align-items: start;
-    width: 200px;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
-    background-color: black;
-    color: white;
-    border-radius: 20px;
-    padding: 10px 5px;
+    padding: 10px 15px;
+    background-color: #F4CE14;
+    color:  #45474B;  
+    border-radius: 50px;
   }
 
   .title {
@@ -27,11 +27,11 @@ const TitleBox = styled.div`
 `;
 
 const Goodstitle = (props) => {
-  const { title } = props;
+  const { title,tag } = props;
   return (
     <>
       <TitleBox>
-        <div className="tag"># 혼자여행하기 너무 좋은</div>
+        <div className="tag">#{tag}</div>
         <p className="title">{title}</p>
       </TitleBox>
     </>

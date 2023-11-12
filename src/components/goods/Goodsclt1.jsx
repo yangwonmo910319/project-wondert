@@ -9,10 +9,12 @@ const TitleBox=styled.div`
     align-items: center;
     width: 100%;
     height: 200px;
+    
     h1{
         font-size: 30px;
         font-weight: bold;
         padding: 20px;
+        
     }
     h3{
         padding: 15px;
@@ -32,6 +34,7 @@ const TitleBox1 = styled.div`
         display: flex;
         align-items: center;
         padding: 3% 3%;
+        
     }
     h2{
         display: flex;
@@ -39,6 +42,7 @@ const TitleBox1 = styled.div`
         font-size: 15px;
         font-weight: 800;
         width: 30%;
+        
     }
     h3{
         font-size: 12px;
@@ -52,9 +56,9 @@ const SellButton = styled.button`
     margin: 20px;
     width: 150px;
     height: 40px;
-    background-color: ${(props) => (!props.Buttonstlye ? "white" : "black")};
+    background-color: ${(props) => (!props.Buttonstlye ? "#F4CE14" : "#495E57")};
     color : ${(props) => (!props.Buttonstlye ? "black" : "white")};
-    border: ${(props) => (!props.Buttonstlye ? "1px solid #c1c1c1;" : "0")};;
+    border: ${(props) => (!props.Buttonstlye ? "0" : "0")};;
     font-size: 12px;
     font-weight: bold; 
     cursor: pointer;
@@ -94,7 +98,7 @@ const Goodsclt1=()=>{
         </TitleBox1>
         <QrcodeImg />
         <div>
-        <SellButton Buttonstlye={true} onClick={()=>navigate("/")}>홈으로</SellButton>
+        <SellButton Buttonstlye={false} onClick={()=>navigate("/")}>홈으로</SellButton>
         <SellButton Buttonstlye={true}>장바구니</SellButton>
         </div>
         </>

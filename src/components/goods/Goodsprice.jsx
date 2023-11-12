@@ -1,6 +1,7 @@
 import styled,{ css } from "styled-components";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../utill/Modal";
 
 const Container = styled.div`
     width: 350px;
@@ -37,7 +38,7 @@ const Container = styled.div`
         height: 40px;
         font-size: 17px;
         border: 2px solid grey;
-        color: #797979;
+        color: #000000;
     }
 
     .pricebox{
@@ -65,8 +66,11 @@ const Container = styled.div`
         width: 40px;
         height: 40px;
         font-size: 40px;
-        background-color: white;
+        background-color: #495E57;
         cursor: pointer;
+        border-radius: 50px;
+        border: none;
+        color: #F5F7F8;
     }
     .dayScore{
         display: flex;
@@ -75,7 +79,7 @@ const Container = styled.div`
         width: 40px;
         height: 40px;
         font-size: 25px;
-        background-color: #ededed;
+        background-color: white;
     }
     .priceBox{
         margin-left: 10px;
@@ -108,14 +112,15 @@ const Container = styled.div`
         font-size: 20px;
     }
     .priceBtn{
-        border: 1px solid black;
+        border: 2px outset #45474B;
         width: 170px;
         height: 50px;
-        background-color: #1c1c1c;
-        color:white;
+        background-color: #F4CE14;
+        color:#45474B;
         font-weight: bold;
         font-size: 17px;
         cursor: pointer;
+        border-radius:5px;
     }
 `;
 
@@ -124,17 +129,23 @@ const Goodsprice = ( props )=>{
     const[personnel,setPersonnel] =useState(0);
     const[selected,setSelected] =useState(0);
     const[resultMoney,setResultMoney] =useState(0);
-    const navigate =useNavigate();
-    
+    const navigate =useNavigate(); 
+    const [modalOpen, setModalOpen] = useState(false);
+    const closeModal = () => {
+      setModalOpen(false);
+    };
+
     const plusClick =({price})=>{
         setPersonnel(personnel+1);
         setResultMoney(price * (personnel+1));
-        
     }
     const minusClick =({price})=>{
         if(personnel>0) setPersonnel(personnel-1);
         setResultMoney(price  * (personnel));
     }
+
+
+
     // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 선생님한테 물어봐야지 
     
     const price1 = price
@@ -149,10 +160,10 @@ const Goodsprice = ( props )=>{
             window.localStorage.setItem("date",i_date);
             window.localStorage.setItem("title",title);
             navigate("/Goods/sell");
-            } else alert("몇명인지 선택해라!!!")
-        }else navigate("/login") // 모델창해야함
+            } else alert("몇명인지 선택해주세요!!!")
+        }else  setModalOpen(true);
             //모달창 + 해야함 
-    }
+    };
     const handleSelect = (e) => {
         setSelected(e.target.value);
       };
@@ -166,7 +177,7 @@ const Goodsprice = ( props )=>{
             </div>
             <div className="box2">
             <select className="selectstyle" onChange={handleSelect} value={selected} name="일정" >
-                <option style={{backgroundColor:"black"}} value="">여행일정 선택</option>
+                <option style={{backgroundColor:"#585858"}} value="">여행일정 선택</option>
                 <option value="1">1일</option>
                 <option value="2">2일</option>
                 <option value="3">3일</option>
@@ -183,7 +194,7 @@ const Goodsprice = ( props )=>{
                     <p className="priceInfo2">{price1}원</p>
                 </div>
                 <div className="dayBox">
-                    <button className="dayBtn" onClick={()=>minusClick({price})} >-</button>
+                    <button className="dayBtn"  onClick={()=>minusClick({price})} >-</button>
                     <span className="dayScore">{personnel}</span>
                     <button className="dayBtn" onClick={()=>plusClick({price})}>+</button>
                 </div>
@@ -220,6 +231,10 @@ const Goodsprice = ( props )=>{
                 <button className="priceBtn" onClick={sellClick} >결 제 하 기</button>
                 <button className="priceBtn">장 바 구 니</button>
             </div>
+            <Modal type={1} open={modalOpen} close={closeModal} confirm={()=>navigate("/login")} header="로그인 확인창">
+                로그인 가입후 진행해주세요! 
+            </Modal>
+            
         </Container>
         </>
     )

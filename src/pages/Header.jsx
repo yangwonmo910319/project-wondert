@@ -15,7 +15,7 @@ const NavBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1200px;
+  width: 1280px;
   height: 60px;
   font-weight: 900;
   position: relative;
@@ -71,7 +71,6 @@ window.localStorage.setItem("isLogin", "false");
 setlogin("logout");
 navigate("/");
   }
-   
 
   return (
     <>
