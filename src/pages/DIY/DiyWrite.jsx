@@ -1,10 +1,12 @@
 import React from "react";
+import WriteForm from "../../components/Diy/WriteForm"
 import PicForm from "../../components/Diy/PicForm";
 
 const Diyview = () => {
     return (
         <>
-        <PicForm/>
+        <WriteForm />
+        <PicForm />
         </>
     );
 };

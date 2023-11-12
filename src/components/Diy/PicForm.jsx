@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import AxiosApi from "../../api/AxiosApi";
 import styled from "styled-components";
 import { storage } from "../../api/FireBase";
+import DiyAxiosApi from "../../api/DiyAxiosApi";
 
 const FormContainer = styled.div`
   padding: 50px;
@@ -19,6 +20,15 @@ const FieldContainer = styled.div`
   display: flex;
   align-items: center; // 수직 방향 중앙 정렬
   margin-bottom: 20px; // 하단 여백 추가
+  .map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 200px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
 `;
 
 const StyledLabel = styled.label`
@@ -101,7 +111,6 @@ const FileUploadContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0 110px;
 `;
 
 const TravelTitle = styled.div`
@@ -122,8 +131,8 @@ const PicForm = () => {
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState("");
-  const userId = window.localStorage.getItem("userId");
-  console.log("userId : " + userId);
+  const travel_num = window.localStorage.getItem("travel_num");
+  alert("travel_num : " + travel_num);
   const navigate = useNavigate();
 
   const handleTitleChange = (e) => {
@@ -133,23 +142,38 @@ const PicForm = () => {
     setContent(e.target.value);
   };
 
-//   const handleSubmit = async () => {
-//     console.log(title, content, userId, url);
-//     try {
-//       const rsp = await AxiosApi.boardWrite(title, content, userId, url);
-//       if (rsp.data === true) {
-//         alert("글쓰기 성공");
-//         navigate("/Boards");
-//       } else {
-//         alert("글쓰기 실패");
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+  // const handleSubmit = async (travel_num,travel_userid,travel_world,travel_area,travel_startdate,travel_enddate,travel_theme,travel_title,travel_writedate) => {
+  //   alert(travel_num,travel_userid,travel_world,travel_area,travel_startdate,travel_enddate,travel_theme,travel_title,travel_writedate);
+  //   try {
+  //     const rsp = await DiyAxiosApi.travelInsert(travel_num,travel_userid, travel_world, travel_area, travel_startdate,travel_enddate,travel_theme,travel_title,travel_writedate);
+  //     if (rsp.data === true) {
+  //       alert("글쓰기 성공");
+  //       navigate("/DitPage/Diywrite");
+  //     } else {
+  //       alert("글쓰기 실패");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  const handleSubmit = async (travel_map,travel_pic,travel_writing) => {
+    alert(travel_map,travel_pic,travel_writing);
+    try {
+      const rsp = await DiyAxiosApi.travelInsert2(travel_map,travel_pic, travel_writing);
+      if (rsp.data === true) {
+        alert("글쓰기 성공");
+        navigate("/DiyPage/Diywrite");
+      } else {
+        alert("글쓰기 실패");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleReset = () => {
-    setTitle("");
-    setContent("");
+    setTitle("/DiyPage");
+    setContent("/DiyPage");
     navigate("/DiyPage");
   };
 
@@ -196,43 +220,31 @@ const PicForm = () => {
       </FieldContainer>
 
       <FieldContainer>
-        <StyledLabel htmlFor="content">내용</StyledLabel>
-        <StyledTextarea
-          id="content"
-          name="content"
-          value={content}
-          onChange={handleContentChange}
-        />
-      </FieldContainer>
-
-      <FieldContainer>
-        <StyledLabel htmlFor="content">내용</StyledLabel>
-        <StyledTextarea
-          id="content"
-          name="content"
-          value={content}
-          onChange={handleContentChange}
-        />
-      </FieldContainer>
-
-      <FieldContainer>
-        <StyledLabel htmlFor="content">내용</StyledLabel>
-        <StyledTextarea
-          id="content"
-          name="content"
-          value={content}
-          onChange={handleContentChange}
-        />
+      <StyledLabel htmlFor="map">지도</StyledLabel>
+        <div className="map">
+          map
+        </div>
       </FieldContainer>
 
       <FileUploadContainer>
+        <StyledLabel htmlFor="picture">사진</StyledLabel>
         <StyledInput type="file" onChange={handleFileInputChange} />
         <UploadButton onClick={handleUploadClick}>Upload</UploadButton>
       </FileUploadContainer>
       {url && <UserImage src={url} alt="uploaded" />}
 
+      <FieldContainer>
+        <StyledLabel htmlFor="content">내용</StyledLabel>
+        <StyledTextarea
+          id="content"
+          name="content"
+          value={content}
+          onChange={handleContentChange}
+        />
+      </FieldContainer>
+
       <ButtonContainer>
-        {/* <SubmitButton onClick={handleSubmit}>글쓰기</SubmitButton> */}
+        <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
         <SubmitButton onClick={handleReset}>취소</SubmitButton>
       </ButtonContainer>
     </FormContainer>

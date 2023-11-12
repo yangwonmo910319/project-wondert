@@ -75,22 +75,38 @@ const TavelCs = styled.div`
 
     const Course1 = styled.div`
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        
+        .travel {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+           justify-content: start;
+        }
     `;
     const Day = styled.div`
         font-size: 25px;
         font-weight: bold;
+        display: flex;
+        justify-content: left;
     `;
     const Travel = styled.div`
-      
+        margin: 30px 30px;
+        display: flex;
     `;
     const Travel2 = styled.div`
         font-size: 15px;
         border: 1px solid lightgray;
-        padding: 150px 150px;
+        width: 1000px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     `;
     const Travel3 = styled.div`
-
+        width: 400px;
+        height: 400px;
+        border: 1px solid lightblue;
     `;
 
 
@@ -132,9 +148,13 @@ const TravelCourse = () => {
                     key={data.travel_num} >
                         <Day>Day -{data.d_day}</Day>
                         <Course1>
-                            <Travel><img src={data.travel_pic} alt="사진" width="200px" height="200px" /></Travel>
+                            <div className="travel">
+                            <Travel><img src={data.travel_pic} alt="사진" width="400px" height="400px" /></Travel>
+                            <Travel3>{data.travel_map}Map</Travel3>
+                            </div>
+                            <div>
                             <Travel2>{data.travel_writing}</Travel2>
-                            <Travel3>{data.travel_map}</Travel3>
+                            </div>
                         </Course1>
                     </Course1>
                 ))}

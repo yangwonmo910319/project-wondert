@@ -54,6 +54,31 @@ Login: async (id, pw) => {
     console.log(travelNum);
     return await axios.get(WONDER_WALKER + `/DiyPage/Diyview?travelNum=${travelNum}`)
    },
+
+   // 게시물 등록
+   travelInsert: async (travel_num,travel_userid,travel_world, travel_area,travel_startdate,travel_enddate,travel_theme,travel_title,travel_writedate) => {
+    const insert = {
+      travel_num:travel_num,
+      travel_userid:travel_userid,
+      travel_world:travel_world,
+      travel_area:travel_area,
+      travel_startdate:travel_startdate,
+      travel_enddate:travel_enddate,
+      travel_theme:travel_theme,
+      travel_title:travel_title,
+      travel_writedate:travel_writedate
+    };
+    return await axios.post(WONDER_WALKER + "/DiyPage/DiyWrite", insert);
+   },
+    // 게시물 등록2
+    travelInsert2: async (travel_map,travel_pic,travel_writing) => {
+      const insert2 = {
+        travel_map:travel_map,
+        travel_pic:travel_pic,
+        travel_writing:travel_writing
+      };
+      return await axios.post(WONDER_WALKER + "/DiyPage/DiyWrite/days", insert2);
+     },
   }
      
 export default DiyAxiosApi;

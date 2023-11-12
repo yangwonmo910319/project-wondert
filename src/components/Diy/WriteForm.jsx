@@ -70,10 +70,10 @@ const WriteForm = () => {
       setDisable(true);
     };
 
-    const navigate = useNavigate();
-    const handleReset = () => {
-      navigate("/DiyPage");
-    };
+    // const navigate = useNavigate();
+    // const handleReset = () => {
+    //   navigate("/DiyPage");
+    // };
 
   return (
     <>
@@ -172,11 +172,10 @@ const WriteForm = () => {
           <input type="text" name="text" id="text" placeholder="직접입력" disabled={disable}/>
           </div>
       </FieldContainer>
-          <PicForm/>
 
-      <FieldContainer>
+      {/* <FieldContainer>
         <SubmitButton onClick={handleReset}>작성완료</SubmitButton>
-      </FieldContainer>
+      </FieldContainer> */}
     </FormContainer>
     </>
   );
