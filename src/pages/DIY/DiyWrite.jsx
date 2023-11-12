@@ -1,11 +1,12 @@
-import CommunityInsert from "../../components/Diy/CommunityWrite";
+import React from "react";
+import PicForm from "../../components/Diy/PicForm";
 
-const DiyWrite =() => {
-
-return(
-    <>
-     <CommunityInsert/>   
-    </>
-   );
+const Diyview = () => {
+    return (
+        <>
+        <PicForm/>
+        </>
+    );
 };
-export default DiyWrite;
+
+export default Diyview;

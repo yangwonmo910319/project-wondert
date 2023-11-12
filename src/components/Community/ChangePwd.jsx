@@ -13,7 +13,6 @@ margin-top: 50px;
 vertical-align: bottom;
       margin-left: 30px;
       margin-top: 10px;
-   
     }
   }
 `;

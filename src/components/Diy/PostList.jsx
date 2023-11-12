@@ -32,27 +32,44 @@ const Wrap = styled.div`
   }
 `;
 
+const WriteButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-weight: bold;
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: #46a049;
+  }
+  &:active {
+    background-color: #3e8e41;
+  }
+`;
+
 const PostList = ({tema})=> {
   const [travelList, setTravelList] = useState("");
   const [theme,setTheme] = useState(tema); 
   const [world, setWorld] = useState("korea");
   const navigate = useNavigate();
 
-  const onClick =(e)=>{
+  const onClick =(travelNum)=>{
+    window.localStorage.setItem("travelNum",travelNum);
     navigate("/DiyPage/Diyview");
-    window.localStorage.getItem("e", e);
   }
 
   useEffect(()=>{
     const travelList = async ()=>{
     try{
-      alert("월드 정보"+world);
-      alert("tema" + tema);
         const resp = await DiyAxiosApi.travelList(world, tema); //전체 조회
-       alert(("화면 렌더링") + world);
         if(resp.status === 200) {
           setTravelList(resp.data);
-          alert(resp.data);
         }else{
           alert(resp.data);
         }
@@ -61,6 +78,10 @@ const PostList = ({tema})=> {
     }};
     travelList();
 },[world,tema]);
+
+const handleWriteClick = () => {
+  navigate("/DiyPage/DiyWrite");
+};
 
   return (
     <Wrap>
@@ -78,7 +99,7 @@ const PostList = ({tema})=> {
         </tr>
       {travelList &&
       travelList.map(data => (
-        <tr onClick={onClick}>
+        <tr onClick={()=>onClick(data.travel_num)}>
           <td>{data.travel_num}</td>
           <td>{data.travel_pic} </td>
           <td>{data.travel_title}</td>
@@ -88,6 +109,7 @@ const PostList = ({tema})=> {
         </tr>
          ))}
          </table>
+         <WriteButton onClick={handleWriteClick}>글쓰기</WriteButton>
     </Wrap>
   );
 };

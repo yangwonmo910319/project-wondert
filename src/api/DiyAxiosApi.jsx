@@ -42,54 +42,18 @@ Login: async (id, pw) => {
     //겟 바디영역
     return await axios.get(WONDER_WALKER + `/Goods/info?itemCode=${itemCode}`);
     },
+
+
       // 여행정보 공유 메인 화면
   travelList: async (world,theme) => {
-        console.log(("액시오스") + world,theme);
-        return await axios.get(WONDER_WALKER + `/DiyPage/Diyview?world=${world}&theme=${theme}`);
+        return await axios.get(WONDER_WALKER + `/DiyPage?world=${world}&theme=${theme}`);
     },
 
-    // 게시글 모두 가져오기
-    CommunityAll: async () => {
-      return await axios.get(WONDER_WALKER + `/DiyPage/CommunityAll`);
-    },
-    // 게시글 하나 가져오기
-    CommunitySelectOne: async (travel_num) => {
-      return await axios.get(WONDER_WALKER + `/DiyPage/CommunitySelectOne/?travel_num=${travel_num}`);
-    },
-
-    // 게시글 등록하기
-    CommunityInsert: async (travel_num,travel_world,travel_theme,travel_area,travel_title,travel_startdate,travel_enddate,travel_userid,travel_writedate,d_day,travel_pic,travel_writing,travel_map) => {
-      alert(travel_num)
-      alert(travel_world)
-      alert(travel_theme)
-      alert(travel_area)
-      alert(travel_title)
-      alert(travel_startdate)
-      alert(travel_enddate)
-      alert(travel_userid)
-      alert(travel_writedate)
-      alert(d_day)
-      alert(travel_pic)
-      alert(travel_writing)
-      alert(travel_map)
-      
-      const data = {
-        travel_num:travel_num,
-        travel_world:travel_world,
-        travel_theme:travel_theme,
-        travel_area:travel_area,
-        travel_title:travel_title,
-        travel_startdate:travel_startdate,
-        travel_enddate:travel_enddate,
-        travel_userid:travel_userid,
-        travel_writedate:travel_writedate,
-        d_day:d_day,
-        travel_pic:travel_pic,
-        travel_writing:travel_writing,
-        travel_map:travel_map
-      };
-      return await axios.post(WONDER_WALKER + `/DiyPage/CommunityInsert`,data);
-    }
+    // 게시글 눌렀을 때 보기 
+   travelContent: async (travelNum) => {
+    console.log(travelNum);
+    return await axios.get(WONDER_WALKER + `/DiyPage/Diyview?travelNum=${travelNum}`)
+   },
   }
      
 export default DiyAxiosApi;

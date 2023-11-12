@@ -1,13 +1,12 @@
-import CommunitySelectOne from "../../components/Diy/CommunityDetail";
+import React from "react";
+import TravelCourse from "../../components/Diy/TravelCourse";
 
-
-const DiyView =()=>{
-
-return(
-    <>
-    <CommunitySelectOne />
-    </>
-);
+const Diyview = () => {
+    return (
+        <>
+        <TravelCourse />
+        </>
+    );
 };
 
-export default DiyView;
+export default Diyview;
