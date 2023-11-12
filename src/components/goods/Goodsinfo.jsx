@@ -79,14 +79,14 @@ const Container2 =styled.div`
 `;
 
 const Goodsinfo1 =( props )=>{
-    const { price }=props;
+    const { price,hit }=props;
     const price1 = price
 
     return(
         <>
         <Container1>
             <span>예약현황 예약 <span style={{color:"red"}}>2</span>명 (남은 좌석<span style={{color:"red"}}> 30</span>석/ 최소출발인원 <span style={{color:"royalblue"}}> 1</span> 명)</span>
-            <span style={{color:"gray"}}>담당자 정보 (이모티콘) </span>
+            <span style={{color:"gray"}}>조회수 {hit} </span>
         </Container1>
         <Container2>
             <div className="onebox">

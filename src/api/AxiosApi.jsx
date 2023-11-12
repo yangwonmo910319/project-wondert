@@ -53,6 +53,13 @@ const AxiosApi = {
     };
     return await axios.post(WONDER_WALKER + "/Goods/cancle", Cancle);
   },
+  //조회수증가
+  GoodsHit: async (item_num) => {
+    const Codes = {
+      item_num: item_num,
+    };
+    return await axios.post(WONDER_WALKER + "/Goods", Codes);
+  },
 };
 
 export default AxiosApi;

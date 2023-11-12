@@ -91,9 +91,14 @@ const Goodsbox = ({ worlds,aeraSelect }) => {
     GoodsList();
   }, [worlds,aeraSelect]);
 
-  const InfoClick = (e) => {
-    navigate("/Goods/info");
-    window.localStorage.setItem("itemcode", e);
+  const InfoClick = async(itemcode) => {
+    window.localStorage.setItem("itemcode", itemcode);
+    const res = await AxiosApi.GoodsHit(itemcode);
+        if (res.data === true ) {
+          navigate("/Goods/info");
+        } else {
+          alert("nono~~");
+        };
   };
 
   return (

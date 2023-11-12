@@ -53,7 +53,7 @@ const Goodsinfo = () => {
         <Between>
           <div>
             <Goodsimgslide img1={goodsInfo.i_sub_img1} img2={goodsInfo.i_sub_img2} img3={goodsInfo.i_sub_img3}/>
-            <Goodsinfo1 price ={goodsInfo.price}/>
+            <Goodsinfo1 price ={goodsInfo.price} hit={goodsInfo.i_hit}/>
             <Goodsinfoheader />
             <Goodsinfos info_img={goodsInfo.info_img} />
           </div>
