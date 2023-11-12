@@ -8,22 +8,23 @@ const GoodsContainer = styled.div`
   display: flex;
   position: relative;
   align-items: center;
-  justify-content: start;
-  background-color: white;
+  justify-content: space-around;
+  background-color: #f7f7f7;
   width: 1100px;
   height: 240px;
-  border: 2px solid #45474B;
-  border-radius: 4px;
+  border: none;
+
+  border-radius: 20px;
   & + & {
-    margin-top: 20px;
+    margin-top: 25px;
   }
 `;
 
 const Image = styled.img`
-  margin-left: 20px;
   width: 300px;
-  height: 200px;
+  height: 240px;
   object-fit: cover;
+  border-radius: 20px 0 0 20px;
 `;
 
 const Title = styled.div`
@@ -34,19 +35,21 @@ const Title = styled.div`
   margin-bottom: 20px;
 
   .Titles {
-    font-size: 30px;
+    font-size: 27px;
     padding: 30px 0px;
     font-weight: bold;
-    
   }
   .Info1 {
     padding: 10px 0px;
     font-size: 16px;
     color: #45474B;
+    font-weight:bold;
   }
   .Info2 {
     padding: 6px 0px;
     font-size: 16px;
+    font-weight:bold;
+    line-height:1.5;
   }
 `;
 
@@ -54,17 +57,20 @@ const PriceBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
+  padding: 0 20px 0 0;
 `;
 
 const Button = styled.button`
-  background-color: #F4CE14;
-  color:  #45474B;
+  background-color: #e6c20d;
+  color:   #ffffff;
   border: none;
   padding: 13px;
   min-height: 30px;
   min-width: 120px;
   cursor: pointer;
   font-weight: bold;
+  border-radius: 20px;
+  font-size: 16px;
 `;
 const Price = styled.div`
   padding-bottom: 90px;
@@ -72,8 +78,12 @@ const Price = styled.div`
   font-weight: bold;
 `;
 const ItemCode = styled.div`
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 10px 0px 10px 10px;
   font-size: 18px;
+  font-weight: bold;
 `;
 
 const Goodsbox = ({ worlds, aeraSelect }) => {

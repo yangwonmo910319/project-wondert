@@ -99,7 +99,7 @@ const Goodsclt1=()=>{
         <QrcodeImg />
         <div>
         <SellButton Buttonstlye={false} onClick={()=>navigate("/")}>홈으로</SellButton>
-        <SellButton Buttonstlye={true}>장바구니</SellButton>
+        <SellButton Buttonstlye={true} onClick={()=>navigate("/Goods/cancle")} >구매내역</SellButton>
         </div>
         </>
     )

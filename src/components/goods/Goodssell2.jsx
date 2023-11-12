@@ -123,7 +123,7 @@ const Goodssell2=()=>{
     }
   };
   const BtnEvent5 =()=>{
-    if(Check3 === false) {
+    if(Check5 === false) {
         setCheck5(true)
     }else {
         setCheck5(false)

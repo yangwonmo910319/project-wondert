@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { useState, useEffect } from "react";
 import AxiosApi from "../../api/AxiosApi";
+import Modal from "../../utill/Modal";
 
 const Container = styled.div`
   width: 1000px;
@@ -124,8 +125,22 @@ const CancleButton = styled.button`
 `;
 
 const Goodscancle1 = () => {
+
   const [sellList, setSellList] = useState("");
   const [cancleOK,setCancleOK] =useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const CancleClick = (sale_code)=>{
+    setModalOpen(true);
+    window.localStorage.setItem("Cancle_num",sale_code);
+  };
+
+
+
+
   useEffect(() => {
     const SellList = async () => {
       try {
@@ -153,6 +168,7 @@ const Goodscancle1 = () => {
           alert("네트워크 에러 입니다.")
         };
         setCancleOK((prev) => !prev);
+        setModalOpen(false);
       };
   return (
     <>
@@ -213,7 +229,7 @@ const Goodscancle1 = () => {
                     <th>{data.price}</th>
                     <th>{data.price}</th>
                     <th>
-                      <CancleButton onClick={()=>SaleCancle(data.sale_num)} >요청</CancleButton>
+                      <CancleButton onClick={()=>CancleClick(data.sale_num)} >취소</CancleButton>
                     </th>
                   </tr>
                 ))}
@@ -225,12 +241,14 @@ const Goodscancle1 = () => {
             display: "flex",
             alignContent: "center",
             justifyContent: "center",
-          }}
-          >
+          }}>
           <SellButton Buttonstlye={true}>장바구니</SellButton>
           <SellButton Buttonstlye={true}>홈으로</SellButton>
         </div>
       </Container>
+      <Modal type={1} open={modalOpen} close={closeModal} confirm={()=>SaleCancle(window.localStorage.getItem("Cancle_num"))} header="취소 확인">
+                정말 취소 요청 하시겠습니까? 
+      </Modal>
     </>
   );
 };
