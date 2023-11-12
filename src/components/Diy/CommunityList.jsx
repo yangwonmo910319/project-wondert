@@ -92,13 +92,12 @@ function BoardList() {
 
   // 글쓰기 버튼 클릭 시
   const handleWriteClick = () => {
-    alert("onClickWrite");
     navigate("/DiyPage/DiyWrite");
   };
 
   // 글 상세보기 버튼 클릭
   const handleDetailClick = (travel_num) => {
-    navigate(`/DiyPage/DiyWrite/${travel_num}`);
+    navigate(`/DiyPage/CommunitySelectOne/${travel_num}`);
   };
 
   return (

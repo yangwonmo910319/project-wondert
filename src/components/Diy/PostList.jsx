@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import DiyAxiosApi from '../../api/DiyAxiosApi';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Title = styled.div`
     display: flex;
@@ -32,7 +32,7 @@ const Wrap = styled.div`
   }
 `;
 
-const PostList = ({tema}) => {
+const PostList = ({tema})=> {
   const [travelList, setTravelList] = useState("");
   const [theme,setTheme] = useState(tema); 
   const [world, setWorld] = useState("korea");
@@ -43,24 +43,24 @@ const PostList = ({tema}) => {
     window.localStorage.getItem("e", e);
   }
 
-
   useEffect(()=>{
     const travelList = async ()=>{
     try{
-      console.log("월드 정보"+world);
-      console.log("")
-        const resp = await DiyAxiosApi.travelList(world, (tema)); //전체 조회
-        console.log(("화면 렌더링") + world,theme);
+      alert("월드 정보"+world);
+      alert("tema" + tema);
+        const resp = await DiyAxiosApi.travelList(world, tema); //전체 조회
+       alert(("화면 렌더링") + world);
         if(resp.status === 200) {
           setTravelList(resp.data);
-        console.log(resp.data);}
-        else{
+          alert(resp.data);
+        }else{
+          alert(resp.data);
         }
     }catch(e){
         console.log(e);
     }};
     travelList();
-},[tema]);
+},[world,tema]);
 
   return (
     <Wrap>
@@ -88,7 +88,6 @@ const PostList = ({tema}) => {
         </tr>
          ))}
          </table>
-  
     </Wrap>
   );
 };

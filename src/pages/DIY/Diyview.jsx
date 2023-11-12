@@ -1,11 +1,11 @@
-import CommunityWrite from "../../components/Diy/CommunityDetail";
+import CommunitySelectOne from "../../components/Diy/CommunityDetail";
 
 
 const DiyView =()=>{
 
 return(
     <>
-    <CommunityWrite/>
+    <CommunitySelectOne />
     </>
 );
 };

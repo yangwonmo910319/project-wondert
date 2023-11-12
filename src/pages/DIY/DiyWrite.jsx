@@ -1,10 +1,10 @@
-import WriteForm from "../../components/Diy/WriteForm";
+import CommunityInsert from "../../components/Diy/CommunityWrite";
 
 const DiyWrite =() => {
 
 return(
     <>
-     <WriteForm />     
+     <CommunityInsert/>   
     </>
    );
 };

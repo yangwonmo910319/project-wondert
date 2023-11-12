@@ -90,59 +90,89 @@ const SubmitButton = styled.div`
       margin: 20px 0;
 `;
 
-const CommunityWrite = () => {
+const CommunitySelectOne = () => {
 
     const navigate = useNavigate();
     const handleReset = () => {
-      navigate("/DiyPage");
+      navigate("/DiyPage/CommunitySelectOne");
     };
     const[travelCourse, setTravelCourse] = useState();
-    const [num,setNum] = useState("T1");
-    const [pic, setPic] = useState("");
-    const [title,setTitle] = useState("");
-    const [id, setId] = useState("");
-    const [writeDate, setWriteDate] = useState("");
-    const [view, setView] = useState("");
+    const [travelNum,setTravelNum] = useState("");
+    const [travelPic, setTravelPic] = useState("");
+    const [travelTitle,setTravelTitle] = useState("");
+    const [travelUserId, setTravelUserId] = useState("");
+    const [travelWriteDate, setTravelWriteDate] = useState("");
+    const [travelView, setTravelView] = useState("");
+
+    const [travelWorld,setTravelWorld] =useState("");
+    const [travelTheme,setTravelTheme] = useState("");
+    const [travelArea, setTravelArea] = useState("");
+    const [travelStartDate, setTravelStartDate] = useState("");
+    const [travelEndDate, setTravelEndDate] = useState("");
+    const [travelGood, setTravelGood] = useState("");
+    const [dDay, setDday] = useState("");
+    const [travelWriting, setTravelWriting] = useState("");
+    const [travelMap, setTravelMap] = useState("");
 
  useEffect(() => {
     const travelCourse = async () => {
     try {
-        const resp = await DiyAxiosApi.travelCourse(num,pic,title,id,writeDate,view);
+        const resp = await DiyAxiosApi.travelCourse(travelNum,travelPic,travelTitle,travelUserId,travelWriteDate,travelView,travelWorld,travelTheme,travelArea,travelStartDate,travelEndDate,travelGood,dDay,travelWriting,travelMap);
         
-        if(resp.status === 200) setNum(resp.data);
-        if(resp.status === 200) setPic(resp.data);
-        if(resp.status === 200) setTitle(resp.data);
-        if(resp.status === 200) setId(resp.data);
-        if(resp.status === 200) setWriteDate(resp.data);
-        if(resp.status === 200) setView(resp.data);
+        if(resp.status === 200) setTravelNum(resp.data);
+        if(resp.status === 200) setTravelPic(resp.data);
+        if(resp.status === 200) setTravelTitle(resp.data);
+        if(resp.status === 200) setTravelUserId(resp.data);
+        if(resp.status === 200) setTravelWriteDate(resp.data);
+        if(resp.status === 200) setTravelView(resp.data);
+
+        if(resp.status === 200) setTravelWorld(resp.data);
+        if(resp.status === 200) setTravelTheme(resp.data);
+        if(resp.status === 200) setTravelArea(resp.data);
+        if(resp.status === 200) setTravelStartDate(resp.data);
+        if(resp.status === 200) setTravelEndDate(resp.data);
+        if(resp.status === 200) setTravelGood(resp.data);
+        if(resp.status === 200) setDday(resp.data);
+        if(resp.status === 200) setTravelWriting(resp.data);
+        if(resp.status === 200) setTravelMap(resp.data);
     } catch(e) {
         console.log(e);
     }};
     travelCourse();
-}, [num,pic,title,id,writeDate,view]);
+}, [travelNum,travelPic,travelTitle,travelUserId,travelWriteDate,travelView,travelWorld,travelTheme,travelArea,travelStartDate,travelEndDate,travelGood,dDay,travelWriting,travelMap]);
 
 
     return (
         <>
         {travelCourse && 
             travelCourse.map(data => (
-    <Detail key={data.num}>
+    <Detail key={data.travelNum}>
         <h2>게시글 상세</h2>
             <section className="article-detail table-common con row">
                 <table className="cell">
                     <tbody>
                         <tr className="article-title">
-                            <th>{data.num} 제목 : `${data.title}`</th>
+                            <th>{data.travelNum} 제목 : `${data.travelTitle}`</th>
                         </tr>
                         <tr className="article-info">
-                            <td>{data.writeDate}</td>
-                            <td>{data.userId}</td>
-                            <td>{data.view}👀</td>
+                            <td>{data.travelWriteDate}</td>
+                            <td>{data.travelUserId}</td>
+                            <td>{data.travelView} 👀</td>
                             <td>즐겨찾기 ⭐️</td>
-                            <td>{data.good}👍</td>
+                            <td>{data.travelGood} 👍</td>
                         </tr>
                         <tr className="article-course">
-                            <TravelCourse />
+                            {/* <TravelCourse /> */}
+                           <td>여행 일정 : {data.dDay}</td>
+                           <td>여행 나라 : {data.travelWorld}</td>
+                           <td>여행 지역 : {data.travelArea}</td>
+                           <td>여행 날짜 : {data.travelStartDate} ~ {data.travelEndDate}</td>
+                           <td>여행 테마 : {data.travelTheme}</td>
+                        </tr>
+                        <tr className="article-content">
+                            <td>여행 다녀온 사진 : {data.travelPic}</td>
+                            <td>여행 후기 글 : {data.travelWriting}</td>
+                            <td>여행 일정 지도 : {data.travelMap}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -156,4 +186,4 @@ const CommunityWrite = () => {
     );
 };
 
-export default CommunityWrite;
+export default CommunitySelectOne;
