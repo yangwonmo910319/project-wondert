@@ -212,7 +212,7 @@ const updateReply=({newReply},{replyNum})=>{
 const UpdateCommunity=()=>{ 
   //게시글 업데이트 기능을 만듬
   const update = async()=>{
-    try {          
+    try {             
     const DBupdate = await CommunityAxiosApi.UpdateCommunity(num,title,content);
         }catch(error){  
     console.log(error);

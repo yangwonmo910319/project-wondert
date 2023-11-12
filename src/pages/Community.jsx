@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import UserAxiosApi from "../api/CommunityAxiosApi";
 import { useState } from "react";
 import CommunityModal from "../components/Community/CommunityModal";
-import UserCheck from "../components/home/UserCheck";
+
 const CommunityCss = styled.div`
 max-width: 1200px;
 white-space:nowrap;

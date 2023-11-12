@@ -147,10 +147,6 @@ const CommunityView = () => {
 
   
   const Submit = async () => {
-    alert("아이디"+userId)
-    alert("내용"+content)
-    alert("타이틀"+title)
-    alert("자료url"+url)
     try {
       const rsp = await CommunityAxiosApi.insertCommunity(title, content, userId, url);
       if (rsp.data === true) {
