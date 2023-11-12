@@ -8,7 +8,7 @@ const Headers =styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #45474b;
+    border-bottom: ${(props)=>!props.white ? "1px solid black":"1px solid white"}
 `;
 
 const NavBox = styled.div`
@@ -60,7 +60,7 @@ max-width: 1200px;
   margin: 0 auto;
 `;
 
-const Header = () => {
+const Header = ({ white }) => {
   const navigate = useNavigate();
 
   const [login, setlogin] = useState(  window.localStorage.getItem("isLogin")); 
@@ -75,7 +75,7 @@ navigate("/");
   return (
     <>
    
-        <Headers>
+        <Headers white={white}>
           <NavBox>
             <Logo onClick={() => navigate("/")} src={LogoImg} />
             <Menus>

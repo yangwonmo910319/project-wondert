@@ -7,11 +7,12 @@ import Contetn4Item1 from "../components/home/Contetn4Item1"
 import Contetn5Item1 from "../components/home/Contetn5Item1"
 import { Outlet, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
+import Header from "./Header";
 const HomeCss=styled.div`
 
-
-
 `;
+
+
 const Content1=styled.div`
  position: relative;
  height: 100vh;
@@ -65,11 +66,7 @@ const Content2=styled.div`
         margin: 0 auto;
     }
     .Content2item2Css{
-     
-     width:80%;
-      
-   
-    
+     width:80%
      margin: 100px auto;
  }
 `;
@@ -108,7 +105,7 @@ const Home=() =>{
          <img src={Img11}></img>
     </div>
     <div className="Content1Nav">
- <NavBox></NavBox>
+    <Header white={true}/>
  </div> 
   
  <div className="Content1ment">
@@ -137,7 +134,7 @@ const Home=() =>{
    </Content3>
    <Content4>
    <div className="Contetn4Item1">
-    </div>
+    </div>       
     <Contetn4Item1></Contetn4Item1>
    </Content4>
    <Content5>
