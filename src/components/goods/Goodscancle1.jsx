@@ -138,8 +138,9 @@ const Goodscancle1 = () => {
     window.localStorage.setItem("Cancle_num",sale_code);
   };
 
-
-
+  const ChangePay = (price)=>{
+    return Intl.NumberFormat('en-IN').format(price);
+  }
 
   useEffect(() => {
     const SellList = async () => {
@@ -157,6 +158,7 @@ const Goodscancle1 = () => {
     SellList();
   }, [cancleOK]);
 
+
   // 상품판매 취소 axios호출
   const SaleCancle = async (sale_code) => {
         const res = await AxiosApi.SaleCancle(sale_code);
@@ -170,6 +172,8 @@ const Goodscancle1 = () => {
         setCancleOK((prev) => !prev);
         setModalOpen(false);
       };
+
+
   return (
     <>
       <Container>
@@ -199,7 +203,7 @@ const Goodscancle1 = () => {
       <Container>
         <SellTable>
           <tr>
-            <th>일정</th>
+            <th>시작일자</th>
             <th style={{ width: "40%" }}>상품명</th>
             <th>기간</th>
             <th>인원</th>
@@ -226,8 +230,8 @@ const Goodscancle1 = () => {
                     </th>
                     <th>{data.i_date}</th>
                     <th>{data.person}</th>
-                    <th>{data.price}</th>
-                    <th>{data.price}</th>
+                    <th>{ChangePay(data.price)}</th>
+                    <th>{ChangePay(data.price)}</th>
                     <th>
                       <CancleButton onClick={()=>CancleClick(data.sale_num)} >취소</CancleButton>
                     </th>

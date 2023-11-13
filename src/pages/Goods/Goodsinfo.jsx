@@ -30,14 +30,24 @@ const Goodsinfo = () => {
     const GoodsInfo = async () => {
       try {
         const resp = await AxiosApi.goodsInfo(itemCode); //전체 조회
-        if (resp.status === 200) setGoodsInfo(resp.data[0])
+        if (resp.status === 200) {
+          setGoodsInfo(resp.data[0])
+        }
+        
         console.log(resp.data);
+
       } catch (e) {
         console.log(e);
       }
     };
     GoodsInfo();
   }, []);
+
+  const ChangePay = (price)=>{
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+
 
 
 

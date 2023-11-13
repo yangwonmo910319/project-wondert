@@ -76,6 +76,9 @@ const Img =styled.img`
 	object-fit: cover;
 	border-radius: 10px;
 	cursor: pointer;
+	&:hover{
+		border: 4px solid  #F4CE14;
+	}
 `;
 
 const ImgDiv =styled.div`

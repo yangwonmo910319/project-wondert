@@ -18,6 +18,9 @@ const GoodsContainer = styled.div`
   & + & {
     margin-top: 25px;
   }
+  &:hover{
+		scale: 1.01;
+	}
 `;
 
 const Image = styled.img`

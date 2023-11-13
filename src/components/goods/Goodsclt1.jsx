@@ -2,6 +2,7 @@ import styled from "styled-components";
 import  {ReactComponent as QrcodeImg} from "../../images/qr코드.svg";
 import { useNavigate } from "react-router-dom";
 
+
 const TitleBox=styled.div`
     display: flex;
     flex-direction: column;
