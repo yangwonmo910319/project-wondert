@@ -1,85 +1,90 @@
-import styled, {css} from "styled-components";
-import Goodsbox from "./Goodsbox";
+import styled, { css } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-const TitleBox=styled.div`
+const TitleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+  }
+  h3 {
+    padding: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
+  }
+`;
+
+const ItemBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 800px;
+  height: 200px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  cursor: pointer;
+  .itemInfo {
+    width: 500px;
+    height: 150px;
+    margin-left: 20px;
+  }
+  h3 {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  h2 {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 200px;
-    h1{
-        font-size: 30px;
-        font-weight: bold;
-        padding: 20px;
-    }
-    h3{
-        padding: 15px;
-        font-size: 12px;
-        font-weight: bold;
-        color:gray;
-    }
+    flex-direction: column-reverse;
+    height: 80px;
+    font-size: 24px;
+    font-weight: bold;
+  }
 `;
 
-const ItemBox=styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    width: 800px;
-    height: 200px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    .itemInfo{
-        width: 500px;
-        height: 150px;
-        margin-left: 20px ;
-        
-    }
-    h3{
-        font-size: 14px;
-        padding-bottom:5px ;
-    }
-    h1{
-        font-size: 18px;
-        font-weight: bold;
-    }
-    h2{
-        display: flex;
-        flex-direction: column-reverse;
-        height:80px;
-        font-size: 24px;
-        font-weight: bold;
-    }
-
+const ItemImg = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 10px 0 0 10px;
+  object-fit: cover;
 `;
 
-const ItemImg=styled.img`
-    width: 200px;
-    height: 200px;
-    border-radius: 10px 0  0 10px;
-    object-fit: cover;
-`;
+const Goodssell1 = () => {
+  const navigate = useNavigate();
+  const title1 = window.localStorage.getItem("title");
+  const itemcode1 = window.localStorage.getItem("itemcode");
 
-const Goodssell1 =()=>{
-    const title1 = window.localStorage.getItem("title");
-    const itemcode1 =window.localStorage.getItem("itemcode");
-
-    return(
-        <>
-        <TitleBox>
-            <h1>상품 예약하기</h1>
-            <h3>예약하시면 빠른 시간 내에 담당 직원이 연락 드리겠습니다.</h3>
-        </TitleBox>
-        <ItemBox>
-        <ItemImg src="https://i.namu.wiki/i/hXzUfUO0XBHScGhvc9Llg5AZqO-_0sOW1EkLb1qX2yDqQb2mQh3jik3ckZ9xaHobjE-audKIfZM7BK_kyE8i1A.webp" alt="상품사진" />
-        <div className="itemInfo"><h3>상품 코드</h3><h1>2023WDER{itemcode1}</h1><br /><h2>{title1}</h2></div>
-        </ItemBox>
-
-        </>
-    )
-
-}
-
+  return (
+    <>
+      <TitleBox>
+        <h1>상품 예약하기</h1>
+        <h3>예약하시면 빠른 시간 내에 담당 직원이 연락 드리겠습니다.</h3>
+      </TitleBox>
+      <ItemBox onClick={() => navigate("/Goods/info")}>
+        <ItemImg
+          src="https://i.namu.wiki/i/hXzUfUO0XBHScGhvc9Llg5AZqO-_0sOW1EkLb1qX2yDqQb2mQh3jik3ckZ9xaHobjE-audKIfZM7BK_kyE8i1A.webp"
+          alt="상품사진"
+        />
+        <div className="itemInfo">
+          <h3>상품 코드</h3>
+          <h1>2023WDER{itemcode1}</h1>
+          <br />
+          <h2>{title1}</h2>
+        </div>
+      </ItemBox>
+    </>
+  );
+};
 
 export default Goodssell1;

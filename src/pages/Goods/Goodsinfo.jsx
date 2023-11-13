@@ -26,8 +26,6 @@ const Goodsinfo = () => {
   const itemCode =window.localStorage.getItem("itemcode")
   const [goodsInfo, setGoodsInfo] = useState("");
 
-
-
   useEffect(() => {
     const GoodsInfo = async () => {
       try {
@@ -40,7 +38,6 @@ const Goodsinfo = () => {
     };
     GoodsInfo();
   }, []);
-
 
 
 

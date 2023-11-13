@@ -13,12 +13,26 @@ const Constainer = styled.div`
   margin: 10px 0;
   .slick-next:before {
     color: black;
-    font-size: 30px;
-  }
+    font-size: 40px;
+
+    display: flex;
+    justify-content: end;
+
+    }
   .slick-prev:before {
     color: black;
-    font-size: 30px;
-  }
+    font-size: 40px;
+
+    display: flex;
+
+    }
+  .slick-prev,
+  .slick-next{
+    width: 100px;
+    height: 100px;
+    top: 45%;
+    z-index: 10;
+    }
 `;
 
 const Img = styled.img`

@@ -5,6 +5,7 @@ import Goodsbox from "../../components/goods/Goodsbox";
 import ImgSlide from "../../components/goods/imgslide";
 import { useState, useCallback } from "react";
 
+
 const Center = styled.div`
   display: flex;
   align-items: center;

@@ -80,7 +80,10 @@ const Container2 =styled.div`
 
 const Goodsinfo1 =( props )=>{
     const { price,hit }=props;
-    const price1 = price
+    const price1 = price;
+
+    // const price1 = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
 
     return(
         <>
