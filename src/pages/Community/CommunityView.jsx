@@ -79,7 +79,9 @@ const Content2=styled.div`
     width:${props =>100- props.a}%;
     height: 100%;
    margin: 0 auto;
-  
+      img{
+        width:90%
+      }
   }
 `;
 const Editbtn=styled.button`
@@ -118,6 +120,7 @@ const Menu=styled.div`
 const CommunityView = () => {
   const userid=window.localStorage.getItem("userId");
   const login=window.localStorage.getItem("isLogin");
+  const [author , setAuthor] = useState('');
   const [title , setTitle] = useState('');
   const [content , setcontent] = useState('');
   const editTitle =(e) =>{
@@ -146,7 +149,8 @@ useEffect(()=>{
        //가져온 글을 getPost통해 저장
       getPost(postDBdata.data);  
       setTitle(postDBdata.data[0].title);
-      setcontent(postDBdata.data[0].content);
+      setAuthor(postDBdata.data[0].userId);
+      setcontent(postDBdata.data[0].content);   
        //댓글을 가져오는 axios실행
       const replyDBdata =await CommunityAxiosApi.SelectReply(num);
       //가져온 댓글을 getReply통해 저장
@@ -235,12 +239,12 @@ const UpdateCommunity=()=>{
     {post&&post.map((board)=>(   
       <>
        <Content1 key={board.no}>  
-       {login ==="false"?  <Item2>   {title}  </Item2>  :  <Item2> <input type="text" value={title} onChange={editTitle}/>  </Item2> }
-        <Item1>   <p  >{board.uerId}</p></Item1>
+       {author !==userid? <Item2>   {title}  </Item2>  :  <Item2> <input type="text" value={title} onChange={editTitle}/>  </Item2> }
+        <Item1>   <p  >{board.userId}</p></Item1>
         <Itemp>  <p> {board.reportingDate}</p></Itemp>
         <Item6>   <p > {board.views}</p></Item6>
         </Content1>   
-       {login ==="false"?     !board.imgurl ?   <Content2 a={100} >{content}</Content2>         
+       {author !==userid?   !board.imgurl ?   <Content2 a={100} >{content}</Content2>         
        : <Content2 a={50}>
         <div className="content1" style={{  borderRight:"1px solid black"}}  > {board.content}    </div> 
         <div className="img1">   <img src={board.imgurl}/>   </div> 
@@ -258,7 +262,10 @@ const UpdateCommunity=()=>{
          </>    ))}   
 
     
-         {login ==="false"?<></> :<Editbtn onClick={UpdateCommunity}>  수정 완료 </Editbtn>}
+         {author ===userid? <> <h1>본인 작성의 글은 수정후 수정완료를 누르시면 바로 변경됩니다.</h1>
+         <Editbtn onClick={UpdateCommunity}>  수정 완료 </Editbtn></> :
+         <>
+        </>}
 
             <Replyview replydata={reply} deleteReply={deleteReply} updateReply={updateReply}/> 
               

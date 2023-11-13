@@ -171,13 +171,13 @@ const chageinfo = (e, value) => {
               <ChangnBtn  onClick={()=>{chageinfo("ADDR",userinfo.addr)}}>변경</ChangnBtn>
            
             </li>
-            <li>
+            {/* <li>
               <ChageTitle 번호>휴대폰 번호       </ChageTitle>
               <input type="text" value={userinfo.phoneNum}
               onChange={(e) => {setUserinfo({ ...userinfo, phoneNum: e.target.value }); }}></input>
               <ChangnBtn onClick={()=>{chageinfo("PHONENUM",userinfo.phoneNum)}}>변경</ChangnBtn>
        
-            </li>
+            </li> */}
             <li>
               <ChageTitle>이메일      </ChageTitle>
                  <input type="text" value={userinfo.email}
@@ -186,12 +186,10 @@ const chageinfo = (e, value) => {
        
             </li> 
           </ul>
-        </InfoView> :
-         
-
+        </InfoView> :        
         <SecretView>
           <div className="SecretBox">
-             <input type="text" placeholder="비밀번호를 입력하세요" onChange={(e) => setPw(e.target.value)} ></input>
+             <input type="password" placeholder="비밀번호를 입력하세요" onChange={(e) => setPw(e.target.value)} ></input>
              <ChangnBtn  onClick={()=>{chageSecret()}}>변경</ChangnBtn>
           </div>
         </SecretView>

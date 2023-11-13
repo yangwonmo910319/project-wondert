@@ -58,7 +58,7 @@ const Content2=styled.div`
        display: flex;
        flex-direction:column;
 
-       margin-top: 50px;
+       margin-top: 100px;
     .Content2item1Css{
        
         width: 60%;
@@ -66,15 +66,16 @@ const Content2=styled.div`
         margin: 0 auto;
     }
     .Content2item2Css{
-     width:80%
-     margin: 100px auto;
+     width:80%;
+     margin: 0 auto;
+  
  }
 `;
 const Content3=styled.div`
-      
+         margin-top: 100px;
         min-width: 600px;
         height: auto;
- margin: 0px auto;
+
      
 .Content3item1Css{
 
@@ -114,15 +115,7 @@ const Home=() =>{
 
  </Content1>
   
-   <Content2>
-    <div className="Content2item1Css">
-   <Contetn2Item1></Contetn2Item1>
-    </div>
- 
-    <div className="Content2item2Css">
-    <Contetn2Item2></Contetn2Item2>
-</div>
-   </Content2>
+
    <Content3>
 
 <div className="Content3item1Css">
@@ -132,6 +125,15 @@ const Home=() =>{
  
 
    </Content3>
+   <Content2>
+    <div className="Content2item1Css">
+   <Contetn2Item1></Contetn2Item1>
+    </div>
+ 
+    <div className="Content2item2Css">
+    <Contetn2Item2></Contetn2Item2>
+</div>
+   </Content2>
    <Content4>
    <div className="Contetn4Item1">
     </div>       

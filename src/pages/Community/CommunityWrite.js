@@ -132,7 +132,7 @@ const CommunityView = () => {
   const isLoggedin = window.localStorage.getItem("isLogin") === 'true';
   const [userId , setUserId] = useState(window.localStorage.getItem("userId")); 
   const [title, setTitle] = useState(""); 
-  const [content, setContent] = useState(""); 
+  const [content1, setContent] = useState(""); 
   const [File, setFile] = useState(""); 
   const [url, setUrl] = useState("");
   const titleChage = (e) => {
@@ -148,7 +148,7 @@ const CommunityView = () => {
   
   const Submit = async () => {
     try {
-      const rsp = await CommunityAxiosApi.insertCommunity(title, content, userId, url);
+      const rsp = await CommunityAxiosApi.insertCommunity(title, content1, userId, url);
       if (rsp.data === true) {
         alert("글쓰기 성공");
         navigate("/Community");
@@ -202,7 +202,7 @@ const CommunityView = () => {
         <StyledTextarea
           id="content"
           name="content"
-          value={content}
+          value={content1}
           onChange={contentChage} placeholder="내용"
         />
       

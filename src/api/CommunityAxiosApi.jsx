@@ -52,13 +52,17 @@ deleteReply: async (num) => {
 
   // 커뮤니티 글등록
   insertCommunity: async (title, content1, userId, url) => {
-    const content = {
+    alert(title)
+    alert(content1)
+    alert(userId)
+    alert(url)
+    const content2 = {
       userId: userId,
         content: content1,
         title: title,
         url:url,
     };
-    return await axios.post(WONDER_WALKER + `/community/insertCommunity`,content);
+    return await axios.post(WONDER_WALKER + `/community/insertCommunity`,content2);
   },
   // 커뮤니티 글 삭제
   DeleteCommunity: async (num) => {   

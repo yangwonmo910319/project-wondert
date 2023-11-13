@@ -47,7 +47,7 @@ height: auto;
 border-radius: 15px;
   display: block;
 
- transform: translatex(${props=>props.move}px);
+ transform: translatex(${props=>props.move}%);
 
 .item1{ 
     width:100%;
@@ -104,7 +104,7 @@ return(
    
     <>  
     <Contetn2Item2Css >
-        {slideCk !==0?    <LegtBtn onClick={()=>{chslide(1)}}><img src={img1}></img></LegtBtn>: <></>  }
+        {slideCk !==0?    <LegtBtn onClick={()=>{chslide(1.1)}}><img src={img1}></img></LegtBtn>: <></>  }
   
     <Slide>
     {slides.map((slide, index) => (
@@ -120,7 +120,7 @@ return(
   
     ))}
 </Slide>
-{slideCk <-1?  <></> :  <RightBtn onClick={()=>{chslide2(1)}}><img src={img1}></img></RightBtn> }
+{slideCk <-1?  <></> :  <RightBtn onClick={()=>{chslide2(1.1)}}><img src={img1}></img></RightBtn> }
 
     </Contetn2Item2Css> 
   
