@@ -31,11 +31,13 @@ const Diary = styled.div`
       border: 1px solid lightgray;
    }
 `;
-const MyCalendar = () => {
+const MyCalendar = ({setToDate,setToDate1}) => {
   const [dateRange, setDateRange] = useState([new Date(), new Date()]);
 
   const onChangeDateRange = (newDateRange) => {
     setDateRange(newDateRange);
+    setToDate(dateRange[0].toDateString())
+    setToDate1(dateRange[1].toDateString())
   };
 
   return (

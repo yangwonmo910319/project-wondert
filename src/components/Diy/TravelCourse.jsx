@@ -109,10 +109,35 @@ const TavelCs = styled.div`
         border: 1px solid lightblue;
     `;
 
+    const FieldContainer = styled.div`
+    
+    `;
+
+    const StyledInput = styled.div`
+    
+    `;
 
 const TravelCourse = () => {
     const [travelCourse, setTravelCourse] = useState("");
+    const [world, setWorld] = useState("");
+    const [area, setArea] = useState("");
+    const [date, setDate] = useState("");
+    const [theme,setTheme] = useState("");
     const navigate = useNavigate();
+
+    const handleWorldChange = (e) => {
+        setWorld(e.target.value);
+      }
+      const handAreaChange = (e) => {
+        setArea(e.target.value);
+      }
+      const handDateChange = (e) => {
+        setDate(e.target.value);
+      }
+      const handThemeChange = (e) => {
+        setTheme(e.target.value);
+      }
+    
 
     useEffect(() => {
         alert(window.localStorage.getItem("travelNum"));
@@ -127,10 +152,65 @@ const TravelCourse = () => {
         TravelCourse();
     }, []);
 
+    const handleSubmit = async () => {
+    
+        try {
+          const rsp = await DiyAxiosApi.travelInsert(world,area,date,theme);
+          if (rsp.data === true) {
+            alert("글쓰기 성공");
+            navigate("/DitPage/Diywrite");
+          } else {
+            alert("글쓰기 실패");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
     return (
         <Course>
             <TravelTitle>
-                <p>
+            <FieldContainer>
+        <StyledInput
+          type="radio"
+          id="world"
+          name="world"
+          value={world}
+          onChange={handleWorldChange}
+        ></StyledInput>
+      </FieldContainer>
+
+      <FieldContainer>
+        <StyledInput
+          type="radio"
+          id="area"
+          name="area"
+          value={area}
+          onChange={handAreaChange}
+        ></StyledInput>
+      </FieldContainer>
+
+      <FieldContainer>
+        <StyledInput
+          type="radio"
+          id="date"
+          name="date"
+          value={date}
+          onChange={handDateChange}
+        ></StyledInput>
+      </FieldContainer>
+
+      <FieldContainer>
+        <StyledInput
+          type="radio"
+          id="theme"
+          name="theme"
+          value={theme}
+          onChange={handThemeChange}
+        ></StyledInput>
+      </FieldContainer>
+
+                {/* <p>
                     <h5>[4. 여행 후기 정보]</h5>
                         <ul>
                         <h3>〈내 여행 정보〉</h3>
@@ -139,7 +219,7 @@ const TravelCourse = () => {
                             <li>여행 날짜 : 2023/11/01 ~ 2023/11/05</li>
                             <li>여행 테마 : #먹방여행</li>
                         </ul>
-                </p>
+                </p> */}
             </TravelTitle>
             <TavelCs>
                 {travelCourse && 

@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { storage } from "../../api/FireBase";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
+import Calendar from "react-calendar";
 
 const FormContainer = styled.div`
   padding: 50px;
@@ -126,13 +127,12 @@ const TravelTitle = styled.div`
     }
 `;
 
-const PicForm = () => {
+const PicForm = ({world,area,toDate,toDate1,theme}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState("");
   const travel_num = window.localStorage.getItem("travel_num");
-  alert("travel_num : " + travel_num);
   const navigate = useNavigate();
 
   const handleTitleChange = (e) => {
@@ -142,24 +142,11 @@ const PicForm = () => {
     setContent(e.target.value);
   };
 
-  // const handleSubmit = async (travel_num,travel_userid,travel_world,travel_area,travel_startdate,travel_enddate,travel_theme,travel_title,travel_writedate) => {
-  //   alert(travel_num,travel_userid,travel_world,travel_area,travel_startdate,travel_enddate,travel_theme,travel_title,travel_writedate);
-  //   try {
-  //     const rsp = await DiyAxiosApi.travelInsert(travel_num,travel_userid, travel_world, travel_area, travel_startdate,travel_enddate,travel_theme,travel_title,travel_writedate);
-  //     if (rsp.data === true) {
-  //       alert("글쓰기 성공");
-  //       navigate("/DitPage/Diywrite");
-  //     } else {
-  //       alert("글쓰기 실패");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  const handleSubmit = async (travel_map,travel_pic,travel_writing) => {
-    alert(travel_map,travel_pic,travel_writing);
+
+  const handleSubmit = async () => {
+    
     try {
-      const rsp = await DiyAxiosApi.travelInsert2(travel_map,travel_pic, travel_writing);
+      const rsp = await DiyAxiosApi.travelInsert2(null,file, content);
       if (rsp.data === true) {
         alert("글쓰기 성공");
         navigate("/DiyPage/Diywrite");
@@ -170,6 +157,20 @@ const PicForm = () => {
       console.log(error);
     }
   };
+  // const handleSubmit = async () => {
+    
+  //   try {
+  //     const rsp = await DiyAxiosApi.travelInsert(world,area,date,theme);
+  //     if (rsp.data === true) {
+  //       alert("글쓰기 성공");
+  //       navigate("/DitPage/Diywrite");
+  //     } else {
+  //       alert("글쓰기 실패");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleReset = () => {
     setTitle("/DiyPage");
@@ -201,10 +202,10 @@ const PicForm = () => {
             <p>
                 <ul>
                 <h3>〈내 여행 정보〉</h3>
-                    <li>나라 : 국내/해외</li>
-                    <li>지역 : 국내지역/해외지역</li>
-                    <li>여행 날짜 : 2023/11/01 ~ 2023/11/05</li>
-                    <li>여행 테마 : #먹방여행</li>
+                    <li>나라 : {world}</li>
+                    <li>지역 : {area}</li>
+                    <li>여행 날짜 : {toDate} ~ {toDate1}</li>
+                    <li>여행 테마 : #{theme}</li>
                 </ul>
             </p>
         </TravelTitle>
