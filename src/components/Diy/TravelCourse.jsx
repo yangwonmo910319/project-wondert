@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
+import GoogleMap from "../../utill/googleMap";
 
 const Course = styled.div`
     display: flex;
@@ -230,7 +231,7 @@ const TravelCourse = () => {
                         <Course1>
                             <div className="travel">
                             <Travel><img src={data.travel_pic} alt="사진" width="400px" height="400px" /></Travel>
-                            <Travel3>{data.travel_map}Map</Travel3>
+                            <Travel3><GoogleMap/></Travel3>
                             </div>
                             <div>
                             <Travel2>{data.travel_writing}</Travel2>

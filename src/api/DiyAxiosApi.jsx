@@ -20,6 +20,8 @@ Login: async (id, pw) => {
 
   // 회원가입 inselrt
   Signup: async (id,nick,pwd,name,addr,phone,email) => {
+   
+    
     const userInfo = {
       id: id,
       nick:nick,
@@ -56,26 +58,28 @@ Login: async (id, pw) => {
    },
 
    // 게시물 등록
-   travelInsert: async (travel_num,travel_userid,travel_world, travel_area,travel_startdate,travel_enddate,travel_theme,travel_title,travel_writedate) => {
+   travelInsert: async (world,area,toDate,userId,toDate1,theme,title,) => {
+
+    
+    alert(toDate)
     const insert = {
-      travel_num:travel_num,
-      travel_userid:travel_userid,
-      travel_world:travel_world,
-      travel_area:travel_area,
-      travel_startdate:travel_startdate,
-      travel_enddate:travel_enddate,
-      travel_theme:travel_theme,
-      travel_title:travel_title,
-      travel_writedate:travel_writedate
+      userId:"123123",
+      world:world,
+      area:area,
+      toDate:toDate,
+      theme:theme,
+      title:title,
     };
     return await axios.post(WONDER_WALKER + "/DiyPage/DiyWrite", insert);
    },
     // 게시물 등록2
-    travelInsert2: async (travel_map,travel_pic,travel_writing) => {
+    travelInsert2: async (url,file,content) => {
+      alert("axios" + url);
+      alert("axios" +content);
       const insert2 = {
-        travel_map:travel_map,
-        travel_pic:travel_pic,
-        travel_writing:travel_writing
+        url:url,
+        file:"임시파일 axios ",
+        content:content
       };
       return await axios.post(WONDER_WALKER + "/DiyPage/DiyWrite/days", insert2);
      },

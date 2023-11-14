@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import AxiosApi from "../../api/AxiosApi";
 import styled from "styled-components";
 import { storage } from "../../api/FireBase";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
@@ -128,6 +127,7 @@ const TravelTitle = styled.div`
 `;
 
 const PicForm = ({world,area,toDate,toDate1,theme}) => {
+  const userId= window.localStorage.getItem("userId");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
@@ -142,39 +142,34 @@ const PicForm = ({world,area,toDate,toDate1,theme}) => {
     setContent(e.target.value);
   };
 
-
   const handleSubmit = async () => {
-    
+
     try {
-      const rsp = await DiyAxiosApi.travelInsert2(null,file, content);
+      const rsp = await DiyAxiosApi.travelInsert(world,area,toDate,userId,toDate1,theme,title);
       if (rsp.data === true) {
         alert("글쓰기 성공");
-        navigate("/DiyPage/Diywrite");
       } else {
         alert("글쓰기 실패");
+      }
+    } catch (error) {
+      console.log(error);alert("글쓰기 실패");
+    }
+    try {
+      const rsp = await DiyAxiosApi.travelInsert2(url,file,content);
+      if (rsp.data === true) {
+        
+        navigate("/DiyPage/Diywrite");
+      } else {
+    
       }
     } catch (error) {
       console.log(error);
     }
   };
-  // const handleSubmit = async () => {
-    
-  //   try {
-  //     const rsp = await DiyAxiosApi.travelInsert(world,area,date,theme);
-  //     if (rsp.data === true) {
-  //       alert("글쓰기 성공");
-  //       navigate("/DitPage/Diywrite");
-  //     } else {
-  //       alert("글쓰기 실패");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const handleReset = () => {
-    setTitle("/DiyPage");
-    setContent("/DiyPage");
+    setTitle("");
+    setContent("");
     navigate("/DiyPage");
   };
 

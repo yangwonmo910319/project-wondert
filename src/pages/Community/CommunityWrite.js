@@ -155,7 +155,7 @@ const CommunityView = () => {
       } else {
         alert("글쓰기 실패");
       }
-    } catch (error) {  alert("글쓰기 실2패");
+    } catch (error) {  alert("글쓰기 실패");
       console.log(error);
     }
   };

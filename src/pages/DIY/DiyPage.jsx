@@ -12,14 +12,15 @@ const Center = styled.div`
 `;
 
 const DiyPage = () =>{
-const [tema ,setTema]=useState('자유여행');
-const temachage=(props)=>{
-    setTema(props);
-}
+    const [tema ,setTema]=useState('자유여행');
+    const temachage=(props)=>{
+        setTema(props);
+    }
+
     return(
         <Center>
           <MainPage temachage={temachage} />
-          <PostMain tema={tema}/>
+          <PostMain tema={tema} />
         </Center>
     );
 };
