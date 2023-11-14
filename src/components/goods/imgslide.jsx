@@ -51,21 +51,19 @@ const Constainer = styled.div`
 	
 	display: flex;
 	justify-content: end;
-  }
-  .slick-prev:before {
+	}
+	.slick-prev:before {
     color: black;
     font-size: 30px;
 	
 	display: flex;
-  }
-  .slick-prev,
+	}
+	.slick-prev,
 .slick-next{
 	width: 100px;
 	height: 100px;
 	top: 45%;
-}
-
-
+	}
 `;
 
 

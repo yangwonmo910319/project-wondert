@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import CourseAxiosApi from "../../api/CourseAxiosApi";
+import { useNavigate } from "react-router";
 
 //컨셉 목록 전체 박스
 const CourseBox = styled.div`
@@ -52,6 +53,7 @@ const PathBox = styled.div`
 `;
 
 const CourseItem = ({ selectedArea }) => {
+  const navigate =useNavigate();
   const [list, setList] = useState([]);
   useEffect(() => {
     const fetchCourseList = async () => {
@@ -66,11 +68,17 @@ const CourseItem = ({ selectedArea }) => {
     };
     fetchCourseList();
   }, [selectedArea]);
+
+  const infoClick=(area)=>{
+    window.localStorage.setItem("CourseArea",area);
+    navigate("/Course/Info");
+  }
+
   return (
     <>
       {list.map((a, index) => (
-        <CourseBox key={index}>
-          <MainBox>
+        <CourseBox key={index} >
+          <MainBox onClick={()=>infoClick(a.course_code)}>
             <span
               style={{
                 fontSize: "15px",

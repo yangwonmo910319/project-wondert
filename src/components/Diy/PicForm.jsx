@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { storage } from "../../api/FireBase";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
 import Calendar from "react-calendar";
+import { useEffect } from "react";
 
 const FormContainer = styled.div`
   padding: 50px;
@@ -129,48 +130,23 @@ const TravelTitle = styled.div`
 const PicForm = ({world,area,toDate,toDate1,theme}) => {
   const userId= window.localStorage.getItem("userId");
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState([]);
   const [file, setFile] = useState(null);
-  const [url, setUrl] = useState("");
-  const travel_num = window.localStorage.getItem("travel_num");
+  const [url, setUrl] = useState([]);
   const navigate = useNavigate();
+
+  const [listnum,setListNum] = useState([]);
+  const [contentList,setContentList] =useState([]);
+  const [urlList, setUrlList] = useState([]);
+
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
+
   const handleContentChange = (e) => {
-    setContent(e.target.value);
-  };
-
-  const handleSubmit = async () => {
-
-    try {
-      const rsp = await DiyAxiosApi.travelInsert(world,area,toDate,userId,toDate1,theme,title);
-      if (rsp.data === true) {
-        alert("글쓰기 성공");
-      } else {
-        alert("글쓰기 실패");
-      }
-    } catch (error) {
-      console.log(error);alert("글쓰기 실패");
-    }
-    try {
-      const rsp = await DiyAxiosApi.travelInsert2(url,file,content);
-      if (rsp.data === true) {
-        
-        navigate("/DiyPage/Diywrite");
-      } else {
-    
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleReset = () => {
-    setTitle("");
-    setContent("");
-    navigate("/DiyPage");
+    const contentList =content.concat(e.target.value) 
+    setContent(contentList);
   };
 
   const handleFileInputChange = (e) => {
@@ -182,12 +158,47 @@ const PicForm = ({world,area,toDate,toDate1,theme}) => {
     const fileRef = storageRef.child(file.name);
     fileRef.put(file).then(() => {
       console.log("File uploaded successfully!");
-      fileRef.getDownloadURL().then((url) => {
-        console.log("저장경로 확인 : " + url);
-        setUrl(url);
+      fileRef.getDownloadURL().then((no) => {
+        console.log("저장경로 확인 : " + no);
+        const list = url.concat(no);
+        setUrl(list);
       });
     });
   };
+
+
+  const handleSubmit = async () => {
+    alert(content[0],content[1])
+    try {
+      const rsp = await DiyAxiosApi.travelInsert(userId,world,area,toDate,toDate1,theme,title);
+      alert(rsp.data);
+
+      for(let i = 0;i>listnum.length;i++){
+        const rsp2 = await DiyAxiosApi.travelInsert2(rsp.data,i,null,null, content[i]);
+        console.log(rsp2);
+      }
+    } catch (error) {
+      console.log(error);alert("글쓰기 실패22222");
+    }};
+
+    useEffect(()=>{
+      const date1 = new Date(toDate);
+      const date2 = new Date(toDate1);
+      const d_day =date2.getDate() - date1.getDate() + 1
+      if (d_day > 0) {
+      setListNum([...Array(d_day)]);
+    }},[toDate1])
+
+    
+
+
+
+  const handleReset = () => {
+    setTitle("");
+    setContent("");
+    navigate("/DiyPage");
+  };
+
 
   return (
     <>
@@ -215,30 +226,30 @@ const PicForm = ({world,area,toDate,toDate1,theme}) => {
         />
       </FieldContainer>
 
+      {listnum.map((e,index) =>{
+        return(<>
+        <div>{index+1}-Day</div>
       <FieldContainer>
       <StyledLabel htmlFor="map">지도</StyledLabel>
         <div className="map">
-          map
         </div>
       </FieldContainer>
-
       <FileUploadContainer>
         <StyledLabel htmlFor="picture">사진</StyledLabel>
-        <StyledInput type="file" onChange={handleFileInputChange} />
+        <StyledInput type="file" onChange={handleFileInputChange}/>
         <UploadButton onClick={handleUploadClick}>Upload</UploadButton>
       </FileUploadContainer>
-      {url && <UserImage src={url} alt="uploaded" />}
-
+      {url[{index}] && <UserImage src={url[{index}]} alt="uploaded" />}
       <FieldContainer>
         <StyledLabel htmlFor="content">내용</StyledLabel>
         <StyledTextarea
           id="content"
           name="content"
-          value={content}
+          value={content[{index}]}
           onChange={handleContentChange}
         />
       </FieldContainer>
-
+      </>)})}
       <ButtonContainer>
         <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
         <SubmitButton onClick={handleReset}>취소</SubmitButton>

@@ -15,6 +15,7 @@ useEffect(()=>{
 },[world],[theme]);
     return (
         <>
+        <p>{world}/{area}/{toDate}/{toDate1}/{theme}</p>
         <WriteForm worldChange={setWorld} areaChange={setArea} setToDate={setToDate} setToDate1={setToDate1} setTheme={setTheme}/>
         <PicForm world={world} area={area} toDate={toDate} toDate1={toDate1} theme={theme} />
         </>

@@ -68,6 +68,7 @@ function App() {
                 {/*메인 영역*/}
 
                 <Route path="/Course" element={<Course />} />
+                <Route path="/Course/Info" element={<CourseDetail/>} />
                 <Route path="/Diypage" element={<DiyPage />} />
                 <Route path="/Diypage/DiyWrite" element={<DiyWrite />} />
                 <Route path="/Diypage/DiyView" element={<DiyView />} />

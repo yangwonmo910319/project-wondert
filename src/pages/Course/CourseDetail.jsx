@@ -124,14 +124,13 @@ const Container3 = styled.div`
 `;
 const CourseDetail = () => {
   const [list, setList] = useState("");
-  const code = "C1";
   const navigate = useNavigate();
 
   useEffect(() => {
     const CourseDetailItem = async () => {
       try {
         console.log("CouseDetail Call");
-        const resp = await CourseAxiosApi.selectCourseDetail(code); //전체 조회
+        const resp = await CourseAxiosApi.selectCourseDetail(window.localStorage.getItem("CourseArea")); //전체 조회
         if (resp.status === 200) setList(resp.data);
         console.log(resp.data);
       } catch (e) {
@@ -139,7 +138,7 @@ const CourseDetail = () => {
       }
     };
     CourseDetailItem();
-  }, [code]);
+  }, []);
   return (
     <>
       {list &&
@@ -156,7 +155,7 @@ const CourseDetail = () => {
                 >
                   {b.course_hash}
                 </span>
-                <div className="mainimg" src={b.main_img}></div>
+                <img className="mainimg" src={b.main_img}></img>
               </div>
             </Container1>
             <Container2>
@@ -182,12 +181,12 @@ const CourseDetail = () => {
                   <div className="courseArticleBox">{b.course_article1}</div>
                   <div className="courseArticleBox2">{b.course_article1_1}</div>
                 </div>
-                <div className="box2" src={b.course_img1}></div>
+                <img className="box2" src={b.course_img1}></img>
               </div>
             </Container3>
             <Container3>
               <div className="box">
-                <div className="box2A" src={b.course_img2}></div>
+                <img className="box2A" src={b.course_img2}></img>
                 <div className="box1">
                   <div className="coursePathBox">{b.course_path2}</div>
                   <div className="courseArticleBox">{b.course_article2}</div>
@@ -202,7 +201,7 @@ const CourseDetail = () => {
                   <div className="courseArticleBox">{b.course_article3}</div>
                   <div className="courseArticleBox2">{b.course_article3_1}</div>
                 </div>
-                <div className="box2" src={b.course_img3}></div>
+                <img className="box2" src={b.course_img3}></img>
               </div>
             </Container3>
           </CourseDetailItem>

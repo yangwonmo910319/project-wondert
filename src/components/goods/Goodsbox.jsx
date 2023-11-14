@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import AxiosApi from "../../api/AxiosApi";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../utill/Modal";
+import { useInView } from "react-intersection-observer";
+import { useCallback } from "react";
 
 const GoodsContainer = styled.div`
   display: flex;
@@ -89,29 +91,55 @@ const ItemCode = styled.div`
   font-weight: bold;
 `;
 
-const Goodsbox = ({ worlds, aeraSelect }) => {
-  const navigate = useNavigate();
-  const [goodsList, setGoodsList] = useState("");
+const refstyle =styled.div`
+  display: ${props =>props.what ? "none":"block"};
+`;
 
+const Goodsbox = ({ worlds, aeraSelect }) => {
+  
+  const {ref , inView} =useInView();
+  const navigate = useNavigate();
+  const [goodsList, setGoodsList] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const [count,setCount] =useState(0);
+  const [refs,setRefs]=useState(true);
   const closeModal = () => {
     setModalOpen(false);
   };
+
+  useEffect(()=>{
+    setCount(0);
+    setGoodsList([]);
+  },[worlds, aeraSelect]);
 
   useEffect(() => {
     const GoodsList = async () => {
       try {
         console.log(aeraSelect);
-        const resp = await AxiosApi.goodsList(worlds, aeraSelect); //전체 조회
-        if (resp.status === 200) setGoodsList(resp.data);
-        console.log(resp.data);
-      } catch (e) {
+        const resp = await AxiosApi.goodsList(worlds, aeraSelect,count); //전체 조회
+        if (resp.status === 200){
+          if(resp.data.length > 0){
+          console.log(resp.data.length);
+          console.log(count);
+          console.log(resp.data);
+          const list =goodsList.concat(resp.data);
+          setGoodsList(list);
+          setCount(count+1);
+      }}} catch (e) {
         console.log(e);
         setModalOpen(true);
       }
     };
-    GoodsList();
-  }, [worlds, aeraSelect]);
+
+    const timer =setTimeout(()=>{
+    },2000)
+
+    return ()=>{
+      clearTimeout(timer);
+      GoodsList();
+    }
+  }, [worlds, aeraSelect,inView]);
+
 
   const InfoClick = async (itemcode) => {
     window.localStorage.setItem("itemcode", itemcode);
@@ -147,7 +175,8 @@ const Goodsbox = ({ worlds, aeraSelect }) => {
               </Button>
             </PriceBox>
           </GoodsContainer>
-        ))}
+        ))} 
+        <refstyle what={refs} ref={ ref }> </refstyle>
       <Modal open={modalOpen} close={closeModal} header="오류">
         네트워크 에러입니다.
       </Modal>

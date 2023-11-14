@@ -58,27 +58,28 @@ Login: async (id, pw) => {
    },
 
    // 게시물 등록
-   travelInsert: async (world,area,toDate,userId,toDate1,theme,title,) => {
-
-    
+   travelInsert: async (userId,world,area,toDate,toDate1,theme,title,) => {
     alert(toDate)
     const insert = {
-      userId:"123123",
+      userId:userId,
       world:world,
       area:area,
       toDate:toDate,
+      toDate1:toDate1,
       theme:theme,
       title:title,
     };
     return await axios.post(WONDER_WALKER + "/DiyPage/DiyWrite", insert);
    },
     // 게시물 등록2
-    travelInsert2: async (url,file,content) => {
+    travelInsert2: async (tvNum,daynum,url,file,content) => {
       alert("axios" + url);
       alert("axios" +content);
       const insert2 = {
+        tvNum:tvNum,
+        day:daynum,
         url:url,
-        file:"임시파일 axios ",
+        file:file,
         content:content
       };
       return await axios.post(WONDER_WALKER + "/DiyPage/DiyWrite/days", insert2);
