@@ -85,8 +85,17 @@ const Content2=styled.div`
   }
 `;
 const Editbtn=styled.button`
-    width: 100%;
+margin: 0 auto;
+    width: 20%;
+    padding: 3px;
 `;
+const Deletebtn=styled.button`
+    width: 20%;
+      padding: 3px;
+      margin: 0 auto;
+      margin-left: 10px;
+`;
+
 const Content3=styled.div`
   width: 100%;
   height: 50px;
@@ -94,6 +103,16 @@ const Content3=styled.div`
   border-radius: 10px;
   text-align: center;
  
+  padding: 7px;
+  margin-top: 10px;
+
+`;
+const Content4=styled.div`
+  width: 100%;
+  height: 65px;  
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid black;
   padding: 7px;
   margin-top: 10px;
 
@@ -227,6 +246,20 @@ const UpdateCommunity=()=>{
   //reset값을 변경하여 댓글 업데이트 화면을 보여줌
   setReset(!reset);
 }
+const DeleteCommunity=()=>{ 
+  //게시글 삭제 기능을 만듬
+  const delete1 = async()=>{
+    try {             
+    const DBupdate = await CommunityAxiosApi.DeleteCommunity(num);
+        }catch(error){  
+    console.log(error);
+   }
+  }
+    //게시글 삭제 기능을 실행
+    delete1();
+  //reset값을 변경하여 댓글 업데이트 화면을 보여줌
+  setReset(!reset);
+}
   return (
     <CommunityCss>    
     <Link to="/Community"  style={{ textDecoration: "none"}}> <Menu><p>커뮤니티 게시판</p></Menu></Link> 
@@ -238,13 +271,19 @@ const UpdateCommunity=()=>{
         </Content1>     
     {post&&post.map((board)=>(   
       <>
-       <Content1 key={board.no}>  
-       {author !==userid? <Item2>   {title}  </Item2>  :  <Item2> <input type="text" value={title} onChange={editTitle}/>  </Item2> }
+       <Content1 key={board.no}>{
+     
+       author !==userid? 
+           //제목- 작성자와 로그인 아이디가 다르면 수정 불가 :   같으면 input으로 수정
+       <Item2>{title}</Item2>  :  <Item2> <input type="text" value={title} onChange={editTitle}/>  </Item2> }
         <Item1>   <p  >{board.userId}</p></Item1>
         <Itemp>  <p> {board.reportingDate}</p></Itemp>
         <Item6>   <p > {board.views}</p></Item6>
         </Content1>   
-       {author !==userid?   !board.imgurl ?   <Content2 a={100} >{content}</Content2>         
+        {/* 내용-작성자와 로그인 아이디가 다르면 수정 불가 :   같으면 input으로 수정 */}
+              {/* 이미지 파일이 없으면 내용만 100% 넓이로 출력 있으면 텍스트와이미지를  나누어 으로 출력 */}
+       {author !==userid?   !board.imgurl ?  
+        <Content2 a={100} >{content}</Content2>         
        : <Content2 a={50}>
         <div className="content1" style={{  borderRight:"1px solid black"}}  > {board.content}    </div> 
         <div className="img1">   <img src={board.imgurl}/>   </div> 
@@ -253,23 +292,25 @@ const UpdateCommunity=()=>{
          !board.imgurl ?   <Content2 a={100} ><Contentinput type="text" value={content} onChange={editContent} />
          </Content2>  :          <Content2 a={50}>
                     <Contentinput style={{  borderRight:"1px solid black"}}  type="text" value={content} onChange={editContent} > </Contentinput>
-                    <div className="img1">   <img src={board.imgurl}/>  
-                    
+                    <div className="img1">  
+                      <img src={board.imgurl}/>                      
                      </div> 
-         </Content2>            }
+         </Content2>
+         }
 
 
-         </>    ))}   
+         </>    ))}  
 
-    
-         {author ===userid? <> <h1>본인 작성의 글은 수정후 수정완료를 누르시면 바로 변경됩니다.</h1>
-         <Editbtn onClick={UpdateCommunity}>  수정 완료 </Editbtn></> :
-         <>
-        </>}
-
-            <Replyview replydata={reply} deleteReply={deleteReply} updateReply={updateReply}/> 
-              
+         <Content4>
+                  {/* 작성자와 로그인 아이디가 같으면 수정과 삭제 가능 */}
+                  {author ===userid? <> <h1>본인 작성의 글은 수정후 수정완료를 누르시면 바로 변경됩니다.</h1>
+         <Editbtn onClick={UpdateCommunity}>  수정 완료 </Editbtn>
+          <Deletebtn onClick={DeleteCommunity}>  삭 제 </Deletebtn></>:
+         <></>}
+       </Content4>
+      
        <Content3>
+       <Replyview replydata={reply} deleteReply={deleteReply} updateReply={updateReply}/> 
        <Item3>
         <Reply insertReply={insertReply}/>      
          </Item3>        

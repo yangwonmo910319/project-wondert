@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import UserAxiosApi from "../api/CommunityAxiosApi";
 import { useState } from "react";
 import CommunityModal from "../components/Community/CommunityModal";
+import { Pagination } from "../components/Community/Pagination";
+import {CommunityListMap} from "../components/Community/communityListMap"; // 수정된 부분
 
 const CommunityCss = styled.div`
 max-width: 1200px;
@@ -31,7 +33,7 @@ const Content1=styled.div`
 `;
 const Item1=styled.div`
 
-width: 130px;
+width: 140px;
 `;
 const Item2=styled.div`
 width: 100%;
@@ -57,13 +59,6 @@ p{
 const Content3=styled.div`
   width: 100%;
   height: auto;
-  border: 1px solid blue;
-  border-radius: 10px;
-  text-align: center;
-    display: flex;
-  padding: 7px;
-  margin-top: 10px;
-
 
 `;
 const Content4=styled.div`
@@ -106,20 +101,48 @@ const Content5=styled.div`
 display: ${props => (props.color ? 'none' : 'black')};
 `
 const Community = () => {
+  const [search,setSearch] =useState("");
  const isLoggedin = window.localStorage.getItem("isLogin") === 'true';
-const [communityList,setCommunityList]=useState("");
+
+ //출력데이터
+const [posts, setPosts] = useState([]);
+const [postsList, setPostsList] = useState([]);
+//현재 페이지
+const [currentPage, setCurrentPage] = useState(1);
+//페이지당 출력 수
+const [postsPerPage, setPostsPerPage] = useState(10);
+//검색창 입력시 검색값을 입력.
+const onSearch=(e)=>{
+  setSearch(e.target.value);  
+}
+const SearchClick = (e) => {
+  const filteredData = posts.filter((item) =>
+  item.title.toLowerCase().includes(search.toLowerCase()));
+  // setPosts를 사용하여 필터링된 결과를 상태로 업데이트합니다.
+  setPostsList(filteredData);
+  setSearch('');
+ 
+};
   useEffect(()=>{  
-    const onUserCheck=async()=>{    
-       const res = await UserAxiosApi.SelectAllCommunity();
-    if(res.status===200){
-      setCommunityList(res.data);
-    }else{
+    const onUserCheck=async()=>{   
+      const res = await UserAxiosApi.SelectAllCommunity();      
+      if(res.status===200){
+        setPosts(res.data);      
+        setPostsList(res.data);     
+         } else{
 console.log("게시글이 없습니다.");
-alert("게시글이 없습니다.");
+
     }
   };
   onUserCheck();
-},[])
+},[]);
+const firstPostIndex = (currentPage - 1) * postsPerPage;
+const lastPostIndex = firstPostIndex + postsPerPage;
+const currentPosts = postsList.slice(firstPostIndex, lastPostIndex);
+
+const handlePageChange = (pageNumber) => {
+  setCurrentPage(pageNumber);
+};
   
   return (
     <CommunityCss>
@@ -133,24 +156,21 @@ alert("게시글이 없습니다.");
         <Item1>  <p  >등록일</p></Item1>
         <Item1>   <p  >조회수</p></Item1>
         </Content2>
-       
-       {communityList&&communityList.map((community)=>(  
-         <Link className="LinkCss" to={`/Communityview/${community.communityNum}`} > 
-          <Content3 key={community.no}>               
-           <Item1>{community.communityNum} </Item1> 
-           <Item2> {community.title}    </Item2> 
-           <Item1>   {community.uerId}</Item1> 
-           <Item1>  {community.reportingDate}</Item1> 
-           <Item1>    {community.views}  </Item1>       
-          </Content3>
-         </Link> 
-                   
-           ))}  
+
+               <CommunityListMap list={currentPosts} />
+               <Content3>   <Pagination
+          postsNum={postsList.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange} 
+        />
+        </Content3>
        <Content4>
        <Item3>
         <Serch>
-          <SerchVar></SerchVar>
-          <SerchBtn><p>검색</p></SerchBtn>
+          <SerchVar value={search} onChange={onSearch} onKeyDown={(e) => e.key === 'Enter' && SearchClick(e)} ></SerchVar>
+          <SerchBtn onClick={SearchClick}><p>검색</p></SerchBtn>
         </Serch>
 {isLoggedin ?       
  <Link to="/Communitywrite"><Write><p>글 쓰기</p></Write></Link>

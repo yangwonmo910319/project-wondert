@@ -1,3 +1,19 @@
+import styled from "styled-components";
+const CommunityListMapCss=styled.div`
+width: 100%;
+height: auto;
+  display:  flex;
+justify-content: center;
+
+button{
+  border-radius: 8px;
+  margin: 0 5px;
+  height:25px;
+}
+button:active{
+  background-color:blue;
+}
+`
 export function Pagination({
   postsNum,
   postsPerPage,
@@ -25,7 +41,7 @@ export function Pagination({
   }
 
   return (
-    <div>
+    <CommunityListMapCss>
       <button onClick={goToPrevPage} disabled={currentPage === 1}>
         prev
       </button>
@@ -35,6 +51,7 @@ export function Pagination({
           key={page}
           onClick={() => handlePageChange(page)} // 수정된 부분
           className={currentPage === page ? "active" : ""}
+          style={currentPage === page ? { backgroundColor: "blue" } : {}}
         >
           {page}
         </button>
@@ -43,6 +60,6 @@ export function Pagination({
       <button onClick={goToNextPage} disabled={currentPage === pageList.length}>
         next
       </button>
-    </div>
+    </CommunityListMapCss>
   );
 }

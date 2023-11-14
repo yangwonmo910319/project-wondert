@@ -87,7 +87,7 @@ navigate("/");
             </Menus>
             <Menus2>
               {login === "true"?               <>
-                  <h1>유저아이디 :{userId} </h1>
+                  <h1>{userId} </h1>
                   <Menu onClick={() => navigate("/myinfo/CommunitySubMenu/Changemyinfo")}>내 정보 </Menu> 
              <Menu onClick={() => logout()}>로그아웃 </Menu> </>
              : <>            

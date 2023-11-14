@@ -66,6 +66,7 @@ deleteReply: async (num) => {
   },
   // 커뮤니티 글 삭제
   DeleteCommunity: async (num) => {   
+    alert("삭제")
     return await axios.get(WONDER_WALKER + `/community/DeleteCommunity/?num=${num}`);
   },
     // 커뮤니티 글 수정

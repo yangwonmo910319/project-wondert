@@ -12,6 +12,7 @@ height: 30px;
 border-radius: 10px;
 background-color: #dfdfdf;
 display: flex;
+margin-top: 10px;
 `;
 const SearchVar=styled.input`
 width: 100%;

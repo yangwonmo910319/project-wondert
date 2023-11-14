@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/home/Model";
 // import AxiosApi from "../api/AxiosApi";
 import styled, { css } from "styled-components";
 import Logo from "../images/메인로고1111-removebg-preview11.png";
 import UserAxiosApi from "../api/UserAxiosApi";
+import PopupAddr from "../components/Userinfo/PopupAddr"
+
 const Container = styled.div`
 
   display: flex;
@@ -22,7 +24,8 @@ const Container = styled.div`
 `;
 
 const Items = styled.div`
-
+   width: 100%;
+   height: 100%;
   display: flex;
   align-items: center;
  &.logo{
@@ -60,12 +63,15 @@ img{
   }
   &.sign {
 
- margin: 0 auto;
+  margin-left: 140px;
  
     font: normal normal bold 24px/35px Poppins;
     letter-spacing: 0px;
     color: #313131;
     opacity: 1;
+    span{
+      margin-left: 80px;
+    }
   }
 `;
 
@@ -121,6 +127,8 @@ const Signup = () => {
   const [inputName, setInputName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputAdd, setInputAdd] = useState("");
+  const [inputAdd2, setInputAdd2] = useState("");
+  const [inputAdd3, setInputAdd3] = useState("");
   const [inputPhone, setInputPhone] = useState("");
 
   // 오류 메시지
@@ -145,6 +153,9 @@ const Signup = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalText, setModelText] = useState("중복된 아이디 입니다.");
 
+  // useEffect(()=>{
+
+  // },[inputAdd])
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -193,12 +204,13 @@ const idFocus=()=>{
     setInputNcik(e.target.value);
     setIsNick(true);
   };
-  const onChangeadd = (e) => {
-    setInputAdd(e.target.value);
-    setisAdd(true);
-  };
-  const onChangeMail = (e) => {
-   
+  const onChangeAdd3 = (e) => {
+  setInputAdd3(e.target.value);        //inputAdd3으로 하면 한글자씩 밀려여
+  setisAdd(inputAdd + "/" + inputAdd2 + "/" + e.target.value);
+  // 혹은 `${inputAdd}/${inputAdd2}/${e.target.value}` 와 같이 템플릿 리터럴을 사용할 수도 있습니다.
+};
+
+  const onChangeMail = (e) => {   
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const emailCurrent = e.target.value;
     setInputEmail(emailCurrent);
@@ -212,6 +224,7 @@ const idFocus=()=>{
     }
     
   };
+
   const onChangePhone = (e) => {
     setInputPhone(e.target.value);
     setisPhone(true);
@@ -230,14 +243,17 @@ const idFocus=()=>{
 
   }
 }
+
+
   const onClickLogin = async () => {
       console.log("가입을 합니다.");
+
       const signup = await UserAxiosApi.Signup(
         inputId,
         inputNick,
         inputPw,
         inputName,
-        inputAdd,
+        isAdd,
         inputPhone,
         inputEmail,
        
@@ -260,6 +276,7 @@ const idFocus=()=>{
           <img src={Logo} alt="Logo" />
       </Items>
       <Items className="sign">
+    
         <span>회원가입</span>
       </Items>
 
@@ -355,17 +372,40 @@ const idFocus=()=>{
         )}
       </Items>
       <Items className="item2">
-        <Input
-          type="text"
-          placeholder="주소"
-          value={inputAdd}
-          onChange={onChangeadd}
-        />
+   
+      <PopupAddr setInputAdd={setInputAdd} setInputAdd2={setInputAdd2} ></PopupAddr>       
+
       </Items>
+      <Items className="item2">
+      {inputAdd&&   <Input
+          type="addr"
+          placeholder="상세주소"
+          value={inputAdd}
+        />
+      }     </Items>
+<Items className="item2">
+            {inputAdd2&&  <> <Input
+          type="addr"
+          placeholder="상세주소"
+          value={inputAdd2}
+        />
+        <Items className="item2">
+        <Input
+            type="addr"
+            placeholder="상세주소"
+            value={inputAdd3}
+            onChange={onChangeAdd3}
+          />
+        </Items></>
+      }
+   
+
+      </Items>
+{isAdd}
+
 
       <Items className="item2">
-        {isId && isPw && isConPw && isName && isEmail ? (
-      
+        {isId && isPw && isConPw && isName && isEmail ? (      
           <Button enabled onClick={onClickLogin}>
             확인
           </Button>
@@ -374,7 +414,7 @@ const idFocus=()=>{
         )}
              <Button enbled onClick={() => {goHome()}} >취 소</Button>
         <Modal open={modalOpen} close={closeModal} header="오류">
-          {modalText}
+
         </Modal>
       </Items>
     </Container>
