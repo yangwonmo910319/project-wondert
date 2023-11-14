@@ -103,10 +103,10 @@ const UploadButton = styled.button`
   cursor: pointer;
   margin-left: 30px;
 
-&:hover {
+  &:hover {
     background-color: #45a049;
-    }
-    `;
+  }
+`;
 
 const FileUploadContainer = styled.div`
   display: flex;
@@ -115,29 +115,27 @@ const FileUploadContainer = styled.div`
 `;
 
 const TravelTitle = styled.div`
-    font-weight: lighter;
-    line-height: 50px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    padding: 0px 10px;
+  font-weight: lighter;
+  line-height: 50px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0px 10px;
 
-    h3 {
-        font-weight: bold;
-        font-size: 20px;
-    }
+  h3 {
+    font-weight: bold;
+    font-size: 20px;
+  }
 `;
 
-const PicForm = ({world,area,toDate,toDate1,theme}) => {
-  const userId= window.localStorage.getItem("userId");
+const PicForm = ({ world, area, toDate, toDate1, theme }) => {
+  const userId = window.localStorage.getItem("userId");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState([]);
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState([]);
   const navigate = useNavigate();
 
-  const [listnum,setListNum] = useState([]);
-  const [contentList,setContentList] =useState([]);
-  const [urlList, setUrlList] = useState([]);
+  const [listnum, setListNum] = useState([]);
 
 
   const handleTitleChange = (e) => {
@@ -145,53 +143,66 @@ const PicForm = ({world,area,toDate,toDate1,theme}) => {
   };
 
   const handleContentChange = (e) => {
-    const contentList =content.concat(e.target.value) 
+    const contentList = content.concat(e.target.value);
     setContent(contentList);
   };
 
   const handleFileInputChange = (e) => {
-    setFile(e.target.files[0]);
+    const fileList = file.concat(e.target.files[0]);
+    setFile(fileList);
   };
 
-  const handleUploadClick = () => {
+  const handleUploadClick = (index) => {
     const storageRef = storage.ref();
     const fileRef = storageRef.child(file.name);
-    fileRef.put(file).then(() => {
+    fileRef.put(file[index]).then(() => {
       console.log("File uploaded successfully!");
       fileRef.getDownloadURL().then((no) => {
         console.log("저장경로 확인 : " + no);
-        const list = url.concat(no);
+        const list =url.concat(no)
         setUrl(list);
       });
     });
   };
+  const handleSubmit = () => {
+    const handleSubmit2 = async () => {
+      try {
+        const rsp = await DiyAxiosApi.travelInsert(
+          userId,
+          world,
+          area,
+          toDate,
+          toDate1,
+          theme,
+          title
+        );
 
-
-  const handleSubmit = async () => {
-    alert(content[0],content[1])
-    try {
-      const rsp = await DiyAxiosApi.travelInsert(userId,world,area,toDate,toDate1,theme,title);
-      alert(rsp.data);
-
-      for(let i = 0;i>listnum.length;i++){
-        const rsp2 = await DiyAxiosApi.travelInsert2(rsp.data,i,null,null, content[i]);
-        console.log(rsp2);
+        for (let i = 0; i <= listnum.length; i++) {
+          const rsp2 = await DiyAxiosApi.travelInsert2(
+            rsp.data,
+            i,
+            null,
+            null,
+            content[i]
+          );
+          console.log(rsp2);
+        }
+      } catch (error) {
+        console.log(error);
+        alert("글쓰기 실패22222");
       }
-    } catch (error) {
-      console.log(error);alert("글쓰기 실패22222");
-    }};
+    };
+    handleSubmit2();
+  };
 
-    useEffect(()=>{
-      const date1 = new Date(toDate);
-      const date2 = new Date(toDate1);
-      const d_day =date2.getDate() - date1.getDate() + 1
-      if (d_day > 0) {
+  useEffect(() => {
+    const date1 = new Date(toDate);
+    const date2 = new Date(toDate1);
+    const d_day = date2.getDate() - date1.getDate() + 1;
+    if (d_day > 0) {
       setListNum([...Array(d_day)]);
-    }},[toDate1])
-
-    
-
-
+    }
+  }, [toDate1]);
 
   const handleReset = () => {
     setTitle("");
@@ -199,62 +210,67 @@ const PicForm = ({world,area,toDate,toDate1,theme}) => {
     navigate("/DiyPage");
   };
 
-
   return (
     <>
-    <Title>[ 후기 글 작성하기 ]</Title>
-    <FormContainer>
+      <Title>[ 후기 글 작성하기 ]</Title>
+      <FormContainer>
         <TravelTitle>
-            <p>
-                <ul>
-                <h3>〈내 여행 정보〉</h3>
-                    <li>나라 : {world}</li>
-                    <li>지역 : {area}</li>
-                    <li>여행 날짜 : {toDate} ~ {toDate1}</li>
-                    <li>여행 테마 : #{theme}</li>
-                </ul>
-            </p>
+          <p>
+            <ul>
+              <h3>〈내 여행 정보〉</h3>
+              <li>나라 : {world}</li>
+              <li>지역 : {area}</li>
+              <li>
+                여행 날짜 : {toDate} ~ {toDate1}
+              </li>
+              <li>여행 테마 : #{theme}</li>
+            </ul>
+          </p>
         </TravelTitle>
-      <FieldContainer>
-        <StyledLabel htmlFor="title">제목</StyledLabel>
-        <StyledInput
-          type="text"
-          id="title"
-          name="title"
-          value={title}
-          onChange={handleTitleChange}
-        />
-      </FieldContainer>
+        <FieldContainer>
+          <StyledLabel htmlFor="title">제목</StyledLabel>
+          <StyledInput
+            type="text"
+            id="title"
+            name="title"
+            value={title}
+            onChange={handleTitleChange}
+          />
+        </FieldContainer>
 
-      {listnum.map((e,index) =>{
-        return(<>
-        <div>{index+1}-Day</div>
-      <FieldContainer>
-      <StyledLabel htmlFor="map">지도</StyledLabel>
-        <div className="map">
-        </div>
-      </FieldContainer>
-      <FileUploadContainer>
-        <StyledLabel htmlFor="picture">사진</StyledLabel>
-        <StyledInput type="file" onChange={handleFileInputChange}/>
-        <UploadButton onClick={handleUploadClick}>Upload</UploadButton>
-      </FileUploadContainer>
-      {url[{index}] && <UserImage src={url[{index}]} alt="uploaded" />}
-      <FieldContainer>
-        <StyledLabel htmlFor="content">내용</StyledLabel>
-        <StyledTextarea
-          id="content"
-          name="content"
-          value={content[{index}]}
-          onChange={handleContentChange}
-        />
-      </FieldContainer>
-      </>)})}
-      <ButtonContainer>
-        <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
-        <SubmitButton onClick={handleReset}>취소</SubmitButton>
-      </ButtonContainer>
-    </FormContainer>
+        {listnum.map((e, index) => {
+          return (
+            <>
+              <div>{index + 1}-Day</div>
+              <FieldContainer>
+                <StyledLabel htmlFor="map">지도</StyledLabel>
+                <div className="map"></div>
+              </FieldContainer>
+              <FileUploadContainer>
+                <StyledLabel htmlFor="picture">사진</StyledLabel>
+                <StyledInput type="file" onChange={handleFileInputChange} />
+                <UploadButton onClick={()=>handleUploadClick({index})}>Upload</UploadButton>
+              </FileUploadContainer>
+              {url({index}) && (
+                <UserImage src={url({index})} alt="uploaded" />
+              )}
+              <FieldContainer>
+                <StyledLabel htmlFor="content">내용</StyledLabel>
+                <StyledTextarea
+                  id="content"
+                  name="content"
+                  value={content[{ index }]}
+                  onChange={handleContentChange}
+                />
+              </FieldContainer>
+            </>
+          );
+        })}
+        <ButtonContainer>
+          <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
+          <SubmitButton onClick={handleReset}>취소</SubmitButton>
+        </ButtonContainer>
+      </FormContainer>
     </>
   );
 };

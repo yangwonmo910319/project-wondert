@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import styled, { css } from "styled-components";
 
 const Contetn3Item1Css=styled.div`
@@ -159,10 +160,10 @@ const Slider = styled.div`
 
 const slides = [
     { url:"https://mblogthumb-phinf.pstatic.net/MjAyMjAzMjRfNTcg/MDAxNjQ4MDg1MTgxMDM3.bAq_2YbMdcgm2LXEradc4LdjcNL90ltQqlZWTJ9GvFwg.9Ve6rojkneVGoBTCpRskuXs9e6vQeEKjtnSXA4wYKPIg.JPEG.travelgeo/IMG_3753.jpg?type=w800", target: "#", title: "서울"},
-    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL2sbIdSpBZ39Ho9ZQHGZBB-9NT5vArXJu-A&usqp=CAU", target: "#" , title:"오사카"},
-    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeGE-JNt8iF6vkqcJVrDTmvlm34OO5g7TMtA&usqp=CAU", target: "#", title:"파리" },
-    { url:"https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/STq/image/8EAUTOLyees0927ctrPSCXkUn0U.jpg", target: "#" , title:"오사카"},
-    { url:"https://res.cloudinary.com/kyte/image/upload/w_1080,h_1560,q_auto,f_auto,e_sharpen:50,c_fill,g_auto/v1636348646/content/shutterstock/FI/rovaniemi_3", target: "#" , title:"파리"},
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL2sbIdSpBZ39Ho9ZQHGZBB-9NT5vArXJu-A&usqp=CAU", target: "#" , title:"21"},
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeGE-JNt8iF6vkqcJVrDTmvlm34OO5g7TMtA&usqp=CAU", target: "#", title:"10" },
+    { url:"https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/STq/image/8EAUTOLyees0927ctrPSCXkUn0U.jpg", target: "#" , title:"12"},
+    { url:"https://res.cloudinary.com/kyte/image/upload/w_1080,h_1560,q_auto,f_auto,e_sharpen:50,c_fill,g_auto/v1636348646/content/shutterstock/FI/rovaniemi_3", target: "#" , title:"11"},
     { url:"https://cdn.3hoursahead.com/v2/content/image-comp/feff4170-bacd-4a4d-acd9-8601ac17cf06.webp", target: "#" , title:"상하이"},
     { url:"https://news.airbnb.com/wp-content/uploads/sites/4/2022/04/VILLA-SANGLUNG.jpeg?fit=1024%2C678", target: "#" , title:"제주도"},
     { url:"https://assets.blog.engoo.com/wp-content/uploads/sites/2/2022/01/14205148/%ED%98%BC%EC%9E%90%EC%97%AC%ED%96%89-back-image-%EB%B3%B5%EC%82%AC.jpg", target: "#" , title:"대만"}
@@ -173,7 +174,13 @@ const Contetn3Item1=()=>{
     const [animate, setAnimate] = useState(true);//트루면 작동
     const onStop = () => setAnimate(false);
     const onRun = () => setAnimate(true);
+    const navigate = useNavigate();
 
+
+    const GoodsLink =(num)=>{
+        window.localStorage.setItem("itemcode",num);
+        navigate("/Goods/info");
+    }
 return(
     <>
     <Contetn3Item1Css>
@@ -199,6 +206,7 @@ return(
                             <li
                                 key={i}
                                 className={i > 200 ? "big" : "small"}
+                                onClick={()=>GoodsLink(s.title)}
                             >
                             <div className="lb-wrap">
                                 <div className="lb-text">

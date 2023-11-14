@@ -167,8 +167,7 @@ const CourseDetail = () => {
                     fontSize: "25px",
                     color: "#ddf2fd",
                   }}
-                >
-                  {b.topic}
+                >{b.topic}
                 </span>
                 <button className="join">즐겨찾기</button>
                 <button onClick={() => navigate(-1)}>뒤로가기</button>
