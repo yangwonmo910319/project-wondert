@@ -63,13 +63,13 @@ const Content2=styled.div`
         margin: 0 auto;
     }
     .Content2item2Css{
-     width:80%;
+     width:100%;
      margin: 0 auto;
   
  }
 `;
 const Content3=styled.div`
-         margin-top: 100px;
+         margin-top: 50px;
         min-width: 600px;
         height: auto;
 
@@ -81,10 +81,10 @@ const Content3=styled.div`
 }
 `;
 const Content4=styled.div`
- 
+       
         min-width: 600px;
         height: 100%;
- margin: 50px auto;
+ margin: 100px auto;
  
 `;
 const Content5=styled.div`

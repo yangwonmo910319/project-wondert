@@ -2,6 +2,8 @@ import { useState } from "react";
 import styled, { css } from "styled-components";
 
 const Contetn2Item1Css = styled.div`
+width: 100%;
+height: 80px;
 font-size: 1.5em;
 margin-left: 0px;
 .metn5{
@@ -45,6 +47,17 @@ border: 2px solid black; border-radius:15px;
     border-bottom: 2px solid black; 
    
 }
+.metn9{
+ 
+  width: 100%;
+  height: 80px;
+  margin: 0 auto;
+ p{
+  text-align: center;
+  font-size: 1.7em;
+  }
+}
+   
 `;
 
 
@@ -56,10 +69,11 @@ const Contetn2Item1 = () => {
     return (
         <>
             <Contetn2Item1Css>
-              
-             
+            <div className="metn9">
+              <p>세상 모든 여행이야기</p>
+             </div>
                
-                <div className="metn2">
+                {/* <div className="metn2">
 
                     <ul>   {a}
                         <li>           <p onMouseDown={() => { setA("국내"); setB("제주도") }}>국내</p></li>
@@ -90,7 +104,7 @@ const Contetn2Item1 = () => {
                 </div>
                 <div className="metn5">
                     <p> 보러가기</p>
-                </div>
+                </div> */}
 
             </Contetn2Item1Css>
 

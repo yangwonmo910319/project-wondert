@@ -8,18 +8,42 @@ const Contetn4Item1Css = styled.div`
   height: 700px;
   background-size: 100% 100%; /* 가로 너비에 맞게 늘어남 */
   background-repeat: no-repeat;
+  position: relative;
 
   .item1 {
     display: flex;
     color: white;
-    div {
+
+    .item2,.item3,.item4,.item5{
       width: 25%;
       height: 700px;
-      background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); 
       border: 1px solid white;
       display: flex;
+      flex-direction:column;
       justify-content: start;
+      position: relative;
       align-items: end;
+    .item3-1,.item4-1,.item5-1{ 
+   width: 90%;
+  height:50px;
+
+ position: absolute;
+ bottom: 0;
+ margin-bottom:130px ;
+ font-size: 1.3em;
+        }
+        .item3-2,.item4-2,.item5-2{ 
+          width: 100%;
+  height:60px;
+
+  position: absolute;
+  margin-bottom:75px ;
+ bottom: 0;
+ font-size: 1em;
+  text-align: center;
+
+        }
     }
     div:hover {
       background-color: rgba(0, 0, 0, 0);
@@ -28,7 +52,33 @@ const Contetn4Item1Css = styled.div`
       margin-left: 30px;
       margin-bottom: 30px;
     }
+ 
+  .item2{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+.item2-1{
+  width: 90%;
+  height:50px;
+
+ position: absolute;
+ bottom: 0;
+ margin-bottom:130px ;
+ font-size: 1.3em;
+
+}
+.item2-2{
+  width: 100%;
+  height:60px;
+
+  position: absolute;
+  margin-bottom:75px ;
+ bottom: 0;
+ font-size: 1em;
+  text-align: center;
+}
   }
+}
 `;
 const Contetn4Item1=()=>{
  const [Img1,setImg]=useState("http://img-kyowontour.kyowontour.com/hp/202211/20221129103350934brgzdggfnwtwqqf.jpg");
@@ -45,10 +95,12 @@ return(
         <div className="item1">
            
          
-           <div  onMouseOver={()=>{setImg(Imgurl1)}}><h1>봄 추천</h1></div>
-           <div  onMouseOver={()=>{setImg(Imgurl2)}}><h1>여름 추천</h1></div>
-           <div onMouseOver={()=>{setImg(Imgurl3)}}><h1>가을 추천</h1></div>
-           <div  onMouseOver={()=>{setImg(Imgurl4)}}><h1>겨울 추천</h1></div>
+           <div className="item2" >
+            <div className="item2-1">  <p>여행자들의 추천</p></div>
+            <div className="item2-2"><p>가장 사랑받는 여행지<br></br> 이렇게 즐겨보세요</p></div></div>
+           <div  className="item3 " onMouseOver={()=>{setImg(Imgurl2)}}> <div  className="item3-1"><h1># No.1</h1></div><div  className="item3-2"><h1>황금빛 사막</h1></div></div>
+           <div className="item4 " onMouseOver={()=>{setImg(Imgurl3)}}><div  className="item4-1"><h1># No.2</h1></div></div>
+           <div  className="item5 " onMouseOver={()=>{setImg(Imgurl4)}}><div  className="item5-1"><h1># No.3</h1></div></div>
 
         </div>
     
