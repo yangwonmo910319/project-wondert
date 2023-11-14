@@ -12,29 +12,26 @@ const HomeCss=styled.div`
 
 `;
 
-
 const Content1=styled.div`
  position: relative;
  height: 100vh;
-.Content1Nav{  
+ width: 100vh;
+ bottom: 80px;
+/* .Content1Nav{  
     position: relative;
     color:white;
     left: -50;
     z-index: 2;
     top:0;
-} 
+}  */
  .Content1mentimg{
-    position: absolute;
-  
-
+    position: relative;
     z-index: 1;
     img{width: 100vw;
       height: 100vh;
       min-width: 600px;
       position: relative;
-  
     }
-
  }
 
 .Content1ment{
@@ -106,7 +103,6 @@ const Home=() =>{
          <img src={Img11}></img>
     </div>
     <div className="Content1Nav">
-    <Header white={true}/>
  </div> 
   
  <div className="Content1ment">

@@ -90,7 +90,6 @@ const ModalStyle = styled.div`
 
 const Modal = (props) => {
     const {open, confirm, close, type, header, children} = props;
-
     // &times; 는 X표 문자를 의미
     return (
         <ModalStyle>

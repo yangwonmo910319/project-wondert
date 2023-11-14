@@ -58,15 +58,14 @@ function App() {
           <Router>
             <Routes>
               {/*헤더영역 공통 레이아웃*/}
-              <Route path="/" element={<Home />} />
               <Route path="/CommunityList" element={<CommunityList />} />
               <Route path="/Home" element={<Main />} />
               <Route path="/Test" element={<Test />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/SignUP" element={<SignUP />} />
-              <Route element={<Header />}>
+              <Route element={<Header white={false}/>}>
                 {/*메인 영역*/}
-
+                <Route path="/" element={<Home />} />
                 <Route path="/Course" element={<Course />} />
                 <Route path="/Diypage" element={<DiyPage />} />
                 <Route path="/Diypage/DiyWrite" element={<DiyWrite />} />

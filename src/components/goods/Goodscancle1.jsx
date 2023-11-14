@@ -42,7 +42,7 @@ const Container = styled.div`
     justify-content: center;
     width: 1000px;
     height: 160px;
-    background-color: #f4ce14;
+    background-color: #f7f7f7;
   }
 `;
 

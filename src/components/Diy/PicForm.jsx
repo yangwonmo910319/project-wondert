@@ -148,19 +148,18 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
   };
 
   const handleFileInputChange = (e) => {
-    const fileList = file.concat(e.target.files[0]);
-    setFile(fileList);
+    // const fileList = file.concat(e.target.files[0]);
+    setFile(e.target.files[0]);
   };
 
   const handleUploadClick = (index) => {
     const storageRef = storage.ref();
     const fileRef = storageRef.child(file.name);
-    fileRef.put(file[index]).then(() => {
+    fileRef.put(file).then(() => {
       console.log("File uploaded successfully!");
       fileRef.getDownloadURL().then((no) => {
         console.log("저장경로 확인 : " + no);
-        const list =url.concat(no)
-        setUrl(list);
+        setUrl(no);
       });
     });
   };
@@ -176,7 +175,7 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
           theme,
           title
         );
-
+          alert(rsp.data);
         for (let i = 0; i <= listnum.length; i++) {
           const rsp2 = await DiyAxiosApi.travelInsert2(
             rsp.data,
@@ -249,10 +248,10 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
               <FileUploadContainer>
                 <StyledLabel htmlFor="picture">사진</StyledLabel>
                 <StyledInput type="file" onChange={handleFileInputChange} />
-                <UploadButton onClick={()=>handleUploadClick({index})}>Upload</UploadButton>
+                <UploadButton onClick={handleUploadClick}>Upload</UploadButton>
               </FileUploadContainer>
-              {url({index}) && (
-                <UserImage src={url({index})} alt="uploaded" />
+              {url && (
+                <UserImage src={url} alt="uploaded" />
               )}
               <FieldContainer>
                 <StyledLabel htmlFor="content">내용</StyledLabel>
