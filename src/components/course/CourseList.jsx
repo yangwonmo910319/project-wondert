@@ -1,5 +1,5 @@
 import CourseBtn from "./CourseBtn";
-import React from "react";
+import React, { useState } from "react";
 import CourseItem from "./CourseItem";
 import styled from "styled-components";
 
@@ -9,11 +9,16 @@ const CourseNavbar = styled.div`
   justify-content: center;
 `;
 
-const CourseList = () => {
+const CourseList = ({ world }) => {
+  const [selectedArea, setSelectedArea] = useState("여수");
+
+  const handleAreaChange = (area) => {
+    setSelectedArea(area);
+  };
   return (
     <CourseNavbar>
-      <CourseBtn />
-      <CourseItem />
+      <CourseBtn world={world} onAreaChange={handleAreaChange} />
+      <CourseItem selectedArea={selectedArea} />
     </CourseNavbar>
   );
 };

@@ -51,64 +51,62 @@ const PathBox = styled.div`
   width: 100%;
 `;
 
-const CourseItem = () => {
-  const [list, setList] = useState("");
-  const area = "대만";
+const CourseItem = ({ selectedArea }) => {
+  const [list, setList] = useState([]);
   useEffect(() => {
-    const CourseList = async () => {
+    const fetchCourseList = async () => {
       try {
         console.log("CouseList Call");
-        const resp = await CourseAxiosApi.courseList(area); //전체 조회
+        const resp = await CourseAxiosApi.courseList(selectedArea); //전체 조회
         if (resp.status === 200) setList(resp.data);
         console.log(resp.data);
       } catch (e) {
         console.log(e);
       }
     };
-    CourseList();
-  }, [area]);
+    fetchCourseList();
+  }, [selectedArea]);
   return (
     <>
-      {list &&
-        list.map((a, course_area) => (
-          <CourseBox key={course_area}>
-            <MainBox>
-              <span
-                style={{
-                  fontSize: "15px",
-                }}
-              >
-                {a.course_hash}
-              </span>
-              <br />
-              <MainImg src={a.main_img}></MainImg>
-            </MainBox>
-            <ArticleBox>
-              <TopicBox
-                style={{
-                  fontSize: "30px",
-                  color: "black",
-                }}
-              >
-                {a.topic}
-              </TopicBox>
-              <PathBox
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "20px",
-                  color: "black",
-                }}
-              >
-                <div className="Path1">{a.course_path1}</div>
-                <p style={{ color: "gray" }}>▷</p>
-                <div className="Path2">{a.course_path2}</div>
-                <p style={{ color: "gray" }}>▷</p>
+      {list.map((a, index) => (
+        <CourseBox key={index}>
+          <MainBox>
+            <span
+              style={{
+                fontSize: "15px",
+              }}
+            >
+              {a.course_hash}
+            </span>
+            <br />
+            <MainImg src={a.main_img}></MainImg>
+          </MainBox>
+          <ArticleBox>
+            <TopicBox
+              style={{
+                fontSize: "30px",
+                color: "black",
+              }}
+            >
+              {a.topic}
+            </TopicBox>
+            <PathBox
+              style={{
+                fontWeight: "bold",
+                fontSize: "20px",
+                color: "black",
+              }}
+            >
+              <div className="Path1">{a.course_path1}</div>
+              <p style={{ color: "gray" }}>▷</p>
+              <div className="Path2">{a.course_path2}</div>
+              <p style={{ color: "gray" }}>▷</p>
 
-                <div className="Path3">{a.course_path3}</div>
-              </PathBox>
-            </ArticleBox>
-          </CourseBox>
-        ))}
+              <div className="Path3">{a.course_path3}</div>
+            </PathBox>
+          </ArticleBox>
+        </CourseBox>
+      ))}
     </>
   );
 };

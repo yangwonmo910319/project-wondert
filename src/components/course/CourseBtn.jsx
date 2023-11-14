@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 const SelectBox = styled.div`
   display: flex;
@@ -31,8 +32,14 @@ const SelectBox = styled.div`
   }
 `;
 
-const CourseBtn = ({ onselect }) => {
-  const world = "korea";
+const CourseBtn = ({ world, onAreaChange }) => {
+  const handleButtonClick = (area) => {
+    console.log("Clicked on", area);
+    if (onAreaChange) {
+      onAreaChange(area);
+      console.log("Selected Area:", area);
+    }
+  };
   const data = [
     {
       COURSE_WORLD: "해외",
@@ -95,14 +102,18 @@ const CourseBtn = ({ onselect }) => {
         "https://dimgcdn.ybtour.co.kr/TN/10/102dcba9dc5c75a2cfdd85dfcd8fdb80.tn.410x280.jpg",
     },
   ];
-  const filteredData = data.filter((asd) => asd.COURSE_WORLD === "국내");
+  const filteredData = data.filter((item) => item.COURSE_WORLD === "국내");
   const filteredData2 = data.filter((item) => item.COURSE_WORLD === "해외");
   return (
     <>
       <SelectBox>
         {world === "korea"
           ? filteredData.map((item, index) => (
-              <div className="SelectBoxImg" key={index}>
+              <div
+                className="SelectBoxImg"
+                key={index}
+                onClick={() => handleButtonClick(item.COURSE_AREA)}
+              >
                 <div
                   className="img"
                   style={{ backgroundImage: `url(${item.MAIN_IMG})` }}
@@ -111,7 +122,11 @@ const CourseBtn = ({ onselect }) => {
               </div>
             ))
           : filteredData2.map((item, index) => (
-              <div className="SelectBoxImg" key={index}>
+              <div
+                className="SelectBoxImg"
+                key={index}
+                onClick={() => handleButtonClick(item.COURSE_AREA)}
+              >
                 <div
                   className="img"
                   style={{ backgroundImage: `url(${item.MAIN_IMG})` }}

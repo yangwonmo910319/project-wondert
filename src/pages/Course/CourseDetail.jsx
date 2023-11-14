@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CourseCom from "../../components/course/CourseCom";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import CourseAxiosApi from "../../api/CourseAxiosApi";
 
 const CourseDetailItem = styled.div`
@@ -18,7 +19,6 @@ const Container1 = styled.div`
   .mainimg {
     display: flex;
     justify-content: center;
-    background-image: url(https://img-kyowontour.kyowontour.com/erp//media/imagecontentfile/70b7bf53-b335-4bb5-8ada-9ed201233ac9.jpg);
     background-size: cover;
     height: 400px;
     width: 1200px;
@@ -106,7 +106,6 @@ const Container3 = styled.div`
     }
   }
   .box2 {
-    background-image: url(https://dimgcdn.ybtour.co.kr/TN/cd/cda853b2799c287503ec63fd25f6d033.tn.410x280.jpg);
     background-size: cover;
     height: 419px;
     width: 564px;
@@ -115,7 +114,6 @@ const Container3 = styled.div`
     border-style: ridge;
   }
   .box2A {
-    background-image: url(https://dimgcdn.ybtour.co.kr/TN/cd/cda853b2799c287503ec63fd25f6d033.tn.410x280.jpg);
     background-size: cover;
     height: 419px;
     width: 564px;
@@ -127,6 +125,8 @@ const Container3 = styled.div`
 const CourseDetail = () => {
   const [list, setList] = useState("");
   const code = "C1";
+  const navigate = useNavigate();
+
   useEffect(() => {
     const CourseDetailItem = async () => {
       try {
@@ -172,6 +172,7 @@ const CourseDetail = () => {
                   {b.topic}
                 </span>
                 <button className="join">즐겨찾기</button>
+                <button onClick={() => navigate(-1)}>뒤로가기</button>
               </div>
             </Container2>
             <Container3>
