@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import LoginButtons from "../components/LoginButtons";
 import LogoImg from "../images/메인로고1111-removebg-preview11.png";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const Headers =styled.div`
   position: relative;
@@ -119,13 +120,14 @@ const Header = ({ white }) => {
 
   const [login, setlogin] = useState(  window.localStorage.getItem("isLogin")); 
   const userId=localStorage.getItem("userId");
-
   const logout = () => {
-window.localStorage.setItem("isLogin", "false");
-setlogin("logout");
-navigate("/");
-  }
-
+    window.localStorage.setItem("isLogin", "false");
+    setlogin("logout");
+    navigate("/");}
+ useEffect(()=>{ if(login !=="true"){
+  setlogin("logout");
+}})
+ 
   return (
     <>
    
@@ -140,7 +142,7 @@ navigate("/");
   
             </Menus>
             <Menus2>
-              {login === "true"?               <>
+              {login === "true" && userId!=="null" ?               <>
                   <h1>{userId} </h1>
                   <Menu onClick={() => navigate("/myinfo/CommunitySubMenu/Changemyinfo")}>내 정보 </Menu> 
              <Menu onClick={() => logout()}>로그아웃 </Menu> </>

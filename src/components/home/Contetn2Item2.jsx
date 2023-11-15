@@ -12,7 +12,7 @@ display: flex;
 const Slide=styled.div`
 
 
- height: 280px;
+ height: 500px;
  display: flex;
  justify-content: start;
 flex-direction: row;
@@ -46,7 +46,7 @@ const Content1=styled.div`
 background:none;
 
 margin:34px;
- height: 280px;
+ height: 300px;
 border-radius: 10px;
   display: block;
 
@@ -73,11 +73,11 @@ border-radius: 10px;
         border-bottom-right-radius: 10px;
       overflow: hidden;
     width:300px;
-  height: 60px;
+  height: 100px;
   margin-top: -10px;  
 
  p{
-    margin-top: 10px;  
+    margin-top: 5px;  
     overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
  }
   
@@ -110,15 +110,16 @@ const AS = styled.div`
 `;
 useEffect(()=>{},[]);
 const slides = [
-    { url:"https://mblogthumb-phinf.pstatic.net/MjAyMjAzMjRfNTcg/MDAxNjQ4MDg1MTgxMDM3.bAq_2YbMdcgm2LXEradc4LdjcNL90ltQqlZWTJ9GvFwg.9Ve6rojkneVGoBTCpRskuXs9e6vQeEKjtnSXA4wYKPIg.JPEG.travelgeo/IMG_3753.jpg?type=w800", target: "DiyPage/Diyview", title:"특유의 다양한 볼거리와 먹거리들이 참 매력적인 코스특유의 다양한 볼거리와 먹거리들이 참 매력적인 코스"},
-    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL2sbIdSpBZ39Ho9ZQHGZBB-9NT5vArXJu-A&usqp=CAU", target: "DiyPage/Diyview" , title:"경복궁(景福宮, 영어: Gyeongbokgung Palace)은 서울특별시 종로구 사직로에 위치한 조선 왕조의 법궁(法宮, 정궁)이다. 1395년 창건되어 1592년 임진왜란으로 전소되었고, 1868년 흥선대원군의 주도로 중건되었다."},
-    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeGE-JNt8iF6vkqcJVrDTmvlm34OO5g7TMtA&usqp=CAU", target: "DiyPage/Diyview", title:"22222222222222222" },
-    { url:"https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/STq/image/8EAUTOLyees0927ctrPSCXkUn0U.jpg", target: "DiyPage/Diyview" , title:"33333333333333"},
-    { url:"https://res.cloudinary.com/kyte/image/upload/w_1080,h_1560,q_auto,f_auto,e_sharpen:50,c_fill,g_auto/v1636348646/content/shutterstock/FI/rovaniemi_3", target: "DiyPage/Diyview", title:"4444444455555555555555555555555555555444"},
-    { url:"https://mblogthumb-phinf.pstatic.net/MjAyMjAzMjRfNTcg/MDAxNjQ4MDg1MTgxMDM3.bAq_2YbMdcgm2LXEradc4LdjcNL90ltQqlZWTJ9GvFwg.9Ve6rojkneVGoBTCpRskuXs9e6vQeEKjtnSXA4wYKPIg.JPEG.travelgeo/IMG_3753.jpg?type=w800", target: "DiyPage/Diyview", title: "서울에 대해"},
-];
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5MxWUYaVzl4C__DyqsnCAVd4hUTQqt8qn_w&usqp=CAU", target: "T1", title:"여자혼자 제주 먹방 여행, 제주도 1박2일 여행코스'",thema:'# 먹방여행', area:'# 제주도'},
+    { url:"https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%84%A0%EC%98%81%2F%EA%B5%AD%EB%82%B4-%20%EB%A8%B9%EB%B0%A9%EC%97%AC%ED%96%89%2F2.%20%E1%84%87%E1%85%AE%E1%84%89%E1%85%A1%E1%86%AB%202%E1%84%87%E1%85%A1%E1%86%A8%203%E1%84%8B%E1%85%B5%E1%86%AF%203%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8E%E1%85%A1%202.jpg?alt=media&token=cc216ddb-7a1d-4fb8-babd-6950c48ac89b",link:"DiyPage/Diyview", target: "T31", title:"혼자 떠나는 부산 요트홀릭 프리미엄 투언",thema:'# 먹방여행', area:'# 부산'},
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxLYoIeq1d2gAh20MrDa44rI3kYYNGOOJeWQ&usqp=CAU",link:"DiyPage/Diyview", target: "T33", title:" 여수 블루망고 풀빌라  리조트 ",thema:'# 프리미엄', area:'# 여수'},
+    { url:"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MTJfMjcg%2FMDAxNjk0NDk0NjAxMTY2.0S-TDXfa11lohXm39856H2iCU35mW3VgbLWxxbZO8o4g.pgYs9YIt7sIsIzyOTCXbNLwPQ3lLB2Vq5QADOHw5SCkg.JPEG.pickmom%2F3472522898104760660_20230911235828760.JPG&type=a340",link:"DiyPage/Diyview", target: "T34", title:"전주 프리미엄 스시 스시아시타",thema:'# 프리미엄', area:'# 전주'},
+    { url:"https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140320_277%2Fqhdhr7835_1395312954303o5Eo4_JPEG%2F%25BB%25E7%25C1%25F8_091.jpg&type=a340",link:"DiyPage/Diyview", target: "T39", title:", '간단한 2박3일 후쿠오카여행기'",thema:'# 먹방여행', area:'# 일본'},
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoKC0i0s3LXCFdz3MsPGP4JMRTtOIBpp1cHQ&usqp=CAU",link:"DiyPage/Diyview", target: "T40", title:"20만원으로 중국 내몽골(내몽고)",thema:'# 먹방여행', area:'# 중국'},
+]; 
 const Link123=(e)=>{
-    navigate(e)
+    window.localStorage.setItem("CourseArea",e);
+    navigate("/Diypage/DiyView");
   }
 return(
    
@@ -132,7 +133,12 @@ return(
       <AS key={index} onClick={()=>{Link123(slide.target)}}>
    
         <div className="item1" > <img src={slide.url} alt={slide.title}  /></div> 
-        <div className="item2" >   <p>{slide.title}</p></div> 
+        <div className="item2" >
+        <p>{slide.thema}</p>
+        <p>{slide.area}</p>
+        <p>{slide.title}</p>
+
+        </div> 
   
       </AS>
     

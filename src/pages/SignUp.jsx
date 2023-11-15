@@ -30,6 +30,7 @@ const Items = styled.div`
   align-items: center;
  &.logo{
  margin: 0 auto;
+ margin-left: 55px;
 img{
   width: 400px;
 }
@@ -98,7 +99,7 @@ const Button = styled.button`
   width: 100%; /* 원하는 너비 설정 */
   height: 50px;
   color: white;
-  background-color: #999;
+  background-color:  #f4ce14;
   font-size: 15px;
   font-weight: 400;
   border-radius: 12px;
@@ -268,7 +269,7 @@ const idFocus=()=>{
     } ;
 
   const goHome = ()=>{
-    navigate("/home");
+    navigate("/");
    }
   return (
     <Container>
@@ -401,7 +402,6 @@ const idFocus=()=>{
    
 
       </Items>
-{isAdd}
 
 
       <Items className="item2">

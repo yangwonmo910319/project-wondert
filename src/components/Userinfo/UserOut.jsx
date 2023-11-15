@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import styled, { css } from "styled-components";
 import UserAxiosApi from "../../api/UserAxiosApi";
+import { useNavigate } from "react-router-dom";
 const ChangemyinfoCss = styled.div`
 
 margin-top: 50px;
@@ -73,7 +74,10 @@ padding: 10px 2px;
 `;
 const UserOut = () => {
   const userid=window.localStorage.getItem("userId");
+
+  const navigate = useNavigate();
   const [pw,setPw]=useState('');
+  const [ckid,setCkid]=useState('');
   const [ckpw,setckPw]=useState('');
   const [ckpw2,setckPw2]=useState('');
   const [reset,setReset]=useState(false);
@@ -83,6 +87,7 @@ const UserOut = () => {
     
        if(res.status===200){
       setPw(res.data[0].userPw);
+
     }else{
 console.log("해당 아이디가 없습니다.")
     }
@@ -91,13 +96,17 @@ console.log("해당 아이디가 없습니다.")
 },[reset])
 
 const deleteUser=()=>{
- if(pw===ckpw&& ckpw===ckpw2){
+ if(pw===ckpw&& ckpw===ckpw2&&userid===ckid){
+  window.localStorage.setItem("userId",null);
+  window.localStorage.setItem("isLogin", "false");
   const deleteUser1 = async () => {
     try {   
     const res = await UserAxiosApi.deleteUser1(userid);
+
+    navigate("/")
   }catch (error) {
     console.log(error);
-  }
+  }   
 }
 deleteUser1();
 
@@ -114,7 +123,7 @@ deleteUser1();
           <ul>
             <li>
               <ChageTitle>삭제 아이디</ChageTitle>
-              <input type="text"></input>
+              <input type="text" value={ckid} onChange={(e) => setCkid(e.target.value)} />
               <ChangnBtn onClick={deleteUser}>삭제</ChangnBtn>
             </li>
             <li>

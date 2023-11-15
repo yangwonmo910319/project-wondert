@@ -29,6 +29,8 @@ const Login = () => {
   //팝업 처리
   const [modalOpen, setModalOpen] = useState(false);
   const closeModal = () => {
+    alert(inputId)
+    alert(inputPw)
     setModalOpen(false);
   };
 
@@ -53,7 +55,7 @@ const Login = () => {
       setPwMessage("숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!");
       setIsPw(false);
     } else {
-      setPwMessage("안전한 비밀번호에요 : )");
+      setPwMessage("");
       setIsPw(true);
     }
   };
@@ -71,7 +73,7 @@ const Login = () => {
     }
   };
  const goHome = ()=>{
-  navigate("/home");
+  navigate("/");
  }
   return (
     <Container>
@@ -106,11 +108,11 @@ const Login = () => {
          아이디 및 패스워드를 확인해 주세요.
        </Modal>
        <Items className="item3">
-       <Items className="signin">
+       {/* <Items className="signin">
          <Link to="/Signup" className="link_style">
          <span>아이디 찾기</span>
          </Link>
-      </Items>
+      </Items> */}
       <Items className="signup">
          <Link to="/Signup" className="link_style">
          <span>회원가입</span>
