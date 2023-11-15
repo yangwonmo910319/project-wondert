@@ -99,11 +99,12 @@ const CourseBtn = ({ world, onAreaChange }) => {
       COURSE_WORLD: "국내",
       COURSE_AREA: "강원도",
       MAIN_IMG:
-        "https://dimgcdn.ybtour.co.kr/TN/10/102dcba9dc5c75a2cfdd85dfcd8fdb80.tn.410x280.jpg",
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/08/b5/b1/gangwon.jpg?w=1100&h=-1&s=1",
     },
   ];
   const filteredData = data.filter((item) => item.COURSE_WORLD === "국내");
   const filteredData2 = data.filter((item) => item.COURSE_WORLD === "해외");
+
   return (
     <>
       <SelectBox>

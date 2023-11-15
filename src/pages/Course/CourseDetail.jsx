@@ -130,7 +130,9 @@ const CourseDetail = () => {
     const CourseDetailItem = async () => {
       try {
         console.log("CouseDetail Call");
-        const resp = await CourseAxiosApi.selectCourseDetail(window.localStorage.getItem("CourseArea")); //전체 조회
+        const resp = await CourseAxiosApi.selectCourseDetail(
+          window.localStorage.getItem("CourseArea")
+        ); //전체 조회
         if (resp.status === 200) setList(resp.data);
         console.log(resp.data);
       } catch (e) {
@@ -167,7 +169,8 @@ const CourseDetail = () => {
                     fontSize: "25px",
                     color: "#ddf2fd",
                   }}
-                >{b.topic}
+                >
+                  {b.topic}
                 </span>
                 <button className="join">즐겨찾기</button>
                 <button onClick={() => navigate(-1)}>뒤로가기</button>
@@ -205,7 +208,6 @@ const CourseDetail = () => {
             </Container3>
           </CourseDetailItem>
         ))}
-      <CourseCom />
     </>
   );
 };

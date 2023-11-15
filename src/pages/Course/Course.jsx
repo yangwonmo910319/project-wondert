@@ -4,7 +4,14 @@ import CourseList from "../../components/course/CourseList";
 import GlobalButton from "../../components/GlobalButton";
 import { useCallback, useState } from "react";
 
+const Box = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 const Coursecss = styled.div`
+  position: relative;
   max-width: 1200px;
   display: flex;
   flex-direction: column;
@@ -25,11 +32,13 @@ const Course = () => {
   };
 
   return (
-    <Coursecss>
-      <br />
-      <GlobalButton onselect={onselect} onselect3={onselect3} />
-      <CourseList world={onselect1} />
-    </Coursecss>
+    <Box>
+      <Coursecss>
+        <br />
+        <GlobalButton onselect={onselect} onselect3={onselect3} />
+        <CourseList world={onselect1} />
+      </Coursecss>
+    </Box>
   );
 };
 
