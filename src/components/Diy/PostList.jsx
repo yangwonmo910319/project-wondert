@@ -14,13 +14,11 @@ const Title = styled.div`
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1220px;
-    height: 400px;
   
   table {
     text-align: center;
-    width: 1220px;
-    height: 300px;
+    width: 100%;
+    height: 100%; 
   }
   th {
     font-weight: bold;

@@ -120,7 +120,7 @@ const TravelCourse = () => {
     const [date, setDate] = useState("");
     const [theme,setTheme] = useState("");
     const [num,setNum] = useState("");
-
+    const [content,setContent] = useState("");
     const world2= window.localStorage.getItem("world");
     const area2 =window.localStorage.getItem("area");
     const to_date2= window.localStorage.getItem("to_date");
@@ -145,23 +145,23 @@ const TravelCourse = () => {
         const TravelCourse = async () => {
             try {
                 const rsp = await DiyAxiosApi.travelContent(window.localStorage.getItem("travelNum"));
-                setTravelCourse(rsp.data);
+                if(rsp.status===200){
+                    setTravelCourse(rsp.data);
+                }           
+            }catch(e) {
+                alert(e);
+            }
+            try {
+                const rsp = await DiyAxiosApi.SelectDIY(window.localStorage.getItem("travelNum"));
+                if(rsp.status===200){
+                    setContent(rsp.data);
+                }
+             
             }catch(e) {
                 alert(e);
             }
         };
-        TravelCourse();
-console.log(travelCourse)
-    // //글을 가져오는 axios실행
-    //   const viewDBdata =await DiyAxiosApi.viewDBdata(num);
-    //   //가져온 글을 getPost통해 저장
-    //  getView(viewDBdata.num);  
-
-    //   //댓글을 가져오는 axios실행
-    //  const selectViewDBdata =await DiyAxiosApi.selectViewDBdata(num);
-    //  //가져온 댓글을 getReply통해 저장
-    //  getSelectView(selectViewDBdata.data)   
-
+        TravelCourse(travelCourse);
     }, []);
 
     return (
@@ -218,8 +218,8 @@ console.log(travelCourse)
                 </p> 
             </TravelTitle>
             <TavelCs>
-                {travelCourse && 
-                travelCourse.map((data) => (
+                {content && 
+                content.map((data) => (
                     <Course1
                     key={data.travel_num} >
                         <Day>Day - {data.d_day}</Day>

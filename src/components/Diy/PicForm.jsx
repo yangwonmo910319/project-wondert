@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { storage } from "../../api/FireBase";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
 import { useEffect } from "react";
+import GoogleMap from "../../utill/googleMap";
 
 const FormContainer = styled.div`
   padding: 50px;
@@ -171,7 +172,6 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
   };
 
   const handleFileInputChange = (e) => {
-    // const fileList = file.concat(e.target.files[0]);
     setFile(e.target.files[0]);
   };
 
@@ -211,7 +211,6 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
         }
       } catch (error) {
         console.log(error);
-        alert("글쓰기 실패22222");
       }
     };
     handleSubmit2();
@@ -266,7 +265,7 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
               <Div><div> Day - {index + 1} </div></Div>
               <FieldContainer>
                 <StyledLabel htmlFor="map">지도</StyledLabel>
-                <div className="map"></div>
+                <div className="map"><GoogleMap/>ㅋㅋㅋㅋ</div>
               </FieldContainer>
               <FileUploadContainer>
                 <StyledLabel htmlFor="picture">사진</StyledLabel>

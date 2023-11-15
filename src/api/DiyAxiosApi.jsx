@@ -19,10 +19,17 @@ const DiyAxiosApi = {
   travelContent: async (travelNum) => {
     console.log(travelNum);
     return await axios.get(
-      WONDER_WALKER + `/DiyPage/Diyview?travelNum=${travelNum}`
+      WONDER_WALKER + `/DiyPage/Diyviewitem?travelNum=${travelNum}`
     );
   },
-
+  
+  // 게시글 상세페이지
+  SelectDIY: async (travelNum) => {
+    console.log(travelNum);
+    return await axios.get(
+      WONDER_WALKER + `/DiyPage/SelectDIY?travelNum=${travelNum}`
+    );
+    },
   // 게시물 등록
   travelInsert: async (userId, world, area, toDate, toDate1, theme, title) => {
     alert(toDate);
@@ -39,7 +46,7 @@ const DiyAxiosApi = {
   },
   // 게시물 등록2
   travelInsert2: async (tvNum, daynum, url, file, content) => {
-
+    alert("axios2");
     const insert2 = {
       tvNum: tvNum,
       day: daynum,
@@ -49,12 +56,16 @@ const DiyAxiosApi = {
     };
     return await axios.post(WONDER_WALKER + "/DiyPage/DiyWrite/days", insert2);
   },
+
+
+
+  
   //즐겨찾기한 내용만 가져오기
   
-  SelectFavor: async (id) => {   
-
-    return await axios.get(WONDER_WALKER + `/DiyPage/SelectFavor/?id=${id}`);
+  SelectFavor: async (type,id) => {   
+    return await axios.get(WONDER_WALKER + `/DiyPage/SelectFavor/?id=${id}&type=${type}`);
   },
-};
 
+
+}
 export default DiyAxiosApi;
