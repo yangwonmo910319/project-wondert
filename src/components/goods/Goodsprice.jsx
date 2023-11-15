@@ -146,7 +146,7 @@ const Goodsprice = (props) => {
 
   // .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 선생님한테 물어봐야지
   const ChangePay = (price)=>{
-    return Intl.NumberFormat('en-IN').format(price);
+    return Intl.NumberFormat('en-US').format(price);
   }
 
 
