@@ -1,26 +1,30 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { storage } from "../../api/FireBase";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
-import Calendar from "react-calendar";
 import { useEffect } from "react";
 
 const FormContainer = styled.div`
   padding: 50px;
   margin: 40px 0px;
-  width: 880px;
-  border: 1px solid #ddd;
+  width: 1200px;
+  border: 1px solid #827e7e;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   background-color: white;
   font-weight: bold;
+  margin: 50px 200px;
 `;
 
 const FieldContainer = styled.div`
-  display: flex;
-  align-items: center; // 수직 방향 중앙 정렬
-  margin-bottom: 20px; // 하단 여백 추가
+    display: flex;
+    justify-content: left;
+    align-items: center; // 수직 방향 중앙 정렬
+    margin-bottom: 20px; // 하단 여백 추가
+    width: 1200px;
+    margin: 20px 100px;
+    
   .map {
     display: flex;
     justify-content: center;
@@ -34,7 +38,6 @@ const FieldContainer = styled.div`
 
 const StyledLabel = styled.label`
   flex: 0 0 100px; // 라벨의 너비 고정
-  margin-right: 10px; // 라벨과 입력 필드 사이 여백
   margin-top: 30px;
 `;
 
@@ -42,13 +45,13 @@ const Title = styled.h1`
   color: #333;
   font-weight: bold;
   display: flex;
-  justify-content: left;
-  margin: 25px 40px;
-  font-size: 17px;
+  justify-content: center;
+  margin: 50px 200px;
+  font-size: 40px;
 `;
 
 const StyledInput = styled.input`
-  width: 90%; // 너비를 100%로 설정하여 컨테이너의 너비에 맞춤
+  width: 70%; // 너비를 100%로 설정하여 컨테이너의 너비에 맞춤
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -92,6 +95,7 @@ const UserImage = styled.img`
   height: 120px;
   border-radius: 5px;
   margin-top: 20px;
+  margin: 20px 200px;
 `;
 
 const UploadButton = styled.button`
@@ -112,20 +116,39 @@ const FileUploadContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 30px 100px;
 `;
 
 const TravelTitle = styled.div`
   font-weight: lighter;
   line-height: 50px;
-  border: 1px solid lightgray;
+  border: 1px solid #827e7e;
   border-radius: 10px;
-  padding: 0px 10px;
+  padding: 30px 40px;
 
   h3 {
     font-weight: bold;
     font-size: 20px;
   }
 `;
+
+const Div = styled.div`
+  font-size: 22px;
+  font-weight: bold;
+  margin: 50px 50px;
+  div {
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+    background-color: #e8e6dd;
+    border-radius: 10px;
+  }
+`;
+
+  const Box = styled.div`
+      border: 1px solid #827e7e;
+      border-radius: 10px;
+  `;
 
 const PicForm = ({ world, area, toDate, toDate1, theme }) => {
   const userId = window.localStorage.getItem("userId");
@@ -239,8 +262,8 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
 
         {listnum.map((e, index) => {
           return (
-            <>
-              <div>{index + 1}-Day</div>
+            <Box>
+              <Div><div> Day - {index + 1} </div></Div>
               <FieldContainer>
                 <StyledLabel htmlFor="map">지도</StyledLabel>
                 <div className="map"></div>
@@ -262,7 +285,7 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
                   onChange={handleContentChange}
                 />
               </FieldContainer>
-            </>
+            </Box>
           );
         })}
         <ButtonContainer>

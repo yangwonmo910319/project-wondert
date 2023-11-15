@@ -7,29 +7,38 @@ import dayjs from 'dayjs';
 
 const now = dayjs(); // 현재 날짜와 시간 가져오기
 console.log(now.format('YYYY-MM-DD')); // 원하는 형식으로 날짜 포맷팅
+
 const Diary = styled.div`
+
   .react-calendar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid lightgray;
+    border: 2px solid #827e7e;
     box-shadow: 0 0 0.5px black;
     width: 500px;
-    height: 520px;
+    height: 550px;
     border-radius: 20px;
+    font-weight: bold;
+    font-size: 15px;
   }
   .react-calendar__month-view__weekdays{
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 15px;
 
   }
   .react-calendar__month-view__weekdays__weekday{
-    margin: 20px 0px;
+    margin: 10px 0px;
     width: 70px;
+    font-weight: bold;
+    font-size: 15px;
 
   }
   .react-calendar__viewContainer {
-    margin: -70px 40px;
+    margin: -130px 40px;
+    font-weight: bold;
+    font-size: 15px;
   }
   .react-calendar__month-view__days {
     border: 1px solid lightgray;

@@ -8,9 +8,9 @@ const Slider = styled.div`
         justify-content: center;
         align-items: center;
         font-weight: bold;
-        font-size: 30px;
+        font-size: 37px;
         padding: 20px 20px;
-        margin-right: 870px; 
+        margin-right: 950px; 
     }
     ul, li {
         list-style: none;
@@ -27,8 +27,8 @@ const Slider = styled.div`
         }
         .lb-wrap {
         width: 70%;
-        margin: 10px auto;
         position: relative;
+        margin: 0 auto;
         } 
         .lb-text {
         display: flex;
@@ -55,7 +55,7 @@ const Slider = styled.div`
             position: relative;
             border-top: 1px solid whitesmoke;
             border-bottom: 1px solid whitesmoke;
-            padding: 40px 0;
+            padding: 50px 0;
 
             &::before {
                 content: "";
@@ -166,7 +166,7 @@ const MainPage = ({temachage}) => {
     
     return (
         <Slider>
-            <p>1인 여행 테마</p>
+            <p>[ 1인 여행 테마 ]</p>
             <div className="slide_container">
                 <ul
                     className="slide_wrapper"

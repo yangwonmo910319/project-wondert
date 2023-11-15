@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import MyCalendar from "./Calendar";
-import PicForm from "./PicForm";
-import { useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
+
 
 const FormContainer = styled.div`
   border: 1px solid lightgray;
-  box-shadow: 0 0 5px lightgray;
+  box-shadow: 0 0 5px #827e7e;
   border-radius: 10px;
-  margin: 60px 60px;
+  margin: 60px 200px;
   padding: 80px 100px;
 
   h2{
-    font-size: 50px;
-    font-weight: bold;
-    margin: 20px 40px;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 35px;
-  }
+  font-size: 50px;
+  font-weight: bold;
+  margin: 20px 40px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 35px;
+}
 `;
 
 const FieldContainer = styled.div`
@@ -27,32 +26,18 @@ const FieldContainer = styled.div`
     display: ${(props) =>(props.radio ? "none" : "")};
     
     p {
-      font-size: 17px;
+      font-size: 20px;
       font-weight: bold;
-      margin: 0 40px;
+      margin: 20px 40px;
     }
     div {
-      margin: 20px 40px;
+      margin: 40px 40px;
       line-height: 30px;
     }
     input {
       margin: 0 15px;
     }
 `;
-
-const SubmitButton = styled.div`
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #21c962;
-      border-radius: 5px;
-      padding: 20px 60px;
-      font-size: 20px;
-      color: white;
-      font-weight: bold;
-`;
-
 
 const WriteForm = ({worldChange,areaChange,setToDate,setToDate1,setTheme}) => {
     const [radio,setRadio]=useState(false);
@@ -91,38 +76,27 @@ const WriteForm = ({worldChange,areaChange,setToDate,setToDate1,setTheme}) => {
         setThemeTitle(false);
       }
     }
- const onChange3 =(e) =>{
-  setThemeTitleValue(e.target.value);
-  setTheme(e.target.value);
- }
-
-    // const navigate = useNavigate();
-    // const handleReset = () => {
-    //   navigate("/DiyPage");
-    // };
-  
+    const onChange3 =(e) =>{
+      setThemeTitleValue(e.target.value);
+      setTheme(e.target.value);
+    }
 
   return (
     <>
     <FormContainer>
-      <h2>여행 후기 글쓰기</h2>
+        <h2>[ 여행 후기 글쓰기 ]</h2>
         <FieldContainer>
-          <p>[ 1. 여행 나라 선택 ]</p>
-            
-            <div>
-        <label htmlFor="apple">
-            <input type="radio" name="world" id="국내" value="국내" onChange={onChangeRadio1}/>국내
-        </label>
-        <br />
-        <label htmlFor="orange">
-            <input type="radio" name="world" id="해외" value="해외" onChange={onChangeRadio1}/>해외
-        </label>
-        <br />
-      </div>
-              {/* <input type="radio" id="world" name="world" value={world} onChange={onChangeRadio1} radio={radio}/>
-              <label htmlFor="world">국내</label>
-              <input type="radio" id="world" name="world" value={world} onChange={onChangeRadio} radio={!radio}/>
-              <label htmlFor="world">해외</label> */}
+          <p>[ 1. 여행 나라 선택 ]</p> 
+                <div>
+            <label htmlFor="apple">
+                <input type="radio" name="world" id="국내" value="국내" onChange={onChangeRadio1}/>국내
+            </label>
+            <br />
+            <label htmlFor="orange">
+                <input type="radio" name="world" id="해외" value="해외" onChange={onChangeRadio1}/>해외
+            </label>
+            <br />
+          </div>
            
         </FieldContainer>
         {radio ===true ?<FieldContainer>
@@ -178,8 +152,6 @@ const WriteForm = ({worldChange,areaChange,setToDate,setToDate1,setTheme}) => {
         </div>
       </FieldContainer>
 }
-      
-     
       <FieldContainer>
         <p>[ 2.여행 날짜 정하기 ]</p>
         <div>
@@ -208,13 +180,8 @@ const WriteForm = ({worldChange,areaChange,setToDate,setToDate1,setTheme}) => {
           <input type="radio" name="diary" id="diary" value={"기타여행"} onChange={onChange1 } onclick={onChange1}/>
           <label htmlFor="diary">#기타여행</label>
            {themeTitle ===true ?     <input type="text" name="text" id="text" placeholder="직접입력" value={themeTitleValue} onChange={onChange3} />    :      <></>} 
-         
           </div>
       </FieldContainer>
-
-      {/* <FieldContainer>
-        <SubmitButton onClick={handleReset}>작성완료</SubmitButton>
-      </FieldContainer> */}
     </FormContainer>
     </>
   );

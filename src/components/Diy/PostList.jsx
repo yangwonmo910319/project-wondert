@@ -14,20 +14,25 @@ const Title = styled.div`
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  width: 1220px;
+    height: 400px;
   
   table {
     text-align: center;
+    width: 1220px;
+    height: 300px;
   }
   th {
     font-weight: bold;
     font-size: 20px;
-    border: 1px solid lightgray;
-    padding: 10px 10px;
+    border: 1px solid gray;
+    padding: 20px 35px;
+    background-color: #f5f1e0;
   }
   td {
-    border: 1px solid lightgray;
+    border: 1px solid gray;
     cursor: pointer;
-    padding: 5px 5px;
+    padding: 15px 15px;
     font-size: 15px;
   }
 `;
@@ -36,11 +41,12 @@ const WriteButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 540px;
   width: 160px;
   margin-top: 20px;
   padding: 10px 15px;
   font-weight: bold;
-  background-color: #4caf50;
+  background-color: #70c873;
   color: white;
   border: 1px solid #ddd;
   border-radius: 8px;

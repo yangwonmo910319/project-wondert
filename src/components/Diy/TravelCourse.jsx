@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
 
@@ -11,16 +10,17 @@ const Course = styled.div`
 
 const TravelTitle = styled.div`
     p {
-    margin: 20px 15px;
+    margin: 20px 35px;
     line-height: 30px;
     }
     h5 {
     font-size: 17px;
     font-weight: bold;
-    margin: 10px 5px;
+    margin: 10px 15px;
     }
     ul {
-        border: 1px solid lightgray;
+        border: 1px solid #827e7e;
+        box-shadow: 0 0 5px #827e7e;
         border-radius: 5px;
         padding: 20px 40px; 
     }
@@ -28,10 +28,11 @@ const TravelTitle = styled.div`
         font-size: 12px;
         list-style: circle;
         line-height: 40px;
+        margin: 0 50px;
     }
     h3 {
     font-weight: bold;
-    margin: 10px 0;
+    margin: 10px 20px;
     }
 `;
 
@@ -85,7 +86,7 @@ const TavelCs = styled.div`
         }
     `;
     const Day = styled.div`
-        font-size: 25px;
+        font-size: 35px;
         font-weight: bold;
         display: flex;
         justify-content: left;
@@ -103,11 +104,6 @@ const TavelCs = styled.div`
         justify-content: center;
         align-items: center;
     `;
-    const Travel3 = styled.div`
-        width: 400px;
-        height: 400px;
-        border: 1px solid lightblue;
-    `;
 
     const FieldContainer = styled.div`
     
@@ -123,8 +119,7 @@ const TravelCourse = () => {
     const [area, setArea] = useState("");
     const [date, setDate] = useState("");
     const [theme,setTheme] = useState("");
-    const navigate = useNavigate();
-
+    const [num,setNum] = useState("");
 
     const world2= window.localStorage.getItem("world");
     const area2 =window.localStorage.getItem("area");
@@ -132,14 +127,6 @@ const TravelCourse = () => {
     const e_Date2= window.localStorage.getItem("e_Date");
     const tv_theme2= window.localStorage.getItem("tv_theme");
 
-
-
-
-
-
-
-
-    
     const handleWorldChange = (e) => {
         setWorld(e.target.value);
       }
@@ -164,9 +151,18 @@ const TravelCourse = () => {
             }
         };
         TravelCourse();
+console.log(travelCourse)
+    // //글을 가져오는 axios실행
+    //   const viewDBdata =await DiyAxiosApi.viewDBdata(num);
+    //   //가져온 글을 getPost통해 저장
+    //  getView(viewDBdata.num);  
+
+    //   //댓글을 가져오는 axios실행
+    //  const selectViewDBdata =await DiyAxiosApi.selectViewDBdata(num);
+    //  //가져온 댓글을 getReply통해 저장
+    //  getSelectView(selectViewDBdata.data)   
+
     }, []);
-
-
 
     return (
         <Course>
@@ -210,16 +206,15 @@ const TravelCourse = () => {
           onChange={handThemeChange}
         ></StyledInput>
       </FieldContainer>
-
                  <p>
-                    <h5>[4. 여행 후기 정보]</h5>
-                        <ul>
-                        <h3>〈내 여행 정보〉</h3>
-                            <li>나라 : {world2}</li>
-                            <li>지역 : {area2}</li>
-                            <li>여행 날짜 : {to_date2} ~ {e_Date2}</li>
-                            <li>여행 테마 : #{tv_theme2}</li>
-                        </ul>
+                    <ul>
+                        <h5>[4. 여행 후기 정보]</h5>
+                    <h3>〈내 여행 정보〉</h3>
+                        <li>나라 : {world2}</li>
+                        <li>지역 : {area2}</li>
+                        <li>여행 날짜 : {to_date2}  ~  {e_Date2}</li>
+                        <li>여행 테마 : #{tv_theme2}</li>
+                    </ul>
                 </p> 
             </TravelTitle>
             <TavelCs>
@@ -227,7 +222,7 @@ const TravelCourse = () => {
                 travelCourse.map((data) => (
                     <Course1
                     key={data.travel_num} >
-                        <Day>Day -{data.d_day}</Day>
+                        <Day>Day - {data.d_day}</Day>
                         <Course1>
                             <div className="travel">
                             <Travel><img src={data.travel_pic} alt="사진" width="400px" height="400px" /></Travel>
