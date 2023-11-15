@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import styled, { css } from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
-import img1 from "../../images/12.png"
+import img1 from "../../images/화살표.png"
 
 const Contetn2Item2Css=styled.div`
 width: 100%;

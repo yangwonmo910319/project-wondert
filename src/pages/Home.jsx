@@ -1,5 +1,5 @@
 import NavBox from "./Header"
-import Img11 from "../images/img1.jpg";
+import Img11 from "../images/img11.jpg";
 import Contetn2Item1 from "../components/home/Contetn2Item1"
 import Contetn2Item2 from "../components/home/Contetn2Item2"
 import Contetn3Item1 from "../components/home/Contetn3Item1"
