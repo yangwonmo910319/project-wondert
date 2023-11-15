@@ -125,6 +125,21 @@ const TravelCourse = () => {
     const [theme,setTheme] = useState("");
     const navigate = useNavigate();
 
+
+    const world2= window.localStorage.getItem("world");
+    const area2 =window.localStorage.getItem("area");
+    const to_date2= window.localStorage.getItem("to_date");
+    const e_Date2= window.localStorage.getItem("e_Date");
+    const tv_theme2= window.localStorage.getItem("tv_theme");
+
+
+
+
+
+
+
+
+    
     const handleWorldChange = (e) => {
         setWorld(e.target.value);
       }
@@ -151,20 +166,7 @@ const TravelCourse = () => {
         TravelCourse();
     }, []);
 
-    const handleSubmit = async () => {
-    
-        try {
-          const rsp = await DiyAxiosApi.travelInsert(world,area,date,theme);
-          if (rsp.data === true) {
-            alert("글쓰기 성공");
-            navigate("/DitPage/Diywrite");
-          } else {
-            alert("글쓰기 실패");
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      };
+
 
     return (
         <Course>
@@ -209,16 +211,16 @@ const TravelCourse = () => {
         ></StyledInput>
       </FieldContainer>
 
-                {/* <p>
+                 <p>
                     <h5>[4. 여행 후기 정보]</h5>
                         <ul>
                         <h3>〈내 여행 정보〉</h3>
-                            <li>나라 : 국내/해외</li>
-                            <li>지역 : 국내지역/해외지역</li>
-                            <li>여행 날짜 : 2023/11/01 ~ 2023/11/05</li>
-                            <li>여행 테마 : #먹방여행</li>
+                            <li>나라 : {world2}</li>
+                            <li>지역 : {area2}</li>
+                            <li>여행 날짜 : {to_date2} ~ {e_Date2}</li>
+                            <li>여행 테마 : #{tv_theme2}</li>
                         </ul>
-                </p> */}
+                </p> 
             </TravelTitle>
             <TavelCs>
                 {travelCourse && 

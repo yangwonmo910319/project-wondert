@@ -36,12 +36,6 @@ const DiyAxiosApi = {
     return await axios.get(WONDER_WALKER + `/Goods?world=${world}`);
   },
 
-  //상품상세페이지 조회
-  goodsInfo: async (itemCode) => {
-    //겟 바디영역
-    return await axios.get(WONDER_WALKER + `/Goods/info?itemCode=${itemCode}`);
-  },
-
   // 여행정보 공유 메인 화면
   travelList: async (world, theme) => {
     return await axios.get(

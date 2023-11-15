@@ -59,8 +59,13 @@ const PostList = ({tema})=> {
   const [world, setWorld] = useState("korea");
   const navigate = useNavigate();
 
-  const onClick =(travelNum)=>{
+  const onClick =(travelNum,world,area,to_date,e_Date,tv_theme)=>{
     window.localStorage.setItem("travelNum",travelNum);
+    window.localStorage.setItem("world",world);
+    window.localStorage.setItem("area",area);
+    window.localStorage.setItem("to_date",to_date);
+    window.localStorage.setItem("e_Date",e_Date);
+    window.localStorage.setItem("tv_theme",tv_theme);
     navigate("/DiyPage/Diyview");
   }
 
@@ -99,7 +104,7 @@ const handleWriteClick = () => {
         </tr>
       {travelList &&
       travelList.map(data => (
-        <tr onClick={()=>onClick(data.travel_num)}>
+        <tr onClick={()=>onClick(data.travel_num,data.travel_world,data.travel_area,data.travel_startdate,data.travel_enddate,data.travel_theme)}>
           <td>{data.travel_num}</td>
           <td>{data.travel_pic} </td>
           <td>{data.travel_title}</td>
