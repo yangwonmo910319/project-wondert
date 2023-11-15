@@ -60,6 +60,11 @@ const AxiosApi = {
     };
     return await axios.post(WONDER_WALKER + "/Goods", Codes);
   },
+   //즐겨찾기한 내용만 가져오기  
+   SelectFavor: async (id) => {   
+     
+    return await axios.get(WONDER_WALKER + `/Goods/SelectFavor/?id=${id}`);
+  },
 };
 
 export default AxiosApi;

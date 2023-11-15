@@ -39,7 +39,7 @@ const DiyAxiosApi = {
   },
   // 게시물 등록2
   travelInsert2: async (tvNum, daynum, url, file, content) => {
-    alert("axios2");
+
     const insert2 = {
       tvNum: tvNum,
       day: daynum,
@@ -51,8 +51,9 @@ const DiyAxiosApi = {
   },
   //즐겨찾기한 내용만 가져오기
   
-  SelectFavor: async (type,id) => {   
-    return await axios.get(WONDER_WALKER + `/DiyPage/SelectFavor/?id=${id}&type=${type}`);
+  SelectFavor: async (id) => {   
+
+    return await axios.get(WONDER_WALKER + `/DiyPage/SelectFavor/?id=${id}`);
   },
 };
 

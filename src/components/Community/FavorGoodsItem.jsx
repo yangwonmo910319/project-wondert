@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled, { css } from "styled-components";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
 import CourseAxiosApi from "../../api/CourseAxiosApi";
+import AxiosApi from "../../api/AxiosApi";
 
 const FavorDiyitemCss = styled.div`
 
@@ -48,7 +49,7 @@ overflow: hidden;
 
 
 `;
-const FavorCourseitem = () => {
+const FavorGoodsItem = () => {
   
   const [list ,setList ]= useState('');
 
@@ -57,7 +58,7 @@ const FavorCourseitem = () => {
     const createCommunity = async()=>{
        try {      
     
-        const postDBdata =await CourseAxiosApi.SelectFavor(window.localStorage.getItem("userId"));     
+        const postDBdata =await AxiosApi.SelectFavor(window.localStorage.getItem("userId"));     
          
         if(postDBdata.status===200){
           setList(postDBdata.data);   
@@ -85,13 +86,13 @@ const FavorCourseitem = () => {
                          
       
                     <Item3>
-                    <img src={it.main_img}></img>
+                    <img src={it.i_main_img}></img>
                     </Item3>         
                     <Item2 >
-                      <Item4><p></p>나라:  {it.course_area}</Item4>
-                      <Item4>  지역:{it.course_hash}</Item4>
-                      <Item4>   지역:{it.travel_area}</Item4>
-                      <Item4>   테마:{it.topic}</Item4>
+                      <Item4><p></p>나라:  {it.i_name}</Item4>
+                      <Item4>  지역:{it.price}</Item4>
+                      <Item4>   지역:{it.tag}</Item4>
+                      <Item4>   테마:{it.title}</Item4>
                       </Item2> 
                    </Item1>
                 
@@ -103,4 +104,4 @@ const FavorCourseitem = () => {
   );
 };
 
-export default FavorCourseitem;
+export default FavorGoodsItem;

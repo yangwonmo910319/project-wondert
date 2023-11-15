@@ -9,14 +9,14 @@ height: auto;
   .memo {
     width: 95%;
     font-size: 25px;
-    border-bottom: 5px solid  #F4CE14;
+    border-bottom: 5px solid rgba(72, 100, 224, 1);
     display: flex; 
 
   }
 `;
 
 const FavorDiy = () => {
-  const [type , setType]  = useState('TRAVEL_INFO_TB.TRAVEL_NUM');
+
   return (
     <>
        <FavorDiyCss>
@@ -24,7 +24,7 @@ const FavorDiy = () => {
           <h3>DIY 여행일지</h3>        
         </div>
         <div className="itetm">
-          <FavorDiyitem type={type}></FavorDiyitem>
+          <FavorDiyitem ></FavorDiyitem>
         </div>
 
         </FavorDiyCss>
