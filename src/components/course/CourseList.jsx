@@ -4,7 +4,7 @@ import CourseItem from "./CourseItem";
 import styled from "styled-components";
 
 const CourseNavbar = styled.div`
-  display: flex;
+  display: flexbox;
   flex-direction: column;
   justify-content: center;
   align-items: center;
