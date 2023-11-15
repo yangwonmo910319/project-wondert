@@ -91,7 +91,7 @@ const Login = () => {
       </Hint>
 
       <Items className="item2">
-        <Input placeholder="패스워드" value={inputPw} onChange={onChangePw} />
+        <Input type="password" placeholder="패스워드" value={inputPw} onChange={onChangePw} />
       </Items>
       <Hint>
         {inputPw.length > 0 && (

@@ -2,22 +2,21 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 const CommunityMenuvar = styled.div`
-  background:rgba(72, 100, 224, 1);
+  background: #F4CE14;
   height: auto;
-  color: white;
   margin-top: 100px;
 min-width: 700px;
+
   a {
+    color: black;
     text-decoration: none;
-    color: white;
   }
   li {
     width: 80px;
-    border-right:rgba(255, 255, 255, 0.2) 2px solid;
-    border-left:rgba(255, 255, 255, 0.2) 2px solid;
+    border-right:black 2px solid;
+    border-left:black 2px solid;
     display: inline-block;
     margin: 8px 20px;
-    color: white;
     text-decoration-line: none;
     text-align:center
   }

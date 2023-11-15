@@ -25,7 +25,7 @@ const SubMenuvar = styled.div`
     color: black;
   }
   p {
-    border-bottom: 5px solid rgba(72, 100, 224, 1);
+    border-bottom: 5px solid  #F4CE14;
     font-size: 25px;
   }  
   li {

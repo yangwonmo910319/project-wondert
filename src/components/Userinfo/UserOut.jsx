@@ -9,7 +9,7 @@ margin-top: 50px;
   .memo {
     width: 500px;
     font-size: 25px;
-    border-bottom: 5px solid rgba(72, 100, 224, 1);
+    border-bottom: 5px solid  #F4CE14;
     display: flex;
     p {
       font-size: 12px;
@@ -55,8 +55,7 @@ const ChangnBtn = styled.button`
   
 margin-left: 120px;
   &:hover {
-    background:  rgba(72, 100, 224, 1);
-   color:white;
+    background:   #F4CE14;
   }
 
 
