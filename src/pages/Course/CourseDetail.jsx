@@ -49,6 +49,11 @@ const Container2 = styled.div`
     height: 40px;
     padding: 10px 16px;
     margin: 10px;
+    font-weight: bold;
+    background-color: #164863;
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
   }
 `;
 const Container3 = styled.div`
@@ -173,7 +178,9 @@ const CourseDetail = () => {
                   {b.topic}
                 </span>
                 <button className="join">즐겨찾기</button>
-                <button onClick={() => navigate(-1)}>뒤로가기</button>
+                <button className="join" onClick={() => navigate(-1)}>
+                  뒤로가기
+                </button>
               </div>
             </Container2>
             <Container3>
