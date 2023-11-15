@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Test from "./pages/Test";
 import Login from "../src/pages/Login";
 import SignUP from "../src/pages/SignUp";
-import Main from "./pages/Main";
 import Myinfo from "./pages/Myinfo";
 import CommunityList from "./components/Community/CommunityList"
 import DiyPage from "../src/pages/DIY/DiyPage";
@@ -59,7 +58,6 @@ function App() {
             <Routes>
               {/*헤더영역 공통 레이아웃*/}
               <Route path="/CommunityList" element={<CommunityList />} />
-              <Route path="/Home" element={<Main />} />
               <Route path="/Test" element={<Test />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/SignUP" element={<SignUP />} />

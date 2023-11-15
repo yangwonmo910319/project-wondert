@@ -69,7 +69,7 @@ const Footer = styled.div`
   justify-content: center;
   width: 100vw;
   height: 250px;
-  margin-top: 100px;
+  margin-top: 200px;
   background-color: #F4CE14;
   .footerBox{
   display: flex;
@@ -110,10 +110,7 @@ const Footer = styled.div`
       color:black;
       flex-direction: column;
     }
-  }
-
-
-`;
+  }`;
 
 
 

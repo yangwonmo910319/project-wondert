@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from "react"
 import { Wrapper } from '@googlemaps/react-wrapper';
 import styled from "styled-components";
+
+
 const GoogleMap = () => {
   // 커스텀 컴포넌트의 내용을 작성해주세요.
   return (
 
-    <Wrapper apiKey="AIzaSyAySVaVGC3nua0gnedaSojE748USAHbXhk11" libraries={"place"} >
-      <CustomComponent></CustomComponent>
+    <Wrapper apiKey="AIzaSyD7nXAo-mxo73oQu-VXe_zmZObQ6Qh9nbk" >
+      <CustomComponent/>
     </Wrapper>
   );
 };

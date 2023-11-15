@@ -30,8 +30,8 @@ const FieldContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 700px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     border: 1px solid lightgray;
     border-radius: 5px;
   }
@@ -62,7 +62,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledTextarea = styled.textarea`
-  width: 90%; // 너비를 100%로 설정하여 컨테이너의 너비에 맞춤
+  width: 700px; // 너비를 100%로 설정하여 컨테이너의 너비에 맞춤
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -265,7 +265,7 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
               <Div><div> Day - {index + 1} </div></Div>
               <FieldContainer>
                 <StyledLabel htmlFor="map">지도</StyledLabel>
-                <div className="map"><GoogleMap/>ㅋㅋㅋㅋ</div>
+                <div className="map"> <GoogleMap/></div>
               </FieldContainer>
               <FileUploadContainer>
                 <StyledLabel htmlFor="picture">사진</StyledLabel>
@@ -291,7 +291,9 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
           <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
           <SubmitButton onClick={handleReset}>취소</SubmitButton>
         </ButtonContainer>
+        
       </FormContainer>
+
     </>
   );
 };

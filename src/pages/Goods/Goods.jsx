@@ -37,7 +37,7 @@ const Goods = () => {
     <>
       <Center style={{ justifyContent: "end", alignItems: "row" }}>
         <GlobalButton onselect={onselect} onselect3={onselect3} />
-        <p>선택된 값 : {onselect1} {onselect2}</p>
+
       </Center>
       <Center>
         <ImgSlide worlds={onselect1} aeraSelect={aeraSelect}/>
@@ -45,6 +45,7 @@ const Goods = () => {
       <Center>
         <Goodsbox worlds={onselect1} aeraSelect={onselect2} />
       </Center>
+      
     </>
   );
 };

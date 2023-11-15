@@ -2,8 +2,10 @@ import styled, { css } from "styled-components";
 import { useState, useEffect } from "react";
 import AxiosApi from "../../api/AxiosApi";
 import Modal from "../../utill/Modal";
+import GoogleMap from "../../utill/googleMap";
 
 const Container = styled.div`
+
   width: 1000px;
   height: 280px;
   h1 {
@@ -122,6 +124,8 @@ const CancleButton = styled.button`
   width: 50px;
   height: 25px;
   cursor: pointer;
+  
+  
 `;
 
 const Goodscancle1 = () => {
@@ -249,7 +253,12 @@ const Goodscancle1 = () => {
           <SellButton Buttonstlye={true}>장바구니</SellButton>
           <SellButton Buttonstlye={true}>홈으로</SellButton>
         </div>
+        
       </Container>
+
+
+
+
       <Modal type={1} open={modalOpen} close={closeModal} confirm={()=>SaleCancle(window.localStorage.getItem("Cancle_num"))} header="취소 확인">
                 정말 취소 요청 하시겠습니까? 
       </Modal>

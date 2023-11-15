@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import DiyAxiosApi from "../../api/DiyAxiosApi";
+import GoogleMap from "../../utill/googleMap";
 
 const Course = styled.div`
     display: flex;
@@ -156,7 +157,6 @@ const TravelCourse = () => {
                 if(rsp.status===200){
                     setContent(rsp.data);
                 }
-             
             }catch(e) {
                 alert(e);
             }
@@ -226,6 +226,7 @@ const TravelCourse = () => {
                         <Course1>
                             <div className="travel">
                             <Travel><img src={data.travel_pic} alt="사진" width="400px" height="400px" /></Travel>
+                            <GoogleMap/>
                             </div>
                             <div>
                             <Travel2>{data.travel_writing}</Travel2>
