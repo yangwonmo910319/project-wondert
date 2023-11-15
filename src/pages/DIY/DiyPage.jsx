@@ -20,22 +20,18 @@ const DiyPage = () =>{
     }
 
     const [onselect1, setOnselect1] = useState("korea");
-    const [onselect2, setOnselect2] = useState("ALL");
     const onselect = (sel) => {
         setOnselect1(sel);
     };
-    const aeraSelect = (sel1) => {
-        setOnselect2(sel1);
-    };
-    const onselect3 = () => {
-        setOnselect2("ALL");
+    const onselect3 = (sel) => {
+        console.log(sel)
     };
 
     return(
         <Center>
-          <GlobalButton onselect={onselect} onselect3={onselect3}/>
+          <GlobalButton onselect={onselect} onselect3={onselect3} />
           <MainPage temachage={temachage} />
-          <PostMain tema={tema} />
+          <PostMain tema={tema} world={onselect1}/>
         </Center>
     );
 };

@@ -5,7 +5,7 @@ const PostMain = (props) => {
 
   return (
     <>
-      <PostList tema={props.tema}/>
+      <PostList tema={props.tema} world={props.world}/>
     </>
   )
 }

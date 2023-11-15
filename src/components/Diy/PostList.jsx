@@ -53,10 +53,8 @@ const WriteButton = styled.div`
   }
 `;
 
-const PostList = ({tema})=> {
+const PostList = ({tema,world})=> {
   const [travelList, setTravelList] = useState("");
-  const [theme,setTheme] = useState(tema); 
-  const [world, setWorld] = useState("korea");
   const navigate = useNavigate();
 
   const onClick =(travelNum,world,area,to_date,e_Date,tv_theme)=>{
