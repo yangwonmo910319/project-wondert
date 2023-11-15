@@ -52,6 +52,8 @@ const Slider = styled.div`
         text-align: center;
         justify-content: center;
         position: absolute;
+        flex-direction: row;
+        margin-top: -50px;
         right:0;
         left: 0;
         top: 300px;
@@ -62,6 +64,17 @@ const Slider = styled.div`
             color: white;
             text-shadow: 0 5px 10px black;
         }
+        .lb-text p {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-left: 10px;
+            text-shadow: 0 5px 10px black;
+            margin-bottom: 600px;
+            width: 100%;
+            background-color: red;
+        }
+
 
         .slide {
 
@@ -116,13 +129,9 @@ const Slider = styled.div`
                     }
                 }
                 &.big {
-                    width: 20px;
-                    height: 280px;
-                }
-                &.small {
                     width: 250px;
                     height: 400px;
-                    margin: 0 40px;
+                    margin: 0 40px;     
                 }
                 .item {
                     background-size: cover;
@@ -159,14 +168,14 @@ const Slider = styled.div`
 `;
 
 const slides = [
-    { url:"https://mblogthumb-phinf.pstatic.net/MjAyMjAzMjRfNTcg/MDAxNjQ4MDg1MTgxMDM3.bAq_2YbMdcgm2LXEradc4LdjcNL90ltQqlZWTJ9GvFwg.9Ve6rojkneVGoBTCpRskuXs9e6vQeEKjtnSXA4wYKPIg.JPEG.travelgeo/IMG_3753.jpg?type=w800", target: "#", title: "서울"},
-    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL2sbIdSpBZ39Ho9ZQHGZBB-9NT5vArXJu-A&usqp=CAU", target: "#" , title:"21"},
-    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeGE-JNt8iF6vkqcJVrDTmvlm34OO5g7TMtA&usqp=CAU", target: "#", title:"10" },
-    { url:"https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/STq/image/8EAUTOLyees0927ctrPSCXkUn0U.jpg", target: "#" , title:"12"},
-    { url:"https://res.cloudinary.com/kyte/image/upload/w_1080,h_1560,q_auto,f_auto,e_sharpen:50,c_fill,g_auto/v1636348646/content/shutterstock/FI/rovaniemi_3", target: "#" , title:"11"},
+    { url:"https://mblogthumb-phinf.pstatic.net/MjAyMjAzMjRfNTcg/MDAxNjQ4MDg1MTgxMDM3.bAq_2YbMdcgm2LXEradc4LdjcNL90ltQqlZWTJ9GvFwg.9Ve6rojkneVGoBTCpRskuXs9e6vQeEKjtnSXA4wYKPIg.JPEG.travelgeo/IMG_3753.jpg?type=w800", target: "C1", title: "전주"},
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL2sbIdSpBZ39Ho9ZQHGZBB-9NT5vArXJu-A&usqp=CAU", target: "#" , title:"제주도"},
+    { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeGE-JNt8iF6vkqcJVrDTmvlm34OO5g7TMtA&usqp=CAU", target: "#", title:"부산" },
+    { url:"https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/STq/image/8EAUTOLyees0927ctrPSCXkUn0U.jpg", target: "C2" , title:"대만", ment:"# 대만여행의 꽃 예스진지"},
+    { url:"https://res.cloudinary.com/kyte/image/upload/w_1080,h_1560,q_auto,f_auto,e_sharpen:50,c_fill,g_auto/v1636348646/content/shutterstock/FI/rovaniemi_3", target: "C6" , title:"일본"},
     { url:"https://cdn.3hoursahead.com/v2/content/image-comp/feff4170-bacd-4a4d-acd9-8601ac17cf06.webp", target: "#" , title:"상하이"},
     { url:"https://news.airbnb.com/wp-content/uploads/sites/4/2022/04/VILLA-SANGLUNG.jpeg?fit=1024%2C678", target: "#" , title:"제주도"},
-    { url:"https://assets.blog.engoo.com/wp-content/uploads/sites/2/2022/01/14205148/%ED%98%BC%EC%9E%90%EC%97%AC%ED%96%89-back-image-%EB%B3%B5%EC%82%AC.jpg", target: "#" , title:"대만"}
+    { url:"https://assets.blog.engoo.com/wp-content/uploads/sites/2/2022/01/14205148/%ED%98%BC%EC%9E%90%EC%97%AC%ED%96%89-back-image-%EB%B3%B5%EC%82%AC.jpg", target: "#" , title:"싱가폴"}
 ];
 
 
@@ -177,9 +186,10 @@ const Contetn3Item1=()=>{
     const navigate = useNavigate();
 
 
-    const GoodsLink =(num)=>{
-        window.localStorage.setItem("itemcode",num);
-        navigate("/Goods/info");
+    const GoodsLink =(couse)=>{
+      
+        window.localStorage.setItem("CourseArea",couse);
+        navigate("/Course/Info");
     }
 return(
     <>
@@ -205,12 +215,17 @@ return(
                         {slides.map((s, i) => (
                             <li
                                 key={i}
-                                className={i > 200 ? "big" : "small"}
-                                onClick={()=>GoodsLink(s.title)}
+                                className={"big" }
+                                onClick={()=>GoodsLink(s.target)}
                             >
                             <div className="lb-wrap">
                                 <div className="lb-text">
                                     <h2>{s.title}</h2>
+                               
+                                </div>
+                                <div className="lb-text">
+                             
+                                     <p>{s.ment}</p>
                                 </div>
                             </div>
 
@@ -228,11 +243,13 @@ return(
                         {slides.map((s, i) => (
                             <li
                                 key={i}
-                                className={i > 200  ? "big" : "small"}
+                                className={"big"}
+                                onClick={()=>GoodsLink(s.title)}
                             >
                              <div className="lb-wrap">
                                 <div className="lb-text">
                                     <h2>{s.title}</h2>
+                                    <p>{s.ment}</p>
                                 </div>
                             </div>
                                                                     
