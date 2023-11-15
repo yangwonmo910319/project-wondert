@@ -17,13 +17,6 @@ const Content1=styled.div`
  height: 100vh;
  width: 100vh;
  bottom: 80px;
-/* .Content1Nav{  
-    position: relative;
-    color:white;
-    left: -50;
-    z-index: 2;
-    top:0;
-}  */
  .Content1mentimg{
     position: relative;
     z-index: 1;
@@ -87,12 +80,7 @@ const Content4=styled.div`
  margin: 100px auto;
  
 `;
-const Content5=styled.div`
-    max-width: 1200px;
-        min-width: 600px;
-        height: auto;
- margin: 100px auto;
-`;
+
 const Home=() =>{
 
 
@@ -135,10 +123,6 @@ const Home=() =>{
     </div>       
     <Contetn4Item1></Contetn4Item1>
    </Content4>
-   <Content5>
-   <Contetn5Item1></Contetn5Item1>
-
-   </Content5>
 
 
   </HomeCss>

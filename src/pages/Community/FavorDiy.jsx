@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 const FavorDiyCss = styled.button`
   color: red;
+  height:100px;
 `;
 const FavorDiy = () => {
   return (

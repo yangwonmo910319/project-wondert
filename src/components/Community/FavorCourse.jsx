@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import FavorCourseitemjsx from "./FavorDiyitem";
+import { useState } from "react";
 
 const FavorCourseCss = styled.div`
 margin-left: -100px;
@@ -14,6 +15,7 @@ margin-top: 50px;
 `;
 
 const FavorCourse = () => {
+  const [type , setType]  = useState('TRAVEL_INFO_TB.TRAVEL_NUM');
   return (
     <>
        <FavorCourseCss>
@@ -21,7 +23,7 @@ const FavorCourse = () => {
           <h3>추천 코스</h3>        
         </div>
         <div className="itetm">
-          <FavorCourseitemjsx></FavorCourseitemjsx>
+          <FavorCourseitemjsx type={type}></FavorCourseitemjsx>
         </div>
 
         </FavorCourseCss>

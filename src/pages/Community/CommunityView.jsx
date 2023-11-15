@@ -150,6 +150,7 @@ const CommunityView = () => {
   }
   //링크로 넘어온 글 번호를 저장
 const {num} = useParams();
+
 //데이터베이스에서 넘어온 글을담음
 const [post,getPost]=useState('');
 //데이터베이스에서 넘어온 댓글을 담음

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 const CommunityMenuvar = styled.div`
   background:rgba(72, 100, 224, 1);
-  height: 35px;
+  height: auto;
   color: white;
   margin-top: 100px;
 min-width: 700px;

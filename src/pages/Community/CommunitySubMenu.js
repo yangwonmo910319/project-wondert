@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { Link, Outlet } from "react-router-dom";
 const CommunitySubMenuvar = styled.div`
   width: 100%;
-  height: 1000px;
+  height: auto;
   margin-top: 100px;
   padding: 0;
   display: flex;
@@ -13,7 +13,7 @@ const CommunitySubMenuvar = styled.div`
   }
 `;
 const SubMenuvar = styled.div`
-  height: 600px;
+height: auto;
   margin-top: 46px;
   width: 300px;
   a {
@@ -30,7 +30,7 @@ const SubMenuvar = styled.div`
 `;
 const SubMenuContent = styled.div`
   margin-left: 15%;
-  height: 100%;
+  height: auto;
   width: 100%;
   color: black;
 `;

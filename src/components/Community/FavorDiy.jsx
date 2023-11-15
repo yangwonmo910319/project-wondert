@@ -1,9 +1,11 @@
 import styled, { css } from "styled-components";
 import FavorDiyitem from "./FavorDiyitem";
+import { useState } from "react";
 
 const FavorDiyCss = styled.div`
 margin-left: -100px;
 margin-top: 50px;
+height: auto;
   .memo {
     width: 95%;
     font-size: 25px;
@@ -14,6 +16,7 @@ margin-top: 50px;
 `;
 
 const FavorDiy = () => {
+  const [type , setType]  = useState('TRAVEL_INFO_TB.TRAVEL_NUM');
   return (
     <>
        <FavorDiyCss>
@@ -21,7 +24,7 @@ const FavorDiy = () => {
           <h3>DIY 여행일지</h3>        
         </div>
         <div className="itetm">
-          <FavorDiyitem></FavorDiyitem>
+          <FavorDiyitem type={type}></FavorDiyitem>
         </div>
 
         </FavorDiyCss>

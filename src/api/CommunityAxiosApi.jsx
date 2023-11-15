@@ -14,6 +14,7 @@ SelectAllCommunity: async () => {
 SelectOneCommunity: async (num) => {
 
     return await axios.get(WONDER_WALKER +`/community/SelectOneCommunity/?num=${num}`);
+    
   },
   
 // 글에 따른 댓글 모두 가져오기
