@@ -9,7 +9,7 @@ height: auto;
   .memo {
     width: 95%;
     font-size: 25px;
-    border-bottom: 5px solid rgba(72, 100, 224, 1);
+    border-bottom: 5px solid #F4CE14;
     display: flex; 
 
   }

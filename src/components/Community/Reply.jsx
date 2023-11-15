@@ -15,6 +15,7 @@ display: flex;
 margin-top: 10px;
 `;
 const SearchVar=styled.input`
+border-radius:10px;
 width: 100%;
 height: 30px;
 
@@ -22,7 +23,9 @@ height: 30px;
 const SearchBtn=styled.button`
 width: 60px;
 height: 30px;
-
+border-radius:5px ;
+margin-left: 10px;
+ background-color:  #F4CE14;;
 `;
 const Write=styled.button`
 width: 80px;

@@ -10,7 +10,7 @@ import CommunityAxiosApi from "../../api/CommunityAxiosApi";
 
 
 const CommunityCss = styled.div`
-
+max-width: 1200px;
 width: 80%;
 margin: 0 auto;
 `;
@@ -19,8 +19,8 @@ width: 10%;border-left:  1px solid #808080;
 `;
 const Itemp=styled.div`
 width: 20%;
-border-left:  1px solid blue;
-border-right:  1px solid blue;
+border-left:  1px solid  black;
+border-right:  1px solid black;
 `;
 const Item2=styled.div`
 
@@ -43,7 +43,7 @@ const Content1=styled.div`
   width: 100%;
   height: auto;
   color:black;
-  border:1px solid #808080;
+  border:1px solid black;
   display: flex;
   font-size: .8em;
   text-align: center;
@@ -62,7 +62,7 @@ const Contentinput=styled.textarea`
 const Content2=styled.div`
   width: 100%;
   height: 500px;
-  border: 1px solid #808080;
+  border: 1px solid black;
   border-radius: 10px;
   text-align: center;
   display: flex;
@@ -85,24 +85,26 @@ const Content2=styled.div`
   }
 `;
 const Editbtn=styled.button`
-margin: 0 auto;
+margin: 5px auto;
+border-radius: 5px;
     width: 20%;
     padding: 3px;
+    background-color:  #F4CE14;
 `;
 const Deletebtn=styled.button`
     width: 20%;
+       background-color:  #F4CE14;
       padding: 3px;
+      border-radius: 5px;
       margin: 0 auto;
       margin-left: 10px;
 `;
 
 const Content3=styled.div`
   width: 100%;
-  height: 50px;
-  
+  height: 50px;  
   border-radius: 10px;
-  text-align: center;
- 
+  text-align: center; 
   padding: 7px;
   margin-top: 10px;
 
@@ -133,7 +135,7 @@ const Menu=styled.div`
   p{
     width: 180px; 
 
-    border-bottom: 3px solid  #808080;
+    border-bottom: 3px solid  #F4CE14;
   }
 `;
 const CommunityView = () => {
@@ -158,6 +160,7 @@ const [reply,getReply]=useState('');
 //useEffect는 reset값이 바뀌면 실행되게 작성. 
 //댓글 추가,삭제 axios를 실행 후 reset값을 바꿔서 useEffect를 실행하여 추가 삭제된 화면을 새로 보여줌
 const [reset,setReset]=useState(false);
+
 //게시글 보여줄때 실생하여 글과 댓글을 데이터베이스에서 가져오고 
 //종속성배열을 이용하여  reset 값이 바뀌면 useEffect가실행
 useEffect(()=>{

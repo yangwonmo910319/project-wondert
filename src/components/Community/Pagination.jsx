@@ -4,14 +4,15 @@ width: 100%;
 height: auto;
   display:  flex;
 justify-content: center;
-
+ 
 button{
   border-radius: 8px;
   margin: 0 5px;
   height:25px;
+  background-color:  #F4CE14;
 }
 button:active{
-  background-color:blue;
+  background-color: #e0ded4;
 }
 `
 export function Pagination({
@@ -51,7 +52,7 @@ export function Pagination({
           key={page}
           onClick={() => handlePageChange(page)} // 수정된 부분
           className={currentPage === page ? "active" : ""}
-          style={currentPage === page ? { backgroundColor: "blue" } : {}}
+          style={currentPage === page ? { backgroundColor: " #fcfcfc" } : {}}
         >
           {page}
         </button>

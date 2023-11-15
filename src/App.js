@@ -65,7 +65,7 @@ function App() {
               <Route path="/SignUP" element={<SignUP />} />
               <Route element={<Header white={false}/>}>
                 {/*메인 영역*/}
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home/>} />
                 <Route path="/Course" element={<Course />} />
                 <Route path="/Diypage" element={<DiyPage />} />
                 <Route path="/Diypage/DiyWrite" element={<DiyWrite />} />
