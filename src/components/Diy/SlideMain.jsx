@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import GlobalButton from "../GlobalButton";
 
 
 const Slider = styled.div`
@@ -168,7 +167,6 @@ const MainPage = ({temachage}) => {
     return (
         <Slider>
             <p>1인 여행 테마</p>
-            <GlobalButton />
             <div className="slide_container">
                 <ul
                     className="slide_wrapper"
