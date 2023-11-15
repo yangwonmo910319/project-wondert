@@ -101,8 +101,7 @@ const ChangePwd = () => {
   const [reset,setReset]=useState(false);
 
   const chageSecret = ()=>{
-    alert(pw) 
-    alert(ckpw) 
+ 
     if(pw===ckpw){
       setSecret(true)
     }else{  

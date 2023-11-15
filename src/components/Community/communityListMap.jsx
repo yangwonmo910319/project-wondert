@@ -8,7 +8,7 @@ const CommunityListMapCss=styled.div`
 const Content3=styled.div`
   width: 100%;
   height: auto;
-  border: 1px solid blue;
+  border: 1px solid  #000000;
   border-radius: 10px;
   text-align: center;
     display: flex;

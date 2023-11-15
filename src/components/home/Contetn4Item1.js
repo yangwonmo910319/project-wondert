@@ -83,9 +83,9 @@ const Contetn4Item1Css = styled.div`
 const Contetn4Item1=()=>{
  const [Img1,setImg]=useState("http://img-kyowontour.kyowontour.com/hp/202310/20231012132433295crhfghqsyrihvee.png");
 const Imgurl1 =["http://img-kyowontour.kyowontour.com/hp/202310/20231012132433295crhfghqsyrihvee.png","123"];
-const Imgurl2 =["https://img4.tmon.kr/cdn4/deals/2022/06/14/11551482302/summary_14779.jpg","144"];
-const Imgurl3 =["http://img-kyowontour.kyowontour.com/hp/202310/20231012132433295crhfghqsyrihvee.png","555"];
-const Imgurl4 =["http://img-kyowontour.kyowontour.com/hp/202311/20231108150930236xvmmxrhqmtmaicr.jpg","666"];
+const Imgurl2 =["https://cf.bstatic.com/xdata/images/hotel/max1024x768/55025714.jpg?k=ccd362a0f43fd0277eac12c075483d8c11442d4275923cd29e21238889cd313d&o=&hp=1","144"];
+const Imgurl3 =["https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%9D%B8%EC%B2%9C%2F%E1%84%8F%E1%85%A9%E1%84%90%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%82%E1%85%A1%E1%84%87%E1%85%A1%E1%86%AF%E1%84%85%E1%85%AE3.jpeg?alt=media&token=b9b979c7-1edf-474a-aab7-10e5707ba6f8","555"];
+const Imgurl4 =["https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%9D%B8%EC%B2%9C%2F%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A83.jpeg?alt=media&token=5d4099df-8c50-4bd0-b512-dcee28c75dbc","666"];
  
 
 const Link123=(e)=>{
@@ -100,9 +100,9 @@ return(
            <div className="item2" >
             <div className="item2-1">  <p>여행자들의 추천</p></div>
             <div className="item2-2"><p>가장 사랑받는 여행지<br></br> 이렇게 즐겨보세요</p></div></div>
-           <div  className="item3 " onClick={()=>{Link123(Imgurl2[1])}} onMouseOver={()=>{setImg(Imgurl2[0])}}> <div  className="item3-1"><h1># 춘천의 랜드마크</h1></div><div  className="item3-2"><h1>산과 호수를 잇는 국내 최장 케이블카</h1></div></div>
-           <div className="item4 " onClick={()=>{Link123(Imgurl3[1])}} onMouseOver={()=>{setImg(Imgurl3[0])}}><div  className="item4-1"><h1># No.2</h1></div></div>
-           <div  className="item5 " onClick={()=>{Link123(Imgurl4[1])}} onMouseOver={()=>{setImg(Imgurl4[0])}}><div  className="item5-1"><h1># No.3</h1></div></div>
+           <div  className="item3 " onClick={()=>{Link123(Imgurl2[1])}} onMouseOver={()=>{setImg(Imgurl2[0])}}> <div  className="item3-1"><h1># 마카오 </h1></div><div  className="item3-2"><h1>맛과 즐거움이 가득한</h1></div></div>
+           <div className="item4 " onClick={()=>{Link123(Imgurl3[1])}} onMouseOver={()=>{setImg(Imgurl3[0])}}><div  className="item4-1"><h1># 말레이시아</h1></div><div  className="item4-2"><h1>눈부신 여행이야기</h1></div></div>
+           <div  className="item5 " onClick={()=>{Link123(Imgurl4[1])}} onMouseOver={()=>{setImg(Imgurl4[0])}}><div  className="item5-1"><h1># 부산 해운대</h1></div><div  className="item5-2"><h1>즐거운 겨울바다</h1></div></div>
 
         </div>
     

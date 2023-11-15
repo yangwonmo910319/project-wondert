@@ -28,12 +28,17 @@ const Content1=styled.div`
   font-size: 25px;
   p{
     width: 180px;
-    border-bottom: 3px solid rgba(72, 100, 224, 1);;
+    border-bottom: 3px solid  #F4CE14;
   }
 `;
 const Item1=styled.div`
 
 width: 140px;
+p{
+  margin-top: 5px;
+  border-right: 1px solid #000000;
+
+}
 `;
 const Item2=styled.div`
 width: 100%;
@@ -43,16 +48,12 @@ width: 100%;
 const Content2=styled.div`
   width: 100%;
   height: 25px;
-  color:white;
-  background: rgba(72, 100, 224, 1);
+ 
+  background:  #F4CE14;
   display: flex;
   font-size: 14px;
   text-align: center;
-p{
-  margin-top: 5px;
-  border-right: 1px solid blue;
 
-}
 
   
 `;
@@ -72,12 +73,15 @@ margin-top: 40px;
 width: 100%;
 display: flex;
 `;
+const Item4=styled.div`
+width: 140px;
+margin-top: 5px;
+`;
 const Serch=styled.div`
 margin-left: 80px;
 width: 70%;
 height: 30px;
 border-radius: 10px;
-background-color: #dfdfdf;
 display: flex;
 `;
 const SerchVar=styled.input`
@@ -88,12 +92,16 @@ height: 30px;
 const SerchBtn=styled.button`
 width: 60px;
 height: 30px;
-
+background-color: #F4CE14;
+border: 1px solid black;
+border-radius: 10px;
 `;
 const Write=styled.button`
 width: 80px;
 height: 30px;
-background-color: #dfdfdf;
+background-color: #F4CE14;
+border: 1px solid black;
+border-radius: 10px;
 margin-left:70px ;
 `;
 
@@ -154,7 +162,7 @@ const handlePageChange = (pageNumber) => {
         <Item2>  <p >제목</p></Item2>
         <Item1>   <p  >글쓴이</p></Item1>
         <Item1>  <p  >등록일</p></Item1>
-        <Item1>   <p  >조회수</p></Item1>
+        <Item4>   <p  >조회수</p></Item4>
         </Content2>
 
                <CommunityListMap list={currentPosts} />

@@ -103,7 +103,7 @@ const Item4=styled.button`
     background-color:#dfdfdf;
     border-radius: 10px;
      &:active{   
-      background:rgba(72, 100, 224, 1);
+      background: #F4CE14;;
     }
 `;
 const Menu=styled.div`
@@ -113,7 +113,7 @@ const Menu=styled.div`
   font-size: 25px;
   p{
     width: 180px;
-    border-bottom: 3px solid rgba(72, 100, 224, 1);;
+    border-bottom: 3px solid  #F4CE14;
   }
 `;
 
