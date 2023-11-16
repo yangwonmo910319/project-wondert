@@ -90,29 +90,34 @@ width: 50px;
   }
  }
 `;
+const Memo=styled.div`
+color: red;
+margin-top: -50px;
+`;
 const ChangePwd = () => {
   const userid=window.localStorage.getItem("userId");
   const [pw,setPw]=useState('');
   const [ckpw,setckPw]=useState('');
   const [newpw,setnewPw]=useState('');
   const [newpw2,setnewPw2]=useState('');
-
+  const [memo,setMemo] = useState('');
   const [secret,setSecret] = useState(false);  
   const [reset,setReset]=useState(false);
-
+  const [userinfo,setUserinfo]=useState("");  
   const chageSecret = ()=>{
- 
-    if(pw===ckpw){
+    if(ckpw===userinfo.userPw){
       setSecret(true)
-    }else{  
-    }  
-  } 
+    }else{
+      setMemo('비밀번호가 틀렸습니다.') ;
+    }
+  }
    useEffect(()=>{  
     const onUserCheck=async()=>{    
        const res = await UserAxiosApi.Userinfo(userid);
     
        if(res.status===200){
       setPw(res.data[0].userPw);
+      setUserinfo(res.data[0]);
     }else{
 console.log("해당 아이디가 없습니다.")
     }
@@ -164,7 +169,7 @@ setnewPw('')
              <ChangnBtn  onClick={()=>{chageSecret()}}>변경</ChangnBtn>
           </div>
         </SecretView>
-             }
+             }<Memo>   {!secret&& <>{memo}</>}</Memo>
       </ChangemyinfoCss>
     </>
   );

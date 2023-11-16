@@ -123,7 +123,7 @@ export const Button = styled.button`
   width: 60%; /* 원하는 너비 설정 */
   height: 38px;
   color: white;
-  background-color: #656464;
+  background-color: #f4ce14;
   font-size: 15px;
   font-weight: 400;
   border-radius: 12px;

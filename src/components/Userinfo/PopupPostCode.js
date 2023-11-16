@@ -3,7 +3,8 @@ import DaumPostcode from "react-daum-postcode";
  import styled from 'styled-components';
  const PopupPostCodeCss =styled.div`
  width: 100%;
- height: 100%;
+ height: 40px;
+ margin-top: 10px;
  `;
 
 const PopupPostCode = (props) => {
@@ -33,8 +34,8 @@ const PopupPostCode = (props) => {
         display: "block",
         position: "absolute",
         top: "10%",
-        width: "500px",
-        height: "500px",
+        width: "480px",
+        height: "480px",
         padding: "7px",
       };
  

@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import UserAxiosApi from "../../api/UserAxiosApi";
 import { useEffect, useState } from "react";
 import ModalTest from "./ModalTest2";
+import Modal from "../Userinfo/ModalTest2";
 const ChangemyinfoCss = styled.div`
 
 margin-top: 50px;
@@ -88,10 +89,17 @@ const SecretView=styled.div`
 width: 50px;
   }
  }
+ 
 `;
+const Memo=styled.div`
+color: red;
+margin-top: -50px;
+`;
+
 const Changemyinfo = () => {
   const userid=window.localStorage.getItem("userId");
   const [secret,setSecret] = useState(false);
+  const [memo,setMemo] = useState('');
 const [userinfo,setUserinfo]=useState("");
 const [pw,setPw]=useState('');
 const [reset,setReset]=useState(false);
@@ -99,6 +107,7 @@ const chageSecret = ()=>{
   if(pw===userinfo.userPw){
     setSecret(true)
   }else{
+    setMemo('비밀번호가 틀렸습니다.') ;
   }
 }
   useEffect(()=>{  
@@ -136,7 +145,7 @@ const chageinfo = (e, value) => {
   return (
     <>
       <ChangemyinfoCss>
-     
+   
         <div className="memo">
           <h3>개인정보 변경</h3>
           <p>고객님의 개인정보보호를 위해 최선을 다하겠습니다.</p>
@@ -190,10 +199,12 @@ const chageinfo = (e, value) => {
           <div className="SecretBox">
              <input type="password" placeholder="비밀번호를 입력하세요" onChange={(e) => setPw(e.target.value)} ></input>
              <ChangnBtn  onClick={()=>{chageSecret()}}>변경</ChangnBtn>
+            
           </div>
         </SecretView>
-        }
+        }<Memo>   {!secret&& <>{memo}</>}</Memo>
       
+     
       </ChangemyinfoCss>
     </>
   );
