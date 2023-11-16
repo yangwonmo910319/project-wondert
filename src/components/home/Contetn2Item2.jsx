@@ -118,7 +118,7 @@ const slides = [
     { url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoKC0i0s3LXCFdz3MsPGP4JMRTtOIBpp1cHQ&usqp=CAU",link:"DiyPage/Diyview", target: "T40", title:"20만원으로 중국 내몽골(내몽고)",thema:'# 먹방여행', area:'# 중국'},
 ]; 
 const Link123=(e)=>{
-    window.localStorage.setItem("CourseArea",e);
+    window.localStorage.setItem("travelNum",e);
     navigate("/Diypage/DiyView");
   }
 return(
