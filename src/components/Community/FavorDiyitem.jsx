@@ -44,18 +44,18 @@ const FavorDiyitem = ({type,type2}) => {
    
     const createCommunity = async()=>{
        try {      
-        const postDBdata =await DiyAxiosApi.SelectFavor(window.localStorage.getItem("userId"));     
-         
+     
+        const postDBdata =await DiyAxiosApi.SelectFavor(window.localStorage.getItem("userId"));       
         if(postDBdata.status===200){
           setList(postDBdata.data);   
-
+          console.log(list)
          }else{
-          alert("실패") 
          }
       
-       }catch(error){       alert("에러") 
+       }catch(error){   
         console.log(error);
        }    
+       console.log(list)
     };
      createCommunity();
      console.log(list)
