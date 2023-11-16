@@ -10,6 +10,12 @@
   DROP TABLE COURSE;
   DROP TABLE TRAVEL_INFO_TB;
   DROP TABLE TRAVEL_CONTENT_TB;
+  DROP TABLE FAVOR ;
+  DROP TABLE SALES_TABLE;
+
+
+
+
 
 DROP SEQUENCE "SCOTT"."COMMUNITYSEQUENCE";
 DROP SEQUENCE  "SCOTT"."REPLYSEQUENCE";
@@ -87,9 +93,6 @@ Insert into SCOTT.REPLY (REPLYNUM,TRAVERL_COMMENT,USERID,TRAVEL_SCOPE,TRAVEL_WRI
 Insert into SCOTT.REPLY (REPLYNUM,TRAVERL_COMMENT,USERID,TRAVEL_SCOPE,TRAVEL_WRITEDATE,GROUP_VALUE,TRAVEL_NUM,BOARDNUM,COURSE_CODE) values (223,'123411251','123123',null,null,null,null,null,'C2');
 
 
-
-
-
   CREATE TABLE "SCOTT"."USERINFO" 
   (	"USERID" VARCHAR2(50 BYTE), 
 	"NICK" VARCHAR2(50 BYTE), 
@@ -99,6 +102,7 @@ Insert into SCOTT.REPLY (REPLYNUM,TRAVERL_COMMENT,USERID,TRAVEL_SCOPE,TRAVEL_WRI
 	"PHONENUM" VARCHAR2(13 BYTE), 
 	"EMAIL" VARCHAR2(50 BYTE)
   );
+
 
 Insert into SCOTT.USERINFO (USERID,NICK,USERPW,USERNAME,ADDR,PHONENUM,EMAIL) values ('123123','로그인 테스트','123qwe123','테스트중','서울시','010-1234-5678','test@naver.com');
 Insert into SCOTT.USERINFO (USERID,NICK,USERPW,USERNAME,ADDR,PHONENUM,EMAIL) values ('123qwe123433','asdasjlk','123qwe123','양원모1','dd','01043830319','d');
@@ -112,41 +116,9 @@ Insert into SCOTT.USERINFO (USERID,NICK,USERPW,USERNAME,ADDR,PHONENUM,EMAIL) val
 Insert into SCOTT.USERINFO (USERID,NICK,USERPW,USERNAME,ADDR,PHONENUM,EMAIL) values ('test1','테스트입니당','qwe123qwe','테스트당','dkosdada','01043830319','yangwm0319@naver.com');
 
 
-  CREATE TABLE "SCOTT"."COMMUNITY" 
-   (   "COMMUNITYNUM" NUMBER, 
-   "USERID" VARCHAR2(50 BYTE), 
-   "REPORTINGDATE" DATE, 
-   "VIEWS" NUMBER, 
-   "TITLE" VARCHAR2(100 BYTE), 
-   "CONTENT1" CLOB, 
-   "IMGURL" VARCHAR2(2000 BYTE)
-   ) 
 
 
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (1,'123',to_date('23/10/06','RR/MM/DD'),68,'중국에서 코로나 걸렸는데 죽을 뻔 했음','https://search.pstatic.net/sunny/?src=https%3A%2F%2Fthumb2.gettyimageskorea.com%2Fimage_preview%2F700%2F202006%2FFKF%2F1251448544.jpg&type=a340');
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (2,'123',to_date('23/11/07','RR/MM/DD'),55,'첫 번째 게시물',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (3,'123',to_date('23/09/13','RR/MM/DD'),19,'다음주 신요코하마에 다녀오고자 하는데 지하철 잘 아시는분...?',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (4,'123',to_date('23/08/17','RR/MM/DD'),23,'여자친구와 해외여행 계획중입니다',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (8,'123',to_date('23/05/01','RR/MM/DD'),12,'11월에 대만여행 계획중입니다',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (6,'123',to_date('23/05/20','RR/MM/DD'),15,'일본 여행 시 아웃 티켓 필수 인가요?',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (7,'123',to_date('23/05/12','RR/MM/DD'),5,'도쿄 여행가는데 쇼핑리스트 뭐 있을까요',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (9,'123',to_date('23/04/25','RR/MM/DD'),81,'일본에 사시는분 계신가요 ㅠㅠ',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (10,'123',to_date('23/03/14','RR/MM/DD'),81,'원래 호텔값이 이런건가요?',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (13,'123',to_date('23/02/25','RR/MM/DD'),9,'독일 비자관련 질문이에요',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (15,'123',to_date('20/01/05','RR/MM/DD'),153,'스위스 여행 동선 추천 요청드립니다.',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (17,'123',to_date('19/11/14','RR/MM/DD'),18,'이시국에 갈만한 곳 있을까요?',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (18,'123',to_date('19/10/31','RR/MM/DD'),54,'혹시 가오슝에서 컨딩 가신분 계신가요',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (20,'123',to_date('19/07/03','RR/MM/DD'),14,'머구공항 망했습니다',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (21,'123',to_date('23/11/10','RR/MM/DD'),6,'도쿄 여행가는데 쇼핑리스트 뭐 있을까요',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (22,'123',to_date('23/11/10','RR/MM/DD'),55,'도쿄 여행가는데 쇼핑리스트 뭐 있을까요',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (41,'123412',to_date('23/11/13','RR/MM/DD'),7,'32313',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (42,'123123',to_date('23/11/13','RR/MM/DD'),2,'123123',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (43,'123123',to_date('23/11/13','RR/MM/DD'),3,'414324',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (44,'123123',to_date('23/11/13','RR/MM/DD'),64,'1r213r1r',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (45,'123123',to_date('23/11/13','RR/MM/DD'),8,'dsafsdafas',null);
-Insert into SCOTT.COMMUNITY (COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,IMGURL) values (47,'123123',to_date('23/11/14','RR/MM/DD'),10,'ㅇㅀㅇ',null);
-
-CREATE TABLE GOODS_TABLE(
+CREATE TABLE GOODS_TABLE( 
 ITEM_NUM VARCHAR(10) NOT NULL PRIMARY KEY,
 I_WORLD VARCHAR(10) NOT NULL,
 PRICE INT NOT NULL,
@@ -166,6 +138,8 @@ I_HIT INT NULL,
 I_AREA VARCHAR(20) NOT NULL,
 ODER_REQIURE VARCHAR(1000) NOT NULL,
 ODER_INFO VARCHAR(1000) NOT NULL);
+
+
 
 
 INSERT INTO GOODS_TABLE(ITEM_NUM , I_WORLD ,PRICE ,TAG ,I_NAME ,TITLE ,I_MAIN_IMG ,I_SUB_IMG1 ,I_SUB_IMG2 ,I_SUB_IMG3 ,DEPARTURE_NUM ,I_DATE ,I_DATE_NUM ,I_ODER_NUM ,INFO_IMG ,I_HIT ,I_AREA ,ODER_REQIURE ,ODER_INFO ) VALUES('G1', '국내', 46000, '겨울여행', '악산 호수 케이블카 입장권', '★한정특가★ 춘천 삼악산 호수 케이블카 입장권', 'https://image7.coupangcdn.com/image/resized_image/thumbnails/remote/1180x2360q60crop1180x630/image/travelSeller/common/A00351263/908590b3-c00e-4729-bd42-212720c43ddf.jpg', 'https://image9.coupangcdn.com/image/resized_image/thumbnails/remote/1180x2360q60crop1180x630/image/travelSeller/common/A00351263/d0025faf-4ad8-4c88-9e9e-6888200f822f.jpg', 'https://image10.coupangcdn.com/image/resized_image/thumbnails/remote/1180x2360q60crop1180x630/image/travelSeller/common/A00351263/8d591e01-4e20-4630-98b5-d69f2915a587.jpg', 'https://image6.coupangcdn.com/image/resized_image/thumbnails/remote/1180x2360q60crop1180x630/image/travelSeller/resort/A00014663/5e645003-a1a7-4245-967d-f6187ec80375.JPG', 1, TO_DATE('2023-12-12','YYYY-MM-DD'), 3, 1, 'https://image15.coupangcdn.com/image/travelSeller/common/A00351263/d11648bb-cd9f-4c02-8ac7-d55148eecd77.jpg', 300, '강원도', 'ODER_REQIURE ', '[업체정보]');
@@ -240,6 +214,8 @@ INSERT INTO GOODS_TABLE(ITEM_NUM , I_WORLD ,PRICE ,TAG ,I_NAME ,TITLE ,I_MAIN_IM
 INSERT INTO GOODS_TABLE(ITEM_NUM , I_WORLD ,PRICE ,TAG ,I_NAME ,TITLE ,I_MAIN_IMG ,I_SUB_IMG1 ,I_SUB_IMG2 ,I_SUB_IMG3 ,DEPARTURE_NUM ,I_DATE ,I_DATE_NUM ,I_ODER_NUM ,INFO_IMG ,I_HIT ,I_AREA ,ODER_REQIURE ,ODER_INFO ) VALUES('G70', '해외', 138000, '자유여행', '미국4', '미국4 타이틀입니다', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%9D%B8%EC%B2%9C%2F%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A8%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AB2.jpeg?alt=media&token=9a597d4d-70b3-4afc-8e49-0242e6d5978b', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%9D%B8%EC%B2%9C%2F%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A84.jpeg?alt=media&token=1e47ab9c-706c-45a3-81df-145109717357', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%9D%B8%EC%B2%9C%2F%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A85.jpeg?alt=media&token=7a31cbad-4384-4728-82ca-d0eca46c8ee6', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%9D%B8%EC%B2%9C%2F%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A86.jpeg?alt=media&token=d2208326-0bef-440a-bebc-f4f57582aa9b', 1, TO_DATE('2023-12-12','YYYY-MM-DD'), 2, 5, 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%9D%B8%EC%B2%9C%2F%E1%84%86%E1%85%B5%E1%84%80%E1%85%AE%E1%86%A8%E1%84%89%E1%85%A1%E1%86%BC%E1%84%89%E1%85%A6%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC2.jpeg?alt=media&token=c7b5e1e0-7b3e-4dcb-a847-0188505a9245', 300, '미국', '[이용안내]', '[업체정보]');
 
 
+
+
 CREATE TABLE COURSE(
 COURSE_CODE	VARCHAR2(10) PRIMARY KEY,
 COURSE_WORLD VARCHAR2(50),
@@ -259,6 +235,9 @@ COURSE_IMG3 VARCHAR2(1000),
 COURSE_PATH3 VARCHAR2(50),
 COURSE_ARTICLE3 VARCHAR2(2000),
 COURSE_ARTICLE3_1 VARCHAR2(2000));
+
+
+
 
 INSERT INTO COURSE VALUES('C1','해외','대만','# 대만의 하이라이트 코스','특유의 다양한 볼거리와 먹거리들이 참 매력적인 코스','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%83%E1%85%A2%E1%84%86%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AB1.jpeg?alt=media&token=0b2bd911-b36d-4e62-ac9b-f9b074584a36','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%83%E1%85%A2%E1%84%86%E1%85%A1%E1%86%AB1-1.jpeg?alt=media&token=38212d1f-82fc-4299-b4c7-0adccc94bbb0','시먼딩','타이베이에서 가장 인기 있는 쇼핑 지역','겉보기엔 서울 명동과 크게 다를 바 없어 보일 수 있지만 좀 더 자세히 살펴보면 길거리 예술, 타투 거리, 메이드 복장의 직원이 있는 독특한 컨셉의 카페 등 트렌디하고 이색적인 볼거리로 가득한 곳입니다. 까도 까도 끝없는 양파 같은 매력을 지닌 시먼딩, 다양한 컨디션과 컨셉의 호텔도 모여 있어서 이곳을 숙소로 잡고 대만여행 장소들을 둘러보기에도 좋습니다.','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%83%E1%85%A2%E1%84%86%E1%85%A1%E1%86%AB1-2.jpeg?alt=media&token=4817cc23-369d-4bdc-a5c0-e4159a5ae0e8','보피리아오 역사거리',' 대만의 옛 거리 모습을 둘러볼 수 있는 장소다','대만 유명 영화의 촬영장소로도 유명한 이곳은 마치 세트장 같이 보이기도 하지만, 실제로 200년 전의 후기 청나라 시대까지 거슬러 올라가는 유서 깊은 곳이다. 세월의 흔적이 느껴지는 붉은 벽돌의 2층 집들이 줄지어 있는 보피리아오 역사거리는 인물 사진을 찍기에도 좋은 배경이 되는 분위기 있는 곳이니 사진찍기 좋아하는 사람이라면 용산사를 오가며 들려보는 것도 좋다.','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%83%E1%85%A2%E1%84%86%E1%85%A1%E1%86%AB1-3.jpeg?alt=media&token=cb503466-e836-47b2-8ad5-58daf76594a0','타이베이 101','대만하면 가장 먼저 떠오르는 곳','대만의 수도답게 다양한 문화생활과 미식을 즐길 수 있는 도시입니다. 타이베이 101은 아름다운 야경을 즐길 수 있는 스팟으로 유명합니다. 지하철과 버스를 다양하게 이용할 수 있고, 근교 투어가 잘 되어있어 3박4일 혹은 4박5일 여행 일정으로 즐기기에 알맞은 도시입니다. ');
 INSERT INTO COURSE VALUES('C2','해외','대만','# 대만여행의 꽃 예스진지','예스진지! 자연의 경이로움, 화려한 도시의 매력까지 모두 느낄 수 있는 코스','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%83%E1%85%A2%E1%84%86%E1%85%A1%E1%86%AB%20%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AB2.jpeg?alt=media&token=afc77486-c261-4371-942e-47e19054ed33','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%83%E1%85%A2%E1%84%86%E1%85%A1%E1%86%AB2-1.jpeg?alt=media&token=702f9b54-ece7-4479-b5f3-c792e73e0a02','예류지질공원','거대한 계란 모양의 바위가 제각기 흩어져 있는 신기한 광경을 볼 수 있는 곳','슬리퍼 모양의 바위, 왕관을 쓴 듯한 여왕머리 바위, 목욕하는 미녀 바위 등 독특한 바위들을 구경할 수 있어요. 자연의 힘과 침식에 의해 생겨난 다양한 바위를 보며 자연의 신비함과 경이로움을 느껴보세요.','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%83%E1%85%A2%E1%84%86%E1%85%A1%E1%86%AB2-2.jpeg?alt=media&token=50be5b9e-4076-4ab2-a6f7-c7da0234944f','스펀 풍등','소망을 담은 천등이 밤하늘 위로 떠오르는 아름다운 장면을 볼 수 있는 스펀!','아기자기한 옛거리의 정취로 많은 관광객들의 마음을 사로잡는 곳이랍니다. 천등을 날리며 소망을 빌어보고, 스펀의 유명 간식 닭날개 볶음밥도 즐기며 스펀의 매력을 만끽해보세요.','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%83%E1%85%A2%E1%84%86%E1%85%A1%E1%86%AB2-3.jpeg?alt=media&token=0f71c764-d93b-4490-b6f7-dfcdfb24069f','지우펀','애니메이션 센과 치히로의 행방불명의 모티브가 된 지우펀!','밤이 되면 홍등의 잔잔한 조명이 환상적인 경치를 만들어내는 낭만의 도시가 된답니다. 지우펀의 눈부신 야경은 대만 여행에서 빠질 수 없는 유명 여행지에요. 지우펀을 방문해 누구라도 사랑에 빠질 멋진 야경을 만나보세요.');
@@ -302,6 +281,9 @@ INSERT INTO COURSE VALUES('C39','국내','강원도','#강원도3','주제 강�
 INSERT INTO COURSE VALUES('C40','국내','강원도','#강원도4','주제 강원도4','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%80%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%83%E1%85%A9%20%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AB4.jpeg?alt=media&token=300f5fea-3dd0-45e2-94a1-a4eab24915ad','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%80%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%83%E1%85%A94-1.jpeg?alt=media&token=ee97aecd-7a20-4b26-9d04-38fbec4ba5f7','강원도 장소4','강원도 설명4','강원도 설명 4-1','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%80%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%83%E1%85%A94-2.jpeg?alt=media&token=5ef8c1c3-b3aa-4728-80c0-5225bfb6ddb8','강원도 장소8','강원도 설명8','강원도 설명8-1','https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%ED%95%98%EB%8A%98%2F%E1%84%80%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%83%E1%85%A94-3.jpeg?alt=media&token=5fb95e5d-335f-4979-b182-40f421e3207e','강원도 장소12','강원도 설명12','강원도 설명12-1');
 
 
+
+
+
 CREATE TABLE TRAVEL_INFO_TB(
     TRAVEL_NUM VARCHAR2(10) NOT NULL PRIMARY KEY,
     TRAVEL_WORLD VARCHAR2(10) NOT NULL,
@@ -315,7 +297,6 @@ CREATE TABLE TRAVEL_INFO_TB(
     TRAVEL_VIEW NUMBER NULL,
     TRAVEL_GOOD NUMBER NULL
 );
-
 
 INSERT INTO TRAVEL_INFO_TB(TRAVEL_NUM,TRAVEL_WORLD,TRAVEL_THEME,TRAVEL_AREA,TRAVEL_TITLE,TRAVEL_STARTDATE,TRAVEL_ENDDATE,TRAVEL_USERID,TRAVEL_WRITEDATE,TRAVEL_VIEW,TRAVEL_GOOD) VALUES('T1', '국내', '먹방여행', '제주도', '여자혼자 제주 먹방 여행, 제주도 1박2일 여행코스', TO_DATE('2022-02-26','YYYY-MM-DD'), TO_DATE('2022-02-27','YYYY-MM-DD'), '123123', TO_DATE('2022-02-28','YYYY-MM-DD'), '800', 130);
 INSERT INTO TRAVEL_INFO_TB(TRAVEL_NUM,TRAVEL_WORLD,TRAVEL_THEME,TRAVEL_AREA,TRAVEL_TITLE,TRAVEL_STARTDATE,TRAVEL_ENDDATE,TRAVEL_USERID,TRAVEL_WRITEDATE,TRAVEL_VIEW,TRAVEL_GOOD) VALUES('T2', '국내', '먹방여행', '부산', '여자 혼자 부산 먹방 여행 2박3일,여행코스 딱!', TO_DATE('2023-03-01','YYYY-MM-DD'), TO_DATE('2023-03-03','YYYY-MM-DD'), 'incheon94', TO_DATE('2023-03-04','YYYY-MM-DD'), '1200', 500);
@@ -402,6 +383,8 @@ CREATE TABLE TRAVEL_CONTENT_TB(
     TRAVEL_WRITING VARCHAR2(2000) NULL,
     TRAVEL_MAP VARCHAR2(1000) NULL
 );
+
+
 
 INSERT INTO TRAVEL_CONTENT_TB(TRAVEL_NUM,D_DAY,TRAVEL_PIC,TRAVEL_WRITING,TRAVEL_MAP) VALUES('T1', '1', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%84%A0%EC%98%81%2F%EA%B5%AD%EB%82%B4-%20%EB%A8%B9%EB%B0%A9%EC%97%AC%ED%96%89%2F1.%E1%84%8C%E1%85%A6%E1%84%8C%E1%85%AE%E1%84%83%E1%85%A9%201%E1%84%87%E1%85%A1%E1%86%A82%E1%84%8B%E1%85%B5%E1%86%AF%201%E1%84%87%E1%85%A5%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.jpg?alt=media&token=750cab5e-2c20-4c70-8069-43568ca2204f', '[1일차 일정 : 김포공항-제주공항-민속오일장-함덕해변-월정리-제주시내] 1박2일은 생각많았고, 모든 항공사 카운터에서 정신 없이 수속이 이루어지고 있었다. 오늘 첫번째 목적지는 제주 민속오일장. 매 2일, 7일 마다 열리는 오일장은 사람이 가득한데, 사실 서귀포 오일시장이나 올레 매일 시장과 비교해도 제주시 민속 오일장이 규모면에서도 재미면에서도 더 큰 것 같다. 입구에서 저렴하긴 하지만 팥을 너무 많이 아끼신 것 같아 아쉬웠던 따뜻한 붕어빵 한 봉지 들고 천천히 장을 구경했다.시장 좀 구경하다 이제 본격적으로 제주 동편으로 이동해 보기로. 이번 제주 여행의 첫번째 바다는 함덕이었다. 백사장도 곱고, 푸른빛 바다도 멋진 함덕해수욕장의 ', '');
 INSERT INTO TRAVEL_CONTENT_TB(TRAVEL_NUM,D_DAY,TRAVEL_PIC,TRAVEL_WRITING,TRAVEL_MAP) VALUES('T1', '2', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%84%A0%EC%98%81%2F%EA%B5%AD%EB%82%B4-%20%EB%A8%B9%EB%B0%A9%EC%97%AC%ED%96%89%2F1.%20%E1%84%8C%E1%85%A6%E1%84%8C%E1%85%AE%E1%84%83%E1%85%A9%201%E1%84%87%E1%85%A1%E1%86%A82%E1%84%8B%E1%85%B5%E1%86%AF%202%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8E%E1%85%A1.jpg?alt=media&token=456064c6-ce0c-49f3-9b73-26c34f0dbfee ', '[2일차 일정 : 제주시내-애월-한담해안산책로-제주시내-제주공항-김포공항] 1박2일 제주 둘째날, 나도 간만에 푹 잠도 자고 여유롭게 호텔 조식도 먹은 탓인지 서울에서 쌓인 피로가 조오오오금은 풀린 느낌이었다.호텔 체크아웃을 하고 제주 시내에서 관광객 아닌 도민들에게 맛집으로 유명하다는 예소담에 가서 고기국수 한 그릇했다. 마치러모로 씹는맛도 있었다. 고기국수보다는 개인적으로 비빔국수가 참 맛있었음. 고기국수먹고 예소담에서 버스 타고 애월로 향했다. 요즘 그렇게 핫 하다는 애월은 막상 도착하니 정말 사람 가득이었다. 제주 애월에서 가장 유명한 카페 두 곳을 꼽으라면 단연 <봄날>과 들었던 곳이다. 제주 공항가기 전, 또 현지인에게 유명하다는 맛집에서 갈치구이백반이랑 물회로 아쉬움을 달랬다. 갈치구이 참 별거 아닌 것 같은데 제주도에서 맛본 갈치는 정말 다 맛있었다. 거의 모든 식당에서 밑반찬으로 빠지지 않았던 양념게장도 한번 더 리필 해 먹고, 가시 빼고는 남은 것 하나 없이 갈치구이도 싹싹 다 먹고 공항으로 갔다. 김포로 향하는 사인을 받고 엄청나게 바빠 보이는 비행기를 타고 돌아왔다.', '');
@@ -547,3 +530,337 @@ INSERT INTO TRAVEL_CONTENT_TB(TRAVEL_NUM,D_DAY,TRAVEL_PIC,TRAVEL_WRITING,TRAVEL_
 INSERT INTO TRAVEL_CONTENT_TB(TRAVEL_NUM,D_DAY,TRAVEL_PIC,TRAVEL_WRITING,TRAVEL_MAP) VALUES('T73', '2', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%84%A0%EC%98%81%2F%ED%95%B4%EC%99%B8-%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84%2F35.%20%E1%84%92%E1%85%A9%E1%84%8C%E1%85%AE%202%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8E%E1%85%A1%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8B%E1%85%A5%E1%86%B7.jpeg?alt=media&token=74134fae-7ca3-4748-82bc-f51dfe8a347a ', '처음 유럽여행을 계획할 때 보통 서유럽 쪽으로 여행을 계획하고 코스를 많이들 짜는 것으로 알고 있어요. 보통 유럽은 해외여행의 로망으로 생각하고 많은 유럽 나라 중 가고 싶은 나라를 콕 찍어지로 스페인 여행을 했었고, 그다음 이탈리아를 여행했어요. ', '');
 INSERT INTO TRAVEL_CONTENT_TB(TRAVEL_NUM,D_DAY,TRAVEL_PIC,TRAVEL_WRITING,TRAVEL_MAP) VALUES('T73', '3', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%84%A0%EC%98%81%2F%ED%95%B4%EC%99%B8-%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84%2F35.%20%E1%84%92%E1%85%A9%E1%84%8C%E1%85%AE%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8B%E1%85%A5%E1%86%B7%203%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8E%E1%85%A1.webp?alt=media&token=4b92ab21-3eb7-4756-bb09-8790e3401660 ', '뉘른베르크 여행 시 가볼 만한 곳은  수공예거리, 성로렌츠성당, 박물관다리, 성모성당, 장난감박물관, 누렘버그 성 등이 있어요. 뉘른베르크 중앙역에서 시내까지 가는 시간도 얼마 걸리지에따로 걸어갔던 것 같아요. 그래서 돌아보는데도 시간이 많이 걸리지 않았답니다.', '');
 INSERT INTO TRAVEL_CONTENT_TB(TRAVEL_NUM,D_DAY,TRAVEL_PIC,TRAVEL_WRITING,TRAVEL_MAP) VALUES('T74', '1', 'https://firebasestorage.googleapis.com/v0/b/wonderwalker-260db.appspot.com/o/%EC%84%A0%EC%98%81%2F%ED%95%B4%EC%99%B8-%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84%2F36.%20%E1%84%89%E1%85%B3%E1%84%8B%E1%85%B1%E1%84%89%E1%85%B3%20%E1%84%83%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%80%E1%85%B5%20%E1%84%80%E1%85%B5%E1%84%90%E1%85%A1%E1%84%8B%E1%85%A7%E1%84%92%E1%85%A2%E1%86%BC.jpeg?alt=media&token=e67fe49e-5230-44f3-9a0e-dbdf9aaf64be ', '인도에는 수십 종에 달하는 향신료들이 있으며, 혼합된 향신료 가루를 총칭해서 마살(Masala)라고 부르는대요!', '');
+
+
+
+ CREATE TABLE "SCOTT"."COMMUNITY" 
+   (   "COMMUNITYNUM" NUMBER, 
+   "USERID" VARCHAR2(50 BYTE), 
+   "REPORTINGDATE" DATE, 
+   "VIEWS" NUMBER, 
+   "TITLE" VARCHAR2(2000 BYTE), 
+   "CONTENT1" CLOB, 
+   "IMGURL" VARCHAR2(2000 BYTE)
+   ) ;
+
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(1,'123', TO_DATE('2023.10.06', 'YYYY-MM-DD'),'10', '중국에서 코로나 걸렸는데 죽을뻔 했음', '제가 백수라 매일 접촉하는 사람이 동네에 한정이고 부작용 얘기가 도는 코로나 백신 안맞고 3년동안 국내 돌아다니고 일본여행 4번가고 올해초인가 정책적으로 마스크 착용 느슨해진 시기부터 실내도 노마스크로 다니다 코로나 끝났네 하고 8월 중국 상해갔다 처음 코로나 걸리고 감기증상 비슷해 모르고 5일 방치하다 페렴이 폐 절반이상 퍼져서 중환자실 가서 치료도중 쇼크도 와 혈압이 한자리수 대로 떨어져 죽을고비 한번 넘기고 인공호흡기 달고 다행히 기저질환 없고 40대로 젊어 폐렴 치료되고 9월초 퇴원했는데 같이 여행간 형은 백신 3차 맞아서 코로나 안걸렸고 중국은 일본보다 같이 실내에서 마스크 안써도 인구 밀집이 높아 간곳이 상해라 그럴지도 백신 안맞고 가면 위험 하더군요
+
+폐렴의 무서움과 부작용 감수해도 백신의 중요성을 배움 사실 백신 부작용도 무시 못하나 요즘 개량백신은 부작용 여부 잘 모르고 제가 기존에 편마비 있는데 고혈압 고지혈증 당뇨같은 기저질환에 의한게 아니라 사고로 그런거라 의사가 처음에 엑스레이 ct 사진보고 폐섬유화 운운하며 평생 인공호흡기 달지도 모른다고 할정도로 폐렴 심각했는데 기저질환 없어 다행히 폐렴 치료되고 살았네요
+
+취미로 1회 여행비용 인당 백만원 정도인 저렴한 일본 중국 가서 사진 올리는게 주식에서 얻는 스트레스 푸는 거였는데 해외여행은 뭔가 정이 떨어졌네요', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(2,'123', TO_DATE('2023.09.13', 'YYYY-MM-DD'),'20', '일본 여행 기획', '와이프와 함께 여행을 갑니다숙소는 신주쿠 워싱턴호텔 입니다
+
+
+
+패키지라 저녁부터 자유여행인데 여긴 꼭 가봐야 한다... 이런곳 추천 부탁드려요^^
+
+
+
+저는 라이브클럽(락,메탈)같은 곳을 꼭가보고 싶구요
+
+
+
+와이프는 이국의 정취를 느낄수있는 곳이나 시내... 시부야?(부산 서면 같은)쇼핑...맛집정도 입니다
+
+
+
+부탁드립니다
+
+', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(3,'123', TO_DATE('2023.09.13', 'YYYY-MM-DD'),'15', '다음주 신요코하마에 다녀오고자 하는데 지하철 잘 아시는분...?', '도쿄에서 신요코하마 넘어갈때는
+
+ 도쿄서브웨이티켓 + 역무원에게 추가요금 지불 하면 문제 없을듯한데
+
+
+
+ 반대로 신요코하마에서 도쿄 넘어올때는
+
+ 처음부터 일정요금을 지불하고 도쿄서브웨이 티켓을 사용해야 할거같은데
+
+ 사철이 아닌곳까지 지하철티켓을 발권하고 그 이후에 도쿄서브웨이 티켓을 사용해야하나요?', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(4,'123', TO_DATE('2023.08.17', 'YYYY-MM-DD'),'20', '여자친구와 해외여행 계획중입니다', '여자친구랑 해외여행을 가려고 합니다.
+
+30대 후반입니다.
+
+이번에 겨울때 시간이 맞아 여자친구와 해외여행 가려구 계획중인데요.
+
+알아보기도 귀찮고. 스케줄짜기 시간도 귀찮고 해서 패키지 여행을 알아보려구 합니다.
+
+패키지여행 싸게좀 구매하려구 합니다.
+
+어떤 방법이 있을까요?
+
+패키지 여행 장단점.추천 나라좀 부탁드립니다.ㅎㅎ', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(5,'123', TO_DATE('2023.05.31', 'YYYY-MM-DD'),'15', '싱가포르에서 7살 어린이가 좋아할만한 곳 없나요?', '9월에 싱가포르 여행을 준비중인데요.
+
+
+
+유니버셜 스튜디오 포함해서 7살 초등학생이 좋아할만한 명소나 어트랙션, 또는 체험형 박물관같은 곳이 혹시 있을까요?', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(6,'123', TO_DATE('2023.05.20', 'YYYY-MM-DD'),'10', '일본 여행 시 아웃 티켓 필수 인가요?', '귀국 날짜를 정해 놓지 않고 느긋하게 여행 다녀볼까 생각 중인데,
+
+
+
+일본 입국 시 아웃 티켓이 없으면 입국 거부 당하나요?', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(7,'123', TO_DATE('2023.05.12', 'YYYY-MM-DD'),'5', '도쿄 여행가는데 쇼핑리스트 뭐 있을까요', '비비안웨스트우드 
+
+스투시 
+
+한정판 운동화 
+
+포터 가방 정도 생각하고 있습니다. 
+
+ 
+
+혹시 예쁘고 희소성 있는 도쿄 쇼핑 브랜드 추천 해주실 수 있을까요 ', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(8,'123', TO_DATE('2023.05.01', 'YYYY-MM-DD'),'6', '11월에 대만여행 계획중입니다', '대학생이라 돈이 없습니다..
+
+그래도 일단 숙소는 트리바고나 아고다로 예약을 해 둘 생각인데
+
+더 싸게 할려면 대만 도착하고 모텔방을 잡거나 아님 대만 현지 숙소 앱으로 숙소를 잡는게 괜찮을까요?', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(9,'123', TO_DATE('2023.04.25', 'YYYY-MM-DD'),'78', '일본에 사시는분 계신가요 ㅠㅠ', '다름이아니라 유후인노뮤리 예약한 카드가 분실되어서 재발급을 했습니다
+
+
+
+그래서 기존카드가 없으면 노모리티켓 발급이 불가하다하여
+
+
+
+jr큐슈 예약사이트에서 해당 티켓 환불처리하고 새로운 카드로 다시 노모리 티켓 구입했어요 그런데 계속 기존에 예약한 티켓은
+
+
+
+환불이 불명이라하고 파파고 사용하여 고객센터에 문의 남기니
+
+
+
+전화하라는데.. 도움주실분 계신가해서 글 남겨봅니다..', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(10,'123', TO_DATE('2023.03.14', 'YYYY-MM-DD'),'80', '원래 호텔값이 이런건가요?', '자주 다니는건 아니라서 잘모른ㄴ데 1박 요금이 5만인데 3박시 28만원가량 요금이 나오는데 이게 원래 이런가요?  별다른 옵션도 추가안했는데 ', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(11,'123', TO_DATE('2022.07.29', 'YYYY-MM-DD'),'90', '대만 피규어 스팟좀 알려주십쇼! ', '안녕하세요!
+
+ 
+
+ 8월 여름휴가지(?)로 대만을 가게 되었습니다!
+
+ 
+
+ 타이베이메인역 y구역에 피규어샵이 많다는건 검색으로 알게되었습니다.
+
+ 
+
+ 대만 피규어를 초록창에 검색하면 제일 많이 나오는 곳이여서 이곳은 대충 알겠는데
+
+ 
+
+ 다른곳들은 상세히 알려주는 글이 없어 어려움이 있네요..
+
+ 
+
+ 피규어 구매대상은 원피스 pop와 핫토이 아이언맨 젤싼거 아무거나가 목적입니다.
+
+ 
+
+ 대만에 가면 피규어 쇼핑으로 꼭 가야될곳과 중고 피규어 파는곳 등을 자세히 알려주시면 정말 감사하겠습니다!
+
+ 
+
+ 여행동선도 피규어 쇼핑에 맞춰 계획할려고 합니다!
+
+', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(12,'123', TO_DATE('2022.06.08', 'YYYY-MM-DD'),'31', '겨울 유럽은 정말 가면 후회하나요?', '안녕하세요. 내년 1월초에 결혼하는 예비신랑입니다.
+
+신혼여행으로 유럽 특히 스위스를 꼭 가보고싶은데 다들 겨울은 비추라고 만류하더라구요.
+
+추위와 해가짧은것때문이라고 알고있는데 추위는 패딩을 입어도 많이 추운가요?
+
+해가짧은건 아침에 좀일찍부터 일어나서 돌아다니면 되지않을까싶은데
+
+1월에 유럽 가보신분들 조언좀 부탁드립니다', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(13,'123', TO_DATE('2023.02.25', 'YYYY-MM-DD'),'5', '독일 비자관련 질문이에요', '비자를 받고 장기간 독일에 나가려 하는데 
+
+이럴경우엔 왕복으로 비행기표를 예매하지 않아도 
+
+괜찮을까요?  아니면 1년이든 2년이든 
+
+일단 왕복표를 구매해야 하는건지 모르겟네요
+
+그간 외국으로 갈땐 무조건 왕복으로 구매해서 이것도 그런식인건지 궁금합니다', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(14,'123', TO_DATE('2022.11.13', 'YYYY-MM-DD'),'11', '] 프랑스로 한달간 여행가는데', '프랑스로 한달간 여행을 가기로했는데
+
+은사님의 집에서 묶기로했습니다만...
+
+올적에 고추장,청국장,고춧가루등 식료품 좀 사오라고하셔서
+
+케리어에 실어서 가져가려는데 생각보다 양이 많아져서 그런데 따로 가져갈 방법이있으려나요?
+
+ 
+
+외국행은 처음인지라 어떻게 해야할지 모르겟네요;', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(15,'123', TO_DATE('2020.01.05 ', 'YYYY-MM-DD'),'152', '스위스 여행 동선 추천 요청드립니다.', '올해 5월 쯤에 어머니랑 같이 스위스를 6박 8일 정도로 다녀오려 합니다.
+
+가보고 싶은 곳은 몇 군데 찾아봤습니다. 그런데, 교통편이나 숙박 환경 등을 잘 몰라서... 조언 좀 구해봅니다.
+
+ 
+
+취리히 In/Out을 생각하고 있고(직항 이용을 위해), 여행지는
+
+ 
+
+1. 루체른 
+
+2. 마이엔펠트
+
+3. 융프라우/마테호른
+
+4. 성곽으로 둘러쌓인 도시 (어떤 여행 후기에서 봤는데, 도시 이름이 생각나질 않네요.. ㅠ)
+
++ alpha
+
+ 
+
+정도로 생각하고 있습니다. 
+
+혹시 추가할만한 좋은 지역이나 동선 등 추천 요청드려요!..', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(16,'123', TO_DATE('2019.12.26', 'YYYY-MM-DD'),'111', '처음으로 홀로가는 도쿄여행을 준비중입니다', '안녕하세요.
+
+ 
+
+마지막으로 일본을 가본게 10년전에 도쿄한번가보고 성인이되서 처음으로 다시 일본에 가보게됬습니다.
+
+ 
+
+하필이면 이시국사태가 터지기전에 이미 예약한 비행기라 어떻게할까 고민하다가 
+
+ 
+
+주변에서도 이미 예약한거니 그냥 편하게 다녀와라 라는 얘기들을 해주셔서 가기로 결정했는데
+
+ 
+
+떠나기 직전에 크리스마스 아르바이트를 잡는 바람에 계획이란 계획은 제대로 못세우고 이번 주말에 떠나게 됬네요...ㅎㅎ
+
+ 
+
+이대로 그냥 유일하게 정해진 여행의 목적이었던 아키하바라에 3일동안 죽치고있는게 계획이 되버렸습니다.(무계획이 계획...)
+
+ 
+
+숙소는 아키바에 잡아볼려고했으나 이미 다 방이 꽉차거나 너무 비싸서 하네다공항 스카이라인으로 바로갈수있는 하마마츠쵸에 잡았습니다.
+
+ 
+
+하마마츠쵸나 아키바근처에 구경할만한 곳이나 추천하는 식당이 있을까요?
+
+ 
+
+혼자서가는 여행은 처음이라 이것저것 걱정되는것들(길잃음, 언어문제)은 많지만 
+
+ 
+
+N3의 얕은지식으로 가능한 일본어와 번역기앱, 그리고 구글지도로 해결해보려는 중입니다.
+
+ 
+
+(사실 아키바에 죽치려는것도 노선을 단순화시키면 길잃을 일은 없지 않을까 하는 단순한 생각도 있습니다....)
+
+ 
+
+혹시 더 추천하는 앱이나 준비물이 있다면 알려주시면 좋겠네요!', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(17,'123', TO_DATE('2019.11.14', 'YYYY-MM-DD'),'18', '이시국에 갈만한 곳 있을까요?', '매년 일본여행 3회가량 가던 사람입니다..
+
+ 
+
+부산거주중이라.. 후쿠오카 배타면 서울가는거랑 비슷하게 내고 갔다올수도 있고 (부산항에서 대략 3시간)
+
+
+
+후쿠오카, 오사카, 도쿄 3곳만 자주 갔는데
+
+ 
+
+일본하는걸 보니 별로 가고싶지가 않네요..
+
+ 
+
+그렇긴한데.. 다른나라는 한번도 가본적도 없고
+
+ 
+
+여행가서 주로보는건
+
+ 
+
+일본 여행갔을때는 레고나 피규어같은 관심사 구경도 하고
+
+ 
+
+맛집탐방이나 관광명소 돌며 대부분 시티투어위주입니다.
+
+ 
+
+여행가면 오전 6시 기상 - 새벽 2시 귀가를 보통합니다. (새벽시장부터 밤거리까지)
+
+ 
+
+11~12월초에 갈만한 곳 해외 있을까요?
+
+ 
+
+1.시티 투어
+
+ 
+
+2. 야밤에도 자유롭게 혼술할만한 치안
+
+ 
+
+p.s. 생각하다보니 서울이나 구경할까했는데... 일단은 해외 괜찮은 곳 찾아보고 서울이나 수도권도 비교해볼까합니다.. ', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(18,'123', TO_DATE('2019.10.31', 'YYYY-MM-DD'),'52', '혹시 가오슝에서 컨딩 가신분 계신가요', '이번에 가오슝으로 여행 하면서 컨딩도 가려고 하거든요 근데 갈때는 택시로 5명으로 갔다가 올때는 찢어져서 2명 3명 이런식으로 올것 같아요 
+
+그래서 버스를 타고 올라오려고 하는데 컨딩 익스프레스는 꼭 표가 필요한가요? 이지 카드 같은걸로는 결제가 불가능한지 궁금해서요', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(19,'123', TO_DATE('2019.07.09 ', 'YYYY-MM-DD'),'31', '베트남(호치민) 여행건 질문', '안녕하세요
+
+다음달에 호치민 3박4일로 여행갈 예정인데요.
+
+환전 때문에 질문을 하려고 합니다.
+
+인터넷에선 한국에서 달러로 환전후에 
+
+현지가서 동으로 환전하면 이득이라고 하는데,
+
+어느정도 이득이 있나요?
+
+ 
+
+여행지에서 쓸 돈은 대략 50만원으로 잡고 있습니다. ', '');
+INSERT INTO COMMUNITY(COMMUNITYNUM,USERID,REPORTINGDATE,VIEWS,TITLE,CONTENT1,IMGURL) VALUES(20,'123', TO_DATE('2019.07.03 ', 'YYYY-MM-DD'),'7', '머구공항 망했습니다', '9월부터 티웨이 구마모토 블라디보스톡 단항에', '');
+
+
+
+
+
+CREATE TABLE FAVOR 
+( COURSE_CODE VARCHAR2(50 BYTE)NULL 
+, USERID VARCHAR2(50 BYTE) 
+, UNIQUENUM NUMBER NOT NULL 
+);
+
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('C9','test1',1);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('C5','test1',2);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('C4','test1',3);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('C2','test1',4);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('C2','test1',5);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('T1','test1',6);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('T2','test1',7);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('G1','test1',8);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('G3','test1',9);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('T5','test1',10);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('G5','test1',11);
+Insert into SCOTT.FAVOR (COURSE_CODE,USERID,UNIQUENUM) values ('G6','test1',12);
+
+
+
+CREATE TABLE SALES_TABLE(SALE_NUM VARCHAR(100),
+USERID VARCHAR(100),
+ITEM_NUM VARCHAR(100),
+I_DATE DATE,
+DATE_NUM NUMBER,PERSON NUMBER);
