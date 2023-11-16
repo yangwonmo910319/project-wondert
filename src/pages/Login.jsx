@@ -29,8 +29,7 @@ const Login = () => {
   //팝업 처리
   const [modalOpen, setModalOpen] = useState(false);
   const closeModal = () => {
-    alert(inputId)
-    alert(inputPw)
+  
     setModalOpen(false);
   };
 

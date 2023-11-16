@@ -10,6 +10,7 @@ import { storage } from "../../api/FireBase";
 const CommunityCss = styled.div`
 width: 80%;
 margin: 0 auto;
+max-width: 1200px;
 `;
 const Item1=styled.div`
 width: 10%;
@@ -25,7 +26,7 @@ const Content1=styled.input`
   width: 100%;
   height: 25px;
   color:black;
-  border:1px solid rgba(72, 100, 224, 1);
+  border:1px solid black;
 border-radius: 5px;
   font-size: 15px;
 
@@ -38,7 +39,7 @@ p{
 const Content2=styled.div`
   width: 100%; // 너비를 100%로 설정하여 컨테이너의 너비에 맞춤
   padding: 10px;
-  border: 1px solid rgba(72, 100, 224, 1);
+  border: 1px solid black;
   border-radius: 4px;
   font-size: 16px;
   height: 300px;
@@ -84,7 +85,7 @@ display: flex;
   width: 100%;
   height: 50px;
   color:black;
-  border:1px solid rgba(72, 100, 224, 1);
+  border:1px solid black;
 border-radius: 5px;
 input{
 

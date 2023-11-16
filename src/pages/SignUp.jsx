@@ -161,7 +161,6 @@ const Signup = () => {
     setModalOpen(false);
   };
 const idFocus=()=>{
-  alert("마우스나감");
 }
   const onChangId = (e) => {
     setInputId(e.target.value);

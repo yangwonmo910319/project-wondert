@@ -21,11 +21,16 @@ const MainBox = styled.div`
   padding: 10px;
 `;
 // 컨셉 사진칸
-const MainImg = styled.img`
+const MainImg = styled.div`
   height: 200px;
   width: 200px;
   background-size: cover;
   border-radius: 10px;
+  img{
+    width: 100%;
+    height: 100%;
+    
+  }
 `;
 // 컨셉 글칸
 const ArticleBox = styled.div`
@@ -87,7 +92,7 @@ const CourseItem = ({ selectedArea }) => {
               {a.course_hash}
             </span>
             <br />
-            <MainImg scr={a.main_img}></MainImg>
+            <MainImg scr={a.main_img}> <img src={a.main_img} alt="" /></MainImg>
           </MainBox>
           <ArticleBox>
             <TopicBox

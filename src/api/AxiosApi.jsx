@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const WONDER_WALKER = "http://localhost:8111";
+// const WONDER_WALKER = "http://localhost:8111";
+const WONDER_WALKER = "http://192.168.10.23:8111";
 
 const AxiosApi = {
   // 게시글 조회

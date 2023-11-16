@@ -198,7 +198,7 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
           theme,
           title
         );
-          alert(rsp.data);
+          // alert(rsp.data);
         for (let i = 0; i <= listnum.length; i++) {
           const rsp2 = await DiyAxiosApi.travelInsert2(
             rsp.data,
@@ -214,6 +214,7 @@ const PicForm = ({ world, area, toDate, toDate1, theme }) => {
       }
     };
     handleSubmit2();
+    navigate("/Diypage")
   };
 
   useEffect(() => {

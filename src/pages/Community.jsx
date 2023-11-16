@@ -112,13 +112,14 @@ const Community = () => {
   const [search,setSearch] =useState("");
  const isLoggedin = window.localStorage.getItem("isLogin") === 'true';
 
- //출력데이터
+ //원본 데이터
 const [posts, setPosts] = useState([]);
+//필터를 사용한 후의 출력데이터
 const [postsList, setPostsList] = useState([]);
 //현재 페이지
 const [currentPage, setCurrentPage] = useState(1);
 //페이지당 출력 수
-const [postsPerPage, setPostsPerPage] = useState(10);
+const [postsPerPage, setPostsPerPage] = useState(5);
 //검색창 입력시 검색값을 입력.
 const onSearch=(e)=>{
   setSearch(e.target.value);  
@@ -144,13 +145,14 @@ console.log("게시글이 없습니다.");
   };
   onUserCheck();
 },[]);
+
 const firstPostIndex = (currentPage - 1) * postsPerPage;
 const lastPostIndex = firstPostIndex + postsPerPage;
 const currentPosts = postsList.slice(firstPostIndex, lastPostIndex);
 
-const handlePageChange = (pageNumber) => {
-  setCurrentPage(pageNumber);
-};
+// const handlePageChange = (pageNumber) => {
+//   setCurrentPage(pageNumber);
+// };
   
   return (
     <CommunityCss>
@@ -165,15 +167,23 @@ const handlePageChange = (pageNumber) => {
         <Item4>   <p  >조회수</p></Item4>
         </Content2>
 
+                {/* map을 사용하여 페이지르 출력 */}
                <CommunityListMap list={currentPosts} />
-               <Content3>   <Pagination
-          postsNum={postsList.length}
+               
+      <Content3>  
+                
+         <Pagination
+         //출력데이터할(배열) 수
+          postsNum={postsList.length}  
+         //보여줄 페이지(배열) 수
           postsPerPage={postsPerPage}
+         //현재 페이지를 변경 
           setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-          handlePageChange={handlePageChange} 
-        />
-        </Content3>
+        //현재 페이지
+          currentPage={currentPage}  
+          />
+      </Content3>
+
        <Content4>
        <Item3>
         <Serch>
