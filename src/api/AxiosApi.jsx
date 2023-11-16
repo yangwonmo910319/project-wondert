@@ -62,7 +62,7 @@ const AxiosApi = {
   },
    //즐겨찾기한 내용만 가져오기  
    SelectFavor: async (id) => {   
-     
+      alert(id)
     return await axios.get(WONDER_WALKER + `/Goods/SelectFavor/?id=${id}`);
   },
 };

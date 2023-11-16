@@ -9,7 +9,6 @@ import { Outlet, useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
 import Header from "./Header";
 const HomeCss=styled.div`
-
 `;
 
 const Content1=styled.div`
