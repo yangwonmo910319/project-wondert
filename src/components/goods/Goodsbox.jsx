@@ -168,7 +168,7 @@ const Goodsbox = ({ worlds, aeraSelect }) => {
               <p className="Info2">🛫 여행 시작 일정 : {data.i_date}</p>
             </Title>
             <PriceBox>
-              <ItemCode>상품번호 {data.item_num} </ItemCode>
+              <ItemCode>상품번호 WL{data.item_num} </ItemCode>
               <Price>{data.price}원</Price>
               <Button onClick={() => InfoClick(data.item_num)}>
                 자세히보기 〉〉
