@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-family: Nanum;
   }
-  /* other styles */
+  /* other  styles */
 `;
 
 function App() {
